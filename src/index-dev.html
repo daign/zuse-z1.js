@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+	<title>Die Rechenmaschine Z1</title>
+	<meta charset="utf-8">
+	<link type="text/css" href="css/custom-theme/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+	<style>
+		body { font-family: sans-serif; color: #d3d7cf; background-color: #ffffff; margin: 0px; overflow: hidden; }
+		input { float: left; }
+		b { float: left; font-weight: bold; font-size: x-large; }
+		br { clear: both; }
+		#log {  background: #e0e0e0; color: #333333; width: 200px; height: 200px; padding: 10px;
+				font-size: large; overflow: auto; font-family: monospace; }
+		#floatingCircuit {  position: absolute; top: 147px; left: 7px; padding: 10px; width: 540px;
+							color: black; background-color: #F5F3E5; opacity: 0.9;
+							border-color: #DDD; border-style: solid; border-width: 1px;
+							-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;
+							font-size: 12px; font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif; }
+		#webglError {   position: absolute; top: 40px; left: 7px; padding: 22px; width: 95%;
+						color: black; background-color: #F5F3E5; opacity: 1;
+						border-color: #DDD; border-style: solid; border-width: 1px; border-top-width: 0px;
+						font-size: 24px; font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif; }
+		#tabs { padding: 0px; background: none; border-width: 0px; }
+		#tabs .ui-tabs-nav { padding-left: 0px; background: transparent; border-width: 0px 0px 1px 0px;
+							-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; }
+		#tabs .ui-tabs-panel { background-color: #f5f3e5; border-width: 0px 1px 1px 1px; opacity: 0.9; }
+	</style>
+
+	<script src="js/three.js"></script>
+	<script src="js/tween.js"></script>
+	<script src="js/jQuery.js"></script>
+	<script src="js/jQuery-UI.js"></script>
+
+	<script src="js-dev/zuse-z1.js"></script>
+	<script src="js-dev/LoadingUI.js"></script>
+	<script src="js-dev/Path.js"></script>
+	<script src="js-dev/CameraControls.js"></script>
+	<script src="js-dev/SheetTypes.js"></script>
+	<script src="js-dev/ShapeFiles.js"></script>
+	<script src="js-dev/Shapes.js"></script>
+	<script src="js-dev/Cyclable.js"></script>
+	<script src="js-dev/Transition.js"></script>
+	<script src="js-dev/TriggerRules.js"></script>
+	<script src="js-dev/CycleControl.js"></script>
+	<script src="js-dev/materials/Shader.js"></script>
+	<script src="js-dev/Colors.js"></script>
+	<script src="js-dev/materials/ShaderUniforms.js"></script>
+	<script src="js-dev/materials/Material.js"></script>
+	<script src="js-dev/materials/Materials.js"></script>
+	<script src="js-dev/Sheet.js"></script>
+	<script src="js-dev/Pin.js"></script>
+	<script src="js-dev/PlaneGeometry.js"></script>
+	<script src="js-dev/Axis.js"></script>
+	<script src="js-dev/Selection.js"></script>
+	<script src="js-dev/InputElement.js"></script>
+	<script src="js-dev/InputControlLayer.js"></script>
+	<script src="js-dev/LayerTypes.js"></script>
+	<script src="js-dev/Layer.js"></script>
+	<script src="js-dev/Adder.js"></script>
+	<script src="js-dev/SVGUtils.js"></script>
+	<script src="js-dev/XMLUtils.js"></script>
+	<script src="js-dev/Init.js"></script>
+
+</head>
+<body>
+	<div id="webgl_01" style="height: 0px; background-color: #ffffff"></div>
+	<div id="tabs" style="font-size:small;padding: 7px;">
+		<div style="position: absolute;	top: 0px;left:0px;width:100%;height:40px;background-color: #1c94c4;opacity:0.9;"></div>
+		<ul>
+			<li><a href="#tabs-1">Steuerung</a></li>
+		<!--<li><a href="#tabs-2">Detaillierter Ablauf</a></li>-->
+			<li><a href="#tabs-3">Logik</a></li>
+			<li><a href="#tabs-4">Optionen</a></li>
+			<li><a href="#tabs-5">Auswahl</a></li>
+			<li><a href="#tabs-6">Navigation</a></li>
+			<li><div style="position:absolute;top:-5px;left:20px;color:#f6f6f6;">
+				<b>Zuse-Z1 | Simulation des Additionswerks</b>
+			</div></li>
+			<li><div style="width:500px;"></div></li>
+		<!--<li><a href="#tabs-7">Über die Z1</a></li>-->
+			<li><a href="#tabs-8">Impressum</a></li>
+			<li><div style="position:absolute;left:10px;color:#f6f6f6;">Version 21.11.2012</div></li>
+		</ul>
+
+		<!-- Steuerung -->
+		<div id="tabs-1" style="width:230px;">
+			<tt><b>A:</b></tt>
+			<input type="button" value="1" id="ButtonA3" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A3', event );"/>
+			<input type="button" value="1" id="ButtonA2" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A2', event );"/>
+			<input type="button" value="1" id="ButtonA1" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A1', event );"/>
+			<input type="button" value="1" id="ButtonA0" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A0', event );"/><br/>
+			<tt><b>B:</b></tt>
+			<input type="button" value="0" id="ButtonB3" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B3', event );"/>
+			<input type="button" value="0" id="ButtonB2" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B2', event );"/>
+			<input type="button" value="0" id="ButtonB1" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B1', event );"/>
+			<input type="button" value="0" id="ButtonB0" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B0', event );"/>
+			<tt><b>&nbsp;F0:</b></tt>
+			<input type="button" value="0" id="ButtonF0" onclick="ZUSE.adderObj.cycleControl.switchInput( 'F0', event );" disabled /><br/>
+			<tt><b>K:</b></tt>
+			<input type="button" value="0" id="ButtonK3" disabled />
+			<input type="button" value="0" id="ButtonK2" disabled />
+			<input type="button" value="0" id="ButtonK1" disabled />
+			<input type="button" value="0" id="ButtonK0" disabled />
+			<tt><b>&nbsp;F4:</b></tt>
+			<input type="button" value="0" id="ButtonF4" disabled />
+			<br/><br/>
+			<input type="button" value="Zurück" id="inputBack"
+				onclick="ZUSE.adderObj.cycleControl.cycleBackwards();"
+				onmouseover="ZUSE.adderObj.cycleControl.preHighlightBack();"
+				onmouseout="ZUSE.adderObj.cycleControl.preHighlightOff();" />
+			<input type="button" value="Wiederholen" id="inputRepeat"
+				onclick="ZUSE.adderObj.cycleControl.repeatLast();"
+				onmouseover="ZUSE.adderObj.cycleControl.preHighlightBack();"
+				onmouseout="ZUSE.adderObj.cycleControl.preHighlightOff();" />
+			<input type="button" value="Weiter" id="inputNext"
+				onclick="ZUSE.adderObj.cycleControl.cycle();"
+				onmouseover="ZUSE.adderObj.cycleControl.preHighlightNext();"
+				onmouseout="ZUSE.adderObj.cycleControl.preHighlightOff();" />
+			<br/><br/>
+			<!--
+				<tt><b>V:</b></tt>
+				<input type="button" value="Off" onclick="" disabled />
+			-->
+			<div id="log"></div>
+		</div>
+
+		<!-- Logik -->
+		<div id="tabs-3" style="width:377px;">
+			<table cellpadding="4px">
+				<tr><td colspan="2">
+					<input type="checkbox" id="showCircuit"
+					onclick="document.getElementById( 'floatingCircuit' ).style.display = this.checked ? 'block' : 'none';" />
+					<label for="showCircuit">Logischen Schaltplan anzeigen</label>
+				</td></tr>
+				<tr><td>Größe:</td><td><div id="sliderCircuit" style="width: 300px;"></div></td></tr>
+			</table>
+		</div>
+
+		<!-- Optionen -->
+		<div id="tabs-4" style="width: 377px;">
+			<table cellpadding="4px">
+				<tr><td>Ebenen expandieren:</td>
+				<td><div id="layerExpand">
+					<input type="checkbox" id="checkLayerA" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.A );"/>
+					<label for="checkLayerA">A</label>
+					<input type="checkbox" id="checkLayerB" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.B );"/>
+					<label for="checkLayerB">B</label>
+					<input type="checkbox" id="checkLayerC" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.C );"/>
+					<label for="checkLayerC">C</label>
+					<input type="checkbox" id="checkLayerD" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D );"/>
+					<label for="checkLayerD">D</label>
+				</div></td></tr>
+				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
+				<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Transparenz</td></tr>
+				<tr><td>Bewegte Bleche:</td>  <td><div id="sliderMovingSheet"       style="width: 192px;"></div></td></tr>
+				<tr><td>Bewegte Stifte:</td>  <td><div id="sliderMovingPin"         style="width: 192px;"></div></td></tr>
+				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
+				<tr><td>Statische Bleche:</td><td><div id="sliderStaticSheet"       style="width: 192px;"></div></td></tr>
+				<tr><td>Statische Stifte:</td><td><div id="sliderStaticPin"         style="width: 192px;"></div></td></tr>
+				<tr><td>Zwischenebenen:</td>  <td><div id="sliderIntermediateSheet" style="width: 192px;"></div></td></tr>
+				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
+				<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Auswahl</td></tr>
+				<tr><td>Transparenz Deselektion:</td><td><div id="sliderClippingTransparency" style="width: 192px;"></div></td></tr>
+				<tr><td>Breite Übergangsbereich:</td><td><div id="sliderFadingWidth"          style="width: 192px;"></div></td></tr>
+				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
+				<tr><td colspan="2">
+					<input type="checkbox" id="highlightMoving"
+					onclick="ZUSE.adderObj.cycleControl.highlightMoving = this.checked;" checked />
+					<label for="highlightMoving">Bewegende Teile markieren</label>
+				</td></tr>
+				<tr><td colspan="2">
+					<input type="checkbox" id="highlightEverything"
+					onclick="ZUSE.adderObj.selectables2enabled = this.checked;" />
+					<label for="highlightEverything">Beliebige Teile markieren</label>
+				</td></tr>
+			</table>
+			<!-- <input type="button" value="level Camera" onclick="controls.levelCamera();"/> -->
+		</div>
+
+		<!-- Auswahl -->
+		<div id="tabs-5" style="width: 377px;">
+			<table cellpadding="4px">
+				<tr><td>Breite:</td><td><div id="sliderX" style="width: 300px;"></div></td></tr>
+				<tr><td>Tiefe: </td><td><div id="sliderY" style="width: 300px;"></div></td></tr>
+				<tr><td>Höhe:  </td><td><div id="sliderZ" style="width: 300px;"></div></td></tr>
+			</table>
+			<input type="button" value="Auswahl zurücksetzen" id="resetSelection" onclick="ZUSE.adderObj.selection.reset();" />
+		<!-- <input type="button" value="p" onclick="console.log(ZUSE.adderObj.selection.values);" /> -->
+			<br/>
+		</div>
+
+		<!-- Navigation -->
+		<div id="tabs-6" style="width: 377px;">
+			<input type="button" value="Betrachterposition zurücksetzen" id="resetView" onclick="ZUSE.controls.reset();" />
+			<table cellpadding="4px">
+				<tr><td>Drehen:     </td><td>linke Maustaste</td></tr>
+				<tr><td>Zoomen:     </td><td>Mausrad drehen</td></tr>
+				<tr><td>Verschieben:</td><td>linke Maustaste + Shift</td></tr>
+			</table>
+		</div>
+
+		<!-- Impressum -->
+		<div id="tabs-8" style="width: 178px; left: 800px; position: relative;">
+			<h2>Impressum</h2>
+			<p>
+				Jakob Mischek<br/>
+				Dauerwaldweg 1<br/>
+				14055 Berlin
+			</p>
+			<p>
+				E-Mail: jakob.mischek@zuse-z1.de
+			</p>
+		</div>
+
+	</div>
+
+
+<div id="webglError" class="ui-corner-bottom" style="display: none;">
+	<a href="http://get.webgl.org/">WebGL</a> ist in Ihrem Browser nicht aktiviert.
+	<ol style="line-height: 1.6;">
+		<li>Stellen Sie sicher, dass Sie eine aktuelle Version Ihres Browsers installiert haben.</li>
+		<li>Falls erforderlich, aktivieren Sie WebGL in Ihrem Browser.
+			<ul style="line-height: 2.4; font-size: 18px;">
+				<li>Firefox: Öffnen Sie <tt>about:config</tt> und setzen Sie <tt>webgl.force-enabled</tt> auf <tt>true</tt>.</li>
+				<li>Chrome: Starten Sie Chrome mit der Option <tt>--ignore-gpu-blacklist</tt>.</li>
+				<li>Safari: Öffnen Sie ein Terminal und führen Sie den folgenden Befehl aus:<br/>
+					<tt>defaults write com.apple.Safari WebKitWebGLEnabled -bool YES</tt>
+				</li>
+				<li>Opera: Öffnen Sie <tt>opera:config</tt> und setzen Sie
+					<tt>Enable WebGL</tt> sowie
+					<tt>Enable Hardware Acceleration</tt> auf <tt>1</tt>.
+				</li>
+			<!--<li>Internet Explorer: Sie müssen das Plug-In 
+					<a href="http://www.google.com/chromeframe">Google Chrome Frame</a> oder
+					<a href="http://iewebgl.com/">IEWebGL</a> installieren.
+				</li>-->
+			</ul>
+		</li>
+	</ol>
+	<span style="font-size: 12px;">
+		<h2>Impressum</h2>
+		<p>
+			Jakob Mischek, Dauerwaldweg 1, 14055 Berlin<br/>
+			E-Mail: jakob.mischek@zuse-z1.de
+		</p>
+	</span>
+</div>
+
+<div id="floatingCircuit" style="display: none;">
+<table cellpadding="4px">
+<tr><td>Klick auf Schalt&shy;symbol akti&shy;viert Aus&shy;&shy;wahl</td>
+<td><input type="button" value="Auswahl zurücksetzen" id="resetSelection2" onclick="ZUSE.adderObj.selection.reset();" /></td></tr>
+</table>
+</div>
+
+<script>ZUSE.Initializer();</script>
+
+</body>
+</html>
+
