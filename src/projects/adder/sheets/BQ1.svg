@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg	xmlns="http://www.w3.org/2000/svg"
+		version="1.1"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="-1,-141,242,142">
+
+	<title>Sheet_BQ1</title>
+
+	<defs>
+		<circle id="hole110" cx="5"  cy="5"  r="4" />
+		<circle id="hole220" cx="10" cy="10" r="6" />
+		<path id="hole12"   stepSize="5"  d="M 0,0 l 20,0 0,10 -20,0 0,-10 Z" />
+		<path id="hole22"   stepSize="10" d="M 0,0 l 20,0 0,20 -20,0 0,-20 Z" />
+		<path id="hole120"  stepSize="10" d="M 5,1 l 10,0 a 4,4,0,0,1,0,8 l -10,0 a 4,4,0,0,1,0,-8 Z" />
+		<path id="hole3367" stepSize="10" d="M 10,4 l 17,0 0,23 -23,0 0,-17 a 6,6,0,0,1,6,-6 Z" />
+	</defs>
+
+	<g style="stroke:black;" transform="scale(1,-1)">
+		<path style="fill:#3d9ecb;"
+			stepSize="10"
+			d="M 0,0 l 0,75 25,65 155,0 40,-60 20,-30 0,-50 -240,0 Z" />
+		<g style="fill:white;">
+			<use xlink:href="#hole110"  x="15"  y="5"   />
+			<use xlink:href="#hole110"  x="55"  y="5"   />
+			<use xlink:href="#hole110"  x="95"  y="5"   />
+			<use xlink:href="#hole110"  x="135" y="5"   />
+			<use xlink:href="#hole110"  x="175" y="5"   />
+			<use xlink:href="#hole22"   x="30"  y="20"  />
+			<use xlink:href="#hole22"   x="70"  y="20"  />
+			<use xlink:href="#hole22"   x="110" y="20"  />
+			<use xlink:href="#hole22"   x="150" y="20"  />
+			<use xlink:href="#hole3367" x="180" y="10"  />
+			<use xlink:href="#hole220"  x="220" y="20"  />
+			<use xlink:href="#hole120"  x="15"  y="45"  />
+			<use xlink:href="#hole12"   x="55"  y="45"  />
+			<use xlink:href="#hole12"   x="95"  y="45"  />
+			<use xlink:href="#hole12"   x="135" y="45"  />
+			<use xlink:href="#hole12"   x="175" y="45"  />
+			<use xlink:href="#hole12"   x="30"  y="70"  />
+			<use xlink:href="#hole22"   x="25"  y="90"  />
+			<use xlink:href="#hole22"   x="65"  y="90"  />
+			<use xlink:href="#hole22"   x="105" y="90"  />
+			<use xlink:href="#hole22"   x="145" y="90"  />
+			<use xlink:href="#hole110"  x="35"  y="120" />
+			<use xlink:href="#hole110"  x="75"  y="120" />
+			<use xlink:href="#hole110"  x="115" y="120" />
+			<use xlink:href="#hole110"  x="155" y="120" />
+			<use xlink:href="#hole12"   x="70"  y="70"  />
+			<use xlink:href="#hole12"   x="110" y="70"  />
+			<use xlink:href="#hole12"   x="150" y="70"  />
+		</g>
+	</g>
+
+</svg>
+

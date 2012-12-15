@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg	xmlns="http://www.w3.org/2000/svg"
+		version="1.1"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="-1,-101,34,102">
+
+	<title>Sheet_DM</title>
+
+	<defs>
+		<circle id="hole110" cx="5"  cy="5"  r="4" />
+		<path id="hole22"   stepSize="10" d="M 0,0 l 20,0 0,20 -20,0 0,-20 Z" />
+		<path id="hole2296" stepSize="10" d="M 0,0 l 20,0 0,20 -20,0 0,-9 10,0 1,-1 -1,-1 -10,0 0,-9 Z" />
+	</defs>
+
+	<g style="stroke:black;" transform="scale(1,-1)">
+		<path style="fill:#3d9ecb;"
+			stepSize="11"
+			d="M 0,0 l 0,100 32,0 0,-90 -3,-6 0,-4 -29,0 Z" />
+		<!--<path style="fill:#3d9ecb;"
+			stepSize="11"
+			d="M 0,0 l 0,100 32,0 0,-90 -3,-5 0,-5 -29,0 Z" />-->
+		<g style="fill:white;">
+			<use xlink:href="#hole110"  x="11" y="85" />
+			<use xlink:href="#hole22"   x="6"  y="55" />
+			<use xlink:href="#hole2296" x="6"  y="5"  />
+		</g>
+	</g>
+
+</svg>
+

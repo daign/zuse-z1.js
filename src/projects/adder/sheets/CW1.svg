@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg	xmlns="http://www.w3.org/2000/svg"
+		version="1.1"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="-1,-107,56,108">
+
+	<title>Sheet_CW1/DW1</title>
+
+	<defs>
+		<path id="hole210"  stepSize="10" d="M 1,15 l 0,-10 a 4,4,0,0,1,8,0 l 0,10 a 4,4,0,0,1,-8,0 Z" />
+	</defs>
+
+	<g style="stroke:black;" transform="scale(1,-1)">
+		<path style="fill:#3d9ecb;"
+			stepSize="10"
+			d="M 0,0 l 0,30 14,10 0,30 -14,10 0,26 20,0 15,-15 9,0 0,-7 -23,0 0,-19 4,-5 0,-10 -4,-5 0,-19 23,0 0,-7 -9,0 0,-8 19,0 0,-11 -54,0 Z" />
+		<g style="fill:white;">
+			<use xlink:href="#hole210" x="5" y="5"  />
+			<use xlink:href="#hole210" x="5" y="85" />
+		</g>
+	</g>
+
+</svg>
+

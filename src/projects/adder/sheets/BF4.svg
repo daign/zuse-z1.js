@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg	xmlns="http://www.w3.org/2000/svg"
+		version="1.1"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="-1,-49,151,50">
+
+	<title>Sheet_BF4</title>
+
+	<defs>
+		<circle id="hole110" cx="5"  cy="5"  r="4" />
+		<path id="hole12"   stepSize="5"  d="M 0,0 l 20,0 0,10 -20,0 0,-10 Z" />
+		<path id="hole120"  stepSize="10" d="M 5,1 l 10,0 a 4,4,0,0,1,0,8 l -10,0 a 4,4,0,0,1,0,-8 Z" />
+	</defs>
+
+	<g style="stroke:black;" transform="scale(1,-1)">
+		<path style="fill:#3d9ecb;"
+			stepSize="10"
+			d="M 0,9 l 0,20 119,0 0,19 6,0 10,-19 14,0 0,-20 -19,0 -5,-9 -6,0 0,9 -48,0 0,-9 -6,0 -5,9 -60,0 Z" />
+		<!--<path style="fill:#3d9ecb;"
+			stepSize="10"
+			d="M 0,9 l 0,20 119,0 0,19 6,0 10,-19 14,0 0,-20 -78,0 0,-9 -6,0 -5,9 -60,0 Z" />-->
+		<g style="fill:white;">
+			<use xlink:href="#hole110" x="5"   y="14" />
+			<use xlink:href="#hole120" x="45"  y="14" />
+			<use xlink:href="#hole12"  x="85"  y="14" />
+			<use xlink:href="#hole120" x="125" y="14" />
+		</g>
+	</g>
+
+</svg>
+

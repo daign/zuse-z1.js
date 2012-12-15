@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg	xmlns="http://www.w3.org/2000/svg"
+		version="1.1"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="-1,-36,302,37">
+
+	<title>Sheet_BQ0</title>
+
+	<defs>
+		<path id="hole230"  stepSize="10" d="M 10,4 l 10,0 a 6,6,0,0,1,0,12 l -10,0 a 6,6,0,0,1,0,-12 Z" />
+		<path id="hole320"  stepSize="10" d="M 4,20 l 0,-10 a 6,6,0,0,1,12,0 l 0,10 a 6,6,0,0,1,-12,0 Z" />
+		<path id="hole2228" stepSize="10" d="M 0,0 l 19,0 0,20 -8,0 0,-10 -11,0 0,-10 Z" />
+	</defs>
+
+	<g style="stroke:black;" transform="scale(1,-1)">
+		<path style="fill:#3d9ecb;"
+			stepSize="15"
+			d="M 0,0 l 0,30 65,0 0,-5 20,0 0,10 20,0 0,-10 20,0 0,10 20,0 0,-10 20,0 0,10 20,0 0,-10 20,0 0,10 20,0 0,-10 20,0 0,5 55,0 0,-30 -300,0 Z" />
+		<g style="fill:white;">
+			<use xlink:href="#hole230"  x="0"   y="0"  />
+			<use xlink:href="#hole2228" x="80"  y="10" />
+			<use xlink:href="#hole2228" x="120" y="10" />
+			<use xlink:href="#hole2228" x="160" y="10" />
+			<use xlink:href="#hole2228" x="200" y="10" />
+			<use xlink:href="#hole230"  x="240" y="0"  />
+			<use xlink:href="#hole320"  x="280" y="0"  />
+		</g>
+	</g>
+
+</svg>
+

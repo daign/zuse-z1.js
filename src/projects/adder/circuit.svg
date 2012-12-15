@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="-5 0 475 240" width="520" height="260" id="svgCircuit" style="width: 520px;">
+
+<!--
+&amp;	&#38;
+&or;	&#8744;
+&not;	&#172;
+&equiv;	&#8801;
+-->
+<style>
+	.gate { stroke: black; stroke-width: 1.5; }
+	.gateText { fill: black; font-size: 18px; font-family: sans-serif; font-weight: bold; }
+</style>
+
+<g id="svgGateD3" transform="translate(0,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="40" class="gate" width="30" height="30" />
+	<text x="59" y="61" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateD2" transform="translate(110,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="40" class="gate" width="30" height="30" />
+	<text x="59" y="61" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateD1" transform="translate(220,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="40" class="gate" width="30" height="30" />
+	<text x="59" y="61" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateD0" transform="translate(330,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="40" class="gate" width="30" height="30" />
+	<text x="59" y="61" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateC3" transform="translate(0,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="40" class="gate" width="30" height="30" />
+	<text x="108" y="61" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateC2" transform="translate(110,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="40" class="gate" width="30" height="30" />
+	<text x="108" y="61" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateC1" transform="translate(220,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="40" class="gate" width="30" height="30" />
+	<text x="108" y="61" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateC0" transform="translate(330,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="40" class="gate" width="30" height="30" />
+	<text x="108" y="61" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateF4" transform="translate(0,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="20"  y="80" class="gate" width="30" height="30" />
+	<text x="28" y="101" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateF3" transform="translate(110,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="20"  y="80" class="gate" width="30" height="30" />
+	<text x="28" y="101" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateF2" transform="translate(220,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="20"  y="80" class="gate" width="30" height="30" />
+	<text x="28" y="101" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateF1" transform="translate(330,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="20"  y="80" class="gate" width="30" height="30" />
+	<text x="28" y="101" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateH3" transform="translate(0,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="70"  y="80" class="gate" width="30" height="30" />
+	<text x="79" y="101" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateH2" transform="translate(110,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="70"  y="80" class="gate" width="30" height="30" />
+	<text x="79" y="101" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateH1" transform="translate(220,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="70"  y="80" class="gate" width="30" height="30" />
+	<text x="79" y="101" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateH0" transform="translate(330,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="70"  y="80" class="gate" width="30" height="30" />
+	<text x="79" y="101" class="gateText">&amp;</text>
+</g>
+
+<g id="svgGateN3" transform="translate(0,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="80" y="130" class="gate" width="30" height="30" />
+	<text x="89" y="151" class="gateText">&#172;</text>
+</g>
+
+<g id="svgGateN2" transform="translate(110,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="80" y="130" class="gate" width="30" height="30" />
+	<text x="89" y="151" class="gateText">&#172;</text>
+</g>
+
+<g id="svgGateN1" transform="translate(220,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="80" y="130" class="gate" width="30" height="30" />
+	<text x="89" y="151" class="gateText">&#172;</text>
+</g>
+
+<g id="svgGateN0" transform="translate(330,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="80" y="130" class="gate" width="30" height="30" />
+	<text x="89" y="151" class="gateText">&#172;</text>
+</g>
+
+<g id="svgGateJ3" transform="translate(0,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="170" class="gate" width="30" height="30" />
+	<text x="58" y="191" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateJ2" transform="translate(110,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="170" class="gate" width="30" height="30" />
+	<text x="58" y="191" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateJ1" transform="translate(220,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="170" class="gate" width="30" height="30" />
+	<text x="58" y="191" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateJ0" transform="translate(330,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="50" y="170" class="gate" width="30" height="30" />
+	<text x="58" y="191" class="gateText">&#8744;</text>
+</g>
+
+<g id="svgGateK3" transform="translate(0,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="200" class="gate" width="30" height="30" />
+	<text x="110" y="221" class="gateText">&#8801;</text>
+</g>
+
+<g id="svgGateK2" transform="translate(110,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="200" class="gate" width="30" height="30" />
+	<text x="110" y="221" class="gateText">&#8801;</text>
+</g>
+
+<g id="svgGateK1" transform="translate(220,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="200" class="gate" width="30" height="30" />
+	<text x="110" y="221" class="gateText">&#8801;</text>
+</g>
+
+<g id="svgGateK0" transform="translate(330,0)" fill="white"
+		onmouseover="ZUSE.SVGUtils.mouseover( this );"
+		onmouseout="ZUSE.SVGUtils.mouseout( this );"
+		onclick="ZUSE.SVGUtils.onclick( this );">
+	<rect x="100" y="200" class="gate" width="30" height="30" />
+	<text x="110" y="221" class="gateText">&#8801;</text>
+</g>
+
+<g id="A3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="80" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="80" cy="20" r="3"   style="stroke:none;" />
+	<polyline points="80,10  80,20  60,20 60,40" style="fill:none;" />
+	<polyline points="80,20 110,20 110,40"       style="fill:none;" />
+</g>
+
+<g id="A2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="80" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="80" cy="20" r="3"   style="stroke:none;" />
+	<polyline points="80,10  80,20  60,20 60,40" style="fill:none;" />
+	<polyline points="80,20 110,20 110,40"       style="fill:none;" />
+</g>
+
+<g id="A1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="80" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="80" cy="20" r="3"   style="stroke:none;" />
+	<polyline points="80,10  80,20  60,20 60,40" style="fill:none;" />
+	<polyline points="80,20 110,20 110,40"       style="fill:none;" />
+</g>
+
+<g id="A0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="80" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="80" cy="20" r="3"   style="stroke:none;" />
+	<polyline points="80,10  80,20  60,20 60,40" style="fill:none;" />
+	<polyline points="80,20 110,20 110,40"       style="fill:none;" />
+</g>
+
+<g id="B3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="120" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="120" cy="30" r="3"   style="stroke:none;" />
+	<polyline points="120,10 120,40"       style="fill:none;" />
+	<polyline points="120,30  70,30 70,40" style="fill:none;" />
+</g>
+
+<g id="B2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="120" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="120" cy="30" r="3"   style="stroke:none;" />
+	<polyline points="120,10 120,40"       style="fill:none;" />
+	<polyline points="120,30  70,30 70,40" style="fill:none;" />
+</g>
+
+<g id="B1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="120" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="120" cy="30" r="3"   style="stroke:none;" />
+	<polyline points="120,10 120,40"       style="fill:none;" />
+	<polyline points="120,30  70,30 70,40" style="fill:none;" />
+</g>
+
+<g id="B0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="120" cy="10" r="4.5" style="stroke:none;" />
+	<circle cx="120" cy="30" r="3"   style="stroke:none;" />
+	<polyline points="120,10 120,40"       style="fill:none;" />
+	<polyline points="120,30  70,30 70,40" style="fill:none;" />
+</g>
+
+<g id="D3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="60" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="60" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="60,70 60,90 50,90" style="fill:none;" />
+	<polyline points="60,90 60,170"      style="fill:none;" />
+</g>
+
+<g id="D2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="60" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="60" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="60,70 60,90 50,90" style="fill:none;" />
+	<polyline points="60,90 60,170"      style="fill:none;" />
+</g>
+
+<g id="D1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="60" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="60" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="60,70 60,90 50,90" style="fill:none;" />
+	<polyline points="60,90 60,170"      style="fill:none;" />
+</g>
+
+<g id="D0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="60" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="60" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="60,70 60,90 50,90" style="fill:none;" />
+	<polyline points="60,90 60,170"      style="fill:none;" />
+</g>
+
+<g id="C3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="110" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="110" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="110,70 110,90 100,90"           style="fill:none;" />
+	<polyline points="110,90 110,120 100,120 100,130" style="fill:none;" />
+</g>
+
+<g id="C2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="110" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="110" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="110,70 110,90 100,90"           style="fill:none;" />
+	<polyline points="110,90 110,120 100,120 100,130" style="fill:none;" />
+</g>
+
+<g id="C1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="110" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="110" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="110,70 110,90 100,90"           style="fill:none;" />
+	<polyline points="110,90 110,120 100,120 100,130" style="fill:none;" />
+</g>
+
+<g id="C0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="110" cy="70" r="4.5" style="stroke:none;" />-->
+	<circle cx="110" cy="90" r="3"   style="stroke:none;" />
+	<polyline points="110,70 110,90 100,90"           style="fill:none;" />
+	<polyline points="110,90 110,120 100,120 100,130" style="fill:none;" />
+</g>
+
+<g id="nC3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="80" cy="150" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,150 70,150 70,170" style="fill:none;" />
+</g>
+
+<g id="nC2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="80" cy="150" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,150 70,150 70,170" style="fill:none;" />
+</g>
+
+<g id="nC1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="80" cy="150" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,150 70,150 70,170" style="fill:none;" />
+</g>
+
+<g id="nC0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="80" cy="150" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,150 70,150 70,170" style="fill:none;" />
+</g>
+
+<g id="J3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle  cx="80" cy="190" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,190 110,190 110,200" style="fill:none;" />
+</g>
+
+<g id="J2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle  cx="80" cy="190" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,190 110,190 110,200" style="fill:none;" />
+</g>
+
+<g id="J1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle  cx="80" cy="190" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,190 110,190 110,200" style="fill:none;" />
+</g>
+
+<g id="J0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle  cx="80" cy="190" r="4.5" style="stroke:none;" />-->
+	<polyline points="80,190 110,190 110,200" style="fill:none;" />
+</g>
+
+<g id="K3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="100" cy="220" r="4.5" style="stroke:none;" />-->
+	<polyline points="100,220 80,220" style="fill:none;" />
+</g>
+
+<g id="K2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="100" cy="220" r="4.5" style="stroke:none;" />-->
+	<polyline points="100,220 80,220" style="fill:none;" />
+</g>
+
+<g id="K1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="100" cy="220" r="4.5" style="stroke:none;" />-->
+	<polyline points="100,220 80,220" style="fill:none;" />
+</g>
+
+<g id="K0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="100" cy="220" r="4.5" style="stroke:none;" />-->
+	<polyline points="100,220 80,220" style="fill:none;" />
+</g>
+
+<g id="F4" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="20" cy="100" r="4.5" style="stroke:none;" />-->
+	<polyline points="20,100 5,100" style="fill:none;" />
+</g>
+
+<g id="F3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="130" cy="100" r="4.5" style="stroke:none;" />-->
+	<circle cx="120" cy="100" r="3"   style="stroke:none;" />
+	<polyline points="130,100 100,100" style="fill:none;" />
+	<polyline points="120,100 120,200" style="fill:none;" />
+</g>
+
+<g id="F2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="130" cy="100" r="4.5" style="stroke:none;" />-->
+	<circle cx="120" cy="100" r="3"   style="stroke:none;" />
+	<polyline points="130,100 100,100" style="fill:none;" />
+	<polyline points="120,100 120,200" style="fill:none;" />
+</g>
+
+<g id="F1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="130" cy="100" r="4.5" style="stroke:none;" />-->
+	<circle cx="120" cy="100" r="3"   style="stroke:none;" />
+	<polyline points="130,100 100,100" style="fill:none;" />
+	<polyline points="120,100 120,200" style="fill:none;" />
+</g>
+
+<g id="F0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<circle cx="130" cy="100" r="4.5" style="stroke:none;" />
+	<circle cx="120" cy="100" r="3"   style="stroke:none;" />
+	<polyline points="130,100 100,100" style="fill:none;" />
+	<polyline points="120,100 120,200" style="fill:none;" />
+</g>
+
+<g id="H3" transform="translate(0,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="70" cy="100" r="4.5" style="stroke:none;" />-->
+	<polyline points="70,100 50,100" style="fill:none;" />
+</g>
+
+<g id="H2" transform="translate(110,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="70" cy="100" r="4.5" style="stroke:none;" />-->
+	<polyline points="70,100 50,100" style="fill:none;" />
+</g>
+
+<g id="H1" transform="translate(220,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="70" cy="100" r="4.5" style="stroke:none;" />-->
+	<polyline points="70,100 50,100" style="fill:none;" />
+</g>
+
+<g id="H0" transform="translate(330,0)" style="fill:black; stroke:black; stroke-width:1.5;">
+	<!--<circle cx="70" cy="100" r="4.5" style="stroke:none;" />-->
+	<polyline points="70,100 50,100" style="fill:none;" />
+</g>
+
+<text  x="60" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">A3</text>
+<text x="170" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">A2</text>
+<text x="280" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">A1</text>
+<text x="390" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">A0</text>
+
+<text x="100" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">B3</text>
+<text x="210" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">B2</text>
+<text x="320" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">B1</text>
+<text x="430" y="12" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">B0</text>
+
+<text  x="-2" y="114" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">F4</text>
+<text x="454"  y="91" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">F0</text>
+
+<text  x="63" y="222" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">K3</text>
+<text x="173" y="222" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">K2</text>
+<text x="283" y="222" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">K1</text>
+<text x="393" y="222" style="font-size: 10px; font-family: sans-serif; font-weight: bold;">K0</text>
+
+</svg>
+
