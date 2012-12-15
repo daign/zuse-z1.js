@@ -3,7 +3,9 @@ zuse-z1.js
 
 ### WebGL simulations of Konrad Zuse's Z1 computer ###
 
-[www.zuse-z1.de](http://www.zuse-z1.de) — [About this project](https://github.com/daign/zuse-z1.js/wiki/About) — [Todo](https://github.com/daign/zuse-z1.js/wiki/Todo) — Licensed under [MIT License](https://github.com/daign/zuse-z1.js/blob/master/LICENSE.txt)
+Repository for [www.zuse-z1.de](http://www.zuse-z1.de) — [About this project](https://github.com/daign/zuse-z1.js/wiki/About) — [Todo](https://github.com/daign/zuse-z1.js/wiki/Todo)
+
+Licensed under [MIT License](https://github.com/daign/zuse-z1.js/blob/master/LICENSE.txt)
 
 Dependencies:
 * [three.js](https://github.com/mrdoob/three.js)

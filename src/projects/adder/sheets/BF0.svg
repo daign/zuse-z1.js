@@ -16,7 +16,7 @@
 	<g style="stroke:black;" transform="scale(1,-1)">
 		<path style="fill:#3d9ecb;"
 			stepSize="10"
-			d="M 0,9 l 0,20 19,0 5,9 6,0 0,-9 99,0 0,-20 -99,0 0,-9 -6,0 -5,9 -19,0 Z" />
+			d="M 0,9 l 0,20 19,0 5,9 6,0 0,-9 99,0 0,-20 -80,0 -5,-9 -6,0 0,9 -8,0 0,-9 -6,0 -5,9 -19,0 Z" />
 		<g style="fill:white;">
 			<use xlink:href="#hole120" x="4"   y="14" />
 			<use xlink:href="#hole120" x="44"  y="14" />
