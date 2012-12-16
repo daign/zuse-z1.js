@@ -61,15 +61,16 @@
 	<script src="js-dev/SVGUtils.js"></script>
 	<script src="js-dev/XMLUtils.js"></script>
 	<script src="js-dev/Init.js"></script>
+	<script src="js-dev/Simulation.js"></script>
+	<script src="js-dev/gui/GUI.js"></script>
 
 </head>
 <body>
-	<div id="webgl_01" style="height: 0px; background-color: #ffffff"></div>
+<!--	<div id="webgl_01" style="height: 0px; background-color: #ffffff"></div>
 	<div id="tabs" style="font-size:small;padding: 7px;">
 		<div style="position: absolute;	top: 0px;left:0px;width:100%;height:40px;background-color: #1c94c4;opacity:0.9;"></div>
 		<ul>
 			<li><a href="#tabs-1">Steuerung</a></li>
-		<!--<li><a href="#tabs-2">Detaillierter Ablauf</a></li>-->
 			<li><a href="#tabs-3">Logik</a></li>
 			<li><a href="#tabs-4">Optionen</a></li>
 			<li><a href="#tabs-5">Auswahl</a></li>
@@ -78,12 +79,11 @@
 				<b>Zuse-Z1 | Simulation des Additionswerks</b>
 			</div></li>
 			<li><div style="width:500px;"></div></li>
-		<!--<li><a href="#tabs-7">Über die Z1</a></li>-->
 			<li><a href="#tabs-8">Impressum</a></li>
 			<li><div style="position:absolute;left:10px;color:#f6f6f6;">Version 16.12.2012</div></li>
 		</ul>
 
-		<!-- Steuerung -->
+		<!-- Steuerung ###
 		<div id="tabs-1" style="width:230px;">
 			<tt><b>A:</b></tt>
 			<input type="button" value="1" id="ButtonA3" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A3', event );"/>
@@ -121,11 +121,11 @@
 			<!--
 				<tt><b>V:</b></tt>
 				<input type="button" value="Off" onclick="" disabled />
-			-->
+			###
 			<div id="log"></div>
 		</div>
 
-		<!-- Logik -->
+		<!-- Logik ###
 		<div id="tabs-3" style="width:377px;">
 			<table cellpadding="4px">
 				<tr><td colspan="2">
@@ -137,7 +137,7 @@
 			</table>
 		</div>
 
-		<!-- Optionen -->
+		<!-- Optionen ###
 		<div id="tabs-4" style="width: 377px;">
 			<table cellpadding="4px">
 				<tr><td>Ebenen expandieren:</td>
@@ -175,10 +175,10 @@
 					<label for="highlightEverything">Beliebige Teile markieren</label>
 				</td></tr>
 			</table>
-			<!-- <input type="button" value="level Camera" onclick="controls.levelCamera();"/> -->
+			<!-- <input type="button" value="level Camera" onclick="controls.levelCamera();"/> ###
 		</div>
 
-		<!-- Auswahl -->
+		<!-- Auswahl ###
 		<div id="tabs-5" style="width: 377px;">
 			<table cellpadding="4px">
 				<tr><td>Breite:</td><td><div id="sliderX" style="width: 300px;"></div></td></tr>
@@ -186,11 +186,11 @@
 				<tr><td>Höhe:  </td><td><div id="sliderZ" style="width: 300px;"></div></td></tr>
 			</table>
 			<input type="button" value="Auswahl zurücksetzen" id="resetSelection" onclick="ZUSE.adderObj.selection.reset();" />
-		<!-- <input type="button" value="p" onclick="console.log(ZUSE.adderObj.selection.values);" /> -->
+		<!-- <input type="button" value="p" onclick="console.log(ZUSE.adderObj.selection.values);" /> ###
 			<br/>
 		</div>
 
-		<!-- Navigation -->
+		<!-- Navigation ###
 		<div id="tabs-6" style="width: 377px;">
 			<input type="button" value="Betrachterposition zurücksetzen" id="resetView" onclick="ZUSE.controls.reset();" />
 			<table cellpadding="4px">
@@ -200,7 +200,7 @@
 			</table>
 		</div>
 
-		<!-- Impressum -->
+		<!-- Impressum ###
 		<div id="tabs-8" style="width: 178px; left: 800px; position: relative;">
 			<h2>Impressum</h2>
 			<p>
@@ -234,7 +234,7 @@
 			<!--<li>Internet Explorer: Sie müssen das Plug-In 
 					<a href="http://www.google.com/chromeframe">Google Chrome Frame</a> oder
 					<a href="http://iewebgl.com/">IEWebGL</a> installieren.
-				</li>-->
+				</li>###
 			</ul>
 		</li>
 	</ol>
@@ -252,9 +252,9 @@
 <tr><td>Klick auf Schalt&shy;symbol akti&shy;viert Aus&shy;&shy;wahl</td>
 <td><input type="button" value="Auswahl zurücksetzen" id="resetSelection2" onclick="ZUSE.adderObj.selection.reset();" /></td></tr>
 </table>
-</div>
+</div>-->
 
-<script>ZUSE.Initializer();</script>
+<script>var SIMULATION = new ZUSE.Simulation();</script>
 
 </body>
 </html>

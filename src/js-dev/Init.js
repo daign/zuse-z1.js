@@ -37,15 +37,15 @@ animate();
 
 function init() {
 
-	ZUSE.container = document.getElementById( 'webgl_01' );
+	//ZUSE.container = document.getElementById( 'webgl_01' );
 	ZUSE.scene = new THREE.Scene();
 
 	ZUSE.camera = new THREE.PerspectiveCamera( 50, ( window.innerWidth - 20 ) / ( window.innerHeight - 20 ), 25, 2500 );
 	ZUSE.camera.position.set( 0, 0, 500 );
 	ZUSE.scene.add( ZUSE.camera );
 
-	document.getElementById( 'log' ).addEventListener( 'mousewheel', stopScrollBubbling, false );
-	document.getElementById( 'log' ).addEventListener( 'DOMMouseScroll', stopScrollBubbling, false );
+	//document.getElementById( 'log' ).addEventListener( 'mousewheel', stopScrollBubbling, false );
+	//document.getElementById( 'log' ).addEventListener( 'DOMMouseScroll', stopScrollBubbling, false );
 	ZUSE.controls = new ZUSE.CameraControls( ZUSE.camera );
 	ZUSE.controls.reset();
 
@@ -72,18 +72,18 @@ function init() {
 	//renderer.domElement.addEventListener( 'mouseup',   onDocumentMouseUp,   false );
 	window.addEventListener(              'resize',    onWindowResize,      false );
 
-	document.getElementById( 'tabs-1' ).addEventListener( 'mousedown', stopScrollBubbling, false );
-	document.getElementById( 'tabs-3' ).addEventListener( 'mousedown', stopScrollBubbling, false );
-	document.getElementById( 'tabs-4' ).addEventListener( 'mousedown', stopScrollBubbling, false );
-	document.getElementById( 'tabs-5' ).addEventListener( 'mousedown', stopScrollBubbling, false );
-	document.getElementById( 'tabs-6' ).addEventListener( 'mousedown', stopScrollBubbling, false );
-	document.getElementById( 'tabs-8' ).addEventListener( 'mousedown', stopScrollBubbling, false );
-	document.getElementById( 'floatingCircuit' ).addEventListener( 'mousedown', stopScrollBubbling, false );
+	//document.getElementById( 'tabs-1' ).addEventListener( 'mousedown', stopScrollBubbling, false );
+	//document.getElementById( 'tabs-3' ).addEventListener( 'mousedown', stopScrollBubbling, false );
+	//document.getElementById( 'tabs-4' ).addEventListener( 'mousedown', stopScrollBubbling, false );
+	//document.getElementById( 'tabs-5' ).addEventListener( 'mousedown', stopScrollBubbling, false );
+	//document.getElementById( 'tabs-6' ).addEventListener( 'mousedown', stopScrollBubbling, false );
+	//document.getElementById( 'tabs-8' ).addEventListener( 'mousedown', stopScrollBubbling, false );
+	//document.getElementById( 'floatingCircuit' ).addEventListener( 'mousedown', stopScrollBubbling, false );
 
-	document.addEventListener( 'selectstart', function(e){e.preventDefault();e.stopPropagation();}, false );
+	//document.addEventListener( 'selectstart', function(e){e.preventDefault();e.stopPropagation();}, false );
 
-	var circuitDiv = document.getElementById( 'floatingCircuit' );
-	circuitDiv.insertBefore( ZUSE.XMLUtils.loadXML( 'projects/adder/circuit.svg' ).lastChild, circuitDiv.childNodes[ 0 ] );
+	//var circuitDiv = document.getElementById( 'floatingCircuit' );
+	//circuitDiv.insertBefore( ZUSE.XMLUtils.loadXML( 'projects/adder/circuit.svg' ).lastChild, circuitDiv.childNodes[ 0 ] );
 
 }
 
