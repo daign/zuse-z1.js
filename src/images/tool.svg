@@ -49,13 +49,13 @@
 		<g id="tool">
 			<rect x="1" y="1" width="22" height="22" rx="3" ry="3" style="fill: #135e7c;" />
 			<rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
-			<g style="fill: #f5f3e5;" transform="translate(4,4)">
+			<!--<g style="fill: #f5f3e5;" transform="translate(4,4)">
 				<path d="M 3,0 l -3,3 2,0 0,10 -2,0 3,3 3,-3 -2,0 0,-10 2,0 -3,-3 Z" />
 				<path d="M 8,0 l 0,1 8,0 0,-1 -8,0 Z" />
 				<path d="M 8,13 l 0,1 8,0 0,-1 -8,0 Z" />
 				<path d="M 8,15 l 0,1 8,0 0,-1 -8,0 Z" />
 				<text style="font-family: sans-serif; font-weight: bold; font-size: 12;" x="7.5" y="11.5">B</text>
-			</g>
+			</g>-->
 		</g>
 		<path id="check" style="fill: #4fcf0f; stroke: #135e7c; stroke-width: 0.6; stroke-linejoin: round" d="M 17,24 q -2,-3,-5,-4 l 3,-3 2,3 q 2,-5,5,-8 0,3,2,5 -4,2,-7,7 Z" />
 	</defs>

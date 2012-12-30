@@ -12,10 +12,6 @@ ZUSE.GUI.LayoutManager = function () {
 	var b = w / 50;
 	this.setSizes( a, b, w, h );
 
-	this.toolbar.addTool( 1 );
-	this.toolbar.addTool( 25 );
-	this.toolbar.addTool( 49 );
-
 	window.addEventListener( 'resize', onWindowResize, false );
 
 	function onWindowResize() {
@@ -39,7 +35,7 @@ ZUSE.GUI.LayoutManager.prototype = {
 		this.aw = a / w;
 		this.bw = b / w;
 
-		this.toolbar.setSize(   a+1, h, 0 );
+		this.toolbar.setSize(   a+1, h );
 		this.separator.setSize( b+1, h, a );
 		this.webgl.setSize( w-a-b+1, h, a+b );	
 
