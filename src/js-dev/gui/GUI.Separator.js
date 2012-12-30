@@ -6,10 +6,7 @@ ZUSE.GUI.Separator = function ( parent ) {
 	this.div = document.createElement( 'div' );
 	this.div.style.position = 'absolute';
 	this.div.style.top = '0px';
-	this.div.style.background = '#39c';
-	this.div.style.color = '#FFF';
-	this.div.style.cursor = 'col-resize';
-	this.div.innerHTML = '2.';
+	this.div.id = 'sep';
 	document.body.appendChild( this.div );
 
 	this.left;
@@ -17,28 +14,10 @@ ZUSE.GUI.Separator = function ( parent ) {
 	this.resizeActive = false;
 	this.resizeStart;
 
-	this.div.addEventListener( 'mouseover', onMouseOver, false );
-	this.div.addEventListener( 'mouseout',  onMouseOut,  false );
 	this.div.addEventListener( 'mousedown', onMouseDown, false );
 	document.addEventListener( 'mousemove', onMouseMove, false );
 	document.addEventListener( 'mouseup',   onMouseUp,   false );
 	document.addEventListener( 'selectstart', function(e){e.preventDefault();e.stopPropagation();}, false );
-
-	function onMouseOver() {
-
-		self.div.style.background = '#5be';
-
-	}
-
-	function onMouseOut() {
-
-		if ( !self.resizeActive ) {
-
-			self.div.style.background = '#39c';
-
-		}
-
-	}
 
 	function onMouseDown() {
 
@@ -60,7 +39,6 @@ ZUSE.GUI.Separator = function ( parent ) {
 
 	function onMouseUp() {
 
-		self.div.style.background = '#39c';
 		self.resizeActive = false;
 		self.resizeStart = undefined;
 
