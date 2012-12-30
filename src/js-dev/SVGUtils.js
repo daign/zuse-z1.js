@@ -1,5 +1,7 @@
 ZUSE.SVGUtils = {
 
+	NS: 'http://www.w3.org/2000/svg',
+
 	gates: {svgGateD3: { active: false, x1:  74, x2: 106, y1: 125, y2: 225, z1: 7, z2: 7 },
 			svgGateD2: { active: false, x1: 114, x2: 146, y1: 125, y2: 225, z1: 7, z2: 7 },
 			svgGateD1: { active: false, x1: 154, x2: 186, y1: 125, y2: 225, z1: 7, z2: 7 },
