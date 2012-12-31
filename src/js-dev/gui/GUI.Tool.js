@@ -2,7 +2,7 @@ ZUSE.GUI.Tool = function ( parent, icon, fooX ) {
 
 	var self = this;
 
-	parent.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/' + icon + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
+	parent.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/icons/' + icon + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
 
 	this.g = document.createElementNS( ZUSE.SVGUtils.NS, 'g' );
 	this.g.setAttribute( 'transform', 'scale(' + 128/26 + ')' );

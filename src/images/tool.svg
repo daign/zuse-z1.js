@@ -10,7 +10,7 @@
 
 	<defs>
 		<style>
-			.gate { fill: url(#grad1); }
+			.gate { cursor: pointer; fill: url(#grad1); }
 			.gate:hover { fill: url(#grad2); }
 			.gate:active { fill: url(#grad3); }
 		</style>
