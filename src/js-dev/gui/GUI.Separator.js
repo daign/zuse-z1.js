@@ -19,7 +19,7 @@ ZUSE.GUI.Separator = function ( parent ) {
 	document.addEventListener( 'mouseup',   onMouseUp,   false );
 	document.addEventListener( 'selectstart', function(e){e.preventDefault();e.stopPropagation();}, false );
 
-	function onMouseDown() {
+	function onMouseDown( event ) {
 
 		self.leftStart = self.left;
 		self.resizeStart = event.clientX;
@@ -27,7 +27,7 @@ ZUSE.GUI.Separator = function ( parent ) {
 
 	}
 
-	function onMouseMove() {
+	function onMouseMove( event ) {
 
 		if ( self.resizeActive ) {
 

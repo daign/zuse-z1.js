@@ -1,24 +1,45 @@
-ZUSE.GUI.Tool = function ( parent, icon, fooX ) {
+ZUSE.GUI.Tool = function ( parent, icon, fooX, activatable ) {
 
 	var self = this;
 
+	this.activatable = activatable;
+	this.activated = false;
+	this.action = fooX;
+
 	parent.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/icons/' + icon + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
 
-	this.g = document.createElementNS( ZUSE.SVGUtils.NS, 'g' );
-	this.g.setAttribute( 'transform', 'scale(' + 128/26 + ')' );
-	this.g.setAttribute( 'class', 'gate' );
-	parent.svg.appendChild( this.g );
+	this.group = document.createElementNS( ZUSE.SVGUtils.NS, 'g' );
+	this.group.setAttribute( 'transform', 'scale(' + 128/26 + ')' );
+	this.group.setAttribute( 'class', 'gate' );
+	parent.svg.appendChild( this.group );
 
-	this.use = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
-	this.use.setAttributeNS( 'http://www.w3.org/1999/xlink', 'href', '#tool' );
-	this.g.appendChild( this.use );
+	this.rectangle = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
+	this.rectangle.setAttributeNS( ZUSE.SVGUtils.XLink, 'href', '#tool' );
+	this.group.appendChild( this.rectangle );
 
 	this.icon = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
-	this.icon.setAttributeNS( 'http://www.w3.org/1999/xlink', 'href', '#' + icon );
+	this.icon.setAttributeNS( ZUSE.SVGUtils.XLink, 'href', '#' + icon );
 	this.icon.setAttribute( 'fill', '#f5f3e5' );
-	this.g.appendChild( this.icon );
+	this.group.appendChild( this.icon );
 
-	this.g.addEventListener( 'click', fooX, false );
+	this.tick = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
+	this.tick.setAttributeNS( ZUSE.SVGUtils.XLink, 'href', '#tick' );
+	this.tick.style.visibility = 'hidden';
+	this.group.appendChild( this.tick );
+
+	this.group.addEventListener( 'click', onClick, false );
+
+	function onClick() {
+
+		if ( self.activatable ) {
+
+			self.switchActivation();
+
+		}
+
+		self.action();
+
+	}
 
 };
 
@@ -28,7 +49,20 @@ ZUSE.GUI.Tool.prototype = {
 
 	setSize: function ( width, x, y ) {
 
-		this.g.setAttribute( 'transform', 'scale(' + width/26 + ') translate(' + x + ',' + y + ')' );
+		this.group.setAttribute( 'transform', 'scale(' + width/26 + ') translate(' + x + ',' + y + ')' );
+
+	},
+
+	switchActivation: function () {
+
+		this.activated = !this.activated;
+		this.setActivation( this.activated );
+
+	},
+
+	setActivation: function ( boolean ) {
+
+		this.tick.style.visibility = boolean ? 'visible' : 'hidden';
 
 	}
 

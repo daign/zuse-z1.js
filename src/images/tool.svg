@@ -57,7 +57,7 @@
 				<text style="font-family: sans-serif; font-weight: bold; font-size: 12;" x="7.5" y="11.5">B</text>
 			</g>-->
 		</g>
-		<path id="check" style="fill: #4fcf0f; stroke: #135e7c; stroke-width: 0.6; stroke-linejoin: round" d="M 17,24 q -2,-3,-5,-4 l 3,-3 2,3 q 2,-5,5,-8 0,3,2,5 -4,2,-7,7 Z" />
+		<path id="tick" style="fill: #4fcf0f; stroke: #135e7c; stroke-width: 0.6; stroke-linejoin: round" d="M 17,24 q -2,-3,-5,-4 l 3,-3 2,3 q 2,-5,5,-8 0,3,2,5 -4,2,-7,7 Z" />
 	</defs>
 
 	<use xlink:href="#tool" class="gate" />
