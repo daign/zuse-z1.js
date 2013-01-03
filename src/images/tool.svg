@@ -10,9 +10,11 @@
 
 	<defs>
 		<style>
-			.gate { cursor: pointer; fill: url(#grad1); }
-			.gate:hover { fill: url(#grad2); }
-			.gate:active { fill: url(#grad3); }
+			.tool {         fill: url(#grad1); stroke: #135e7c; stroke-width: 1; cursor: pointer; }
+			.tool:hover {   fill: url(#grad2); stroke: #3283a9; }
+			.tool:active {  fill: url(#grad3); stroke: #3d9ecb; }
+			.toolDisabled { fill: url(#grad4); stroke: #987;    stroke-width: 1; }
+			.tick {         fill: #4fcf0f;     stroke: #135e7c; stroke-width: 0.6; stroke-linejoin: round; }
 		</style>
 		<radialGradient id="grad1" cx="50%" cy="-100%" r="200%" fx="50%" fy="0%">
 			<stop offset="0%"   style="stop-color: #3d9ecb; stop-opacity: 1;" />
@@ -24,19 +26,19 @@
 		</radialGradient>
 		<radialGradient id="grad2" cx="50%" cy="-100%" r="200%" fx="50%" fy="0%">
 			<stop offset="0%"   style="stop-color: #6eb6d8; stop-opacity: 1;" />
-			<stop offset="25%"  style="stop-color: #66a2bf; stop-opacity: 1;" />
-			<stop offset="49%"  style="stop-color: #66a2bf; stop-opacity: 1;" />
-			<stop offset="51%"  style="stop-color: #4e879d; stop-opacity: 1;" />
-			<stop offset="75%"  style="stop-color: #66a2bf; stop-opacity: 1;" />
-			<stop offset="100%" style="stop-color: #66a2bf; stop-opacity: 1;" />
+			<stop offset="25%"  style="stop-color: #3d9ecb; stop-opacity: 1;" />
+			<stop offset="49%"  style="stop-color: #3d9ecb; stop-opacity: 1;" />
+			<stop offset="51%"  style="stop-color: #3283a9; stop-opacity: 1;" />
+			<stop offset="75%"  style="stop-color: #3d9ecb; stop-opacity: 1;" />
+			<stop offset="100%" style="stop-color: #3d9ecb; stop-opacity: 1;" />
 		</radialGradient>
 		<radialGradient id="grad3" cx="50%" cy="-100%" r="200%" fx="50%" fy="0%">
-			<stop offset="0%"   style="stop-color: #9ccde4; stop-opacity: 1;" />
-			<stop offset="25%"  style="stop-color: #96bfd3; stop-opacity: 1;" />
-			<stop offset="49%"  style="stop-color: #96bfd3; stop-opacity: 1;" />
-			<stop offset="51%"  style="stop-color: #86adbc; stop-opacity: 1;" />
-			<stop offset="75%"  style="stop-color: #96bfd3; stop-opacity: 1;" />
-			<stop offset="100%" style="stop-color: #96bfd3; stop-opacity: 1;" />
+			<stop offset="0%"   style="stop-color: #a3cce0; stop-opacity: 1;" />
+			<stop offset="25%"  style="stop-color: #6eb6d8; stop-opacity: 1;" />
+			<stop offset="49%"  style="stop-color: #6eb6d8; stop-opacity: 1;" />
+			<stop offset="51%"  style="stop-color: #3d9ecb; stop-opacity: 1;" />
+			<stop offset="75%"  style="stop-color: #6eb6d8; stop-opacity: 1;" />
+			<stop offset="100%" style="stop-color: #6eb6d8; stop-opacity: 1;" />
 		</radialGradient>
 		<radialGradient id="grad4" cx="50%" cy="-100%" r="200%" fx="50%" fy="0%">
 			<stop offset="0%"   style="stop-color: #dcb; stop-opacity: 1;" />
@@ -46,23 +48,12 @@
 			<stop offset="75%"  style="stop-color: #ba9; stop-opacity: 1;" />
 			<stop offset="100%" style="stop-color: #ba9; stop-opacity: 1;" />
 		</radialGradient>
-		<g id="tool">
-			<rect x="1" y="1" width="22" height="22" rx="3" ry="3" style="fill: #135e7c;" />
-			<rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
-			<!--<g style="fill: #f5f3e5;" transform="translate(4,4)">
-				<path d="M 3,0 l -3,3 2,0 0,10 -2,0 3,3 3,-3 -2,0 0,-10 2,0 -3,-3 Z" />
-				<path d="M 8,0 l 0,1 8,0 0,-1 -8,0 Z" />
-				<path d="M 8,13 l 0,1 8,0 0,-1 -8,0 Z" />
-				<path d="M 8,15 l 0,1 8,0 0,-1 -8,0 Z" />
-				<text style="font-family: sans-serif; font-weight: bold; font-size: 12;" x="7.5" y="11.5">B</text>
-			</g>-->
-		</g>
-		<path id="tick" style="fill: #4fcf0f; stroke: #135e7c; stroke-width: 0.6; stroke-linejoin: round" d="M 17,24 q -2,-3,-5,-4 l 3,-3 2,3 q 2,-5,5,-8 0,3,2,5 -4,2,-7,7 Z" />
+		<rect id="tool" x="1.5" y="1.5" width="21" height="21" rx="2.5" ry="2.5" />
+		<path id="tick" d="M 17,24 q -2,-3,-5,-4 l 3,-3 2,3 q 2,-5,5,-8 0,3,2,5 -4,2,-7,7 Z" />
 	</defs>
 
-	<use xlink:href="#tool" class="gate" />
-	<!--<use xlink:href="#tool" style="fill: url(#grad1);" />-->
-	<use xlink:href="#check" />
+	<use xlink:href="#tool" class="tool" />
+	<use xlink:href="#tick" class="tick" />
 
 </svg>
 

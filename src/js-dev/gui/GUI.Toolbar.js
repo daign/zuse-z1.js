@@ -8,23 +8,13 @@ ZUSE.GUI.Toolbar = function () {
 	this.div.style.top        = '0px';
 	this.div.style.left       = '0px';
 	this.div.style.background = '#3d9ecb';
-	this.div.style.color      = '#FFF';
 	document.body.appendChild( this.div );
 
 	this.svg = document.createElementNS( ZUSE.SVGUtils.NS, 'svg' );
-	this.svg.setAttribute( 'xmlns:xlink', 'http://www.w3.org/1999/xlink' );
+	this.svg.setAttribute( 'xmlns:xlink', ZUSE.SVGUtils.XLink );
 	this.svg.setAttribute( 'width', '100%' );
 	this.svg.setAttribute( 'height', '100%' );
 	this.div.appendChild( this.svg );
-
-/*	var myCircle = document.createElementNS( ZUSE.SVGUtils.NS, 'circle' );
-	myCircle.setAttribute( "id",		"mycircle" );
-	myCircle.setAttribute( "cx",		100 );
-	myCircle.setAttribute( "cy",		100 );
-	myCircle.setAttribute( "r",			100 );
-	myCircle.setAttribute( "fill",		"red" );
-	myCircle.setAttribute( "stroke",	"none" );
-	this.svg.appendChild( myCircle );*/
 
 	this.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/tool.svg' ).documentElement.firstElementChild.nextElementSibling );
 
@@ -69,13 +59,16 @@ ZUSE.GUI.Toolbar.prototype = {
 
 	addTool: function ( group, icon, foo, activatable ) {
 
-		this.tools.push( new ZUSE.GUI.Tool( this, icon, foo, activatable ) );
+		var tool = new ZUSE.GUI.Tool( this, icon, foo, activatable );
+		this.tools.push( tool );
 		this.shuffle();
 
 /*		if ( this.tools[ group ] === undefined ) {
 			this.tools[ group ] = new Array();
 		}
 		this.tools[ group ].push( new ZUSE.GUI.Tool( this ) ); */
+
+		return tool;
 
 	}
 
