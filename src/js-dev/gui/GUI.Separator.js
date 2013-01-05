@@ -6,7 +6,7 @@ ZUSE.GUI.Separator = function ( parent ) {
 	this.div = document.createElement( 'div' );
 	this.div.style.position = 'absolute';
 	this.div.style.top = '0px';
-	this.div.id = 'sep';
+	this.div.setAttribute( 'class', 'action col' );
 	document.body.appendChild( this.div );
 
 	this.left;
@@ -31,7 +31,8 @@ ZUSE.GUI.Separator = function ( parent ) {
 
 		if ( self.resizeActive ) {
 
-			self.parent.setSeparation( self.leftStart + event.clientX - self.resizeStart );
+			self.parent.setColumns( 0, self.leftStart + event.clientX - self.resizeStart );
+			self.parent.setSizes();
 
 		}
 
@@ -40,7 +41,6 @@ ZUSE.GUI.Separator = function ( parent ) {
 	function onMouseUp() {
 
 		self.resizeActive = false;
-		self.resizeStart = undefined;
 
 	}
 

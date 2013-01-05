@@ -2,25 +2,30 @@ ZUSE.GUI.LayoutManager = function () {
 
 	var self = this;
 
-	this.toolbar =   new ZUSE.GUI.Toolbar();
+	this.toolbar   = new ZUSE.GUI.Toolbar();
 	this.separator = new ZUSE.GUI.Separator( this );
-	this.webgl =     new ZUSE.GUI.WebGL();
+	this.webgl     = new ZUSE.GUI.WebGL();
+	this.controls  = new ZUSE.GUI.Controls();
 
-	var w = window.innerWidth;
-	var h = window.innerHeight;
-	var a = w / 10;
-	var b = w / 50;
-	this.setSizes( a, b, w, h );
+	this.width  = window.innerWidth;
+	this.height = window.innerHeight;
+	this.columns = new Array();
+	this.setColumns( 0, this.width / 10 );
+	this.setColumns( 1, this.width / 50 );
+	this.setSizes();
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
 	function onWindowResize() {
 
-		var w = window.innerWidth;
-		var h = window.innerHeight;
-		var a = self.aw * w;
-		var b = self.bw * w;
-		self.setSizes( a, b, w, h );
+		var newWidth = window.innerWidth;
+
+		self.setColumns( 0, self.columns[ 0 ] / self.width * newWidth );
+		self.setColumns( 1, self.columns[ 1 ] / self.width * newWidth );
+		self.width  = newWidth;
+		self.height = window.innerHeight;
+
+		self.setSizes();
 
 	}
 
@@ -30,28 +35,23 @@ ZUSE.GUI.LayoutManager.prototype = {
 
 	constructor: ZUSE.GUI.LayoutManager,
 
-	setSizes: function ( a, b, w, h ) {
+	setSizes: function () {
 
-		this.aw = a / w;
-		this.bw = b / w;
+		var a = Math.min( Math.max( this.columns[ 0 ], 40 ), this.width/3 );
+		var b = Math.min( Math.max( this.columns[ 1 ],  5 ), 40 );
+		var w = this.width;
+		var h = this.height;
 
 		this.toolbar.setSize(   a+1, h );
 		this.separator.setSize( b+1, h, a );
-		this.webgl.setSize( w-a-b+1, h, a+b );	
+		this.webgl.setSize( w-a-b+1, h, a+b );
+		this.controls.setSize( a+b+11 );
 
 	},
 
-	setSeparation: function ( s ) {
+	setColumns: function ( n, w ) {
 
-		var w = window.innerWidth;
-
-		if ( s > 20 && s < w/3 ) {
-
-			var h = window.innerHeight;
-			var b = this.bw * w;
-			this.setSizes( s, b, w, h );
-
-		}
+		this.columns[ n ] = Math.max( 0.1, w );
 
 	}
 

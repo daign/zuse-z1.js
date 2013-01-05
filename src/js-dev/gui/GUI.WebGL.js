@@ -2,12 +2,9 @@ ZUSE.GUI.WebGL = function () {
 
 	this.div = document.createElement( 'div' );
 	this.div.style.position = 'absolute';
-	this.div.style.top = '0px';
+	this.div.style.top      = '0px';
+	this.div.style.background = '#fff';
 	document.body.appendChild( this.div );
-
-	//this.div.style.background = '#3366CC';
-	this.div.style.color = '#000';
-	this.div.innerHTML = 'WebGL';
 
 	ZUSE.container = this.div;
 
