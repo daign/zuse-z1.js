@@ -17,6 +17,12 @@ ZUSE.CycleControl.prototype = {
 
 	constructor: ZUSE.CycleControl,
 
+	switchHighlighting: function () {
+
+		this.highlightMoving = !this.highlightMoving;
+
+	},
+
 	preHighlightNext: function () {
 
 		if ( this.isMoving ) { return; }
@@ -59,6 +65,8 @@ ZUSE.CycleControl.prototype = {
 			var transition = new ZUSE.Transition( this, this.tact, this.nextInputs, true );
 			transition.initPulsers();
 			this.history.push( transition );
+			SIMULATION.gui.toolbar.toolsByName.back.disable( false );
+			SIMULATION.gui.toolbar.toolsByName.replay.disable( false );
 			this.nextInputs = new Array();
 			transition.run( false );
 
@@ -83,6 +91,11 @@ ZUSE.CycleControl.prototype = {
 			}
 
 			this.adder.layersByType[ 'In' ].updateButtonState( this.tact );
+
+			if ( this.history.length < 1 ) {
+				SIMULATION.gui.toolbar.toolsByName.back.disable( true );
+				SIMULATION.gui.toolbar.toolsByName.replay.disable( true );
+			}
 
 		}
 

@@ -29,7 +29,17 @@ FILES = "\
 	../src/js-dev/Adder.js\
 	../src/js-dev/SVGUtils.js\
 	../src/js-dev/XMLUtils.js\
-	../src/js-dev/Init.js"
+	../src/js-dev/Init.js\
+	../src/js-dev/Simulation.js\
+	../src/js-dev/gui/GUI.js\
+	../src/js-dev/gui/GUI.LayoutManager.js\
+	../src/js-dev/gui/GUI.Separator.js\
+	../src/js-dev/gui/GUI.Toolbar.js\
+	../src/js-dev/gui/GUI.WebGL.js\
+	../src/js-dev/gui/GUI.Tool.js\
+	../src/js-dev/gui/GUI.Controls.js\
+	../src/js-dev/gui/GUI.Tabbar.js\
+	../src/js-dev/gui/GUI.Tab.js"
 
 #LEVEL = "WHITESPACE_ONLY"
 LEVEL = "SIMPLE_OPTIMIZATIONS"

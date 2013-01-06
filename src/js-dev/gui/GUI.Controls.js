@@ -10,18 +10,17 @@ ZUSE.GUI.Controls = function () {
 	this.div.style.width    =  '240px';
 	document.body.appendChild( this.div );
 
-	this.div.style.background = '#ddd';
-	this.div.style.color      = '#000';
+	this.div.style.color = '#000';
 
 	this.title = document.createElement( 'div' );
-	this.title.innerHTML = '<tt><b>Additionswerk</b></tt><br/>';
-	this.title.setAttribute( 'class', 'action' );
+	this.title.innerHTML = '<b>Additionswerk</b><br/>';
+	this.title.setAttribute( 'class', 'action topcorners' );
 	this.title.style.padding = '8px';
 	this.title.style.cursor = 'pointer';
 	this.div.appendChild( this.title );
 
 	this.input = document.createElement( 'div' );
-	this.input.style.padding = '8px';
+	this.input.setAttribute( 'class', 'greybox' );
 	this.input.innerHTML = ' \
 <tt><b>A:</b></tt> \
 <input type="button" value="1" id="ButtonA3" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;A3&quot;, event );"/> \
@@ -61,9 +60,9 @@ ZUSE.GUI.Controls.prototype = {
 
 	constructor: ZUSE.GUI.Controls,
 
-	setSize: function ( left ) {
+	setSize: function ( width, height, left ) {
 
-		this.div.style.left = left + 'px';
+		this.div.style.left = left + 10 + 'px';
 
 	}
 

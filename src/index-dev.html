@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Die Rechenmaschine Z1</title>
+	<title>Zuse-Z1 | Additionswerk</title>
 	<link rel="shortcut icon" href="favicon.ico" />
 	<meta charset="utf-8">
 	<link type="text/css" href="css/custom-theme/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
@@ -30,6 +30,19 @@
 		.action			{ background-color: #3d9ecb; }
 		.action:hover	{ background-color: #6eb6d8; }
 		.action:active	{ background-color: #a3cce0; }
+		.topcorners		{	-moz-border-radius-topleft:		10px;
+							-webkit-border-top-left-radius:	10px;
+							-khtml-border-top-left-radius:	10px;
+							border-top-left-radius:			10px;
+							-moz-border-radius-topright:	10px;
+							-webkit-border-top-right-radius:10px;
+							-khtml-border-top-right-radius:	10px;
+							border-top-right-radius:		10px;
+						}
+		.topborder		{ border-top: 4px solid #3d9ecb; }
+		.greybox		{ padding: 8px; background: #ddd; }
+		.bigpadding		{ padding-bottom: 50px; }
+
 	</style>
 
 	<script src="js/three.js"></script>
@@ -48,11 +61,13 @@
 	<script src="js-dev/Transition.js"></script>
 	<script src="js-dev/TriggerRules.js"></script>
 	<script src="js-dev/CycleControl.js"></script>
+
 	<script src="js-dev/materials/Shader.js"></script>
 	<script src="js-dev/Colors.js"></script>
 	<script src="js-dev/materials/ShaderUniforms.js"></script>
 	<script src="js-dev/materials/Material.js"></script>
 	<script src="js-dev/materials/Materials.js"></script>
+
 	<script src="js-dev/Sheet.js"></script>
 	<script src="js-dev/Pin.js"></script>
 	<script src="js-dev/PlaneGeometry.js"></script>
@@ -67,6 +82,7 @@
 	<script src="js-dev/XMLUtils.js"></script>
 	<script src="js-dev/Init.js"></script>
 	<script src="js-dev/Simulation.js"></script>
+
 	<script src="js-dev/gui/GUI.js"></script>
 	<script src="js-dev/gui/GUI.LayoutManager.js"></script>
 	<script src="js-dev/gui/GUI.Separator.js"></script>
@@ -74,159 +90,13 @@
 	<script src="js-dev/gui/GUI.WebGL.js"></script>
 	<script src="js-dev/gui/GUI.Tool.js"></script>
 	<script src="js-dev/gui/GUI.Controls.js"></script>
+	<script src="js-dev/gui/GUI.Tabbar.js"></script>
+	<script src="js-dev/gui/GUI.Tab.js"></script>
 
 </head>
 <body>
-<!--	<div id="webgl_01" style="height: 0px; background-color: #ffffff"></div>
-	<div id="tabs" style="font-size:small;padding: 7px;">
-		<div style="position: absolute;	top: 0px;left:0px;width:100%;height:40px;background-color: #1c94c4;opacity:0.9;"></div>
-		<ul>
-			<li><a href="#tabs-1">Steuerung</a></li>
-			<li><a href="#tabs-3">Logik</a></li>
-			<li><a href="#tabs-4">Optionen</a></li>
-			<li><a href="#tabs-5">Auswahl</a></li>
-			<li><a href="#tabs-6">Navigation</a></li>
-			<li><div style="position:absolute;top:-5px;left:20px;color:#f6f6f6;">
-				<b>Zuse-Z1 | Simulation des Additionswerks</b>
-			</div></li>
-			<li><div style="width:500px;"></div></li>
-			<li><a href="#tabs-8">Impressum</a></li>
-			<li><div style="position:absolute;left:10px;color:#f6f6f6;">Version 16.12.2012</div></li>
-		</ul>
 
-		<!-- Steuerung ###
-		<div id="tabs-1" style="width:230px;">
-			<tt><b>A:</b></tt>
-			<input type="button" value="1" id="ButtonA3" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A3', event );"/>
-			<input type="button" value="1" id="ButtonA2" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A2', event );"/>
-			<input type="button" value="1" id="ButtonA1" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A1', event );"/>
-			<input type="button" value="1" id="ButtonA0" onclick="ZUSE.adderObj.cycleControl.switchInput( 'A0', event );"/><br/>
-			<tt><b>B:</b></tt>
-			<input type="button" value="0" id="ButtonB3" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B3', event );"/>
-			<input type="button" value="0" id="ButtonB2" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B2', event );"/>
-			<input type="button" value="0" id="ButtonB1" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B1', event );"/>
-			<input type="button" value="0" id="ButtonB0" onclick="ZUSE.adderObj.cycleControl.switchInput( 'B0', event );"/>
-			<tt><b>&nbsp;F0:</b></tt>
-			<input type="button" value="0" id="ButtonF0" onclick="ZUSE.adderObj.cycleControl.switchInput( 'F0', event );" disabled /><br/>
-			<tt><b>K:</b></tt>
-			<input type="button" value="0" id="ButtonK3" disabled />
-			<input type="button" value="0" id="ButtonK2" disabled />
-			<input type="button" value="0" id="ButtonK1" disabled />
-			<input type="button" value="0" id="ButtonK0" disabled />
-			<tt><b>&nbsp;F4:</b></tt>
-			<input type="button" value="0" id="ButtonF4" disabled />
-			<br/><br/>
-			<input type="button" value="Zurück" id="inputBack"
-				onclick="ZUSE.adderObj.cycleControl.cycleBackwards();"
-				onmouseover="ZUSE.adderObj.cycleControl.preHighlightBack();"
-				onmouseout="ZUSE.adderObj.cycleControl.preHighlightOff();" />
-			<input type="button" value="Wiederholen" id="inputRepeat"
-				onclick="ZUSE.adderObj.cycleControl.repeatLast();"
-				onmouseover="ZUSE.adderObj.cycleControl.preHighlightBack();"
-				onmouseout="ZUSE.adderObj.cycleControl.preHighlightOff();" />
-			<input type="button" value="Weiter" id="inputNext"
-				onclick="ZUSE.adderObj.cycleControl.cycle();"
-				onmouseover="ZUSE.adderObj.cycleControl.preHighlightNext();"
-				onmouseout="ZUSE.adderObj.cycleControl.preHighlightOff();" />
-			<br/><br/>
-			<!--
-				<tt><b>V:</b></tt>
-				<input type="button" value="Off" onclick="" disabled />
-			###
-			<div id="log"></div>
-		</div>
-
-		<!-- Logik ###
-		<div id="tabs-3" style="width:377px;">
-			<table cellpadding="4px">
-				<tr><td colspan="2">
-					<input type="checkbox" id="showCircuit"
-					onclick="document.getElementById( 'floatingCircuit' ).style.display = this.checked ? 'block' : 'none';" />
-					<label for="showCircuit">Logischen Schaltplan anzeigen</label>
-				</td></tr>
-				<tr><td>Größe:</td><td><div id="sliderCircuit" style="width: 300px;"></div></td></tr>
-			</table>
-		</div>
-
-		<!-- Optionen ###
-		<div id="tabs-4" style="width: 377px;">
-			<table cellpadding="4px">
-				<tr><td>Ebenen expandieren:</td>
-				<td><div id="layerExpand">
-					<input type="checkbox" id="checkLayerA" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.A );"/>
-					<label for="checkLayerA">A</label>
-					<input type="checkbox" id="checkLayerB" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.B );"/>
-					<label for="checkLayerB">B</label>
-					<input type="checkbox" id="checkLayerC" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.C );"/>
-					<label for="checkLayerC">C</label>
-					<input type="checkbox" id="checkLayerD" onclick="ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D );"/>
-					<label for="checkLayerD">D</label>
-				</div></td></tr>
-				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
-				<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Transparenz</td></tr>
-				<tr><td>Bewegte Bleche:</td>  <td><div id="sliderMovingSheet"       style="width: 192px;"></div></td></tr>
-				<tr><td>Bewegte Stifte:</td>  <td><div id="sliderMovingPin"         style="width: 192px;"></div></td></tr>
-				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
-				<tr><td>Statische Bleche:</td><td><div id="sliderStaticSheet"       style="width: 192px;"></div></td></tr>
-				<tr><td>Statische Stifte:</td><td><div id="sliderStaticPin"         style="width: 192px;"></div></td></tr>
-				<tr><td>Zwischenebenen:</td>  <td><div id="sliderIntermediateSheet" style="width: 192px;"></div></td></tr>
-				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
-				<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Auswahl</td></tr>
-				<tr><td>Transparenz Deselektion:</td><td><div id="sliderClippingTransparency" style="width: 192px;"></div></td></tr>
-				<tr><td>Breite Übergangsbereich:</td><td><div id="sliderFadingWidth"          style="width: 192px;"></div></td></tr>
-				<tr><td colspan="2"><hr noshade style="margin:2px;"></td></tr>
-				<tr><td colspan="2">
-					<input type="checkbox" id="highlightMoving"
-					onclick="ZUSE.adderObj.cycleControl.highlightMoving = this.checked;" checked />
-					<label for="highlightMoving">Bewegende Teile markieren</label>
-				</td></tr>
-				<tr><td colspan="2">
-					<input type="checkbox" id="highlightEverything"
-					onclick="ZUSE.adderObj.selectables2enabled = this.checked;" />
-					<label for="highlightEverything">Beliebige Teile markieren</label>
-				</td></tr>
-			</table>
-			<!-- <input type="button" value="level Camera" onclick="controls.levelCamera();"/> ###
-		</div>
-
-		<!-- Auswahl ###
-		<div id="tabs-5" style="width: 377px;">
-			<table cellpadding="4px">
-				<tr><td>Breite:</td><td><div id="sliderX" style="width: 300px;"></div></td></tr>
-				<tr><td>Tiefe: </td><td><div id="sliderY" style="width: 300px;"></div></td></tr>
-				<tr><td>Höhe:  </td><td><div id="sliderZ" style="width: 300px;"></div></td></tr>
-			</table>
-			<input type="button" value="Auswahl zurücksetzen" id="resetSelection" onclick="ZUSE.adderObj.selection.reset();" />
-		<!-- <input type="button" value="p" onclick="console.log(ZUSE.adderObj.selection.values);" /> ###
-			<br/>
-		</div>
-
-		<!-- Navigation ###
-		<div id="tabs-6" style="width: 377px;">
-			<input type="button" value="Betrachterposition zurücksetzen" id="resetView" onclick="ZUSE.controls.reset();" />
-			<table cellpadding="4px">
-				<tr><td>Drehen:     </td><td>linke Maustaste</td></tr>
-				<tr><td>Zoomen:     </td><td>Mausrad drehen</td></tr>
-				<tr><td>Verschieben:</td><td>linke Maustaste + Shift</td></tr>
-			</table>
-		</div>
-
-		<!-- Impressum ###
-		<div id="tabs-8" style="width: 178px; left: 800px; position: relative;">
-			<h2>Impressum</h2>
-			<p>
-				Jakob Mischek<br/>
-				Dauerwaldweg 1<br/>
-				14055 Berlin
-			</p>
-			<p>
-				E-Mail: jakob.mischek@zuse-z1.de
-			</p>
-		</div>
-
-	</div>
-
-
+<!--
 <div id="webglError" class="ui-corner-bottom" style="display: none;">
 	<a href="http://get.webgl.org/">WebGL</a> ist in Ihrem Browser nicht aktiviert.
 	<ol style="line-height: 1.6;">
@@ -257,15 +127,9 @@
 		</p>
 	</span>
 </div>
+-->
 
-<div id="floatingCircuit" style="display: none;">
-<table cellpadding="4px">
-<tr><td>Klick auf Schalt&shy;symbol akti&shy;viert Aus&shy;&shy;wahl</td>
-<td><input type="button" value="Auswahl zurücksetzen" id="resetSelection2" onclick="ZUSE.adderObj.selection.reset();" /></td></tr>
-</table>
-</div>-->
-
-<script>var SIMULATION = new ZUSE.Simulation();</script>
+<script> new ZUSE.Simulation(); </script>
 
 </body>
 </html>

@@ -9,10 +9,10 @@ ZUSE.GUI.Separator = function ( parent ) {
 	this.div.setAttribute( 'class', 'action col' );
 	document.body.appendChild( this.div );
 
-	this.left;
-	this.leftStart;
+	this.left = undefined;
+	this.leftStart = undefined;
 	this.resizeActive = false;
-	this.resizeStart;
+	this.resizeStart = undefined;
 
 	this.div.addEventListener( 'mousedown', onMouseDown, false );
 	document.addEventListener( 'mousemove', onMouseMove, false );

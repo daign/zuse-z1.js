@@ -1,7 +1,7 @@
 ZUSE.GUI.Toolbar = function () {
 
-	this.width;
-	this.height;
+	this.width = undefined;
+	this.height = undefined;
 
 	this.div = document.createElement( 'div' );
 	this.div.style.position   = 'absolute';
@@ -19,6 +19,7 @@ ZUSE.GUI.Toolbar = function () {
 	this.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/tool.svg' ).documentElement.firstElementChild.nextElementSibling );
 
 	this.tools = new Array();
+	this.toolsByName = new Object();
 
 };
 
@@ -57,10 +58,11 @@ ZUSE.GUI.Toolbar.prototype = {
 
 	},
 
-	addTool: function ( group, icon, foo, activatable ) {
+	addTool: function ( group, name, events, activatable, tooltip ) {
 
-		var tool = new ZUSE.GUI.Tool( this, icon, foo, activatable );
+		var tool = new ZUSE.GUI.Tool( this, name, events, activatable, tooltip );
 		this.tools.push( tool );
+		this.toolsByName[ name ] = tool;
 		this.shuffle();
 
 /*		if ( this.tools[ group ] === undefined ) {

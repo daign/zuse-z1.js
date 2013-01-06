@@ -28,7 +28,7 @@ ZUSE.Adder = function () {
 
 	//this.meshes.rotation = new THREE.Vector3( -Math.PI / 2, 0, 0 );
 	//this.meshes.position = new THREE.Vector3( -100, -300, 100 );
-	ZUSE.scene.add( this.meshes );
+	SIMULATION.gui.webgl.scene.add( this.meshes );
 
 };
 
@@ -83,35 +83,13 @@ ZUSE.Adder.prototype = {
 
 		}
 
-	}
-
-/*	setTransparency: function ( bool ) {
-
-		for ( var i = 0; i < this.layers.length; i++ ) {
-
-			for ( var j = 0; j < this.layers[ i ].pins.length; j++ ) {
-
-				this.layers[ i ].pins[ j ].setTransparency( bool );
-
-			}
-
-		}
-
 	},
 
-	setShadows: function ( bool ) {
+	switchSelectables2: function () {
 
-		for ( var i = 0; i < this.layers.length; i++ ) {
+		this.selectables2enabled = !this.selectables2enabled;
 
-			for ( var j = 0; j < this.layers[ i ].pins.length; j++ ) {
-
-				this.layers[ i ].pins[ j ].mesh.castShadow = bool;
-
-			}
-
-		}
-
-	}*/
+	}
 
 };
 

@@ -1,4 +1,4 @@
-ZUSE.CameraControls = function ( camera ) {
+ZUSE.CameraControls = function ( camera, source ) {
 
 	var control = this;
 	var STATE = { NONE : -1, ROTATE : 0, PAN : 1 };
@@ -183,20 +183,6 @@ ZUSE.CameraControls = function ( camera ) {
 
 	};
 
-/*	this.log = function () {
-
-		console.log(    this.camera.position.x + ', ' +
-						this.camera.position.y + ', ' +
-						this.camera.position.z + ' | ' +
-						this.target.x + ', ' +
-						this.target.y + ', ' +
-						this.target.z + ' | ' +
-						this.camera.up.x + ', ' +
-						this.camera.up.y + ', ' +
-						this.camera.up.z );
-
-	};*/
-
 	this.reset = function () {
 
 		this.camera.position.set( 400, -400, 400 );
@@ -269,12 +255,12 @@ ZUSE.CameraControls = function ( camera ) {
 
 	};
 
-	//var glwindow = document.getElementById('webgl_01');
-	window.addEventListener( 'mousedown',  mousedown,  false );
-	window.addEventListener( 'mousemove',  mousemove,  false );
-	window.addEventListener( 'mouseup',    mouseup,    false );
-	window.addEventListener( 'mousewheel', mousewheel, false );
-	window.addEventListener( 'DOMMouseScroll', mousewheel, false );
+	source.addEventListener( 'mousedown',      mousedown,  false );
+	source.addEventListener( 'mousemove',      mousemove,  false );
+	source.addEventListener( 'mouseup',        mouseup,    false );
+	source.addEventListener( 'mouseout',       mouseup,    false );
+	source.addEventListener( 'mousewheel',     mousewheel, false );
+	source.addEventListener( 'DOMMouseScroll', mousewheel, false );
 
 };
 

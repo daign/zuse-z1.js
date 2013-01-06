@@ -1,17 +1,23 @@
-ZUSE.GUI.Tool = function ( parent, icon, fooX, activatable ) {
+ZUSE.GUI.Tool = function ( parent, icon, events, activatable, tooltip ) {
 
 	var self = this;
 
 	this.activatable = activatable;
 	this.activated = false;
 	this.disabled = false;
-	this.action = fooX;
+	this.events = events;
 
 	parent.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/icons/' + icon + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
 
 	this.group = document.createElementNS( ZUSE.SVGUtils.NS, 'g' );
 	this.group.setAttribute( 'class', 'tool' );
 	parent.svg.appendChild( this.group );
+
+	// tooltip works in Firefox, but why not in Chrome?
+	var title = document.createElementNS( ZUSE.SVGUtils.NS, 'title' );
+	var titleText = document.createTextNode( tooltip );
+	title.appendChild( titleText );
+	this.group.appendChild( title );
 
 	this.rectangle = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
 	this.rectangle.setAttributeNS( ZUSE.SVGUtils.XLink, 'href', '#tool' );
@@ -31,11 +37,14 @@ ZUSE.GUI.Tool = function ( parent, icon, fooX, activatable ) {
 
 	this.group.addEventListener( 'click', onClick, false );
 
+	if ( events.mouseover ) { this.group.addEventListener( 'mouseover', events.mouseover, false ); }
+	if ( events.mouseout )  { this.group.addEventListener( 'mouseout',  events.mouseout,  false ); }
+
 	function onClick() {
 
 		if ( self.disabled ) { return; }
 		if ( self.activatable ) { self.switchActivation(); }
-		self.action();
+		self.events.click();
 
 	}
 
@@ -54,19 +63,19 @@ ZUSE.GUI.Tool.prototype = {
 	switchActivation: function () {
 
 		this.activated = !this.activated;
-		this.setActivation( this.activated );
+		this.showActivation( this.activated );
 
 	},
 
-	setActivation: function ( boolean ) {
+	showActivation: function ( b ) {
 
-		this.tick.style.visibility = boolean ? 'visible' : 'hidden';
+		this.tick.style.visibility = b ? 'visible' : 'hidden';
 
 	},
 
-	disable: function ( boolean ) {
+	disable: function ( b ) {
 
-		this.disabled = ( boolean === undefined ) ? true : boolean;
+		this.disabled = ( b === undefined ) ? true : b;
 		this.group.setAttribute( 'class', this.disabled ? 'toolDisabled' : 'tool' );
 
 	}
