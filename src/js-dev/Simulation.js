@@ -38,6 +38,34 @@ ZUSE.Simulation = function () {
 	this.gui.toolbar.addTool( 4, 'highlight',	highlight, true,  'Bewegende Teile markieren'	).switchActivation();
 	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Beliebige Teile markieren'	);
 
+	var a1 = {	click:		function () { console.log( 'Click!' ); return true; },
+				mouseover:	function () { /*console.log( 'Mouseover!' );*/ },
+				mouseout:	function () { /*console.log( 'Mouseout!' );*/ } };
+	var a2 = {	mouseover:	function () { /*console.log( 'Mouseover!' );*/ },
+				mouseout:	function () { /*console.log( 'Mouseout!' );*/ } };
+
+	this.gui.controls.addDigit( 30,   7, false, a1 ).setToZero().inputOn();
+	this.gui.controls.addDigit( 50,   7, false, a1 ).setToZero().inputOn();
+	this.gui.controls.addDigit( 70,   7, false, a1 ).setToZero();
+	this.gui.controls.addDigit( 90,   7, false, a1 ).setToOne();
+	this.gui.controls.addDigit( 10,  33, false ).setToPlus();
+	this.gui.controls.addDigit( 30,  33, false, a2 );
+	this.gui.controls.addDigit( 50,  33, false, a2 );
+	this.gui.controls.addDigit( 70,  33, false, a2 ).setToOne();
+	this.gui.controls.addDigit( 90,  33, false, a2 ).setToZero();
+	this.gui.controls.addDigit( 21,  53, true  ).setToOne();
+	this.gui.controls.addDigit( 41,  53, true  ).setToEmpty();
+	this.gui.controls.addDigit( 61,  53, true  ).setToZero();
+	this.gui.controls.addDigit( 81,  53, true  ).setToZero();
+	this.gui.controls.addDigit( 10,  71, false ).setToOne();
+	this.gui.controls.addDigit( 30,  71, false ).setToOne();
+	this.gui.controls.addDigit( 50,  71, false ).setToZero();
+	this.gui.controls.addDigit( 70,  71, false ).setToOne();
+	this.gui.controls.addDigit( 90,  71, false ).setToZero();
+	this.gui.controls.addDigit( 126,  7, false ).setText( ' 12' );
+	this.gui.controls.addDigit( 126, 33, false ).setText( '+34' );
+	this.gui.controls.addDigit( 126, 71, false ).setText( ' 46' );
+
 	ZUSE.Initializer();
 
 };

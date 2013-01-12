@@ -10,8 +10,17 @@ ZUSE.GUI.Tab = function ( parent, title, content ) {
 	this.title.style.padding = '8px';
 	this.title.style.cursor  = 'pointer';
 	this.title.innerHTML     = title;
-	this.title.style.zIndex = 1;
+	this.title.style.zIndex = 2;
 	parent.div.appendChild( this.title );
+
+	this.closer = document.createElement( 'div' );
+	this.closer.style.position = 'absolute';
+	this.closer.setAttribute( 'class', 'closer' );
+	this.closer.style.padding = '8px';
+	this.closer.style.cursor  = 'pointer';
+	this.closer.innerHTML     = title;
+	this.closer.style.zIndex = 1;
+	parent.div.appendChild( this.closer );
 
 	this.content = document.createElement( 'div' );
 	this.content.style.position = 'absolute';
@@ -29,6 +38,14 @@ ZUSE.GUI.Tab = function ( parent, title, content ) {
 
 	}
 
+	this.closer.addEventListener( 'click', onClickCloser, false );
+
+	function onClickCloser() {
+
+		self.close();
+
+	}
+
 };
 
 ZUSE.GUI.Tab.prototype = {
@@ -40,6 +57,7 @@ ZUSE.GUI.Tab.prototype = {
 		this.setPositionTop();
 
 		this.title.style.left = left + 'px';
+		this.closer.style.left = left + 'px';
 		return left + this.title.offsetWidth + 2;
 
 	},
@@ -58,11 +76,14 @@ ZUSE.GUI.Tab.prototype = {
 
 		}
 
+		this.closer.style.top = -this.title.offsetHeight + 'px'	;
+
 	},
 
 	close: function () {
 
 		this.expanded = false;
+		this.content.style.display = 'none';
 		this.setPositionTop();
 
 	},
@@ -70,6 +91,7 @@ ZUSE.GUI.Tab.prototype = {
 	open: function () {
 
 		this.expanded = true;
+		this.content.style.display = 'block';
 		this.setPositionTop();
 
 	},

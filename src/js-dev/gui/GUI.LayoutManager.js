@@ -43,11 +43,11 @@ ZUSE.GUI.LayoutManager.prototype = {
 		var w = this.width;
 		var h = this.height;
 
-		this.toolbar.setSize(      a+1, h );
-		this.separator.setSize(    b+1, h, a );
-		this.webgl.setSize(    w-a-b+1, h, a+b );
-		this.controls.setSize( w-a-b+1, h, a+b );
-		this.tabbar.setSize(   w-a-b+1, h, a+b );
+		this.toolbar.setSize(      a+1, h+1 );
+		this.separator.setSize(    b+1, h+1, a );
+		this.webgl.setSize(    w-a-b+1, h+1, a+b );
+		this.controls.setSize( w-a-b+1, h+1, a+b );
+		this.tabbar.setSize(   w-a-b+1, h+1, a+b );
 
 	},
 

@@ -4,9 +4,6 @@ ZUSE.GUI.Tabbar = function () {
 	this.div.style.position = 'absolute';
 	document.body.appendChild( this.div );
 
-	this.div.style.background = '#ddd';
-	this.div.style.color      = '#000';
-
 	this.tabs = new Array();
 
 	this.addTab( 'Logik', ZUSE.XMLUtils.loadXML( 'projects/adder/circuit.svg' ).lastChild );
@@ -43,6 +40,31 @@ ZUSE.GUI.Tabbar = function () {
 		Jakob&nbsp;Mischek,&nbsp;Dauerwaldweg&nbsp;1,&nbsp;14055&nbsp;Berlin<br/> \
 		E-Mail: <a href="mailto:jakob.mischek@zuse-z1.de">jakob.mischek@zuse-z1.de</a></p>';
 	this.addTab( 'Impressum', content );
+
+	var content = document.createElement( 'span' );
+	content.innerHTML = ' \
+		<table style="width:500px"><tr><td> \
+		<tt><b>A:</b></tt> \
+		<input type="button" value="1" id="ButtonA3" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;A3&quot;, event );"/> \
+		<input type="button" value="1" id="ButtonA2" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;A2&quot;, event );"/> \
+		<input type="button" value="1" id="ButtonA1" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;A1&quot;, event );"/> \
+		<input type="button" value="1" id="ButtonA0" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;A0&quot;, event );"/><br/> \
+		<tt><b>B:</b></tt> \
+		<input type="button" value="0" id="ButtonB3" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;B3&quot;, event );"/> \
+		<input type="button" value="0" id="ButtonB2" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;B2&quot;, event );"/> \
+		<input type="button" value="0" id="ButtonB1" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;B1&quot;, event );"/> \
+		<input type="button" value="0" id="ButtonB0" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;B0&quot;, event );"/> \
+		<tt><b>&nbsp;F0:</b></tt> \
+		<input type="button" value="0" id="ButtonF0" onclick="ZUSE.adderObj.cycleControl.switchInput( &quot;F0&quot;, event );" disabled /><br/> \
+		<tt><b>K:</b></tt> \
+		<input type="button" value="0" id="ButtonK3" disabled /> \
+		<input type="button" value="0" id="ButtonK2" disabled /> \
+		<input type="button" value="0" id="ButtonK1" disabled /> \
+		<input type="button" value="0" id="ButtonK0" disabled /> \
+		<tt><b>&nbsp;F4:</b></tt> \
+		<input type="button" value="0" id="ButtonF4" disabled /> \
+		<td><div id="log"></div></table>';
+	this.addTab( 'Debug', content );
 
 };
 
