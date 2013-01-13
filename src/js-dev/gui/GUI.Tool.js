@@ -56,7 +56,7 @@ ZUSE.GUI.Tool.prototype = {
 
 	setSize: function ( width, x, y ) {
 
-		this.group.setAttribute( 'transform', 'scale(' + width/26 + ') translate(' + x + ',' + y + ')' );
+		this.group.setAttribute( 'transform', 'scale(' + width/24 + ') translate(' + x + ',' + y + ')' );
 
 	},
 

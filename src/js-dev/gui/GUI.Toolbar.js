@@ -40,19 +40,25 @@ ZUSE.GUI.Toolbar.prototype = {
 
 	shuffle: function () {
 
+		var w = this.width - 1;
+		var h = this.height - 1;
 		var n = this.tools.length;
-		var a = this.height/this.width;
 		var c = 1;
-		while( Math.floor(a*c) < (n/c) ) {
+
+		var tn = h / ( 24 * Math.ceil(n/c) + 2 ) * 24;
+
+		while( (tn*c+tn+2) <= w ) {
 			c++;
+			tn = h / ( 24 * Math.ceil(n/c) + 2 ) * 24;
 		}
+
+		var t = Math.min( w / ( c + 1/12 ), tn );
 
 		for ( var i = 0; i < this.tools.length; i++ ) {
 
 			var x = 1 + 24 * (i%c);
 			var y = 1 + 24 * Math.floor(i/c);
-			var w = this.width/c;
-			this.tools[ i ].setSize( w, x, y );
+			this.tools[ i ].setSize( t, x, y );
 
 		}
 
