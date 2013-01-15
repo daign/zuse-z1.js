@@ -62,10 +62,10 @@ ZUSE.GUI.Digit.prototype = {
 	setToPlus:	function () { this.textNode.nodeValue = '+'; this.setShow( false ); return this; },
 	setText: function ( t ) { this.textNode.nodeValue = t;   this.setShow( false ); return this; },
 
-	setValue: function ( b ) { b ? this.setToOne() : this.setToZero(); },
+	setValue: function ( b ) { b ? this.setToOne() : this.setToZero(); return this; },
 
-	inputOn:  function () { this.setInput( true  ); },
-	inputOff: function () { this.setInput( false ); },
+	inputOn:  function () { this.setInput( true  ); return this; },
+	inputOff: function () { this.setInput( false ); return this; },
 
 	setShow:  function ( b ) { this.show  = b; this.setClass(); },
 	setInput: function ( b ) { this.input = b; this.setClass(); },

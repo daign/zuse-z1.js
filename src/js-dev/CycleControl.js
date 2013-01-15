@@ -129,7 +129,7 @@ ZUSE.CycleControl.prototype = {
 
 						var element = this.adder.layersByType.In.cycleAccess[ name ];
 						var direction = ( element.position === 0 ) ? 2 : 4;
-						evt.target.value = ( evt.target.value === '0' ) ? '1' : '0';
+						if ( evt ) { evt.target.value = ( evt.target.value === '0' ) ? '1' : '0'; }
 
 						var transition = new ZUSE.Transition( this, direction, [ element ], false );
 						this.history.push( transition );
@@ -148,12 +148,18 @@ ZUSE.CycleControl.prototype = {
 						if ( index === -1 ) {
 
 							this.nextInputs.push( element );
-							evt.target.value = '1';
+							document.getElementById( 'Button' + name ).value = '1';
+							SIMULATION.inputs[ name ].setToOne();
+
+							return true;
 
 						} else {
 
 							this.nextInputs.splice( index, 1 );
-							evt.target.value = '0';
+							document.getElementById( 'Button' + name ).value = '0';
+							SIMULATION.inputs[ name ].setToZero();
+
+							return false;
 
 						}
 

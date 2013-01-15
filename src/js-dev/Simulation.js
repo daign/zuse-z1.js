@@ -38,33 +38,43 @@ ZUSE.Simulation = function () {
 	this.gui.toolbar.addTool( 4, 'highlight',	highlight, true,  'Bewegende Teile markieren'	).switchActivation();
 	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Beliebige Teile markieren'	);
 
-	var a1 = {	click:		function () { console.log( 'Click!' ); return true; },
-				mouseover:	function () { /*console.log( 'Mouseover!' );*/ },
-				mouseout:	function () { /*console.log( 'Mouseout!' );*/ } };
-	var a2 = {	mouseover:	function () { /*console.log( 'Mouseover!' );*/ },
-				mouseout:	function () { /*console.log( 'Mouseout!' );*/ } };
+	var foo = {	click:		function () { console.log( 'Click!' ); return true; },
+				mouseover:	function () { console.log( 'Mouseover!' ); },
+				mouseout:	function () { console.log( 'Mouseout!' ); } };
+	var a3 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "A3", null ); } };
+	var a2 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "A2", null ); } };
+	var a1 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "A1", null ); } };
+	var a0 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "A0", null ); } };
+	var b3 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "B3", null ); } };
+	var b2 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "B2", null ); } };
+	var b1 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "B1", null ); } };
+	var b0 = { click: function () { return ZUSE.adderObj.cycleControl.switchInput( "B0", null ); } };
 
-	this.gui.controls.addDigit( 30,   7, false, a1 ).setToZero().inputOn();
-	this.gui.controls.addDigit( 50,   7, false, a1 ).setToZero().inputOn();
-	this.gui.controls.addDigit( 70,   7, false, a1 ).setToZero();
-	this.gui.controls.addDigit( 90,   7, false, a1 ).setToOne();
-	this.gui.controls.addDigit( 10,  33, false ).setToPlus();
-	this.gui.controls.addDigit( 30,  33, false, a2 );
-	this.gui.controls.addDigit( 50,  33, false, a2 );
-	this.gui.controls.addDigit( 70,  33, false, a2 ).setToOne();
-	this.gui.controls.addDigit( 90,  33, false, a2 ).setToZero();
-	this.gui.controls.addDigit( 21,  53, true  ).setToOne();
-	this.gui.controls.addDigit( 41,  53, true  ).setToEmpty();
-	this.gui.controls.addDigit( 61,  53, true  ).setToZero();
-	this.gui.controls.addDigit( 81,  53, true  ).setToZero();
-	this.gui.controls.addDigit( 10,  71, false ).setToOne();
-	this.gui.controls.addDigit( 30,  71, false ).setToOne();
-	this.gui.controls.addDigit( 50,  71, false ).setToZero();
-	this.gui.controls.addDigit( 70,  71, false ).setToOne();
-	this.gui.controls.addDigit( 90,  71, false ).setToZero();
-	this.gui.controls.addDigit( 126,  7, false ).setText( ' 12' );
-	this.gui.controls.addDigit( 126, 33, false ).setText( '+34' );
-	this.gui.controls.addDigit( 126, 71, false ).setText( ' 46' );
+	this.inputs = {
+
+		A3: this.gui.controls.addDigit( 30,   7, false, a3 ).setToOne().inputOn(),
+		A2: this.gui.controls.addDigit( 50,   7, false, a2 ).setToOne().inputOn(),
+		A1: this.gui.controls.addDigit( 70,   7, false, a1 ).setToOne().inputOn(),
+		A0: this.gui.controls.addDigit( 90,   7, false, a0 ).setToOne().inputOn(),
+		Plus: this.gui.controls.addDigit( 10,  33, false ).setToPlus(),
+		B3: this.gui.controls.addDigit( 30,  33, false, b3 ).setToZero().inputOn(),
+		B2: this.gui.controls.addDigit( 50,  33, false, b2 ).setToZero().inputOn(),
+		B1: this.gui.controls.addDigit( 70,  33, false, b1 ).setToZero().inputOn(),
+		B0: this.gui.controls.addDigit( 90,  33, false, b0 ).setToZero().inputOn(),
+		F4: this.gui.controls.addDigit( 21,  53, true  ).setToZero(),
+		F3: this.gui.controls.addDigit( 41,  53, true  ).setToZero(),
+		F2: this.gui.controls.addDigit( 61,  53, true  ).setToZero(),
+		F1: this.gui.controls.addDigit( 81,  53, true  ).setToZero(),
+		K4: this.gui.controls.addDigit( 10,  71, false ).setToZero(),
+		K3: this.gui.controls.addDigit( 30,  71, false ).setToZero(),
+		K2: this.gui.controls.addDigit( 50,  71, false ).setToZero(),
+		K1: this.gui.controls.addDigit( 70,  71, false ).setToZero(),
+		K0: this.gui.controls.addDigit( 90,  71, false ).setToZero(),
+		Z1: this.gui.controls.addDigit( 126,  7, false ).setText( '   ' ),
+		Z2: this.gui.controls.addDigit( 126, 33, false ).setText( '   ' ),
+		Z3: this.gui.controls.addDigit( 126, 71, false ).setText( '   ' )
+
+	}
 
 	ZUSE.Initializer();
 

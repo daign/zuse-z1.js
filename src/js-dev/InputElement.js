@@ -34,7 +34,7 @@ ZUSE.InputElement.prototype = {
 
 		}
 
-		document.getElementById( 'Button' + this.name[ 1 ] ).value = this.values[ this.position ];
+		this.setButtonValue();
 
 	},
 
@@ -56,13 +56,19 @@ ZUSE.InputElement.prototype = {
 
 		}
 
-		document.getElementById( 'Button' + this.name[ 1 ] ).value = this.values[ this.position ];
+		this.setButtonValue();
 
 	},
 
 	updateButtonState: function ( tact ) {
 
 		document.getElementById( 'Button' + this.name[ 1 ] ).disabled = this.evaluateState( tact );
+
+		if ( SIMULATION.inputs[ this.name[ 1 ] ] ) {
+
+			SIMULATION.inputs[ this.name[ 1 ] ].setInput( !this.evaluateState( tact ) );
+
+		} // else { console.log( this.name[ 1 ] + ' does not exist in new input control' ); }
 
 	},
 
@@ -77,6 +83,21 @@ ZUSE.InputElement.prototype = {
 			return true;
 
 		}
+
+	},
+
+	setButtonValue: function () {
+
+		var value = this.values[ this.position ];
+
+		document.getElementById( 'Button' + this.name[ 1 ] ).value = value;
+
+		if ( SIMULATION.inputs[ this.name[ 1 ] ] ) {
+
+			SIMULATION.inputs[ this.name[ 1 ] ].setText( value );
+
+		} else { console.log( this.name[ 1 ] + ' does not exist in new input control' ); }
+
 
 	}
 
