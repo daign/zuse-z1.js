@@ -6,12 +6,10 @@
 	<meta charset="utf-8">
 	<link type="text/css" href="css/custom-theme/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
 	<style>
-		body { font-family: sans-serif; color: #d3d7cf; background-color: #ffffff; margin: 0px; overflow: hidden; }
+		body { font-family: sans-serif; color:#000; background-color: #ffffff; margin: 0px; overflow: hidden; }
 		input { float: left; }
 		b { float: left; font-weight: bold; font-size: x-large; }
 		br { clear: both; }
-		#log {  background: #e0e0e0; color: #333333; width: 200px; height: 200px; padding: 10px;
-				font-size: large; overflow: auto; font-family: monospace; }
 		#floatingCircuit {  position: absolute; top: 147px; left: 7px; padding: 10px; width: 540px;
 							color: black; background-color: #F5F3E5; opacity: 0.9;
 							border-color: #DDD; border-style: solid; border-width: 1px;
@@ -30,6 +28,7 @@
 		.action			{ background-color: #3d9ecb; }
 		.action:hover	{ background-color: #6eb6d8; }
 		.action:active	{ background-color: #a3cce0; }
+		.closer			{ color: #ccc; }
 		.topcorners		{	-moz-border-radius-topleft:		10px;
 							-webkit-border-top-left-radius:	10px;
 							-khtml-border-top-left-radius:	10px;
@@ -39,9 +38,35 @@
 							-khtml-border-top-right-radius:	10px;
 							border-top-right-radius:		10px;
 						}
+		.bottomcorners	{	-moz-border-radius-bottomleft:		10px;
+							-webkit-border-bottom-left-radius:	10px;
+							-khtml-border-bottom-left-radius:	10px;
+							border-bottom-left-radius:			10px;
+							-moz-border-radius-bottomright:		10px;
+							-webkit-border-bottom-right-radius:	10px;
+							-khtml-border-bottom-right-radius:	10px;
+							border-bottom-right-radius:			10px;
+						}
 		.topborder		{ border-top: 4px solid #3d9ecb; }
 		.greybox		{ padding: 8px; background: #ddd; }
 		.bigpadding		{ padding-bottom: 50px; }
+		.pointer		{ cursor: pointer; }
+		#log {  background: #eee; color: #333333; width: 200px; height: 120px; padding: 10px;
+				font-size: large; overflow: auto; font-family: monospace; }
+
+		.digit		{ cursor: default; }
+		.digitShow	{ cursor: text; }
+		.digitInput	{ cursor: pointer; }
+		.digit		rect	{ fill: #ddd; }
+		.digitShow	rect	{ fill: #ddd; }
+		.digitInput	rect	{ fill: #fff; }
+		.digitShow:hover	rect	{ fill: #6eb6d8; }
+		.digitInput:hover	rect	{ fill: #6eb6d8; }
+		.inputText	{ fill: #000; font-weight: bold; font-family: monospace; }
+		.line		{ fill: none; stroke: #000; stroke-width: 2px; stroke-linecap: round; }
+
+		.stat		{ color: #bbb; width: 250px; height: 25px; font-size: 16px; }
+		.statActive	{ color: #3d9ecb; font-weight:bold; }
 
 	</style>
 
@@ -49,43 +74,11 @@
 	<script src="js/tween.js"></script>
 	<script src="js/jQuery.js"></script>
 	<script src="js/jQuery-UI.js"></script>
+
 	<script src="js/zuse-z1.js"></script>
 
 </head>
 <body>
-
-<!--
-<div id="webglError" class="ui-corner-bottom" style="display: none;">
-	<a href="http://get.webgl.org/">WebGL</a> ist in Ihrem Browser nicht aktiviert.
-	<ol style="line-height: 1.6;">
-		<li>Stellen Sie sicher, dass Sie eine aktuelle Version Ihres Browsers installiert haben.</li>
-		<li>Falls erforderlich, aktivieren Sie WebGL in Ihrem Browser.
-			<ul style="line-height: 2.4; font-size: 18px;">
-				<li>Firefox: Öffnen Sie <tt>about:config</tt> und setzen Sie <tt>webgl.force-enabled</tt> auf <tt>true</tt>.</li>
-				<li>Chrome: Starten Sie Chrome mit der Option <tt>--ignore-gpu-blacklist</tt>.</li>
-				<li>Safari: Öffnen Sie ein Terminal und führen Sie den folgenden Befehl aus:<br/>
-					<tt>defaults write com.apple.Safari WebKitWebGLEnabled -bool YES</tt>
-				</li>
-				<li>Opera: Öffnen Sie <tt>opera:config</tt> und setzen Sie
-					<tt>Enable WebGL</tt> sowie
-					<tt>Enable Hardware Acceleration</tt> auf <tt>1</tt>.
-				</li>
-			<!--<li>Internet Explorer: Sie müssen das Plug-In 
-					<a href="http://www.google.com/chromeframe">Google Chrome Frame</a> oder
-					<a href="http://iewebgl.com/">IEWebGL</a> installieren.
-				</li>###
-			</ul>
-		</li>
-	</ol>
-	<span style="font-size: 12px;">
-		<h2>Impressum</h2>
-		<p>
-			Jakob Mischek, Dauerwaldweg 1, 14055 Berlin<br/>
-			E-Mail: jakob.mischek@zuse-z1.de
-		</p>
-	</span>
-</div>
--->
 
 <script> new ZUSE.Simulation(); </script>
 

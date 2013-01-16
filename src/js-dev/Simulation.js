@@ -24,10 +24,10 @@ ZUSE.Simulation = function () {
 	var select		= { click:		function () { ZUSE.adderObj.switchSelectables2(); } };
 	var foo			= {	click:		function () { ; } };
 
-	this.gui.toolbar.addTool( 0, 'home',		foo,       false, 'Home'						).disable();
+//	this.gui.toolbar.addTool( 0, 'home',		foo,       false, 'Home'						).disable();
 	this.gui.toolbar.addTool( 1, 'back',		back,      false, 'Schritt zurück'				).disable();
 	this.gui.toolbar.addTool( 1, 'replay',		replay,    false, 'Letzten Schritt wiederholen'	).disable();
-	this.gui.toolbar.addTool( 1, 'forward',		forward,   false, 'Nächste Schritt'				);
+	this.gui.toolbar.addTool( 1, 'forward',		forward,   false, 'Nächster Schritt'			);
 	this.gui.toolbar.addTool( 2, 'layerA',		layerA,    true,  'Layer A expandieren'			);
 	this.gui.toolbar.addTool( 2, 'layerB',		layerB,    true,  'Layer B expandieren'			);
 	this.gui.toolbar.addTool( 2, 'layerC',		layerC,    true,  'Layer C expandieren'			);
@@ -36,7 +36,7 @@ ZUSE.Simulation = function () {
 	this.gui.toolbar.addTool( 3, 'clipReset',	clipReset, false, 'Auswahl zurücksetzen'		);
 	this.gui.toolbar.addTool( 4, 'viewReset',	viewReset, false, 'Ansicht zurücksetzen'		);
 	this.gui.toolbar.addTool( 4, 'highlight',	highlight, true,  'Bewegende Teile markieren'	).switchActivation();
-	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Beliebige Teile markieren'	);
+//	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Beliebige Teile markieren'	);
 
 	var foo = {	click:		function () { console.log( 'Click!' ); return true; },
 				mouseover:	function () { console.log( 'Mouseover!' ); },
@@ -61,17 +61,17 @@ ZUSE.Simulation = function () {
 		B2: this.gui.controls.addDigit( 50,  33, false, b2 ).setToZero().inputOn(),
 		B1: this.gui.controls.addDigit( 70,  33, false, b1 ).setToZero().inputOn(),
 		B0: this.gui.controls.addDigit( 90,  33, false, b0 ).setToZero().inputOn(),
-		F4: this.gui.controls.addDigit( 21,  53, true  ).setToZero(),
-		F3: this.gui.controls.addDigit( 41,  53, true  ).setToZero(),
-		F2: this.gui.controls.addDigit( 61,  53, true  ).setToZero(),
-		F1: this.gui.controls.addDigit( 81,  53, true  ).setToZero(),
-		K4: this.gui.controls.addDigit( 10,  71, false ).setToZero(),
-		K3: this.gui.controls.addDigit( 30,  71, false ).setToZero(),
-		K2: this.gui.controls.addDigit( 50,  71, false ).setToZero(),
-		K1: this.gui.controls.addDigit( 70,  71, false ).setToZero(),
-		K0: this.gui.controls.addDigit( 90,  71, false ).setToZero(),
-		Z1: this.gui.controls.addDigit( 126,  7, false ).setText( '   ' ),
-		Z2: this.gui.controls.addDigit( 126, 33, false ).setText( '   ' ),
+		F4s: this.gui.controls.addDigit( 21,  53, true  ),
+		F3s: this.gui.controls.addDigit( 41,  53, true  ),
+		F2s: this.gui.controls.addDigit( 61,  53, true  ),
+		F1s: this.gui.controls.addDigit( 81,  53, true  ),
+		K4s: this.gui.controls.addDigit( 10,  71, false ),
+		K3s: this.gui.controls.addDigit( 30,  71, false ),
+		K2s: this.gui.controls.addDigit( 50,  71, false ),
+		K1s: this.gui.controls.addDigit( 70,  71, false ),
+		K0s: this.gui.controls.addDigit( 90,  71, false ),
+		Z1: this.gui.controls.addDigit( 126,  7, false ).setText( ' 15' ),
+		Z2: this.gui.controls.addDigit( 126, 33, false ).setText( '+ 0' ),
 		Z3: this.gui.controls.addDigit( 126, 71, false ).setText( '   ' )
 
 	}

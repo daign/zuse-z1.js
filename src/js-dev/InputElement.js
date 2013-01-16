@@ -34,7 +34,7 @@ ZUSE.InputElement.prototype = {
 
 		}
 
-		this.setButtonValue();
+		this.setButtonValue( false );
 
 	},
 
@@ -56,13 +56,13 @@ ZUSE.InputElement.prototype = {
 
 		}
 
-		this.setButtonValue();
+		this.setButtonValue( true );
 
 	},
 
 	updateButtonState: function ( tact ) {
 
-		document.getElementById( 'Button' + this.name[ 1 ] ).disabled = this.evaluateState( tact );
+		//document.getElementById( 'Button' + this.name[ 1 ] ).disabled = this.evaluateState( tact );
 
 		if ( SIMULATION.inputs[ this.name[ 1 ] ] ) {
 
@@ -86,17 +86,20 @@ ZUSE.InputElement.prototype = {
 
 	},
 
-	setButtonValue: function () {
+	setButtonValue: function ( changeSVGControls ) {
 
 		var value = this.values[ this.position ];
 
-		document.getElementById( 'Button' + this.name[ 1 ] ).value = value;
+//debugtab		document.getElementById( 'Button' + this.name[ 1 ] ).value = value;
 
-		if ( SIMULATION.inputs[ this.name[ 1 ] ] ) {
+		if ( changeSVGControls && SIMULATION.inputs[ this.name[ 1 ] ] ) {
 
-			SIMULATION.inputs[ this.name[ 1 ] ].setText( value );
+			var b = ( value === '1' );
+			SIMULATION.inputs[ this.name[ 1 ] ].setValue( b );
+			ZUSE.TempCalculator.values[ this.name[ 1 ] ] = b;
+			ZUSE.TempCalculator.updateValues();
 
-		} else { console.log( this.name[ 1 ] + ' does not exist in new input control' ); }
+		}
 
 
 	}

@@ -5,6 +5,7 @@ ZUSE.GUI.LayoutManager = function () {
 	this.toolbar   = new ZUSE.GUI.Toolbar();
 	this.separator = new ZUSE.GUI.Separator( this );
 	this.webgl     = new ZUSE.GUI.WebGL();
+	this.status    = new ZUSE.GUI.Status();
 	this.controls  = new ZUSE.GUI.Controls();
 	this.tabbar    = new ZUSE.GUI.Tabbar();
 
@@ -48,6 +49,7 @@ ZUSE.GUI.LayoutManager.prototype = {
 		this.webgl.setSize(    w-a-b+1, h+1, a+b );
 		this.controls.setSize( w-a-b+1, h+1, a+b );
 		this.tabbar.setSize(   w-a-b+1, h+1, a+b );
+		this.status.setSize(         w, h+1, a+b );
 
 	},
 

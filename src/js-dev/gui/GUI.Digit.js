@@ -1,6 +1,7 @@
 ZUSE.GUI.Digit = function ( parent, x, y, smaller, events ) {
 
 	var self = this;
+	this.events = events;
 
 	this.show = false;
 	this.input = false;
@@ -10,7 +11,7 @@ ZUSE.GUI.Digit = function ( parent, x, y, smaller, events ) {
 	this.group.setAttribute( 'class', 'digit' );
 	parent.appendChild( this.group );
 
-	if ( events ) {
+	if ( this.events ) {
 
 		var rect = document.createElementNS( ZUSE.SVGUtils.NS, 'rect' );
 		rect.setAttribute( 'rx', smaller ? 2 : 4 );
@@ -19,25 +20,24 @@ ZUSE.GUI.Digit = function ( parent, x, y, smaller, events ) {
 		rect.setAttribute( 'height', smaller ? '12px' : '24px' );
 		this.group.appendChild( rect );
 
-		if ( events.click ) {
+		if ( this.events.click ) {
 
 			this.group.addEventListener( 'click', onClick, false );
 
-			function onClick() { if ( self.input ) { self.setValue( events.click() ); } }
-
 		}
 
-		if ( events.mouseover && events.mouseout ) {
+		if ( this.events.mouseover && this.events.mouseout ) {
 
 			this.group.addEventListener( 'mouseover', onMouseover, false );
 			this.group.addEventListener( 'mouseout',  onMouseout,  false );
 
-			function onMouseover() { if ( self.show ) { events.mouseover(); } }
-			function onMouseout()  { if ( self.show ) { events.mouseout(); } }
-
 		}
 
 	}
+
+	function onClick() { if ( self.input ) { self.setValue( self.events.click() ); } }
+	function onMouseover() { if ( self.show ) { self.events.mouseover(); } }
+	function onMouseout()  { if ( self.show ) { self.events.mouseout(); } }
 
 	var text = document.createElementNS( ZUSE.SVGUtils.NS, 'text' );
 	text.setAttribute( 'x', smaller ? 1.5 : 3 );
@@ -62,7 +62,13 @@ ZUSE.GUI.Digit.prototype = {
 	setToPlus:	function () { this.textNode.nodeValue = '+'; this.setShow( false ); return this; },
 	setText: function ( t ) { this.textNode.nodeValue = t;   this.setShow( false ); return this; },
 
-	setValue: function ( b ) { b ? this.setToOne() : this.setToZero(); return this; },
+	setValue: function ( b ) {
+
+		if ( b !== undefined) {
+			b ? this.setToOne() : this.setToZero();
+		}
+		return this;
+	},
 
 	inputOn:  function () { this.setInput( true  ); return this; },
 	inputOff: function () { this.setInput( false ); return this; },

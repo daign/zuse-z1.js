@@ -67,6 +67,8 @@ ZUSE.Transition.prototype = {
 
 	run: function ( repeat ) {
 
+		if ( repeat && this.changesTact ) { SIMULATION.gui.status.activate( this.tact-1 ); }
+
 		this.value = 0;
 
 		this.highlight( true );
@@ -93,6 +95,8 @@ ZUSE.Transition.prototype = {
 			if ( !repeat ) { this.writeLog(); }
 			this.control.isMoving = false;
 
+			if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact % 4 ); }
+
 		}
 
 		var animation = new TWEEN.Tween( this ).to( { value : 10 }, 1000 );
@@ -104,6 +108,8 @@ ZUSE.Transition.prototype = {
 	},
 
 	runBackwards: function () {
+
+		if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact-1 ); }
 
 		this.value = 10;
 
@@ -152,7 +158,7 @@ ZUSE.Transition.prototype = {
 
 	writeLog: function () {
 
-		var logtext = '';
+/*		var logtext = '';
 			switch ( this.tact ) {
 				case 1:
 					logtext += 'Eingabe:<br/>';
@@ -184,9 +190,9 @@ ZUSE.Transition.prototype = {
 					break;
 				case 4:
 					break;
-			}
-			document.getElementById( 'log' ).innerHTML += logtext;
-			document.getElementById( 'log' ).scrollTop = document.getElementById( 'log' ).scrollHeight;
+			}*/
+//debugtab			document.getElementById( 'log' ).innerHTML += logtext;
+//debugtab			document.getElementById( 'log' ).scrollTop = document.getElementById( 'log' ).scrollHeight;
 
 	}
 

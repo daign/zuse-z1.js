@@ -62,6 +62,8 @@ ZUSE.CycleControl.prototype = {
 			this.isMoving = true;
 			this.tact = ( this.tact % 4 ) + 1;
 
+			ZUSE.TempCalculator.cycle( this.tact );
+
 			var transition = new ZUSE.Transition( this, this.tact, this.nextInputs, true );
 			transition.initPulsers();
 			this.history.push( transition );
@@ -82,8 +84,10 @@ ZUSE.CycleControl.prototype = {
 
 			this.isMoving = true;
 
+			ZUSE.TempCalculator.cycleBackwards( this.tact );
+
 			var transition = this.history.pop();
-			this.nextInputs = new Array();//consequences?
+			this.nextInputs = new Array(); // consequences?
 			transition.runBackwards();
 
 			if ( transition.changesTact ) {
@@ -131,9 +135,17 @@ ZUSE.CycleControl.prototype = {
 						var direction = ( element.position === 0 ) ? 2 : 4;
 						if ( evt ) { evt.target.value = ( evt.target.value === '0' ) ? '1' : '0'; }
 
+						var value = !( element.position === 0 );
+						ZUSE.TempCalculator.values[ name ] = value;
+						ZUSE.TempCalculator.updateValues();
+
 						var transition = new ZUSE.Transition( this, direction, [ element ], false );
 						this.history.push( transition );
+						//SIMULATION.gui.toolbar.toolsByName.back.disable( false );
+						//SIMULATION.gui.toolbar.toolsByName.replay.disable( false );
 						transition.run();
+
+						return value;
 
 						break;
 
@@ -148,16 +160,20 @@ ZUSE.CycleControl.prototype = {
 						if ( index === -1 ) {
 
 							this.nextInputs.push( element );
-							document.getElementById( 'Button' + name ).value = '1';
+//debugtab							document.getElementById( 'Button' + name ).value = '1';
 							SIMULATION.inputs[ name ].setToOne();
+							ZUSE.TempCalculator.values[ name ] = true;
+							ZUSE.TempCalculator.updateValues();
 
 							return true;
 
 						} else {
 
 							this.nextInputs.splice( index, 1 );
-							document.getElementById( 'Button' + name ).value = '0';
+//debugtab							document.getElementById( 'Button' + name ).value = '0';
 							SIMULATION.inputs[ name ].setToZero();
+							ZUSE.TempCalculator.values[ name ] = false;
+							ZUSE.TempCalculator.updateValues();
 
 							return false;
 
@@ -194,7 +210,7 @@ ZUSE.CycleControl.prototype = {
 
 			}
 
-		}
+		} else { return undefined; }
 
 	}
 
