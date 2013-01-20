@@ -50,7 +50,7 @@ ZUSE.Transition.prototype = {
 
 	trigger: function ( actuator ) {
 
-		var results = this.control.triggerRules.getTriggerResults( actuator, this.tact );
+		var results = this.control.triggerRules.getTriggerResults( actuator, this.tact, false );
 
 		for ( var i = 0; i < results.length; i++ ) {
 

@@ -89,6 +89,19 @@ ZUSE.Adder.prototype = {
 
 		this.selectables2enabled = !this.selectables2enabled;
 
+	},
+
+	highlightPart: function ( name, tact, bool ) {
+
+		var results = this.cycleControl.triggerRules.getTriggerResults( { name: name }, tact, true );
+		results.push( this.cycleControl.triggerRules.getElement( name ) );
+
+		for ( var i = 0; i < results.length; i++ ) {
+
+			results[ i ].setHighlight( bool );
+
+		}
+
 	}
 
 };
