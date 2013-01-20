@@ -36,7 +36,7 @@ ZUSE.Simulation = function () {
 	this.gui.toolbar.addTool( 3, 'clipReset',	clipReset, false, 'Auswahl zurücksetzen'		);
 	this.gui.toolbar.addTool( 4, 'viewReset',	viewReset, false, 'Ansicht zurücksetzen'		);
 	this.gui.toolbar.addTool( 4, 'highlight',	highlight, true,  'Bewegende Teile markieren'	).switchActivation();
-//	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Beliebige Teile markieren'	);
+	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Beliebige Teile markieren'	);
 
 	var a3 = {	click:		function () { return ZUSE.adderObj.cycleControl.switchInput( "A3", null ); },
 				mouseover:	function () { ZUSE.adderObj.highlightPart( [ 'In', 'A3' ], 2, true ); },

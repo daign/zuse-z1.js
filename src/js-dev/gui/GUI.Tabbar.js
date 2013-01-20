@@ -25,7 +25,7 @@ ZUSE.GUI.Tabbar = function () {
 
 	var content = document.createElement( 'span' );
 	content.innerHTML = ' \
-		<table cellpadding="4px"> \
+		<table cellpadding="4px" style="font-size: x-small;"> \
 			<tr><td>Breite:</td><td><div id="sliderX" style="width: 300px;"></div></td></tr> \
 			<tr><td>Tiefe: </td><td><div id="sliderY" style="width: 300px;"></div></td></tr> \
 			<tr><td>Höhe:  </td><td><div id="sliderZ" style="width: 300px;"></div></td></tr> \
@@ -34,7 +34,7 @@ ZUSE.GUI.Tabbar = function () {
 
 	var content = document.createElement( 'span' );
 	content.innerHTML = ' \
-		<p>Version 06.01.2013</p> \
+		<p>Version 20.01.2013</p> \
 		<p>Projekt auf GitHub: <a href="https://github.com/daign/zuse-z1.js">zuse-z1.js</a></p> \
 		<p>Verantwortlich:<br/> \
 		Jakob&nbsp;Mischek,&nbsp;Dauerwaldweg&nbsp;1,&nbsp;14055&nbsp;Berlin<br/> \
