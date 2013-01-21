@@ -57,6 +57,15 @@ ZUSE.GUI.LayoutManager.prototype = {
 
 		this.columns[ n ] = Math.max( 0.1, w );
 
+	},
+
+	confinedSum: function () {
+
+		var a = Math.min( Math.max( this.columns[ 0 ], 40 ), this.width/3 );
+		var b = Math.min( Math.max( this.columns[ 1 ],  5 ), 40 );
+
+		return a+b;
+
 	}
 
 };

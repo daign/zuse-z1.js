@@ -41,7 +41,9 @@ ZUSE.Initializer = function () {
 
 		event.preventDefault();
 
-		ZUSE.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+		var offset = SIMULATION.gui.confinedSum();
+
+		ZUSE.mouse.x = ( (event.clientX-offset) / (window.innerWidth-offset) ) * 2 - 1;
 		ZUSE.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
 		var vector = new THREE.Vector3( ZUSE.mouse.x, ZUSE.mouse.y, 0.5 );
