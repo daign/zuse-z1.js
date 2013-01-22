@@ -17,7 +17,9 @@ ZUSE.Simulation = function () {
 	var layerB		= {	click:		function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.B ); } };
 	var layerC		= {	click:		function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.C ); } };
 	var layerD		= {	click:		function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D ); } };
-	var clip		= {	click:		function () { ZUSE.adderObj.selection.setActivation( !ZUSE.adderObj.selection.enabled ); } };
+	var clip		= {	click:		function () {	var state = !ZUSE.adderObj.selection.enabled;
+													ZUSE.adderObj.selection.setActivation( state );
+													SIMULATION.gui.toolbar.toolsByName.select.disable( state ); } };
 	var clipReset	= {	click:		function () { ZUSE.adderObj.selection.reset(); } };
 	var viewReset	= { click:		function () { SIMULATION.gui.webgl.camera.controls.reset(); } };
 	var highlight	= { click:		function () { ZUSE.adderObj.cycleControl.switchHighlighting(); } };

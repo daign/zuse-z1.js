@@ -65,6 +65,8 @@ ZUSE.GUI.Tool.prototype = {
 		this.activated = !this.activated;
 		this.showActivation( this.activated );
 
+		return this;
+
 	},
 
 	showActivation: function ( b ) {
@@ -77,6 +79,7 @@ ZUSE.GUI.Tool.prototype = {
 
 		this.disabled = ( b === undefined ) ? true : b;
 		this.group.setAttribute( 'class', this.disabled ? 'toolDisabled' : 'tool' );
+		this.tick.setAttribute(  'class', this.disabled ? 'tickDisabled' : 'tick' );
 
 	}
 
