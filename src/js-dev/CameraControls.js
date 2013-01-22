@@ -4,6 +4,7 @@ ZUSE.CameraControls = function ( camera, source ) {
 	var STATE = { NONE : -1, ROTATE : 0, PAN : 1 };
 	var state = STATE.NONE;
 
+	// will be updated immediately anyway
 	this.screen = { width: window.innerWidth,
 					height: window.innerHeight,
 					offsetLeft: 0,
@@ -230,8 +231,8 @@ ZUSE.CameraControls = function ( camera, source ) {
 
 	function mouseup( event ) {
 
-		event.preventDefault();
-		event.stopPropagation();
+		//event.preventDefault();
+		//event.stopPropagation();
 
 		state = STATE.NONE;
 

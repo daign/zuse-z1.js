@@ -48,6 +48,11 @@ ZUSE.GUI.WebGL.prototype = {
 		this.camera.updateProjectionMatrix();
 		this.renderer.setSize( width, height );
 
+		this.camera.controls.screen.width = width;
+		this.camera.controls.screen.height = height;
+		this.camera.controls.screen.offsetLeft = left;
+		this.camera.controls.radius = ( width + height ) / 4;
+
 	}
 
 };
