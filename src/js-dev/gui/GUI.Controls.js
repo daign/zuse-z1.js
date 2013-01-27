@@ -12,8 +12,8 @@ ZUSE.GUI.Controls = function () {
 	document.body.appendChild( this.div );
 
 	this.title = document.createElement( 'div' );
-	this.title.innerHTML = '<b>Additionswerk</b><br/>';
-	this.title.setAttribute( 'class', 'action topcorners pointer' );
+	this.title.innerHTML = 'Additionswerk';
+	this.title.setAttribute( 'class', 'controltitle action topcorners pointer' );
 	this.title.style.padding = '8px';
 	this.div.appendChild( this.title );
 

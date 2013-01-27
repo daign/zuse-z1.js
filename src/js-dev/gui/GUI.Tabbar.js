@@ -33,12 +33,20 @@ ZUSE.GUI.Tabbar = function () {
 	this.addTab( 'Auswahl', content );
 
 	var content = document.createElement( 'span' );
-	content.innerHTML = ' \
-		<p>Version 27.01.2013</p> \
-		<p>Projekt auf GitHub: <a href="https://github.com/daign/zuse-z1.js">zuse-z1.js</a></p> \
-		<p>Verantwortlich:<br/> \
-		Jakob&nbsp;Mischek,&nbsp;Dauerwaldweg&nbsp;1,&nbsp;14055&nbsp;Berlin<br/> \
-		E-Mail: <a href="mailto:jakob.mischek@zuse-z1.de">jakob.mischek@zuse-z1.de</a></p>';
+	content.style.fontSize = 'small';
+	content.style.whiteSpace = 'nowrap';
+	content.innerHTML = '\
+		<p>3D-Simulation des Additionswerkes der Z1 von Konrad Zuse</p> \
+		<p>Dieses Projekt wurde von Jakob Mischek im Rahmen seiner \
+		<a href="http://www.inf.fu-berlin.de/inst/ag-ki/rojas_home/documents/Betreute_Arbeiten/Bachelor-Mischek.pdf">Bachelorarbeit</a> \
+		an der FU Berlin begonnen und<br/>wird als Open-Source-Projekt auf GitHub weiterentwickelt: \
+		<a href="https://github.com/daign/zuse-z1.js">github.com/daign/zuse-z1.js</a>.</p> \
+		<p>Das Additionswerk basiert auf Konrad Zuses Arbeit "Rechenvorrichtungen aus mechanischen Schaltgliedern".</p> \
+		Mit freundlicher Unterstützung durch das <a href="http://zuse-z1.zib.de/">Konrad Zuse Internet Archiv</a>.</p> \
+		<p>Version 28.01.2013</p> \
+		<p>Verantwortlich für diese Seite:<br/> \
+		Jakob Mischek, Dauerwaldweg 1, 14055 Berlin<br/> \
+		E-Mail: <a href="mailto:jakob.mischek@daign.de">jakob.mischek@daign.de</a></p>';
 	this.addTab( 'Impressum', content );
 
 /*	var content = document.createElement( 'span' );

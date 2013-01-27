@@ -38,6 +38,7 @@ FILES = "\
 	../src/js-dev/gui/GUI.Separator.js\
 	../src/js-dev/gui/GUI.Toolbar.js\
 	../src/js-dev/gui/GUI.WebGL.js\
+	../src/js-dev/gui/GUI.WebGLErrorMessage.js\
 	../src/js-dev/gui/GUI.Tool.js\
 	../src/js-dev/gui/GUI.Controls.js\
 	../src/js-dev/gui/GUI.Digit.js\

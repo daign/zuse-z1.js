@@ -1,5 +1,7 @@
 ZUSE.Simulation = function () {
 
+	if ( ZUSE.GUI.WebGLErrorMessage() ) { return; }
+
 	SIMULATION = this;
 
 	this.gui = new ZUSE.GUI.LayoutManager();

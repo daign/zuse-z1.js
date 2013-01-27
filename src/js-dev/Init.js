@@ -1,19 +1,5 @@
 ZUSE.Initializer = function () {
 
-	var webGLSupport = ( function () {
-		try {
-			return !! window.WebGLRenderingContext && !! document.createElement( 'canvas' ).getContext( 'experimental-webgl' );
-		} catch( e ) {
-			return false;
-		}
-	} )();
-
-	if ( ! webGLSupport ) {
-
-		document.getElementById( 'webglError' ).style.display = 'block';
-
-	}
-
 	ZUSE.INTERSECTED = undefined;
 	ZUSE.SELECTED = undefined;
 
