@@ -11,6 +11,7 @@ FILES = "\
 	../src/js-dev/Cyclable.js\
 	../src/js-dev/Transition.js\
 	../src/js-dev/TriggerRules.js\
+	../src/js-dev/CycleAccess.js\
 	../src/js-dev/CycleControl.js\
 	../src/js-dev/materials/Shader.js\
 	../src/js-dev/Colors.js\

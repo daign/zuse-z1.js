@@ -2,7 +2,6 @@ ZUSE.CycleControl = function ( adder ) {
 
 	this.adder = adder;
 	this.tact = 0;
-	this.isMoving = false;
 	this.history = new Array();
 	this.nextInputs = new Array();
 
@@ -25,7 +24,7 @@ ZUSE.CycleControl.prototype = {
 
 	preHighlightNext: function () {
 
-		if ( this.isMoving ) { return; }
+		if ( ZUSE.CycleAccess.ask( true ) ) { return; }
 
 		var nextTact = ( this.tact % 4 ) + 1;
 		this.preHighlighted = new ZUSE.Transition( this, nextTact, this.nextInputs, true );
@@ -36,7 +35,7 @@ ZUSE.CycleControl.prototype = {
 
 	preHighlightBack: function () {
 
-		if ( !this.isMoving && this.history.length >= 1 ) {
+		if ( !ZUSE.CycleAccess.ask( true ) && this.history.length >= 1 ) {
 
 			this.preHighlighted = this.history[ this.history.length - 1 ];
 			this.preHighlighted.highlight( true );
@@ -57,9 +56,8 @@ ZUSE.CycleControl.prototype = {
 
 	cycle: function () {
 
-		if ( !this.isMoving ) {
+		if ( ZUSE.CycleAccess.request( true ) ) {
 
-			this.isMoving = true;
 			this.tact = ( this.tact % 4 ) + 1;
 
 			ZUSE.TempCalculator.cycle( this.tact );
@@ -80,9 +78,7 @@ ZUSE.CycleControl.prototype = {
 
 	cycleBackwards: function () {
 
-		if ( !this.isMoving && this.history.length >= 1 ) {
-
-			this.isMoving = true;
+		if ( this.history.length >= 1 && ZUSE.CycleAccess.request( true ) ) {
 
 			ZUSE.TempCalculator.cycleBackwards( this.tact );
 
@@ -107,9 +103,8 @@ ZUSE.CycleControl.prototype = {
 
 	repeatLast: function () {
 
-		if ( !this.isMoving && this.history.length >= 1 ) {
+		if ( this.history.length >= 1 && ZUSE.CycleAccess.request( true ) ) {
 
-			this.isMoving = true;
 			this.history[ this.history.length - 1 ].run( true );
 
 		}
@@ -118,7 +113,7 @@ ZUSE.CycleControl.prototype = {
 
 	switchInput: function ( name, evt ) {
 
-		if ( !this.isMoving ) {
+		if ( !ZUSE.CycleAccess.ask( false ) ) {
 
 			if ( this.tact === 0 || this.tact === 4 ) {
 
@@ -129,7 +124,7 @@ ZUSE.CycleControl.prototype = {
 					case 'A2':
 					case 'A3':
 
-						this.isMoving = true;
+						ZUSE.CycleAccess.request( false );
 
 						var element = this.adder.layersByType.In.cycleAccess[ name ];
 						var direction = ( element.position === 0 ) ? 2 : 4;

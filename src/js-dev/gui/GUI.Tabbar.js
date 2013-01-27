@@ -34,7 +34,7 @@ ZUSE.GUI.Tabbar = function () {
 
 	var content = document.createElement( 'span' );
 	content.innerHTML = ' \
-		<p>Version 20.01.2013</p> \
+		<p>Version 27.01.2013</p> \
 		<p>Projekt auf GitHub: <a href="https://github.com/daign/zuse-z1.js">zuse-z1.js</a></p> \
 		<p>Verantwortlich:<br/> \
 		Jakob&nbsp;Mischek,&nbsp;Dauerwaldweg&nbsp;1,&nbsp;14055&nbsp;Berlin<br/> \

@@ -93,7 +93,7 @@ ZUSE.Transition.prototype = {
 
 			this.highlight( false );
 			if ( !repeat ) { this.writeLog(); }
-			this.control.isMoving = false;
+			ZUSE.CycleAccess.release();
 
 			if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact % 4 ); }
 
@@ -134,7 +134,7 @@ ZUSE.Transition.prototype = {
 			}
 
 			this.highlight( false );
-			this.control.isMoving = false;
+			ZUSE.CycleAccess.release();
 
 		}
 
