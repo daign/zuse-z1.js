@@ -1,10 +1,10 @@
 ZUSE.TempCalculator = {
 
-	values: {	A3: true,  A2: true,  A1: true,  A0: true,
+	values: {	A3: false, A2: false, A1: false, A0: false,
 				B3: false, B2: false, B1: false, B0: false,
 				F4: false, F3: false, F2: false, F1: false, F0: false,
-				K4: false, K3: true,  K2: true,  K1: true,  K0: true,
-				Z1: 15, Z2: 0, Z3: 15 },
+				K4: false, K3: false, K2: false, K1: false, K0: false,
+				Z1: 0, Z2: 0, Z3: 0 },
 
 	updateValues: function () {
 

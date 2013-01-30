@@ -102,6 +102,18 @@ ZUSE.Transition.prototype = {
 
 	},
 
+	set: function () {
+
+		this.changePositions();
+
+		for ( var i = 0; i < this.elements.length; i++ ) {
+
+			this.elements[ i ].move( this.tact, 10 );
+
+		}
+
+	},
+
 	runBackwards: function () {
 
 		if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact-1 ); }

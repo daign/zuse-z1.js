@@ -85,10 +85,10 @@ ZUSE.Simulation = function () {
 
 	this.inputs = {
 
-		A3:  this.gui.controls.addDigit( 30,  7, false, a3 ).setToOne().inputOn(),
-		A2:  this.gui.controls.addDigit( 50,  7, false, a2 ).setToOne().inputOn(),
-		A1:  this.gui.controls.addDigit( 70,  7, false, a1 ).setToOne().inputOn(),
-		A0:  this.gui.controls.addDigit( 90,  7, false, a0 ).setToOne().inputOn(),
+		A3:  this.gui.controls.addDigit( 30,  7, false, a3 ).setToZero().inputOn(),
+		A2:  this.gui.controls.addDigit( 50,  7, false, a2 ).setToZero().inputOn(),
+		A1:  this.gui.controls.addDigit( 70,  7, false, a1 ).setToZero().inputOn(),
+		A0:  this.gui.controls.addDigit( 90,  7, false, a0 ).setToZero().inputOn(),
 		Plu: this.gui.controls.addDigit( 10, 33, false ).setToPlus(),
 		B3:  this.gui.controls.addDigit( 30, 33, false, b3 ).setToZero().inputOn(),
 		B2:  this.gui.controls.addDigit( 50, 33, false, b2 ).setToZero().inputOn(),
@@ -103,7 +103,7 @@ ZUSE.Simulation = function () {
 		K2s: this.gui.controls.addDigit( 50, 71, false, k2 ),
 		K1s: this.gui.controls.addDigit( 70, 71, false, k1 ),
 		K0s: this.gui.controls.addDigit( 90, 71, false, k0 ),
-		Z1: this.gui.controls.addDigit( 126,  7, false ).setText( ' 15' ),
+		Z1: this.gui.controls.addDigit( 126,  7, false ).setText( '  0' ),
 		Z2: this.gui.controls.addDigit( 126, 33, false ).setText( '+ 0' ),
 		Z3: this.gui.controls.addDigit( 126, 71, false ).setText( '   ' )
 

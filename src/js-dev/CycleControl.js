@@ -155,7 +155,6 @@ ZUSE.CycleControl.prototype = {
 						if ( index === -1 ) {
 
 							this.nextInputs.push( element );
-//debugtab							document.getElementById( 'Button' + name ).value = '1';
 							SIMULATION.inputs[ name ].setToOne();
 							ZUSE.TempCalculator.values[ name ] = true;
 							ZUSE.TempCalculator.updateValues();
@@ -165,7 +164,6 @@ ZUSE.CycleControl.prototype = {
 						} else {
 
 							this.nextInputs.splice( index, 1 );
-//debugtab							document.getElementById( 'Button' + name ).value = '0';
 							SIMULATION.inputs[ name ].setToZero();
 							ZUSE.TempCalculator.values[ name ] = false;
 							ZUSE.TempCalculator.updateValues();
