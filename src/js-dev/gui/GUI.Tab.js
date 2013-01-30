@@ -26,6 +26,7 @@ ZUSE.GUI.Tab = function ( parent, title, content ) {
 	this.content.style.position = 'absolute';
 	this.content.style.top      = '0px';
 	this.content.style.left     = '0px';
+	this.content.style.display  = 'none';
 	this.content.setAttribute( 'class', 'topborder greybox bigpadding' );
 	this.content.appendChild( content );
 	parent.div.appendChild( this.content );
