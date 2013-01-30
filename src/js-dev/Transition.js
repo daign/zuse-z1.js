@@ -72,6 +72,7 @@ ZUSE.Transition.prototype = {
 		this.value = 0;
 
 		this.highlight( true );
+		if ( !repeat ) { this.changePositions(); }
 
 		var callback = function () {
 
@@ -85,14 +86,8 @@ ZUSE.Transition.prototype = {
 
 		var finish = function () {
 
-			for ( var i = 0; i < this.elements.length; i++ ) {
-
-				if ( !repeat ) { this.elements[ i ].changePosition( this.tact ); }
-
-			}
-
+			//if ( !repeat ) { this.changePositions(); }
 			this.highlight( false );
-			if ( !repeat ) { this.writeLog(); }
 			ZUSE.CycleAccess.release();
 
 			if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact % 4 ); }
@@ -156,43 +151,13 @@ ZUSE.Transition.prototype = {
 
 	},
 
-	writeLog: function () {
+	changePositions: function () {
 
-/*		var logtext = '';
-			switch ( this.tact ) {
-				case 1:
-					logtext += 'Eingabe:<br/>';
-					logtext += '&nbsp;&nbsp;A = ';
-					logtext += document.getElementById( 'ButtonA3' ).value;
-					logtext += document.getElementById( 'ButtonA2' ).value;
-					logtext += document.getElementById( 'ButtonA1' ).value;
-					logtext += document.getElementById( 'ButtonA0' ).value;
-					logtext += '<br/>&nbsp;&nbsp;B = ';
-					logtext += document.getElementById( 'ButtonB3' ).value;
-					logtext += document.getElementById( 'ButtonB2' ).value;
-					logtext += document.getElementById( 'ButtonB1' ).value;
-					logtext += document.getElementById( 'ButtonB0' ).value;
-					logtext += '<br/>';
-					break;
-				case 2:
-					var carryover = document.getElementById( 'ButtonF0' ).value;
-					logtext += ( carryover === '1') ? '+ Übertrag F0<br/>' : '';
-					var overflow = document.getElementById( 'ButtonF4' ).value;
-					logtext += ( overflow === '1') ? 'Überlauf!<br/>' : '';
-					break;
-				case 3:
-					logtext += 'A+B = ';
-					logtext += document.getElementById( 'ButtonK3' ).value;
-					logtext += document.getElementById( 'ButtonK2' ).value;
-					logtext += document.getElementById( 'ButtonK1' ).value;
-					logtext += document.getElementById( 'ButtonK0' ).value;
-					logtext += '<br/><br/>';
-					break;
-				case 4:
-					break;
-			}*/
-//debugtab			document.getElementById( 'log' ).innerHTML += logtext;
-//debugtab			document.getElementById( 'log' ).scrollTop = document.getElementById( 'log' ).scrollHeight;
+		for ( var i = 0; i < this.elements.length; i++ ) {
+
+			this.elements[ i ].changePosition( this.tact );
+
+		}
 
 	}
 

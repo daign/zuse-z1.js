@@ -43,6 +43,3 @@ body { font-family: sans-serif; color:#000; background-color: #ffffff; margin: 0
 .stat		{ color: #bbb; width: 250px; height: 25px; font-size: 16px; }
 .statActive	{ color: #3d9ecb; font-weight:bold; }
 
-#log {  background: #eee; color: #333333; width: 200px; height: 120px; padding: 10px;
-		font-size: large; overflow: auto; font-family: monospace; }
-
