@@ -30,7 +30,7 @@ ZUSE.InputElement.prototype = {
 
 		} else {
 
-			console.warn( 'Unable to change position of' + this.name + '.' );
+			console.warn( 'Unable to change position of ' + this.name + '.' );
 
 		}
 
@@ -62,13 +62,11 @@ ZUSE.InputElement.prototype = {
 
 	updateButtonState: function ( tact ) {
 
-		//document.getElementById( 'Button' + this.name[ 1 ] ).disabled = this.evaluateState( tact );
-
 		if ( SIMULATION.inputs[ this.name[ 1 ] ] ) {
 
 			SIMULATION.inputs[ this.name[ 1 ] ].setInput( !this.evaluateState( tact ) );
 
-		} // else { console.log( this.name[ 1 ] + ' does not exist in new input control' ); }
+		}
 
 	},
 
@@ -89,8 +87,6 @@ ZUSE.InputElement.prototype = {
 	setButtonValue: function ( changeSVGControls ) {
 
 		var value = this.values[ this.position ];
-
-//debugtab		document.getElementById( 'Button' + this.name[ 1 ] ).value = value;
 
 		if ( changeSVGControls && SIMULATION.inputs[ this.name[ 1 ] ] ) {
 
