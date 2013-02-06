@@ -29,18 +29,18 @@ ZUSE.Simulation = function () {
 	var foo			= {	click:		function () { ; } };
 
 //	this.gui.toolbar.addTool( 0, 'home',		foo,       false, 'Home'						).disable();
-	this.gui.toolbar.addTool( 1, 'back',		back,      false, 'Schritt zurück'				).disable();
-	this.gui.toolbar.addTool( 1, 'replay',		replay,    false, 'Letzten Schritt wiederholen'	).disable();
-	this.gui.toolbar.addTool( 1, 'forward',		forward,   false, 'Nächster Schritt'			);
-	this.gui.toolbar.addTool( 2, 'layerA',		layerA,    true,  'Layer A expandieren'			);
-	this.gui.toolbar.addTool( 2, 'layerB',		layerB,    true,  'Layer B expandieren'			);
-	this.gui.toolbar.addTool( 2, 'layerC',		layerC,    true,  'Layer C expandieren'			);
-	this.gui.toolbar.addTool( 2, 'layerD',		layerD,    true,  'Layer D expandieren'			);
-	this.gui.toolbar.addTool( 3, 'clip',		clip,      true,  'Auswahl aktivieren'			);
-	this.gui.toolbar.addTool( 3, 'clipReset',	clipReset, false, 'Auswahl zurücksetzen'		);
-	this.gui.toolbar.addTool( 4, 'viewReset',	viewReset, false, 'Ansicht zurücksetzen'		);
-	this.gui.toolbar.addTool( 4, 'highlight',	highlight, true,  'Bewegende Teile markieren'	).switchActivation();
-	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Beliebige Teile markieren'	);
+	this.gui.toolbar.addTool( 1, 'back',		back,      false, 'Step Back'					).disable();
+	this.gui.toolbar.addTool( 1, 'replay',		replay,    false, 'Repeat Last Step'			).disable();
+	this.gui.toolbar.addTool( 1, 'forward',		forward,   false, 'Next Step'					);
+	this.gui.toolbar.addTool( 2, 'layerA',		layerA,    true,  'Expand Layer A'				);
+	this.gui.toolbar.addTool( 2, 'layerB',		layerB,    true,  'Expand Layer B'				);
+	this.gui.toolbar.addTool( 2, 'layerC',		layerC,    true,  'Expand Layer C'				);
+	this.gui.toolbar.addTool( 2, 'layerD',		layerD,    true,  'Expand Layer D'				);
+	this.gui.toolbar.addTool( 3, 'clip',		clip,      true,  'Activate Selection'			);
+	this.gui.toolbar.addTool( 3, 'clipReset',	clipReset, false, 'Reset Selection'				);
+	this.gui.toolbar.addTool( 4, 'viewReset',	viewReset, false, 'Reset View'					);
+	this.gui.toolbar.addTool( 4, 'highlight',	highlight, true,  'Highlight Moving Elements'	).switchActivation();
+	this.gui.toolbar.addTool( 4, 'select',		select,    true,  'Pointing at Elements'		);
 
 	var a3 = {	click:		function () { return ZUSE.adderObj.cycleControl.switchInput( "A3", null ); },
 				mouseover:	function () { ZUSE.adderObj.highlightPart( [ 'In', 'A3' ], 2, true ); },

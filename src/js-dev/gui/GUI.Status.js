@@ -6,10 +6,10 @@ ZUSE.GUI.Status = function () {
 
 	this.states = new Array();
 
-	this.addState( '1. Eingabe' );
-	this.addState( '2. Überträge berechnen' );
-	this.addState( '3. Ergebnis berechnen' );
-	this.addState( '4. Zurücksetzen' );
+	this.addState( '1. Input' );
+	this.addState( '2. Compute Carryover' );
+	this.addState( '3. Compute Result' );
+	this.addState( '4. Reset' );
 
 	this.activate( 0 );
 
