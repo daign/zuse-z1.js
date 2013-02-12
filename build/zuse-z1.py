@@ -33,6 +33,7 @@ FILES = "\
 	../src/js-dev/InitObj.js\
 	../src/js-dev/InitPicking.js\
 	../src/js-dev/InitZutools.js\
+	../src/js-dev/WebGLErrorMessage.js\
 	../src/js-dev/Simulation.js\
 	../src/js-dev/TempCalculator.js"
 

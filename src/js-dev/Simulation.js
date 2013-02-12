@@ -1,6 +1,6 @@
 ZUSE.Simulation = function () {
 
-	if ( ZUTOOLS.WebGLErrorMessage() ) { return; }
+	if ( ZUSE.WebGLErrorMessage() ) { return; }
 
 	SIMULATION = this;
 

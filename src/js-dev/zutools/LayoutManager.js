@@ -66,6 +66,13 @@ ZUTOOLS.LayoutManager.prototype = {
 
 		return a+b;
 
+	},
+
+	addTab: function ( title, content ) {
+
+		this.tabbar.addTab( title, content );
+		this.setSizes();
+
 	}
 
 };

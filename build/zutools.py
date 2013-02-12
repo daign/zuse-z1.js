@@ -6,7 +6,6 @@ FILES = "\
 	../src/js-dev/zutools/Separator.js\
 	../src/js-dev/zutools/Toolbar.js\
 	../src/js-dev/zutools/WebGL.js\
-	../src/js-dev/zutools/WebGLErrorMessage.js\
 	../src/js-dev/zutools/Tool.js\
 	../src/js-dev/zutools/Controls.js\
 	../src/js-dev/zutools/Digit.js\
