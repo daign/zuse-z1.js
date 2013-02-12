@@ -1,6 +1,6 @@
 ZUSE.InitZutools = function () {
 
-	SIMULATION.gui = new ZUTOOLS.LayoutManager();
+	SIMULATION.gui = new ZUTOOLS.LayoutManager( 'Z1 Adder' );
 
 	var back		= {	click:		function () { ZUSE.adderObj.cycleControl.cycleBackwards(); },
 						mouseover:	function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },

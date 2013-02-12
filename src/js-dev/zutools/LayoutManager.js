@@ -1,4 +1,4 @@
-ZUTOOLS.LayoutManager = function () {
+ZUTOOLS.LayoutManager = function ( title ) {
 
 	var self = this;
 
@@ -6,7 +6,7 @@ ZUTOOLS.LayoutManager = function () {
 	this.separator = new ZUTOOLS.Separator( this );
 	this.webgl     = new ZUTOOLS.WebGL();
 	this.status    = new ZUTOOLS.Status();
-	this.controls  = new ZUTOOLS.Controls();
+	this.controls  = new ZUTOOLS.Controls( title );
 	this.tabbar    = new ZUTOOLS.Tabbar();
 
 	this.width  = window.innerWidth;

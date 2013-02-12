@@ -6,14 +6,14 @@ ZUTOOLS.Digit = function ( parent, x, y, smaller, events ) {
 	this.show = false;
 	this.input = false;
 
-	this.group = document.createElementNS( ZUSE.SVGUtils.NS, 'g' );
+	this.group = document.createElementNS( ZUTOOLS.Utils.SVG, 'g' );
 	this.group.setAttribute( 'transform', 'translate(' + x + ',' + y + ')' );
 	this.group.setAttribute( 'class', 'digit' );
 	parent.appendChild( this.group );
 
 	if ( this.events ) {
 
-		var rect = document.createElementNS( ZUSE.SVGUtils.NS, 'rect' );
+		var rect = document.createElementNS( ZUTOOLS.Utils.SVG, 'rect' );
 		rect.setAttribute( 'rx', smaller ? 2 : 4 );
 		rect.setAttribute( 'ry', smaller ? 2 : 4 );
 		rect.setAttribute( 'width',  smaller ?  '9px' : '18px' );
@@ -39,12 +39,12 @@ ZUTOOLS.Digit = function ( parent, x, y, smaller, events ) {
 	function onMouseover() { if ( self.show ) { self.events.mouseover(); } }
 	function onMouseout()  { if ( self.show ) { self.events.mouseout(); } }
 
-	var text = document.createElementNS( ZUSE.SVGUtils.NS, 'text' );
+	var text = document.createElementNS( ZUTOOLS.Utils.SVG, 'text' );
 	text.setAttribute( 'x', smaller ? 1.5 : 3 );
 	text.setAttribute( 'y', smaller ? 10 : 20 );
 	text.setAttribute( 'class', 'inputText' );
 	text.style.fontSize = smaller ? '10px' : '20px';
-	text.setAttributeNS( 'http://www.w3.org/XML/1998/namespace', 'xml:space', 'preserve' );
+	text.setAttributeNS( ZUTOOLS.Utils.XML, 'xml:space', 'preserve' );
 	this.group.appendChild( text );
 
 	this.textNode = document.createTextNode( '' );

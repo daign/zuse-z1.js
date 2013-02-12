@@ -10,13 +10,13 @@ ZUTOOLS.Toolbar = function () {
 	this.div.style.background = '#3d9ecb';
 	document.body.appendChild( this.div );
 
-	this.svg = document.createElementNS( ZUSE.SVGUtils.NS, 'svg' );
-	this.svg.setAttribute( 'xmlns:xlink', ZUSE.SVGUtils.XLink );
+	this.svg = document.createElementNS( ZUTOOLS.Utils.SVG, 'svg' );
+	this.svg.setAttribute( 'xmlns:xlink', ZUTOOLS.Utils.XLink );
 	this.svg.setAttribute( 'width', '100%' );
 	this.svg.setAttribute( 'height', '100%' );
 	this.div.appendChild( this.svg );
 
-	this.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/tool.svg' ).documentElement.firstElementChild.nextElementSibling );
+	this.svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/tool.svg' ).documentElement.firstElementChild.nextElementSibling );
 
 	this.tools = new Array();
 	this.toolsByName = new Object();

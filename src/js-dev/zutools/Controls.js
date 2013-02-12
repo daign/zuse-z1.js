@@ -1,4 +1,4 @@
-ZUTOOLS.Controls = function () {
+ZUTOOLS.Controls = function ( title ) {
 
 	var self = this;
 
@@ -12,7 +12,7 @@ ZUTOOLS.Controls = function () {
 	document.body.appendChild( this.div );
 
 	this.title = document.createElement( 'div' );
-	this.title.innerHTML = 'Z1 Adder';
+	this.title.innerHTML = title;
 	this.title.setAttribute( 'class', 'controltitle action topcorners pointer' );
 	this.title.style.padding = '8px';
 	this.div.appendChild( this.title );
@@ -24,15 +24,15 @@ ZUTOOLS.Controls = function () {
 	this.input.style.background = '#ddd';
 	this.div.appendChild( this.input );
 
-	this.svg = document.createElementNS( ZUSE.SVGUtils.NS, 'svg' );
-	this.svg.setAttribute( 'xmlns:xlink', ZUSE.SVGUtils.XLink );
+	this.svg = document.createElementNS( ZUTOOLS.Utils.SVG, 'svg' );
+	this.svg.setAttribute( 'xmlns:xlink', ZUTOOLS.Utils.XLink );
 	this.svg.setAttribute( 'viewBox', '0, 0, 180, 100' );
 	this.svg.setAttribute( 'width',  '270px' );
 	this.svg.setAttribute( 'height', '150px' );
 	this.svg.style.display = 'block';
 	this.input.appendChild( this.svg );
 
-	var line = document.createElementNS( ZUSE.SVGUtils.NS, 'line' );
+	var line = document.createElementNS( ZUTOOLS.Utils.SVG, 'line' );
 	line.setAttribute( 'x1',  10 );
 	line.setAttribute( 'x2', 108 );
 	line.setAttribute( 'y1',  68 );
@@ -40,7 +40,7 @@ ZUTOOLS.Controls = function () {
 	line.setAttribute( 'class', 'line' );
 	this.svg.appendChild( line );
 
-	var line = document.createElementNS( ZUSE.SVGUtils.NS, 'line' );
+	var line = document.createElementNS( ZUTOOLS.Utils.SVG, 'line' );
 	line.setAttribute( 'x1', 126 );
 	line.setAttribute( 'x2', 170 );
 	line.setAttribute( 'y1',  68 );
@@ -48,7 +48,7 @@ ZUTOOLS.Controls = function () {
 	line.setAttribute( 'class', 'line' );
 	this.svg.appendChild( line );
 
-/*	var myCircle = document.createElementNS( ZUSE.SVGUtils.NS, 'circle' );
+/*	var myCircle = document.createElementNS( ZUTOOLS.Utils.SVG, 'circle' );
 	myCircle.setAttribute( "id",		"mycircle" );
 	myCircle.setAttribute( "cx",		50 );
 	myCircle.setAttribute( "cy",		50 );

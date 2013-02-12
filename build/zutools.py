@@ -11,7 +11,8 @@ FILES = "\
 	../src/js-dev/zutools/Digit.js\
 	../src/js-dev/zutools/Tabbar.js\
 	../src/js-dev/zutools/Tab.js\
-	../src/js-dev/zutools/Status.js"
+	../src/js-dev/zutools/Status.js\
+	../src/js-dev/zutools/Utils.js"
 
 #LEVEL = "WHITESPACE_ONLY"
 LEVEL = "SIMPLE_OPTIMIZATIONS"
