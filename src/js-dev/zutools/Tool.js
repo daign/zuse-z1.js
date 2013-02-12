@@ -7,30 +7,29 @@ ZUTOOLS.Tool = function ( parent, icon, events, activatable, tooltip ) {
 	this.disabled = false;
 	this.events = events;
 
-	parent.svg.appendChild( ZUSE.XMLUtils.loadXML( 'images/icons/' + icon + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
+	parent.svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + icon + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
 
-	this.group = document.createElementNS( ZUSE.SVGUtils.NS, 'g' );
+	this.group = document.createElementNS( ZUTOOLS.Utils.SVG, 'g' );
 	this.group.setAttribute( 'class', 'tool' );
 	parent.svg.appendChild( this.group );
 
-	// tooltip works in Firefox, but why not in Chrome?
-	var title = document.createElementNS( ZUSE.SVGUtils.NS, 'title' );
+	var title = document.createElementNS( ZUTOOLS.Utils.SVG, 'title' );
 	var titleText = document.createTextNode( tooltip );
 	title.appendChild( titleText );
 	this.group.appendChild( title );
 
-	this.rectangle = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
-	this.rectangle.setAttributeNS( ZUSE.SVGUtils.XLink, 'href', '#tool' );
+	this.rectangle = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
+	this.rectangle.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#tool' );
 	this.group.appendChild( this.rectangle );
 
-	this.icon = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
-	this.icon.setAttributeNS( ZUSE.SVGUtils.XLink, 'href', '#' + icon );
+	this.icon = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
+	this.icon.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#' + icon );
 	this.icon.setAttribute( 'fill', '#f5f3e5' );
 	this.icon.setAttribute( 'stroke', 'none' );
 	this.group.appendChild( this.icon );
 
-	this.tick = document.createElementNS( ZUSE.SVGUtils.NS, 'use' );
-	this.tick.setAttributeNS( ZUSE.SVGUtils.XLink, 'href', '#tick' );
+	this.tick = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
+	this.tick.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#tick' );
 	this.tick.setAttribute( 'class', 'tick' );
 	this.tick.style.visibility = 'hidden';
 	this.group.appendChild( this.tick );
