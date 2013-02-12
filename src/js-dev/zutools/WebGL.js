@@ -1,4 +1,4 @@
-ZUSE.GUI.WebGL = function () {
+ZUTOOLS.WebGL = function () {
 
 	var self = this;
 
@@ -34,9 +34,9 @@ ZUSE.GUI.WebGL = function () {
 
 };
 
-ZUSE.GUI.WebGL.prototype = {
+ZUTOOLS.WebGL.prototype = {
 
-	constructor: ZUSE.GUI.WebGL,
+	constructor: ZUTOOLS.WebGL,
 
 	setSize: function ( width, height, left ) {
 

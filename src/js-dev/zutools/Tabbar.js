@@ -1,4 +1,4 @@
-ZUSE.GUI.Tabbar = function () {
+ZUTOOLS.Tabbar = function () {
 
 	this.div = document.createElement( 'div' );
 	this.div.style.position = 'absolute';
@@ -48,9 +48,9 @@ ZUSE.GUI.Tabbar = function () {
 
 };
 
-ZUSE.GUI.Tabbar.prototype = {
+ZUTOOLS.Tabbar.prototype = {
 
-	constructor: ZUSE.GUI.Tabbar,
+	constructor: ZUTOOLS.Tabbar,
 
 	setSize: function ( width, height, left ) {
 
@@ -69,7 +69,7 @@ ZUSE.GUI.Tabbar.prototype = {
 
 	addTab: function ( title, content ) {
 
-		var tab = new ZUSE.GUI.Tab( this, title, content );
+		var tab = new ZUTOOLS.Tab( this, title, content );
 		this.tabs.push( tab );
 
 	},

@@ -1,4 +1,4 @@
-ZUSE.GUI.Tool = function ( parent, icon, events, activatable, tooltip ) {
+ZUTOOLS.Tool = function ( parent, icon, events, activatable, tooltip ) {
 
 	var self = this;
 
@@ -50,9 +50,9 @@ ZUSE.GUI.Tool = function ( parent, icon, events, activatable, tooltip ) {
 
 };
 
-ZUSE.GUI.Tool.prototype = {
+ZUTOOLS.Tool.prototype = {
 
-	constructor: ZUSE.GUI.Tool,
+	constructor: ZUTOOLS.Tool,
 
 	setSize: function ( width, x, y ) {
 

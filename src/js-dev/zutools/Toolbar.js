@@ -1,4 +1,4 @@
-ZUSE.GUI.Toolbar = function () {
+ZUTOOLS.Toolbar = function () {
 
 	this.width = undefined;
 	this.height = undefined;
@@ -23,9 +23,9 @@ ZUSE.GUI.Toolbar = function () {
 
 };
 
-ZUSE.GUI.Toolbar.prototype = {
+ZUTOOLS.Toolbar.prototype = {
 
-	constructor: ZUSE.GUI.Toolbar,
+	constructor: ZUTOOLS.Toolbar,
 
 	setSize: function ( width, height ) {
 
@@ -66,7 +66,7 @@ ZUSE.GUI.Toolbar.prototype = {
 
 	addTool: function ( group, name, events, activatable, tooltip ) {
 
-		var tool = new ZUSE.GUI.Tool( this, name, events, activatable, tooltip );
+		var tool = new ZUTOOLS.Tool( this, name, events, activatable, tooltip );
 		this.tools.push( tool );
 		this.toolsByName[ name ] = tool;
 		this.shuffle();
@@ -74,7 +74,7 @@ ZUSE.GUI.Toolbar.prototype = {
 /*		if ( this.tools[ group ] === undefined ) {
 			this.tools[ group ] = new Array();
 		}
-		this.tools[ group ].push( new ZUSE.GUI.Tool( this ) ); */
+		this.tools[ group ].push( new ZUTOOLS.Tool( this ) ); */
 
 		return tool;
 

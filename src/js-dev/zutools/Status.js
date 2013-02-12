@@ -1,4 +1,4 @@
-ZUSE.GUI.Status = function () {
+ZUTOOLS.Status = function () {
 
 	this.div = document.createElement( 'div' );
 	this.div.style.position = 'absolute';
@@ -15,9 +15,9 @@ ZUSE.GUI.Status = function () {
 
 };
 
-ZUSE.GUI.Status.prototype = {
+ZUTOOLS.Status.prototype = {
 
-	constructor: ZUSE.GUI.Status,
+	constructor: ZUTOOLS.Status,
 
 	setSize: function ( width, height, left ) {
 

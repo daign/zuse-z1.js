@@ -1,4 +1,4 @@
-ZUSE.GUI.Separator = function ( parent ) {
+ZUTOOLS.Separator = function ( parent ) {
 
 	var self = this;
 	this.parent = parent;
@@ -46,9 +46,9 @@ ZUSE.GUI.Separator = function ( parent ) {
 
 };
 
-ZUSE.GUI.Separator.prototype = {
+ZUTOOLS.Separator.prototype = {
 
-	constructor: ZUSE.GUI.Separator,
+	constructor: ZUTOOLS.Separator,
 
 	setSize: function ( width, height, left ) {
 

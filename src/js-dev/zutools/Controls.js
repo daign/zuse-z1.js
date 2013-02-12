@@ -1,4 +1,4 @@
-ZUSE.GUI.Controls = function () {
+ZUTOOLS.Controls = function () {
 
 	var self = this;
 
@@ -83,9 +83,9 @@ ZUSE.GUI.Controls = function () {
 
 };
 
-ZUSE.GUI.Controls.prototype = {
+ZUTOOLS.Controls.prototype = {
 
-	constructor: ZUSE.GUI.Controls,
+	constructor: ZUTOOLS.Controls,
 
 	setSize: function ( width, height, left ) {
 
@@ -102,7 +102,7 @@ ZUSE.GUI.Controls.prototype = {
 
 	addDigit: function ( x, y, smaller, events ) {
 
-		return new ZUSE.GUI.Digit( this.svg, x, y, smaller, events );
+		return new ZUTOOLS.Digit( this.svg, x, y, smaller, events );
 
 	}
 

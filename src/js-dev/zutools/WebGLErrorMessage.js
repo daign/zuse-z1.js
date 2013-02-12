@@ -1,4 +1,4 @@
-ZUSE.GUI.WebGLErrorMessage = function () {
+ZUTOOLS.WebGLErrorMessage = function () {
 
 	var webGLSupport = ( function () {
 		try {

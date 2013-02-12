@@ -1,10 +1,10 @@
 ZUSE.Simulation = function () {
 
-	if ( ZUSE.GUI.WebGLErrorMessage() ) { return; }
+	if ( ZUTOOLS.WebGLErrorMessage() ) { return; }
 
 	SIMULATION = this;
 
-	this.gui = new ZUSE.GUI.LayoutManager();
+	this.gui = new ZUTOOLS.LayoutManager();
 
 	var back		= {	click:		function () { ZUSE.adderObj.cycleControl.cycleBackwards(); },
 						mouseover:	function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },

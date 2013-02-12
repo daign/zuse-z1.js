@@ -1,4 +1,4 @@
-ZUSE.GUI.Tab = function ( parent, title, content ) {
+ZUTOOLS.Tab = function ( parent, title, content ) {
 
 	var self = this;
 	this.parent = parent;
@@ -49,9 +49,9 @@ ZUSE.GUI.Tab = function ( parent, title, content ) {
 
 };
 
-ZUSE.GUI.Tab.prototype = {
+ZUTOOLS.Tab.prototype = {
 
-	constructor: ZUSE.GUI.Tab,
+	constructor: ZUTOOLS.Tab,
 
 	setPosition: function ( left ) {
 

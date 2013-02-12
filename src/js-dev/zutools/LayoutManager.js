@@ -1,13 +1,13 @@
-ZUSE.GUI.LayoutManager = function () {
+ZUTOOLS.LayoutManager = function () {
 
 	var self = this;
 
-	this.toolbar   = new ZUSE.GUI.Toolbar();
-	this.separator = new ZUSE.GUI.Separator( this );
-	this.webgl     = new ZUSE.GUI.WebGL();
-	this.status    = new ZUSE.GUI.Status();
-	this.controls  = new ZUSE.GUI.Controls();
-	this.tabbar    = new ZUSE.GUI.Tabbar();
+	this.toolbar   = new ZUTOOLS.Toolbar();
+	this.separator = new ZUTOOLS.Separator( this );
+	this.webgl     = new ZUTOOLS.WebGL();
+	this.status    = new ZUTOOLS.Status();
+	this.controls  = new ZUTOOLS.Controls();
+	this.tabbar    = new ZUTOOLS.Tabbar();
 
 	this.width  = window.innerWidth;
 	this.height = window.innerHeight;
@@ -33,9 +33,9 @@ ZUSE.GUI.LayoutManager = function () {
 
 };
 
-ZUSE.GUI.LayoutManager.prototype = {
+ZUTOOLS.LayoutManager.prototype = {
 
-	constructor: ZUSE.GUI.LayoutManager,
+	constructor: ZUTOOLS.LayoutManager,
 
 	setSizes: function () {
 

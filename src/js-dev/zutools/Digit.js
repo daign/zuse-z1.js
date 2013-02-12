@@ -1,4 +1,4 @@
-ZUSE.GUI.Digit = function ( parent, x, y, smaller, events ) {
+ZUTOOLS.Digit = function ( parent, x, y, smaller, events ) {
 
 	var self = this;
 	this.events = events;
@@ -52,9 +52,9 @@ ZUSE.GUI.Digit = function ( parent, x, y, smaller, events ) {
 
 };
 
-ZUSE.GUI.Digit.prototype = {
+ZUTOOLS.Digit.prototype = {
 
-	constructor: ZUSE.GUI.Digit,
+	constructor: ZUTOOLS.Digit,
 
 	setToEmpty:	function () { this.textNode.nodeValue = '';  this.setShow( false ); return this; },
 	setToZero:	function () { this.textNode.nodeValue = '0'; this.setShow( true  ); return this; },
