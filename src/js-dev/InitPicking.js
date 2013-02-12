@@ -1,22 +1,10 @@
-ZUSE.Initializer = function () {
+ZUSE.InitPicking = function () {
 
 	ZUSE.INTERSECTED = undefined;
 	ZUSE.SELECTED = undefined;
 
 	ZUSE.mouse = new THREE.Vector2();
 	ZUSE.offset = new THREE.Vector3();
-
-	ZUSE.adderObj = new ZUSE.Adder();
-
-	var inputs = new Array();
-	inputs.push( ZUSE.adderObj.layersByType.In.cycleAccess[ 'A0' ] );
-	inputs.push( ZUSE.adderObj.layersByType.In.cycleAccess[ 'A1' ] );
-	inputs.push( ZUSE.adderObj.layersByType.In.cycleAccess[ 'A2' ] );
-	inputs.push( ZUSE.adderObj.layersByType.In.cycleAccess[ 'A3' ] );
-	inputs.push( ZUSE.adderObj.layersByType.C.cycleAccess[ 'T' ] );
-	inputs.push( ZUSE.adderObj.layersByType.D.cycleAccess[ 'T' ] );
-	var transition = new ZUSE.Transition( ZUSE.adderObj.cycleControl, 2, inputs, false );
-	transition.set();
 
 	ZUSE.plane = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000, 8, 8 ),
 							new THREE.MeshBasicMaterial( { color: 0x000000, opacity: 0.25, transparent: true, wireframe: true } ) );

@@ -30,7 +30,9 @@ FILES = "\
 	../src/js-dev/Adder.js\
 	../src/js-dev/SVGUtils.js\
 	../src/js-dev/XMLUtils.js\
-	../src/js-dev/Init.js\
+	../src/js-dev/InitObj.js\
+	../src/js-dev/InitPicking.js\
+	../src/js-dev/InitZutools.js\
 	../src/js-dev/Simulation.js\
 	../src/js-dev/TempCalculator.js"
 
