@@ -13,6 +13,17 @@ ZUTOOLS.Utils = {
 
 		return request.responseXML;
 
+	},
+
+	loadJSON: function ( file ) {
+
+		var request = new XMLHttpRequest();
+		request.open( 'GET', file, false );
+		request.setRequestHeader( 'Content-Type', 'application/json' );
+		request.send( '' );
+
+		return JSON && JSON.parse( request.responseText );
+
 	}
 
 };
