@@ -1,12 +1,13 @@
-ZUTOOLS.LayoutManager = function ( title ) {
+ZUTOOLS.LayoutManager = function ( config ) {
 
 	var self = this;
+	this.config = config;
 
 	this.toolbar   = new ZUTOOLS.Toolbar();
 	this.separator = new ZUTOOLS.Separator( this );
 	this.webgl     = new ZUTOOLS.WebGL();
 	this.status    = new ZUTOOLS.Status();
-	this.controls  = new ZUTOOLS.Controls( title );
+	this.controls  = new ZUTOOLS.Controls( config.title );
 	this.tabbar    = new ZUTOOLS.Tabbar();
 
 	this.width  = window.innerWidth;
@@ -15,6 +16,8 @@ ZUTOOLS.LayoutManager = function ( title ) {
 	this.setColumns( 0, this.width / 10 );
 	this.setColumns( 1, this.width / 50 );
 	this.setSizes();
+
+	this.setText();
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
@@ -72,6 +75,16 @@ ZUTOOLS.LayoutManager.prototype = {
 
 		this.tabbar.addTab( title, content );
 		this.setSizes();
+
+	},
+
+	setText: function () {
+
+		var path = 'projects/adder/languages/';
+		var lang = this.config.languages[ this.config.standard_language ] + '.xml';
+		var text = ZUTOOLS.Utils.loadXML( path + lang );
+
+		//console.log( text.lastChild );
 
 	}
 
