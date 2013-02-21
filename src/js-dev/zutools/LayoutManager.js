@@ -17,7 +17,8 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	this.setColumns( 1, this.width / 50 );
 	this.setSizes();
 
-	this.setText();
+	this.getLang();
+	this.addTabs();
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
@@ -71,20 +72,40 @@ ZUTOOLS.LayoutManager.prototype = {
 
 	},
 
-	addTab: function ( title, content ) {
+	getLang: function () {
 
-		this.tabbar.addTab( title, content );
-		this.setSizes();
+		var lpath = this.config.path + 'languages/';
+		var lang = this.config.languages[ this.config.standard_language ] + '.xml';
+		//lang = "Deutsch.xml";
+		var text = ZUTOOLS.Utils.loadXML( lpath + lang );
+
+		var body = text.lastChild.lastElementChild;
+		this.store = new Object();
+
+		for ( var i = 0; i < body.childElementCount; i++ ) {
+
+			var array = new Array();
+			for ( var j = 0; j < body.children[ i ].childElementCount; j++ ) {
+				array.push( body.children[ i ].children[ j ] );
+			}
+			this.store[ body.children[ i ].id ] = array;
+
+		}
+
+		this.store.logic[ 1 ] = ZUSE.XMLUtils.loadXML( 'projects/adder/circuit.svg' ).lastChild;
 
 	},
 
-	setText: function () {
+	addTabs: function () {
 
-		var path = 'projects/adder/languages/';
-		var lang = this.config.languages[ this.config.standard_language ] + '.xml';
-		var text = ZUTOOLS.Utils.loadXML( path + lang );
+		for ( var i = 0; i < this.config.tabs.length; i++ ) {
 
-		//console.log( text.lastChild );
+			var foo = this.config.tabs[ i ];
+			this.tabbar.addTab( this.store[ foo ][ 0 ].innerHTML, this.store[ foo ][ 1 ] );
+
+		}
+
+		this.setSizes();
 
 	}
 
