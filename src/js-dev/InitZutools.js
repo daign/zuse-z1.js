@@ -1,9 +1,11 @@
 ZUSE.InitZutools = function () {
 
 	SIMULATION.gui = new ZUTOOLS.LayoutManager( {
-		path: 'projects/adder/',
-		standard_language: 'en',
-		languages: { en: 'English', de: 'Deutsch' },
+		languages: {	path: 'projects/adder/languages/',
+						standard: 'en',
+						versions: {	en: 'English',
+									de: 'Deutsch' }
+		},
 		tabs: [ 'logic', 'options', 'selection', 'imprint' ]
 	} );
 

@@ -109,15 +109,15 @@ ZUTOOLS.Tab.prototype = {
 
 	},
 
-	setContent: function ( title, content ) {
+	setContent: function ( data ) {
 
-		this.title.innerHTML = title;
-		this.closer.innerHTML = title;
+		this.title.innerHTML = data[ 0 ];
+		this.closer.innerHTML = data[ 0 ];
 
 		while ( this.content.hasChildNodes() ) {
 			this.content.removeChild( this.content.firstChild );
 		}
-		this.content.appendChild( content );
+		this.content.appendChild( data[ 1 ] );
 
 	}
 

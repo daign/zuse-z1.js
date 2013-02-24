@@ -1,10 +1,16 @@
-ZUTOOLS.Tabbar = function () {
+ZUTOOLS.Tabbar = function ( config ) {
 
 	this.div = document.createElement( 'div' );
 	this.div.style.position = 'absolute';
 	document.body.appendChild( this.div );
 
 	this.tabs = new Object();
+
+	for ( var i = 0; i < config.length; i++ ) {
+
+		this.tabs[ config[ i ] ] = new ZUTOOLS.Tab( this );
+
+	}
 
 };
 
@@ -24,13 +30,6 @@ ZUTOOLS.Tabbar.prototype = {
 			left = this.tabs[ i ].setPosition( left );
 
 		}
-
-	},
-
-	addTab: function ( name ) {
-
-		var tab = new ZUTOOLS.Tab( this );
-		this.tabs[ name ] = tab;
 
 	},
 

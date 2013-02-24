@@ -1,26 +1,22 @@
 ZUTOOLS.LayoutManager = function ( config ) {
 
 	var self = this;
-	this.config = config;
 
 	this.toolbar   = new ZUTOOLS.Toolbar();
 	this.separator = new ZUTOOLS.Separator( this );
 	this.webgl     = new ZUTOOLS.WebGL();
 	this.status    = new ZUTOOLS.Status();
 	this.controls  = new ZUTOOLS.Controls();
-	this.tabbar    = new ZUTOOLS.Tabbar();
+	this.tabbar    = new ZUTOOLS.Tabbar( config.tabs );
+	this.lang      = new ZUTOOLS.Languages( config.languages );
 
 	this.width  = window.innerWidth;
 	this.height = window.innerHeight;
 	this.columns = new Array();
 	this.setColumns( 0, this.width / 10 );
 	this.setColumns( 1, this.width / 50 );
-	this.setSizes();
 
-	this.addTabs();
-
-	this.getLang( this.initLang() );
-	this.fillText();
+	this.fillWithTexts();
 
 /*
 	var b = document.createElement( 'input' );
@@ -32,8 +28,8 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	b.addEventListener( 'click', onClickDe, false );
 	document.body.appendChild( b );
 	function onClickDe() {
-		self.getLang( 'de' );
-		self.fillText();
+		self.lang.setLanguage( 'de' );
+		self.fillWithTexts();
 	}
 	var c = document.createElement( 'input' );
 	c.style.position = 'absolute';
@@ -44,8 +40,8 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	c.addEventListener( 'click', onClickEn, false );
 	document.body.appendChild( c );
 	function onClickEn() {
-		self.getLang( 'en' );
-		self.fillText();
+		self.lang.setLanguage( 'en' );
+		self.fillWithTexts();
 	}
 */
 
@@ -101,73 +97,16 @@ ZUTOOLS.LayoutManager.prototype = {
 
 	},
 
-	initLang: function () {
+	fillWithTexts: function () {
 
-		var match = window.location.search.match( /(?:lang=)([a-z]{2})/ );
-
-		if( match && match.length >= 2 ) {
-			var lang = match[1];
-			if( this.config.languages[ lang ] ) {
-				return lang;
-			}
-		}
-
-		return this.config.standard_language;
-
-	},
-
-	getLang: function ( lang ) {
-
-		var lpath = this.config.path + 'languages/';
-		var lang = this.config.languages[ lang ] + '.xml';
-		var text = ZUTOOLS.Utils.loadXML( lpath + lang );
-
-		var body = text.lastChild.lastElementChild;
-		this.store = new Object();
-
-		for ( var i = 0; i < body.childElementCount; i++ ) {
-
-			var array = new Array();
-			for ( var j = 0; j < body.children[ i ].childElementCount; j++ ) {
-				array.push( body.children[ i ].children[ j ] );
-			}
-			this.store[ body.children[ i ].id ] = array;
-
-		}
-
-		this.store.logic[ 1 ] = ZUSE.XMLUtils.loadXML( 'projects/adder/circuit.svg' ).lastChild;
-
-	},
-
-	addTabs: function () {
-
-		for ( var i = 0; i < this.config.tabs.length; i++ ) {
-
-			var name = this.config.tabs[ i ];
-			this.tabbar.addTab( name );
-
-		}
-
-		this.setSizes();
-
-	},
-
-	fillText: function () {
-
-		this.controls.setTitle( this.store.title[ 0 ].innerHTML );
+		this.controls.setTitle( this.lang.get( 'title',  0 ) );
+		this.status.setText(    this.lang.get( 'status', 1 ) );
 
 		for ( var i in this.tabbar.tabs ) {
-
-			this.tabbar.tabs[ i ].setContent( this.store[ i ][ 0 ].innerHTML, this.store[ i ][ 1 ] );
-
+			this.tabbar.tabs[ i ].setContent( this.lang.get( i ) );
 		}
 
 		this.setSizes();
-
-		var statuslist = this.store.status[ 1 ].firstElementChild.children;
-		for ( var i = 0; i < statuslist.length; i++ ) {
-			this.status.setStateText( i, (i+1) + '. ' + statuslist[ i ].innerHTML );
-		}
 
 	}
 

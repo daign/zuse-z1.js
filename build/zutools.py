@@ -3,6 +3,7 @@ import os
 FILES = "\
 	../src/js-dev/zutools/zutools.js\
 	../src/js-dev/zutools/LayoutManager.js\
+	../src/js-dev/zutools/Languages.js\
 	../src/js-dev/zutools/Separator.js\
 	../src/js-dev/zutools/Toolbar.js\
 	../src/js-dev/zutools/WebGL.js\

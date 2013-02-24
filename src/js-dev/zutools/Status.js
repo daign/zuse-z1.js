@@ -48,9 +48,15 @@ ZUTOOLS.Status.prototype = {
 
 	},
 
-	setStateText: function ( i, text ) {
+	setText: function ( data ) {
 
-		this.states[ i ].innerHTML = text;
+		var statuslist = data.firstElementChild.children;
+
+		for ( var i = 0; i < statuslist.length; i++ ) {
+
+			this.states[ i ].innerHTML = (i+1) + '. ' + statuslist[ i ].innerHTML;
+
+		}
 
 	}
 
