@@ -1,4 +1,4 @@
-ZUTOOLS.Tab = function ( parent, title, content ) {
+ZUTOOLS.Tab = function ( parent ) {
 
 	var self = this;
 	this.parent = parent;
@@ -9,7 +9,6 @@ ZUTOOLS.Tab = function ( parent, title, content ) {
 	this.title.setAttribute( 'class', 'action topcorners' );
 	this.title.style.padding = '8px';
 	this.title.style.cursor  = 'pointer';
-	this.title.innerHTML     = title;
 	this.title.style.zIndex = 2;
 	parent.div.appendChild( this.title );
 
@@ -18,7 +17,6 @@ ZUTOOLS.Tab = function ( parent, title, content ) {
 	this.closer.setAttribute( 'class', 'closer' );
 	this.closer.style.padding = '8px';
 	this.closer.style.cursor  = 'pointer';
-	this.closer.innerHTML     = title;
 	this.closer.style.zIndex = 1;
 	parent.div.appendChild( this.closer );
 
@@ -28,7 +26,6 @@ ZUTOOLS.Tab = function ( parent, title, content ) {
 	this.content.style.left     = '0px';
 	this.content.style.display  = 'none';
 	this.content.setAttribute( 'class', 'topborder greybox bigpadding' );
-	this.content.appendChild( content );
 	parent.div.appendChild( this.content );
 
 	this.title.addEventListener( 'click', onClick, false );
@@ -109,6 +106,18 @@ ZUTOOLS.Tab.prototype = {
 			this.open();
 
 		}
+
+	},
+
+	setContent: function ( title, content ) {
+
+		this.title.innerHTML = title;
+		this.closer.innerHTML = title;
+
+		while ( this.content.hasChildNodes() ) {
+			this.content.removeChild( this.content.firstChild );
+		}
+		this.content.appendChild( content );
 
 	}
 

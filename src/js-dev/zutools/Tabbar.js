@@ -4,7 +4,7 @@ ZUTOOLS.Tabbar = function () {
 	this.div.style.position = 'absolute';
 	document.body.appendChild( this.div );
 
-	this.tabs = new Array();
+	this.tabs = new Object();
 
 };
 
@@ -19,7 +19,7 @@ ZUTOOLS.Tabbar.prototype = {
 
 		var left = 0;
 
-		for ( var i = 0; i < this.tabs.length; i++ ) {
+		for ( var i in this.tabs ) {
 
 			left = this.tabs[ i ].setPosition( left );
 
@@ -27,16 +27,16 @@ ZUTOOLS.Tabbar.prototype = {
 
 	},
 
-	addTab: function ( title, content ) {
+	addTab: function ( name ) {
 
-		var tab = new ZUTOOLS.Tab( this, title, content );
-		this.tabs.push( tab );
+		var tab = new ZUTOOLS.Tab( this );
+		this.tabs[ name ] = tab;
 
 	},
 
 	closeAll: function () {
 
-		for ( var i = 0; i < this.tabs.length; i++ ) {
+		for ( var i in this.tabs ) {
 
 			this.tabs[ i ].close();
 

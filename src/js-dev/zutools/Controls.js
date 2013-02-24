@@ -1,4 +1,4 @@
-ZUTOOLS.Controls = function ( title ) {
+ZUTOOLS.Controls = function () {
 
 	var self = this;
 
@@ -12,7 +12,6 @@ ZUTOOLS.Controls = function ( title ) {
 	document.body.appendChild( this.div );
 
 	this.title = document.createElement( 'div' );
-	this.title.innerHTML = title;
 	this.title.setAttribute( 'class', 'controltitle action topcorners pointer' );
 	this.title.style.padding = '8px';
 	this.div.appendChild( this.title );
@@ -103,6 +102,12 @@ ZUTOOLS.Controls.prototype = {
 	addDigit: function ( x, y, smaller, events ) {
 
 		return new ZUTOOLS.Digit( this.svg, x, y, smaller, events );
+
+	},
+
+	setTitle: function ( title ) {
+
+		this.title.innerHTML = title;
 
 	}
 

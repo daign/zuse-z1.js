@@ -1,7 +1,6 @@
 ZUSE.InitZutools = function () {
 
 	SIMULATION.gui = new ZUTOOLS.LayoutManager( {
-		title: 'Z1 Adder',
 		path: 'projects/adder/',
 		standard_language: 'en',
 		languages: { en: 'English', de: 'Deutsch' },

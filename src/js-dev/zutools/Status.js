@@ -6,10 +6,7 @@ ZUTOOLS.Status = function () {
 
 	this.states = new Array();
 
-	this.addState( '1. Input' );
-	this.addState( '2. Compute Carryover' );
-	this.addState( '3. Compute Result' );
-	this.addState( '4. Reset' );
+	this.addStates( 4 );
 
 	this.activate( 0 );
 
@@ -26,13 +23,16 @@ ZUTOOLS.Status.prototype = {
 
 	},
 
-	addState: function ( text ) {
+	addStates: function ( n ) {
 
-		var state = document.createElement( 'div' );
-		state.innerHTML = text;
-		state.setAttribute( 'class', 'stat' );
-		this.div.appendChild( state );
-		this.states.push( state );
+		for ( var i = 0; i < n; i++ ) {
+
+			var state = document.createElement( 'div' );
+			state.setAttribute( 'class', 'stat' );
+			this.div.appendChild( state );
+			this.states.push( state );
+
+		}
 
 	},
 
@@ -45,6 +45,12 @@ ZUTOOLS.Status.prototype = {
 		};
 
 		this.states[ n ].setAttribute( 'class', 'stat statActive' );
+
+	},
+
+	setStateText: function ( i, text ) {
+
+		this.states[ i ].innerHTML = text;
 
 	}
 
