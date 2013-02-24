@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Tools - Deutsch</title>
+	<meta charset="utf-8"/>
+
+	<style>
+		body { font-family: sans-serif; background: #ddd; margin: 20px; }
+		body div { display: inline-block; background: #fff; margin: 4px; padding: 8px; }
+		body div span { display: block; }
+		body div img { width: 100px; }
+	</style>
+
+</head>
+<body>
+
+<div id="home">
+	<span>Home</span>
+	<img src="../home.svg" />
+</div>
+
+<div id="back">
+	<span>Schritt zurück</span>
+	<img src="../back.svg" />
+</div>
+
+<div id="replay">
+	<span>Letzten Schritt wiederholen</span>
+	<img src="../replay.svg" />
+</div>
+
+<div id="forward">
+	<span>Nächster Schritt</span>
+	<img src="../forward.svg" />
+</div>
+
+<div id="layerA">
+	<span>Layer A expandieren</span>
+	<img src="../layerA.svg" />
+</div>
+
+<div id="layerB">
+	<span>Layer B expandieren</span>
+	<img src="../layerB.svg" />
+</div>
+
+<div id="layerC">
+	<span>Layer C expandieren</span>
+	<img src="../layerC.svg" />
+</div>
+
+<div id="layerD">
+	<span>Layer D expandieren</span>
+	<img src="../layerD.svg" />
+</div>
+
+<div id="clip">
+	<span>Auswahl aktivieren</span>
+	<img src="../clip.svg" />
+</div>
+
+<div id="clipReset">
+	<span>Auswahl zurücksetzen</span>
+	<img src="../clipReset.svg" />
+</div>
+
+<div id="viewReset">
+	<span>Ansicht zurücksetzen</span>
+	<img src="../viewReset.svg" />
+</div>
+
+<div id="highlight">
+	<span>Bewegende Teile markieren</span>
+	<img src="../highlight.svg" />
+</div>
+
+<div id="select">
+	<span>Beliebige Teile markieren</span>
+	<img src="../select.svg" />
+</div>
+
+</body>
+</html>
+
