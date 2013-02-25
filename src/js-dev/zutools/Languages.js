@@ -23,24 +23,37 @@ ZUTOOLS.Languages.prototype = {
 			shortcut = this.config.standard;
 		}
 
-		var file = this.config.versions[ shortcut ];
-		var fileContent = ZUTOOLS.Utils.loadXML( this.config.path + file + '.xml' );
+		var file = this.config.versions[ shortcut ] + '.xml';
 
-		var body = fileContent.lastChild.lastElementChild;
-		this.store = new Object();
+		this.textStore = new Object();
+		this.fillStore( this.config.path + file, this.textStore );
+		this.textStore.logic[ 1 ] = ZUTOOLS.Utils.loadXML( 'projects/adder/circuit.svg' ).lastChild;
 
-		for ( var i = 0; i < body.childElementCount; i++ ) {
+		this.toolStore = new Object();
+		this.fillStore( 'images/icons/languages/' + file, this.toolStore, true );
 
-			var array = new Array();
-			array.push( body.children[ i ].children[ 0 ].innerHTML );
-			for ( var j = 1; j < body.children[ i ].childElementCount; j++ ) {
-				array.push( body.children[ i ].children[ j ] );
+	},
+
+	fillStore: function ( file, store, titleOnly ) {
+
+		var dom = ZUTOOLS.Utils.loadXML( file ).lastChild.lastElementChild;
+
+		for ( var i = 0; i < dom.childElementCount; i++ ) {
+
+			var node = dom.children[ i ];
+			var id = node.id;
+
+			store[ id ] = [ node.children[ 0 ].innerHTML ];
+
+			if ( !titleOnly ) {
+
+				for ( var j = 1; j < node.childElementCount; j++ ) {
+					store[ id ].push( node.children[ j ] );
+				}
+
 			}
-			this.store[ body.children[ i ].id ] = array;
 
 		}
-
-		this.store.logic[ 1 ] = ZUTOOLS.Utils.loadXML( 'projects/adder/circuit.svg' ).lastChild;
 
 	},
 
@@ -48,11 +61,17 @@ ZUTOOLS.Languages.prototype = {
 
 		if ( n ) {
 
-			return this.store[ id ][ n ];
+			return this.textStore[ id ][ n ];
 
 		}
 
-		return this.store[ id ];
+		return this.textStore[ id ];
+
+	},
+
+	getTool: function ( id ) {
+
+		return this.toolStore[ id ][ 0 ];
 
 	}
 

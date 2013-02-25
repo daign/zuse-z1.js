@@ -2,7 +2,7 @@ ZUTOOLS.LayoutManager = function ( config ) {
 
 	var self = this;
 
-	this.toolbar   = new ZUTOOLS.Toolbar();
+	this.toolbar   = new ZUTOOLS.Toolbar( config.tools );
 	this.separator = new ZUTOOLS.Separator( this );
 	this.webgl     = new ZUTOOLS.WebGL();
 	this.status    = new ZUTOOLS.Status();
@@ -104,6 +104,10 @@ ZUTOOLS.LayoutManager.prototype = {
 
 		for ( var i in this.tabbar.tabs ) {
 			this.tabbar.tabs[ i ].setContent( this.lang.get( i ) );
+		}
+
+		for ( var i in this.toolbar.toolsByName ) {
+			this.toolbar.toolsByName[ i ].setTooltip( this.lang.getTool( i ) );
 		}
 
 		this.setSizes();

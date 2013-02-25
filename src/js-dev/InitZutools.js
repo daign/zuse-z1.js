@@ -1,14 +1,5 @@
 ZUSE.InitZutools = function () {
 
-	SIMULATION.gui = new ZUTOOLS.LayoutManager( {
-		languages: {	path: 'projects/adder/languages/',
-						standard: 'en',
-						versions: {	en: 'English',
-									de: 'Deutsch' }
-		},
-		tabs: [ 'logic', 'options', 'selection', 'imprint' ]
-	} );
-
 	var back		= {	click:		function () { ZUSE.adderObj.cycleControl.cycleBackwards(); },
 						mouseover:	function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },
 						mouseout:	function () { ZUSE.adderObj.cycleControl.preHighlightOff(); } };
@@ -29,21 +20,33 @@ ZUSE.InitZutools = function () {
 	var viewReset	= { click:		function () { SIMULATION.gui.webgl.camera.controls.reset(); } };
 	var highlight	= { click:		function () { ZUSE.adderObj.cycleControl.switchHighlighting(); } };
 	var select		= { click:		function () { ZUSE.adderObj.switchSelectables2(); } };
-	var foo			= {	click:		function () { ; } };
 
-//	SIMULATION.gui.toolbar.addTool( 0, 'home',		foo,       false, 'Home'						).disable();
-	SIMULATION.gui.toolbar.addTool( 1, 'back',		back,      false, 'Step Back'					).disable();
-	SIMULATION.gui.toolbar.addTool( 1, 'replay',	replay,    false, 'Repeat Last Step'			).disable();
-	SIMULATION.gui.toolbar.addTool( 1, 'forward',	forward,   false, 'Next Step'					);
-	SIMULATION.gui.toolbar.addTool( 2, 'layerA',	layerA,    true,  'Expand Layer A'				);
-	SIMULATION.gui.toolbar.addTool( 2, 'layerB',	layerB,    true,  'Expand Layer B'				);
-	SIMULATION.gui.toolbar.addTool( 2, 'layerC',	layerC,    true,  'Expand Layer C'				);
-	SIMULATION.gui.toolbar.addTool( 2, 'layerD',	layerD,    true,  'Expand Layer D'				);
-	SIMULATION.gui.toolbar.addTool( 3, 'clip',		clip,      true,  'Activate Selection'			);
-	SIMULATION.gui.toolbar.addTool( 3, 'clipReset',	clipReset, false, 'Reset Selection'				);
-	SIMULATION.gui.toolbar.addTool( 4, 'viewReset',	viewReset, false, 'Reset View'					);
-	SIMULATION.gui.toolbar.addTool( 4, 'highlight',	highlight, true,  'Highlight Moving Elements'	).switchActivation();
-	SIMULATION.gui.toolbar.addTool( 4, 'select',	select,    true,  'Pointing at Elements'		);
+	SIMULATION.gui = new ZUTOOLS.LayoutManager( {
+		languages: {	path: 'projects/adder/languages/',
+						standard: 'en',
+						versions: {	en: 'English',
+									de: 'Deutsch' }
+		},
+		tabs: [ 'logic', 'options', 'selection', 'imprint' ],
+		tools: [
+			[ 1, 'back',		back,      false ],
+			[ 1, 'replay',		replay,    false ],
+			[ 1, 'forward',		forward,   false ],
+			[ 2, 'layerA',		layerA,    true  ],
+			[ 2, 'layerB',		layerB,    true  ],
+			[ 2, 'layerC',		layerC,    true  ],
+			[ 2, 'layerD',		layerD,    true  ],
+			[ 3, 'clip',		clip,      true  ],
+			[ 3, 'clipReset',	clipReset, false ],
+			[ 4, 'viewReset',	viewReset, false ],
+			[ 4, 'highlight',	highlight, true  ],
+			[ 4, 'select',		select,    true  ]
+		]
+	} );
+
+	SIMULATION.gui.toolbar.toolsByName.back.disable();
+	SIMULATION.gui.toolbar.toolsByName.replay.disable();
+	SIMULATION.gui.toolbar.toolsByName.highlight.switchActivation();
 
 	var a3 = {	click:		function () { return ZUSE.adderObj.cycleControl.switchInput( "A3", null ); },
 				mouseover:	function () { ZUSE.adderObj.highlightPart( [ 'In', 'A3' ], 2, true ); },

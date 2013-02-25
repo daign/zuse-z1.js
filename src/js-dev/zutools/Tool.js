@@ -1,4 +1,4 @@
-ZUTOOLS.Tool = function ( parent, icon, events, activatable, tooltip ) {
+ZUTOOLS.Tool = function ( parent, icon, events, activatable ) {
 
 	var self = this;
 
@@ -13,10 +13,8 @@ ZUTOOLS.Tool = function ( parent, icon, events, activatable, tooltip ) {
 	this.group.setAttribute( 'class', 'tool' );
 	parent.svg.appendChild( this.group );
 
-	var title = document.createElementNS( ZUTOOLS.Utils.SVG, 'title' );
-	var titleText = document.createTextNode( tooltip );
-	title.appendChild( titleText );
-	this.group.appendChild( title );
+	this.title = document.createElementNS( ZUTOOLS.Utils.SVG, 'title' );
+	this.group.appendChild( this.title );
 
 	this.rectangle = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
 	this.rectangle.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#tool' );
@@ -79,6 +77,16 @@ ZUTOOLS.Tool.prototype = {
 		this.disabled = ( b === undefined ) ? true : b;
 		this.group.setAttribute( 'class', this.disabled ? 'toolDisabled' : 'tool' );
 		this.tick.setAttribute(  'class', this.disabled ? 'tickDisabled' : 'tick' );
+
+	},
+
+	setTooltip: function ( text ) {
+
+		while ( this.title.hasChildNodes() ) {
+			this.title.removeChild( this.title.firstChild );
+		}
+		var titleText = document.createTextNode( text );
+		this.title.appendChild( titleText );
 
 	}
 
