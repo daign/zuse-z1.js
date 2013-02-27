@@ -14,8 +14,8 @@
 			.tool:hover {   fill: url(#grad2); stroke: #3283a9; }
 			.tool:active {  fill: url(#grad3); stroke: #3d9ecb; }
 			.toolDisabled { fill: url(#grad4); stroke: #987;    stroke-width: 1; }
-			.tick {         fill: #4fcf0f;     stroke: #135e7c; stroke-width: 0.6; stroke-linejoin: round; }
-			.tickDisabled {	fill: #dcb;        stroke: #987;    stroke-width: 0.6; stroke-linejoin: round; }
+			.tick {         fill: #4fcf0f;     stroke: #135e7c; stroke-width: 0.6; stroke-linejoin: round; pointer-events: none; }
+			.tickDisabled {	fill: #dcb;        stroke: #987;    stroke-width: 0.6; stroke-linejoin: round; pointer-events: none; }
 		</style>
 		<radialGradient id="grad1" cx="50%" cy="-100%" r="200%" fx="50%" fy="0%">
 			<stop offset="0%"   style="stop-color: #3d9ecb; stop-opacity: 1;" />

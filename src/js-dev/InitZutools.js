@@ -29,18 +29,23 @@ ZUSE.InitZutools = function () {
 		},
 		tabs: [ 'logic', 'options', 'selection', 'imprint' ],
 		tools: [
-			[ 1, 'back',		back,      false ],
-			[ 1, 'replay',		replay,    false ],
-			[ 1, 'forward',		forward,   false ],
-			[ 2, 'layerA',		layerA,    true  ],
-			[ 2, 'layerB',		layerB,    true  ],
-			[ 2, 'layerC',		layerC,    true  ],
-			[ 2, 'layerD',		layerD,    true  ],
-			[ 3, 'clip',		clip,      true  ],
-			[ 3, 'clipReset',	clipReset, false ],
-			[ 4, 'viewReset',	viewReset, false ],
-			[ 4, 'highlight',	highlight, true  ],
-			[ 4, 'select',		select,    true  ]
+			[
+				[ 'back',		back,      false ],
+				[ 'replay',		replay,    false ],
+				[ 'forward',	forward,   false ]
+			], [
+				[ 'layerA',		layerA,    true  ],
+				[ 'layerB',		layerB,    true  ],
+				[ 'layerC',		layerC,    true  ],
+				[ 'layerD',		layerD,    true  ]
+			], [
+				[ 'clip',		clip,      true  ],
+				[ 'clipReset',	clipReset, false ]
+			], [
+				[ 'viewReset',	viewReset, false ],
+				[ 'highlight',	highlight, true  ],
+				[ 'select',		select,    true  ]
+			]
 		]
 	} );
 

@@ -2,13 +2,15 @@ ZUTOOLS.LayoutManager = function ( config ) {
 
 	var self = this;
 
-	this.toolbar   = new ZUTOOLS.Toolbar( config.tools );
+	this.popup     = new ZUTOOLS.Popup();
+	this.toolbar   = new ZUTOOLS.Toolbar( config.tools, this.popup );
 	this.separator = new ZUTOOLS.Separator( this );
 	this.webgl     = new ZUTOOLS.WebGL();
 	this.status    = new ZUTOOLS.Status();
 	this.controls  = new ZUTOOLS.Controls();
 	this.tabbar    = new ZUTOOLS.Tabbar( config.tabs );
 	this.lang      = new ZUTOOLS.Languages( config.languages );
+	this.popup.append();
 
 	this.width  = window.innerWidth;
 	this.height = window.innerHeight;

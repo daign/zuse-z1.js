@@ -29,6 +29,7 @@ body { font-family: sans-serif; color:#000; background-color: #ffffff; margin: 0
 .bigpadding		{ padding-bottom: 50px; }
 .pointer		{ cursor: pointer; }
 
+.icon		{ fill: #f5f3e5; stroke: none; pointer-events: none; }
 .digit		{ cursor: default; }
 .digitShow	{ cursor: default; }
 .digitInput	{ cursor: pointer; }
@@ -42,4 +43,5 @@ body { font-family: sans-serif; color:#000; background-color: #ffffff; margin: 0
 
 .stat		{ color: #bbb; width: 250px; height: 25px; font-size: 16px; }
 .statActive	{ color: #3d9ecb; font-weight:bold; }
+.popup		{ color: #a3cce0; background: #135e7c; padding: 8px; }
 

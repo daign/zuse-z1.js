@@ -1,4 +1,4 @@
-ZUTOOLS.Toolbar = function ( config ) {
+ZUTOOLS.Toolbar = function ( config, popup ) {
 
 	this.width = undefined;
 	this.height = undefined;
@@ -21,11 +21,20 @@ ZUTOOLS.Toolbar = function ( config ) {
 	this.tools = new Array();
 	this.toolsByName = new Object();
 
-	for ( var i = 0; i < config.length; i++ ) {
+	for ( var g = 0; g < config.length; g++ ) {
 
-		this.addTool( config[ i ] );
+		for ( var t = 0; t < config[ g ].length; t++ ) {
+
+			var name = config[ g ][ t ][ 0 ];
+			var tool = new ZUTOOLS.Tool( config[ g ][ t ], popup, this.svg );
+			this.tools.push( tool );
+			this.toolsByName[ name ] = tool;
+
+		}
 
 	}
+
+	this.shuffle();
 
 };
 
@@ -67,27 +76,6 @@ ZUTOOLS.Toolbar.prototype = {
 			this.tools[ i ].setSize( t, x, y );
 
 		}
-
-	},
-
-	addTool: function ( parameters ) {
-
-	//	var group		= parameters[ 0 ];
-		var name		= parameters[ 1 ];
-		var events		= parameters[ 2 ];
-		var activatable	= parameters[ 3 ];
-
-		var tool = new ZUTOOLS.Tool( this, name, events, activatable );
-		this.tools.push( tool );
-		this.toolsByName[ name ] = tool;
-		this.shuffle();
-
-/*		if ( this.tools[ group ] === undefined ) {
-			this.tools[ group ] = new Array();
-		}
-		this.tools[ group ].push( new ZUTOOLS.Tool( this ) ); */
-
-		return tool;
 
 	}
 

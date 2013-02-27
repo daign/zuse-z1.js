@@ -1,17 +1,19 @@
-ZUTOOLS.Tool = function ( parent, icon, events, activatable ) {
+ZUTOOLS.Tool = function ( param, popup, svg ) {
 
 	var self = this;
+	this.popup = popup;
 
-	this.activatable = activatable;
+	this.footext = '';
+	this.activatable = param[ 2 ];
 	this.activated = false;
 	this.disabled = false;
-	this.events = events;
+	this.events = param[ 1 ];
 
-	parent.svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + icon + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
+	svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + param[ 0 ] + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
 
 	this.group = document.createElementNS( ZUTOOLS.Utils.SVG, 'g' );
 	this.group.setAttribute( 'class', 'tool' );
-	parent.svg.appendChild( this.group );
+	svg.appendChild( this.group );
 
 	this.title = document.createElementNS( ZUTOOLS.Utils.SVG, 'title' );
 	this.group.appendChild( this.title );
@@ -21,9 +23,8 @@ ZUTOOLS.Tool = function ( parent, icon, events, activatable ) {
 	this.group.appendChild( this.rectangle );
 
 	this.icon = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
-	this.icon.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#' + icon );
-	this.icon.setAttribute( 'fill', '#f5f3e5' );
-	this.icon.setAttribute( 'stroke', 'none' );
+	this.icon.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#' + param[ 0 ] );
+	this.icon.setAttribute( 'class', 'icon' );
 	this.group.appendChild( this.icon );
 
 	this.tick = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
@@ -34,14 +35,40 @@ ZUTOOLS.Tool = function ( parent, icon, events, activatable ) {
 
 	this.group.addEventListener( 'click', onClick, false );
 
-	if ( events.mouseover ) { this.group.addEventListener( 'mouseover', events.mouseover, false ); }
-	if ( events.mouseout )  { this.group.addEventListener( 'mouseout',  events.mouseout,  false ); }
+	if ( this.events.mouseover ) { this.group.addEventListener( 'mouseover', this.events.mouseover, false ); }
+	if ( this.events.mouseout )  { this.group.addEventListener( 'mouseout',  this.events.mouseout,  false ); }
 
 	function onClick() {
 
 		if ( self.disabled ) { return; }
 		if ( self.activatable ) { self.switchActivation(); }
 		self.events.click();
+
+	}
+
+	this.group.addEventListener( 'mouseover', onMouseover, false );
+	this.group.addEventListener( 'mouseout', onMouseout, false );
+
+	function onMouseover( e ) {
+
+		if (self.timer === undefined ) {
+			//console.log("setting timer");
+			self.timer = setTimeout( foo, 500 );
+		}
+
+		function foo() {
+			self.popup.div.innerHTML = self.footext;
+			self.popup.show();
+		}
+
+	}
+
+	function onMouseout() {
+
+		clearTimeout( self.timer );
+		//console.log( "timer " + self.timer + " cleared" );
+		self.timer = undefined;
+		self.popup.hide();
 
 	}
 
@@ -82,6 +109,7 @@ ZUTOOLS.Tool.prototype = {
 
 	setTooltip: function ( text ) {
 
+		this.footext = text;
 		while ( this.title.hasChildNodes() ) {
 			this.title.removeChild( this.title.firstChild );
 		}
