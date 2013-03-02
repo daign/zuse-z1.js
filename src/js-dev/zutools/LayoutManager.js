@@ -10,7 +10,6 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	this.controls  = new ZUTOOLS.Controls();
 	this.tabbar    = new ZUTOOLS.Tabbar( config.tabs );
 	this.lang      = new ZUTOOLS.Languages( config.languages );
-	this.popup.append();
 
 	this.width  = window.innerWidth;
 	this.height = window.innerHeight;

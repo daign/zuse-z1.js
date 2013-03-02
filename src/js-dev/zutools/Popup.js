@@ -2,23 +2,16 @@ ZUTOOLS.Popup = function () {
 
 	this.div = document.createElement( 'div' );
 	this.div.style.position = 'absolute';
-	this.div.setAttribute( 'class', 'popup bottomcorners topcorners' );
+	this.div.setAttribute( 'class', 'popup bottomcorners topcorners small' );
+	this.div.style.zIndex = 3;
 	this.hide();
-
-	this.div.innerHTML = "Popup";
-	this.setPosition( 100, 100 );
+	document.body.appendChild( this.div );
 
 };
 
 ZUTOOLS.Popup.prototype = {
 
 	constructor: ZUTOOLS.Popup,
-
-	append: function () {
-
-		document.body.appendChild( this.div );
-
-	},
 
 	setPosition: function ( top, left ) {
 
@@ -27,16 +20,15 @@ ZUTOOLS.Popup.prototype = {
 
 	},
 
-	show: function () {
+	show: function ( x, y, f ) {
 
-		//console.log( 'showing' );
+		this.setPosition( (y+1)*f, (x+23)*f );
 		this.div.style.display = 'block';
 
 	},
 
 	hide: function () {
 
-		//console.log( 'hiding' );
 		this.div.style.display = 'none';
 
 	}

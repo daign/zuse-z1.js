@@ -15,9 +15,6 @@ ZUTOOLS.Tool = function ( param, popup, svg ) {
 	this.group.setAttribute( 'class', 'tool' );
 	svg.appendChild( this.group );
 
-	this.title = document.createElementNS( ZUTOOLS.Utils.SVG, 'title' );
-	this.group.appendChild( this.title );
-
 	this.rectangle = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
 	this.rectangle.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#tool' );
 	this.group.appendChild( this.rectangle );
@@ -51,14 +48,14 @@ ZUTOOLS.Tool = function ( param, popup, svg ) {
 
 	function onMouseover( e ) {
 
-		if (self.timer === undefined ) {
+		if ( !self.disabled && self.timer === undefined ) {
 			//console.log("setting timer");
 			self.timer = setTimeout( foo, 500 );
 		}
 
 		function foo() {
 			self.popup.div.innerHTML = self.footext;
-			self.popup.show();
+			self.popup.show( self.x, self.y, self.f );
 		}
 
 	}
@@ -80,6 +77,9 @@ ZUTOOLS.Tool.prototype = {
 
 	setSize: function ( width, x, y ) {
 
+		this.x = x;
+		this.y = y;
+		this.f = width/24;
 		this.group.setAttribute( 'transform', 'scale(' + width/24 + ') translate(' + x + ',' + y + ')' );
 
 	},
@@ -110,11 +110,6 @@ ZUTOOLS.Tool.prototype = {
 	setTooltip: function ( text ) {
 
 		this.footext = text;
-		while ( this.title.hasChildNodes() ) {
-			this.title.removeChild( this.title.firstChild );
-		}
-		var titleText = document.createTextNode( text );
-		this.title.appendChild( titleText );
 
 	}
 
