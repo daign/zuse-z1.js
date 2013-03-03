@@ -44,10 +44,15 @@ ZUTOOLS.Popup.prototype = {
 	show: function () { this.span.style.display = 'block'; },
 	hide: function () { this.span.style.display = 'none'; },
 
-	setTooltip: function ( tooltip ) {
+	setTooltip: function ( content ) {
 
-		this.container.innerHTML = tooltip;
-		//this.container.innerHTML = tooltip + '<br/><br/><br/><input type="button" value="Klick"/>';
+		var text = content[ 0 ];
+		if ( content[ 1 ] !== null ) {
+			for ( var i in content[ 1 ] ) {
+				text += '<br/><input type="button" value="Klick"/>';
+			}
+		}
+		this.container.innerHTML = text;
 
 	},
 

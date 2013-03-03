@@ -21,12 +21,13 @@ ZUTOOLS.PopupTimer.prototype = {
 
 	constructor: ZUTOOLS.PopupTimer,
 
-	toolover: function ( getTooltip, getMetrics ) {
+	toolover: function ( getTooltip, getMetrics, hasInputs ) {
 
 		if ( this.timeout === undefined ) {
 
 			this.getTooltip = getTooltip;
 			this.getMetrics = getMetrics;
+			this.hasInputs = hasInputs;
 			this.timeoutFinished = false;
 			this.timeout = setTimeout( this.finish, 500 );
 
@@ -38,7 +39,7 @@ ZUTOOLS.PopupTimer.prototype = {
 
 		if ( this.timeoutFinished ) {
 
-			if ( event.toElement.id !== 'PopupBridge' ) {
+			if ( !this.hasInputs() || event.toElement.id !== 'PopupBridge' ) {
 				this.popup.hide();
 			}
 

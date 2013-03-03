@@ -9,6 +9,7 @@ ZUTOOLS.Tool = function ( param, timer, svg ) {
 	this.events = param[ 1 ];
 
 	this.tooltip = '';
+	this.inputs = param[ 3 ];
 	this.metrics = { x: 0, y: 0, width: 0 };
 
 	svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + param[ 0 ] + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
@@ -32,8 +33,9 @@ ZUTOOLS.Tool = function ( param, timer, svg ) {
 	this.tick.style.visibility = 'hidden';
 	this.group.appendChild( this.tick );
 
-	function getTooltip() { return self.tooltip; }
+	function getTooltip() { return [ self.tooltip, self.inputs ]; }
 	function getMetrics() { return self.metrics; }
+	function hasInputs()  { return self.inputs !== null; }
 
 	this.group.addEventListener( 'click',     onClick,     false );
 	this.group.addEventListener( 'mouseover', onMouseover, false );
@@ -51,7 +53,7 @@ ZUTOOLS.Tool = function ( param, timer, svg ) {
 
 		if ( self.disabled ) { return; }
 		if ( self.events.mouseover ) { self.events.mouseover(); }
-		self.timer.toolover( getTooltip, getMetrics );
+		self.timer.toolover( getTooltip, getMetrics, hasInputs );
 
 	}
 
