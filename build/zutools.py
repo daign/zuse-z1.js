@@ -14,6 +14,7 @@ FILES = "\
 	../src/js-dev/zutools/Tab.js\
 	../src/js-dev/zutools/Status.js\
 	../src/js-dev/zutools/Popup.js\
+	../src/js-dev/zutools/PopupTimer.js\
 	../src/js-dev/zutools/Utils.js"
 
 #LEVEL = "WHITESPACE_ONLY"

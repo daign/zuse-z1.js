@@ -1,13 +1,15 @@
-ZUTOOLS.Tool = function ( param, popup, svg ) {
+ZUTOOLS.Tool = function ( param, timer, svg ) {
 
 	var self = this;
-	this.popup = popup;
+	this.timer = timer;
 
-	this.footext = '';
 	this.activatable = param[ 2 ];
 	this.activated = false;
 	this.disabled = false;
 	this.events = param[ 1 ];
+
+	this.tooltip = '';
+	this.metrics = { x: 0, y: 0, width: 0 };
 
 	svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + param[ 0 ] + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
 
@@ -30,10 +32,12 @@ ZUTOOLS.Tool = function ( param, popup, svg ) {
 	this.tick.style.visibility = 'hidden';
 	this.group.appendChild( this.tick );
 
-	this.group.addEventListener( 'click', onClick, false );
+	function getTooltip() { return self.tooltip; }
+	function getMetrics() { return self.metrics; }
 
-	if ( this.events.mouseover ) { this.group.addEventListener( 'mouseover', this.events.mouseover, false ); }
-	if ( this.events.mouseout )  { this.group.addEventListener( 'mouseout',  this.events.mouseout,  false ); }
+	this.group.addEventListener( 'click',     onClick,     false );
+	this.group.addEventListener( 'mouseover', onMouseover, false );
+	this.group.addEventListener( 'mouseout',  onMouseout,  false );
 
 	function onClick() {
 
@@ -43,29 +47,19 @@ ZUTOOLS.Tool = function ( param, popup, svg ) {
 
 	}
 
-	this.group.addEventListener( 'mouseover', onMouseover, false );
-	this.group.addEventListener( 'mouseout', onMouseout, false );
+	function onMouseover() {
 
-	function onMouseover( e ) {
-
-		if ( !self.disabled && self.timer === undefined ) {
-			//console.log("setting timer");
-			self.timer = setTimeout( foo, 500 );
-		}
-
-		function foo() {
-			self.popup.div.innerHTML = self.footext;
-			self.popup.show( self.x, self.y, self.f );
-		}
+		if ( self.disabled ) { return; }
+		if ( self.events.mouseover ) { self.events.mouseover(); }
+		self.timer.toolover( getTooltip, getMetrics );
 
 	}
 
-	function onMouseout() {
+	function onMouseout( event ) {
 
-		clearTimeout( self.timer );
-		//console.log( "timer " + self.timer + " cleared" );
-		self.timer = undefined;
-		self.popup.hide();
+		if ( self.disabled ) { return; }
+		if ( self.events.mouseout ) { self.events.mouseout(); }
+		self.timer.toolout( event );
 
 	}
 
@@ -75,11 +69,9 @@ ZUTOOLS.Tool.prototype = {
 
 	constructor: ZUTOOLS.Tool,
 
-	setSize: function ( width, x, y ) {
+	setSize: function ( x, y, width ) {
 
-		this.x = x;
-		this.y = y;
-		this.f = width/24;
+		this.metrics = { x: x, y: y, factor: width/24 };
 		this.group.setAttribute( 'transform', 'scale(' + width/24 + ') translate(' + x + ',' + y + ')' );
 
 	},
@@ -109,7 +101,7 @@ ZUTOOLS.Tool.prototype = {
 
 	setTooltip: function ( text ) {
 
-		this.footext = text;
+		this.tooltip = text;
 
 	}
 

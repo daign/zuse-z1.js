@@ -1,4 +1,4 @@
-ZUTOOLS.Toolbar = function ( config, popup ) {
+ZUTOOLS.Toolbar = function ( config, timer ) {
 
 	this.width = undefined;
 	this.height = undefined;
@@ -26,7 +26,7 @@ ZUTOOLS.Toolbar = function ( config, popup ) {
 		for ( var t = 0; t < config[ g ].length; t++ ) {
 
 			var name = config[ g ][ t ][ 0 ];
-			var tool = new ZUTOOLS.Tool( config[ g ][ t ], popup, this.svg );
+			var tool = new ZUTOOLS.Tool( config[ g ][ t ], timer, this.svg );
 			this.tools.push( tool );
 			this.toolsByName[ name ] = tool;
 
@@ -73,7 +73,7 @@ ZUTOOLS.Toolbar.prototype = {
 
 			var x = 1 + 24 * (i%c);
 			var y = 1 + 24 * Math.floor(i/c);
-			this.tools[ i ].setSize( t, x, y );
+			this.tools[ i ].setSize( x, y, t );
 
 		}
 
