@@ -1,9 +1,9 @@
-ZUTOOLS.PopupTimer = function () {
+ZUTOOLS.TooltipTimer = function () {
 
 	var self = this;
 	this.timeout = undefined;
 	this.timeoutFinished = false;
-	this.popup = new ZUTOOLS.Popup();
+	this.popup = new ZUTOOLS.Tooltip();
 
 	this.finish = function () {
 
@@ -17,9 +17,9 @@ ZUTOOLS.PopupTimer = function () {
 
 };
 
-ZUTOOLS.PopupTimer.prototype = {
+ZUTOOLS.TooltipTimer.prototype = {
 
-	constructor: ZUTOOLS.PopupTimer,
+	constructor: ZUTOOLS.TooltipTimer,
 
 	toolover: function ( getTooltip, getMetrics, hasInputs ) {
 
@@ -39,7 +39,7 @@ ZUTOOLS.PopupTimer.prototype = {
 
 		if ( this.timeoutFinished ) {
 
-			if ( !this.hasInputs() || event.toElement.id !== 'PopupBridge' ) {
+			if ( !this.hasInputs() || event.toElement.id !== 'TooltipBridge' ) {
 				this.popup.hide();
 			}
 

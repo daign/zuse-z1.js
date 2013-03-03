@@ -1,4 +1,4 @@
-ZUTOOLS.Popup = function () {
+ZUTOOLS.Tooltip = function () {
 
 	var self = this;
 
@@ -7,17 +7,17 @@ ZUTOOLS.Popup = function () {
 	this.hide();
 
 	this.bridge = document.createElement( 'div' );
-	this.bridge.id = 'PopupBridge';
-	this.bridge.setAttribute( 'class', 'popup' );
+	this.bridge.id = 'TooltipBridge';
+	this.bridge.setAttribute( 'class', 'tooltip' );
 	this.span.appendChild( this.bridge );
 
 	this.pointer = document.createElement( 'div' );
-	this.pointer.setAttribute( 'class', 'popup pointer diagonal' );
+	this.pointer.setAttribute( 'class', 'tooltip pointer diagonal' );
 	this.span.appendChild( this.pointer );
 
 	this.container = document.createElement( 'div' );
-	this.container.id = 'PopupContainer';
-	this.container.setAttribute( 'class', 'popup container topcorners bottomcorners' );
+	this.container.id = 'TooltipContainer';
+	this.container.setAttribute( 'class', 'tooltip container topcorners bottomcorners' );
 	this.span.appendChild( this.container );
 
 	this.span.addEventListener( 'mouseout', onMouseout, false );
@@ -26,8 +26,8 @@ ZUTOOLS.Popup = function () {
 
 		//console.log( event );
 
-		if (   event.toElement.id === 'PopupBridge'
-			|| event.toElement.id === 'PopupContainer'
+		if (   event.toElement.id === 'TooltipBridge'
+			|| event.toElement.id === 'TooltipContainer'
 			|| ( event.toElement.href && event.toElement.href.baseVal === '#tool' )
 		) { return; }
 
@@ -37,9 +37,9 @@ ZUTOOLS.Popup = function () {
 
 };
 
-ZUTOOLS.Popup.prototype = {
+ZUTOOLS.Tooltip.prototype = {
 
-	constructor: ZUTOOLS.Popup,
+	constructor: ZUTOOLS.Tooltip,
 
 	show: function () { this.span.style.display = 'block'; },
 	hide: function () { this.span.style.display = 'none'; },
