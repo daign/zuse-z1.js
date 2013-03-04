@@ -3,15 +3,15 @@ ZUTOOLS.TooltipTimer = function () {
 	var self = this;
 	this.timeout = undefined;
 	this.timeoutFinished = false;
-	this.popup = new ZUTOOLS.Tooltip();
+	this.tooltip = new ZUTOOLS.Tooltip();
 
 	this.finish = function () {
 
 		self.timeoutFinished = true;
 		self.timeout = undefined;
-		self.popup.setTooltip( self.getTooltip() );
-		self.popup.setMetrics( self.getMetrics() );
-		self.popup.show();
+		self.tooltip.setTooltip( self.getTooltip() );
+		self.tooltip.setMetrics( self.getMetrics() );
+		self.tooltip.show();
 
 	}
 
@@ -39,8 +39,10 @@ ZUTOOLS.TooltipTimer.prototype = {
 
 		if ( this.timeoutFinished ) {
 
-			if ( !this.hasInputs() || event.toElement.id !== 'TooltipBridge' ) {
-				this.popup.hide();
+			if ( !this.hasInputs() || !this.tooltip.isPartOfTooltip( event.toElement ) ) {
+				this.tooltip.hide();
+			} else {
+				this.tooltip.checkIfContentActive( event.toElement );
 			}
 
 		} else {
