@@ -34,7 +34,7 @@ ZUSE.InitZutools = function () {
 				[ 'replay',		replay,    false, null ],
 				[ 'forward',	forward,   false, null ]
 			], [
-				[ 'layerA',		layerA,    true,  [ { type: 'slider' } ] ],
+				[ 'layerA',		layerA,    true,  [ { type: 'button' }, { type: 'button' } ] ],
 				[ 'layerB',		layerB,    true,  [ { type: 'slider' }, { type: 'slider' } ] ],
 				[ 'layerC',		layerC,    true,  null ],
 				[ 'layerD',		layerD,    true,  null ]

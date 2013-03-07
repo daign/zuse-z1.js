@@ -2,8 +2,8 @@ ZUTOOLS.LayoutManager = function ( config ) {
 
 	var self = this;
 
-	this.timer     = new ZUTOOLS.TooltipTimer();
-	this.toolbar   = new ZUTOOLS.Toolbar( config.tools, this.timer );
+	this.tooltip   = new ZUTOOLS.TooltipManager();
+	this.toolbar   = new ZUTOOLS.Toolbar( config.tools, this.tooltip );
 	this.separator = new ZUTOOLS.Separator( this );
 	this.webgl     = new ZUTOOLS.WebGL();
 	this.status    = new ZUTOOLS.Status();

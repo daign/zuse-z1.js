@@ -65,5 +65,8 @@ body { font-family: sans-serif; color:#000; background-color: #ffffff; margin: 0
 .tooltip			{ position: absolute; z-index: 3; }
 .tooltip.frame		{ background: #092f3e; color: #a3cce0; padding: 8px; }
 .tooltip.pointer	{ background: #092f3e; pointer-events: none; }
+.contentpadding		{ padding: 4px; }
 .diagonal			{ -webkit-transform: rotate( 45deg ); }
+
+.handle			{ width: 40px; height: 40px; }
 

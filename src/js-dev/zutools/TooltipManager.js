@@ -1,4 +1,4 @@
-ZUTOOLS.TooltipTimer = function () {
+ZUTOOLS.TooltipManager = function () {
 
 	var self = this;
 	this.timeout = undefined;
@@ -17,9 +17,9 @@ ZUTOOLS.TooltipTimer = function () {
 
 };
 
-ZUTOOLS.TooltipTimer.prototype = {
+ZUTOOLS.TooltipManager.prototype = {
 
-	constructor: ZUTOOLS.TooltipTimer,
+	constructor: ZUTOOLS.TooltipManager,
 
 	toolover: function ( getTooltip, getMetrics, hasInputs ) {
 

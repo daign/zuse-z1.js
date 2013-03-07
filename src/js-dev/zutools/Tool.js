@@ -1,7 +1,7 @@
-ZUTOOLS.Tool = function ( param, timer, svg ) {
+ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 
 	var self = this;
-	this.timer = timer;
+	this.tooltipManager = tooltipManager;
 
 	this.activatable = param[ 2 ];
 	this.activated = false;
@@ -51,9 +51,10 @@ ZUTOOLS.Tool = function ( param, timer, svg ) {
 
 	function onMouseover() {
 
+		// TODO: some tools should be openable on click
 		if ( self.disabled ) { return; }
 		if ( self.events.mouseover ) { self.events.mouseover(); }
-		self.timer.toolover( getTooltip, getMetrics, hasInputs );
+		self.tooltipManager.toolover( getTooltip, getMetrics, hasInputs );
 
 	}
 
@@ -61,7 +62,7 @@ ZUTOOLS.Tool = function ( param, timer, svg ) {
 
 		if ( self.disabled ) { return; }
 		if ( self.events.mouseout ) { self.events.mouseout(); }
-		self.timer.toolout( event );
+		self.tooltipManager.toolout( event );
 
 	}
 

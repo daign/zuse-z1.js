@@ -23,6 +23,7 @@ ZUTOOLS.Tooltip = function () {
 
 	this.content = document.createElement( 'div' );
 	this.content.id = 'TooltipContent';
+	this.content.setAttribute( 'class', 'contentpadding' );
 	this.frame.appendChild( this.content );
 
 	this.span.addEventListener( 'mouseout', onMouseout, false );
@@ -63,12 +64,23 @@ ZUTOOLS.Tooltip.prototype = {
 	setTooltip: function ( content ) {
 
 		var text = content[ 0 ];
+		this.content.innerHTML = text;
+
 		if ( content[ 1 ] !== null ) {
 			for ( var i in content[ 1 ] ) {
-				text += '<br/><input type="button" value="Klick"/>';
+				var s;
+				switch ( content[ 1 ][ i ].type ) {
+					case 'button':
+						s = new ZUTOOLS.Button();
+						break;
+					case 'slider':
+						s = new ZUTOOLS.Slider();
+						break;
+				}
+				this.content.appendChild( s.domNode );
 			}
 		}
-		this.content.innerHTML = text;
+
 
 	},
 

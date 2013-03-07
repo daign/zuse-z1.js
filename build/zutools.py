@@ -14,7 +14,9 @@ FILES = "\
 	../src/js-dev/zutools/Tab.js\
 	../src/js-dev/zutools/Status.js\
 	../src/js-dev/zutools/Tooltip.js\
-	../src/js-dev/zutools/TooltipTimer.js\
+	../src/js-dev/zutools/TooltipManager.js\
+	../src/js-dev/zutools/Slider.js\
+	../src/js-dev/zutools/Button.js\
 	../src/js-dev/zutools/Utils.js"
 
 #LEVEL = "WHITESPACE_ONLY"

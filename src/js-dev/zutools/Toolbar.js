@@ -1,7 +1,8 @@
-ZUTOOLS.Toolbar = function ( config, timer ) {
+ZUTOOLS.Toolbar = function ( config, tooltipManager ) {
 
 	this.width = undefined;
 	this.height = undefined;
+	this.tooltipManager = tooltipManager;
 
 	this.div = document.createElement( 'div' );
 	this.div.style.position   = 'absolute';
@@ -26,7 +27,7 @@ ZUTOOLS.Toolbar = function ( config, timer ) {
 		for ( var t = 0; t < config[ g ].length; t++ ) {
 
 			var name = config[ g ][ t ][ 0 ];
-			var tool = new ZUTOOLS.Tool( config[ g ][ t ], timer, this.svg );
+			var tool = new ZUTOOLS.Tool( config[ g ][ t ], tooltipManager, this.svg );
 			this.tools.push( tool );
 			this.toolsByName[ name ] = tool;
 
@@ -54,6 +55,8 @@ ZUTOOLS.Toolbar.prototype = {
 	},
 
 	shuffle: function () {
+
+		this.tooltipManager.tooltip.hide();
 
 		var w = this.width - 1;
 		var h = this.height - 1;
