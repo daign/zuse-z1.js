@@ -1,13 +1,13 @@
-ZUTOOLS.Selection = function ( options, selected, onchange ) {
+ZUTOOLS.Selection = function ( settings ) {
 
 	var self = this;
-	this.selected = selected;
-	this.onchange = onchange;
+	this.selected = settings.selected;
+	this.onchange = settings.onchange;
 
 	this.domNode = document.createElement( 'div' );
 	this.buttons = new Object();
 
-	for ( var i in options ) {
+	for ( var i in settings.options ) {
 
 		( function () {
 
@@ -16,11 +16,11 @@ ZUTOOLS.Selection = function ( options, selected, onchange ) {
 				self.onselect( id );
 			};
 
-			var button = new ZUTOOLS.Button( options[ i ], callback );
+			var button = new ZUTOOLS.Button( { text: settings.options[ i ], onclick: callback } );
 			self.buttons[ id ] = button;
 			self.domNode.appendChild( button.domNode );
 
-			if ( i === selected ) { button.select(); }
+			if ( i === self.selected ) { button.select(); }
 
 		} )();
 

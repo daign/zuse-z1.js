@@ -1,11 +1,11 @@
-ZUTOOLS.Button = function ( text, onclick ) {
+ZUTOOLS.Button = function ( settings ) {
 
 	var self = this;
-	this.onclick = onclick;
+	this.onclick = settings.onclick;
 
 	this.domNode = document.createElement( 'div' );
 	this.domNode.setAttribute( 'class', 'button action corners small' );
-	this.domNode.innerHTML = text;
+	this.domNode.innerHTML = settings.text;
 
 	this.domNode.addEventListener( 'click', onClick, false );
 

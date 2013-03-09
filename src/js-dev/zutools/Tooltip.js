@@ -61,30 +61,12 @@ ZUTOOLS.Tooltip.prototype = {
 	show: function () { this.span.style.display = 'block'; },
 	hide: function () { this.span.style.display = 'none'; },
 
-	setTooltip: function ( content ) {
+	setContent: function ( content ) {
 
-		var text = content[ 0 ];
-		this.content.innerHTML = text;
+		this.content.innerHTML = content[ 0 ];
 
 		if ( content[ 1 ] !== null ) {
-			for ( var i in content[ 1 ] ) {
-
-				switch ( content[ 1 ][ i ].type ) {
-					case 'button':
-						var s = new ZUTOOLS.Button( content[ 1 ][ i ].text, content[ 1 ][ i ].onclick );
-						this.content.appendChild( s.domNode );
-						break;
-					case 'selection':
-						var s = new ZUTOOLS.Selection( content[ 1 ][ i ].options, content[ 1 ][ i ].selected, content[ 1 ][ i ].onchange );
-						this.content.appendChild( s.domNode );
-						break;
-					case 'slider':
-						var s = new ZUTOOLS.Slider();
-						this.content.appendChild( s.domNode );
-						break;
-				}
-
-			}
+			this.content.appendChild( content[ 1 ] );
 		}
 
 	},

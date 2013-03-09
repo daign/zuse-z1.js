@@ -8,8 +8,8 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.disabled = false;
 	this.events = param[ 1 ];
 
-	this.tooltip = '';
-	this.inputs = param[ 3 ];
+	this.title = '';
+	this.inputs = this.generateInputs( param[ 3 ] );
 	this.metrics = { x: 0, y: 0, width: 0 };
 
 	svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + param[ 0 ] + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
@@ -33,7 +33,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.tick.style.visibility = 'hidden';
 	this.group.appendChild( this.tick );
 
-	function getTooltip() { return [ self.tooltip, self.inputs ]; }
+	function getTooltip() { return [ self.title, self.inputs ]; }
 	function getMetrics() { return self.metrics; }
 	function hasInputs()  { return self.inputs !== null; }
 
@@ -104,7 +104,42 @@ ZUTOOLS.Tool.prototype = {
 
 	setTooltip: function ( text ) {
 
-		this.tooltip = text;
+		this.title = text;
+
+	},
+
+	generateInputs: function ( settings ) {
+
+		if ( settings !== null ) {
+
+			var container = document.createElement( 'div' );
+
+			for ( var i in settings ) {
+
+				switch ( settings[ i ].type ) {
+					case 'button':
+						var input = new ZUTOOLS.Button( settings[ i ] );
+						container.appendChild( input.domNode );
+						break;
+					case 'selection':
+						var input = new ZUTOOLS.Selection( settings[ i ] );
+						container.appendChild( input.domNode );
+						break;
+					case 'slider':
+						var input = new ZUTOOLS.Slider( settings[ i ] );
+						container.appendChild( input.domNode );
+						break;
+				}
+
+			}
+
+			return container;
+
+		} else {
+
+			return null;
+
+		}
 
 	}
 

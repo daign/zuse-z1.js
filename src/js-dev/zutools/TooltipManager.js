@@ -9,7 +9,7 @@ ZUTOOLS.TooltipManager = function () {
 
 		self.timeoutFinished = true;
 		self.timeout = undefined;
-		self.tooltip.setTooltip( self.getTooltip() );
+		self.tooltip.setContent( self.getTooltip() );
 		self.tooltip.setMetrics( self.getMetrics() );
 		self.tooltip.show();
 

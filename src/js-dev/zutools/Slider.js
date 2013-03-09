@@ -1,4 +1,4 @@
-ZUTOOLS.Slider = function () {
+ZUTOOLS.Slider = function ( settings ) {
 
 	var self = this;
 
