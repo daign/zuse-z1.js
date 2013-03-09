@@ -8,8 +8,14 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.disabled = false;
 	this.events = param[ 1 ];
 
-	this.title = '';
+	this.tooltipContent = document.createElement( 'div' );
+	this.title = document.createTextNode( '' );
+	this.tooltipContent.appendChild( this.title );
 	this.inputs = this.generateInputs( param[ 3 ] );
+	if ( this.inputs !== null ) {
+		this.tooltipContent.appendChild( this.inputs );
+	}
+
 	this.metrics = { x: 0, y: 0, width: 0 };
 
 	svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + param[ 0 ] + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
@@ -33,7 +39,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.tick.style.visibility = 'hidden';
 	this.group.appendChild( this.tick );
 
-	function getTooltip() { return [ self.title, self.inputs ]; }
+	function getTooltipContent() { return self.tooltipContent; }
 	function getMetrics() { return self.metrics; }
 	function hasInputs()  { return self.inputs !== null; }
 
@@ -54,7 +60,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 		// TODO: some tools should be openable on click
 		if ( self.disabled ) { return; }
 		if ( self.events && self.events.mouseover ) { self.events.mouseover(); }
-		self.tooltipManager.toolover( getTooltip, getMetrics, hasInputs );
+		self.tooltipManager.toolover( getTooltipContent, getMetrics, hasInputs );
 
 	}
 
@@ -104,7 +110,7 @@ ZUTOOLS.Tool.prototype = {
 
 	setTooltip: function ( text ) {
 
-		this.title = text;
+		this.title.nodeValue = text;
 
 	},
 

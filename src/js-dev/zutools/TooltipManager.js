@@ -9,7 +9,7 @@ ZUTOOLS.TooltipManager = function () {
 
 		self.timeoutFinished = true;
 		self.timeout = undefined;
-		self.tooltip.setContent( self.getTooltip() );
+		self.tooltip.setContent( self.getTooltipContent() );
 		self.tooltip.setMetrics( self.getMetrics() );
 		self.tooltip.show();
 
@@ -21,11 +21,11 @@ ZUTOOLS.TooltipManager.prototype = {
 
 	constructor: ZUTOOLS.TooltipManager,
 
-	toolover: function ( getTooltip, getMetrics, hasInputs ) {
+	toolover: function ( getTooltipContent, getMetrics, hasInputs ) {
 
 		if ( this.timeout === undefined ) {
 
-			this.getTooltip = getTooltip;
+			this.getTooltipContent = getTooltipContent;
 			this.getMetrics = getMetrics;
 			this.hasInputs = hasInputs;
 			this.timeoutFinished = false;

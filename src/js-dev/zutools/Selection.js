@@ -5,6 +5,7 @@ ZUTOOLS.Selection = function ( settings ) {
 	this.onchange = settings.onchange;
 
 	this.domNode = document.createElement( 'div' );
+	this.domNode.style.paddingTop = '10px';
 	this.buttons = new Object();
 
 	for ( var i in settings.options ) {

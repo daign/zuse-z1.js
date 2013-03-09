@@ -63,11 +63,10 @@ ZUTOOLS.Tooltip.prototype = {
 
 	setContent: function ( content ) {
 
-		this.content.innerHTML = content[ 0 ];
-
-		if ( content[ 1 ] !== null ) {
-			this.content.appendChild( content[ 1 ] );
+		while ( this.content.hasChildNodes() ) {
+			this.content.removeChild( this.content.firstChild );
 		}
+		this.content.appendChild( content );
 
 	},
 
