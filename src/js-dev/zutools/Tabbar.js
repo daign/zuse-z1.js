@@ -22,13 +22,15 @@ ZUTOOLS.Tabbar.prototype = {
 
 		this.div.style.top  = height + 'px';
 		this.div.style.left = left + 10 + 'px';
+		this.setConsecutiveSize();
+
+	},
+
+	setConsecutiveSize: function () {
 
 		var left = 0;
-
 		for ( var i in this.tabs ) {
-
 			left = this.tabs[ i ].setPosition( left );
-
 		}
 
 	},

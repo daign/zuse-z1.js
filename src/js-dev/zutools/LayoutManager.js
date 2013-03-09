@@ -2,6 +2,8 @@ ZUTOOLS.LayoutManager = function ( config ) {
 
 	var self = this;
 
+	config.tools[ 0 ].push( this.generateLanguageTool( config.languages, self ) );
+
 	this.tooltip   = new ZUTOOLS.TooltipManager();
 	this.toolbar   = new ZUTOOLS.Toolbar( config.tools, this.tooltip );
 	this.separator = new ZUTOOLS.Separator( this );
@@ -16,35 +18,9 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	this.columns = new Array();
 	this.setColumns( 0, this.width / 10 );
 	this.setColumns( 1, this.width / 50 );
+	this.setSizes();
 
 	this.fillWithTexts();
-
-/*
-	var b = document.createElement( 'input' );
-	b.style.position = 'absolute';
-	b.style.top      = '5px';
-	b.style.left     = '5px';
-	b.type = 'button';
-	b.value = 'Deutsch';
-	b.addEventListener( 'click', onClickDe, false );
-	document.body.appendChild( b );
-	function onClickDe() {
-		self.lang.setLanguage( 'de' );
-		self.fillWithTexts();
-	}
-	var c = document.createElement( 'input' );
-	c.style.position = 'absolute';
-	c.style.top      = '5px';
-	c.style.left     = '75px';
-	c.type = 'button';
-	c.value = 'English';
-	c.addEventListener( 'click', onClickEn, false );
-	document.body.appendChild( c );
-	function onClickEn() {
-		self.lang.setLanguage( 'en' );
-		self.fillWithTexts();
-	}
-*/
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
@@ -106,12 +82,25 @@ ZUTOOLS.LayoutManager.prototype = {
 		for ( var i in this.tabbar.tabs ) {
 			this.tabbar.tabs[ i ].setContent( this.lang.get( i ) );
 		}
+		this.tabbar.setConsecutiveSize();
 
 		for ( var i in this.toolbar.toolsByName ) {
 			this.toolbar.toolsByName[ i ].setTooltip( this.lang.getTool( i ) );
 		}
 
-		this.setSizes();
+	},
+
+	generateLanguageTool: function ( config, self ) {
+
+		return [ 'languages', null, false, [ {
+			type:     'selection',
+			options:  config.versions,
+			selected: config.standard,
+			onchange: function ( id ) {
+				self.lang.setLanguage( id );
+				self.fillWithTexts();
+			}
+		} ] ];
 
 	}
 

@@ -29,16 +29,7 @@ ZUSE.InitZutools = function () {
 		},
 		tabs: [ 'logic', 'options', 'selection', 'imprint' ],
 		tools: [
-			[
-				[ 'languages',	null,      false, [
-					{ type: 'selection', options: {
-						en: 'English',
-						de: 'Deutsch',
-						fr: 'Français',
-						es: 'Español'
-					}, selected: 'en', onchange: function ( id ) { console.log( id ); } }
-				] ]
-			], [
+			[], [
 				[ 'back',		back,      false, null ],
 				[ 'replay',		replay,    false, null ],
 				[ 'forward',	forward,   false, null ]
