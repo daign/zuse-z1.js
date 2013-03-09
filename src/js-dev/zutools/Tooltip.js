@@ -18,7 +18,7 @@ ZUTOOLS.Tooltip = function () {
 
 	this.frame = document.createElement( 'div' );
 	this.frame.id = 'TooltipFrame';
-	this.frame.setAttribute( 'class', 'tooltip frame topcorners bottomcorners' );
+	this.frame.setAttribute( 'class', 'tooltip frame corners small' );
 	this.span.appendChild( this.frame );
 
 	this.content = document.createElement( 'div' );
@@ -68,19 +68,24 @@ ZUTOOLS.Tooltip.prototype = {
 
 		if ( content[ 1 ] !== null ) {
 			for ( var i in content[ 1 ] ) {
-				var s;
+
 				switch ( content[ 1 ][ i ].type ) {
 					case 'button':
-						s = new ZUTOOLS.Button();
+						var s = new ZUTOOLS.Button( content[ 1 ][ i ].text, content[ 1 ][ i ].onclick );
+						this.content.appendChild( s.domNode );
+						break;
+					case 'selection':
+						var s = new ZUTOOLS.Selection( content[ 1 ][ i ].options, content[ 1 ][ i ].selected, content[ 1 ][ i ].onchange );
+						this.content.appendChild( s.domNode );
 						break;
 					case 'slider':
-						s = new ZUTOOLS.Slider();
+						var s = new ZUTOOLS.Slider();
+						this.content.appendChild( s.domNode );
 						break;
 				}
-				this.content.appendChild( s.domNode );
+
 			}
 		}
-
 
 	},
 

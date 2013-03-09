@@ -1,18 +1,17 @@
-ZUTOOLS.Button = function () {
+ZUTOOLS.Button = function ( text, onclick ) {
 
 	var self = this;
+	this.onclick = onclick;
 
 	this.domNode = document.createElement( 'div' );
+	this.domNode.setAttribute( 'class', 'button action corners small' );
+	this.domNode.innerHTML = text;
 
-	this.handle = document.createElement( 'div' );
-	this.handle.setAttribute( 'class', 'handle action' );
-	this.domNode.appendChild( this.handle );
-
-	this.handle.addEventListener( 'click', onClick, false );
+	this.domNode.addEventListener( 'click', onClick, false );
 
 	function onClick ( event ) {
 
-		console.log( 'Button Click' );
+		self.onclick();
 
 	}
 
@@ -20,7 +19,14 @@ ZUTOOLS.Button = function () {
 
 ZUTOOLS.Button.prototype = {
 
-	constructor: ZUTOOLS.Button
+	constructor: ZUTOOLS.Button,
+
+	select: function ( b ) {
+
+		b = ( b === undefined ) ? true : b;
+		this.domNode.setAttribute( 'class', 'button action corners small' + ( b ? ' selected' : '' ) );
+
+	}
 
 };
 

@@ -20,6 +20,11 @@
 	<img src="../home.svg" />
 </div>
 
+<div id="languages">
+	<span>Languages</span>
+	<img src="../languages.svg" />
+</div>
+
 <div id="back">
 	<span>Step Back</span>
 	<img src="../back.svg" />

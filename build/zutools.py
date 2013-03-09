@@ -17,6 +17,7 @@ FILES = "\
 	../src/js-dev/zutools/TooltipManager.js\
 	../src/js-dev/zutools/Slider.js\
 	../src/js-dev/zutools/Button.js\
+	../src/js-dev/zutools/Selection.js\
 	../src/js-dev/zutools/Utils.js"
 
 #LEVEL = "WHITESPACE_ONLY"
