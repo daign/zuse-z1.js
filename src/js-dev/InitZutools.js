@@ -40,8 +40,9 @@ ZUSE.InitZutools = function () {
 					{ type: 'button', text: 'Button', onclick: function () { console.log( 'A Click' ); } }
 				] ],
 				[ 'layerB',		layerB,    true,  [
-					{ type: 'slider' },
-					{ type: 'slider' }
+					{ type: 'slider', min: 0, max: 100, value:   0, on: function(v){console.log('S1: '+v);} },
+					{ type: 'slider', min: 0, max: 100, value:  10, on: function(v){console.log('S2: '+v);} },
+					{ type: 'slider', min: 0, max: 100, value: 100, on: function(v){console.log('S3: '+v);} }
 				] ],
 				[ 'layerC',		layerC,    true,  null ],
 				[ 'layerD',		layerD,    true,  null ]

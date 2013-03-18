@@ -125,6 +125,7 @@ ZUTOOLS.Tool.prototype = {
 		if ( settings !== null ) {
 
 			var container = document.createElement( 'div' );
+			container.setAttribute( 'class', 'inputcontainer' );
 
 			for ( var i in settings ) {
 

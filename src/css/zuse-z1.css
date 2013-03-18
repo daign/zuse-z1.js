@@ -82,6 +82,7 @@ body {
 .tooltip.frame   { background: #092f3e; color: #a3cce0; padding: 8px; }
 .tooltip.pointer { background: #092f3e; pointer-events: none; }
 .contentpadding  { padding: 4px; }
+.inputcontainer  { padding-top: 10px; }
 .diagonal        {
 	transform:         rotate( 45deg );
 	-webkit-transform: rotate( 45deg );
@@ -90,6 +91,9 @@ body {
 }
 
 .pointer, .button { cursor: pointer; }
-.handle           { width: 40px; height: 40px; }
-.button           { padding: 6px; color: #000; margin: 4px; }
+.button           { margin: 4px; padding: 6px; color: #000; }
+
+/* Slider */
+.slider { margin: 4px; width: 300px; padding-right: 30px; height: 30px; background: #135e7c; }
+.handle { width: 30px; height: 30px; position: relative; top: 0px; }
 
