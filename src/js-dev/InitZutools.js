@@ -29,7 +29,9 @@ ZUSE.InitZutools = function () {
 		},
 		tabs: [ 'logic', 'options', 'selection', 'imprint' ],
 		tools: [
-			[], [
+			[
+				[ 'home', null, false, null ]
+			], [
 				[ 'back',		back,      false, null ],
 				[ 'replay',		replay,    false, null ],
 				[ 'forward',	forward,   false, null ]

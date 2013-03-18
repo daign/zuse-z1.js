@@ -56,7 +56,7 @@ ZUTOOLS.Toolbar.prototype = {
 
 	shuffle: function () {
 
-		this.tooltipManager.tooltip.hide();
+		this.tooltipManager.hideTooltip();
 
 		var w = this.width - 1;
 		var h = this.height - 1;

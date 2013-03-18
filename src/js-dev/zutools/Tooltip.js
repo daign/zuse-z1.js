@@ -1,6 +1,7 @@
 ZUTOOLS.Tooltip = function () {
 
 	var self = this;
+	this.wasClicked = false;
 	this.contentActive = false;
 
 	this.span = document.createElement( 'span' );
@@ -30,7 +31,7 @@ ZUTOOLS.Tooltip = function () {
 
 	function onMouseout ( event ) {
 
-		if ( !self.contentActive ) {
+		if ( !self.wasClicked && !self.contentActive ) {
 
 			if ( !self.isTool( event.toElement ) && !self.isPartOfTooltip( event.toElement ) ) {
 				self.hide();
@@ -95,21 +96,23 @@ ZUTOOLS.Tooltip.prototype = {
 
 	isTool: function ( element ) {
 
-		return ( element.href && element.href.baseVal === '#tool' );
+		return ( element && element.href && element.href.baseVal === '#tool' );
 
 	},
 
 	isPartOfTooltip: function ( element ) {
 
-		return (   element.id === 'TooltipBridge'
-				|| element.id === 'TooltipFrame'
-				|| element.id === 'TooltipContent' );
+		return ( element && (
+			   element.id === 'TooltipBridge'
+			|| element.id === 'TooltipFrame'
+			|| element.id === 'TooltipContent'
+		) );
 
 	},
 
 	checkIfContentActive: function ( element ) {
 
-		if ( element.id === 'TooltipContent' ) {
+		if ( element && element.id === 'TooltipContent' ) {
 			this.contentActive = true;
 		}
 

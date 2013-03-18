@@ -3,6 +3,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	var self = this;
 	this.tooltipManager = tooltipManager;
 
+	this.id = param[ 0 ];
 	this.activatable = param[ 2 ];
 	this.activated = false;
 	this.disabled = false;
@@ -18,7 +19,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 
 	this.metrics = { x: 0, y: 0, width: 0 };
 
-	svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + param[ 0 ] + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
+	svg.appendChild( ZUTOOLS.Utils.loadXML( 'images/icons/' + this.id + '.svg' ).documentElement.firstElementChild.nextElementSibling.nextElementSibling );
 
 	this.group = document.createElementNS( ZUTOOLS.Utils.SVG, 'g' );
 	this.group.setAttribute( 'class', 'tool' );
@@ -29,7 +30,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.group.appendChild( this.rectangle );
 
 	this.icon = document.createElementNS( ZUTOOLS.Utils.SVG, 'use' );
-	this.icon.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#' + param[ 0 ] );
+	this.icon.setAttributeNS( ZUTOOLS.Utils.XLink, 'href', '#' + this.id );
 	this.icon.setAttribute( 'class', 'icon' );
 	this.group.appendChild( this.icon );
 
@@ -51,13 +52,18 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 
 		if ( self.disabled ) { return; }
 		if ( self.activatable ) { self.switchActivation(); }
-		if ( self.events && self.events.click ) { self.events.click(); }
+		if ( self.events && self.events.click ) {
+			self.events.click();
+			self.tooltipManager.toolclick();
+		} else {
+			// tooltip only opens on click when there is no other function associated with click
+			self.tooltipManager.toolclickopen( self.id, getTooltipContent, getMetrics, hasInputs );
+		}
 
 	}
 
 	function onMouseover() {
 
-		// TODO: some tools should be openable on click
 		if ( self.disabled ) { return; }
 		if ( self.events && self.events.mouseover ) { self.events.mouseover(); }
 		self.tooltipManager.toolover( getTooltipContent, getMetrics, hasInputs );

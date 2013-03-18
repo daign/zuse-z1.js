@@ -16,7 +16,7 @@
 <body>
 
 <div id="home">
-	<span>Home</span>
+	<span>Startseite</span>
 	<img src="../home.svg" />
 </div>
 
