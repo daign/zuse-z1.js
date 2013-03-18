@@ -129,18 +129,30 @@ ZUTOOLS.Tool.prototype = {
 			for ( var i in settings ) {
 
 				switch ( settings[ i ].type ) {
+
 					case 'button':
+
 						var input = new ZUTOOLS.Button( settings[ i ] );
 						container.appendChild( input.domNode );
 						break;
+
 					case 'selection':
-						var input = new ZUTOOLS.Selection( settings[ i ] );
+
+						var tooltipManager = this.tooltipManager;
+						var onselect = function () {
+							tooltipManager.toolclick();
+						};
+
+						var input = new ZUTOOLS.Selection( settings[ i ], onselect );
 						container.appendChild( input.domNode );
 						break;
+
 					case 'slider':
+
 						var input = new ZUTOOLS.Slider( settings[ i ] );
 						container.appendChild( input.domNode );
 						break;
+
 				}
 
 			}

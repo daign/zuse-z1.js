@@ -1,8 +1,9 @@
-ZUTOOLS.Selection = function ( settings ) {
+ZUTOOLS.Selection = function ( settings, onselect ) {
 
 	var self = this;
 	this.selected = settings.selected;
 	this.onchange = settings.onchange;
+	this.onselect = onselect;
 
 	this.domNode = document.createElement( 'div' );
 	this.domNode.style.paddingTop = '10px';
@@ -14,7 +15,7 @@ ZUTOOLS.Selection = function ( settings ) {
 
 			var id = i;
 			var callback = function () {
-				self.onselect( id );
+				self._onselect( id );
 			};
 
 			var button = new ZUTOOLS.Button( { text: settings.options[ i ], onclick: callback } );
@@ -41,7 +42,9 @@ ZUTOOLS.Selection.prototype = {
 
 	},
 
-	onselect: function ( id ) {
+	_onselect: function ( id ) {
+
+		this.onselect();
 
 		if ( id !== this.selected ) {
 

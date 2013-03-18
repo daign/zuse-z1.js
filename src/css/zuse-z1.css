@@ -1,14 +1,18 @@
-body { font-family: sans-serif; color:#000; background-color: #ffffff; margin: 0px; overflow: hidden; }
+body {
+	font-family: sans-serif;
+	color: #000;
+	background-color: #fff;
+	margin: 0px;
+	overflow: hidden;
+}
 
-.controltitle	{ font-size: x-large; font-weight: bold; }
-.col			{ cursor: col-resize; }
-.action         { background-color: #3d9ecb; }
-.action:hover   { background-color: #6eb6d8; }
-.action:active  { background-color: #a3cce0; }
+.action                 { background-color: #3d9ecb; }
+.action:hover           { background-color: #6eb6d8; }
+.action:active          { background-color: #a3cce0; }
 .action.selected        { background-color: #4fcf0f; }
 .action.selected:hover  { background-color: #7fe04f; }
 .action.selected:active { background-color: #9bf36f; }
-.closer			{ color: #ccc; }
+
 .topcorners, .corners {
 	-moz-border-radius-topleft:      10px;
 	-webkit-border-top-left-radius:  10px;
@@ -49,32 +53,43 @@ body { font-family: sans-serif; color:#000; background-color: #ffffff; margin: 0
 	-khtml-border-bottom-right-radius:  5px;
 	border-bottom-right-radius:         5px;
 }
-.topborder		{ border-top: 4px solid #3d9ecb; }
-.greybox		{ padding: 8px; background: #ddd; }
-.bigpadding		{ padding-bottom: 50px; }
-.pointer		{ cursor: pointer; }
 
-.icon		{ fill: #f5f3e5; stroke: none; pointer-events: none; }
-.digit		{ cursor: default; }
-.digitShow	{ cursor: default; }
-.digitInput	{ cursor: pointer; }
-.digit		rect	{ fill: none; }
-.digitShow	rect	{ fill: #ddd; }
-.digitInput	rect	{ fill: #fff; }
-.digitShow:hover	rect	{ fill: #6eb6d8; }
-.digitInput:hover	rect	{ fill: #6eb6d8; }
-.inputText	{ fill: #000; font-weight: bold; font-family: monospace; }
-.line		{ fill: none; stroke: #000; stroke-width: 2px; stroke-linecap: round; }
+.controltitle { font-size: x-large; font-weight: bold; }
+.col          { cursor: col-resize; }
+.closer       { color: #ccc; }
+.topborder    { border-top: 4px solid #3d9ecb; }
+.greybox      { padding: 8px; background: #ddd; }
+.bigpadding   { padding-bottom: 50px; }
 
-.stat		{ color: #bbb; width: 250px; height: 25px; font-size: 16px; }
-.statActive	{ color: #3d9ecb; font-weight:bold; }
+.icon       { fill: #f5f3e5; stroke: none; pointer-events: none; }
+.digit      { cursor: default; }
+.digitShow  { cursor: default; }
+.digitInput { cursor: pointer; }
+.digit      rect    { fill: none; }
+.digitShow  rect    { fill: #ddd; }
+.digitInput rect    { fill: #fff; }
+.digitShow:hover    rect    { fill: #6eb6d8; }
+.digitInput:hover   rect    { fill: #6eb6d8; }
+.inputText  { fill: #000; font-weight: bold; font-family: monospace; }
+.line       { fill: none; stroke: #000; stroke-width: 2px; stroke-linecap: round; }
 
-.tooltip			{ position: absolute; z-index: 3; }
-.tooltip.frame		{ background: #092f3e; color: #a3cce0; padding: 8px; }
-.tooltip.pointer	{ background: #092f3e; pointer-events: none; }
-.contentpadding		{ padding: 4px; }
-.diagonal			{ -webkit-transform: rotate( 45deg ); }
+/* Status */
+.stat       { color: #bbb; width: 250px; height: 25px; font-size: 16px; }
+.statActive { color: #3d9ecb; font-weight: bold; }
 
-.handle			{ width: 40px; height: 40px; }
-.button			{ padding: 6px; color: #000; margin: 4px; }
+/* Tooltip */
+.tooltip         { position: absolute; z-index: 3; }
+.tooltip.frame   { background: #092f3e; color: #a3cce0; padding: 8px; }
+.tooltip.pointer { background: #092f3e; pointer-events: none; }
+.contentpadding  { padding: 4px; }
+.diagonal        {
+	transform:         rotate( 45deg );
+	-webkit-transform: rotate( 45deg );
+	-moz-transform:    rotate( 45deg );
+	-o-transform:      rotate( 45deg );
+}
+
+.pointer, .button { cursor: pointer; }
+.handle           { width: 40px; height: 40px; }
+.button           { padding: 6px; color: #000; margin: 4px; }
 
