@@ -7,11 +7,6 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.value = settings.value;
 	this.on = settings.on;
 
-	//this.left = undefined;
-	this.leftStart = undefined;
-	this.resizeActive = false;
-	this.resizeStart = undefined;
-
 	this.domNode = document.createElement( 'div' );
 	this.domNode.setAttribute( 'class', 'slider corners small' );
 
@@ -21,33 +16,30 @@ ZUTOOLS.Slider = function ( settings ) {
 
 	this.handle.style.left = this.value + 'px';
 
-	this.handle.addEventListener( 'mousedown', onMouseDown, false );
-	document.addEventListener(    'mousemove', onMouseMove, false );
-	document.addEventListener(    'mouseup',   onMouseUp,   false );
+	this.handle.addEventListener( 'mousedown', beginDrag, false );
 
-	function onMouseDown( event ) {
+	function beginDrag( event ) {
 
-		self.leftStart = self.value;
-		self.resizeStart = event.clientX;
-		self.resizeActive = true;
+		var leftStart = self.value;
+		var resizeStart = event.clientX;
 
-	}
+		document.addEventListener( 'mousemove', continueDrag, false );
+		document.addEventListener( 'mouseup',   endDrag,      false );
 
-	function onMouseMove( event ) {
+		function continueDrag( event ) {
 
-		if ( self.resizeActive ) {
-
-			self.value = self.leftStart + event.clientX - self.resizeStart;
+			self.value = leftStart + event.clientX - resizeStart;
 			self.handle.style.left = self.value + 'px';
 			self.on( self.value );
 
 		}
 
-	}
+		function endDrag() {
 
-	function onMouseUp() {
+			document.removeEventListener( 'mousemove', continueDrag, false );
+			document.removeEventListener( 'mouseup',   endDrag,      false );
 
-		self.resizeActive = false;
+		}
 
 	}
 

@@ -90,8 +90,8 @@ body {
 	-o-transform:      rotate( 45deg );
 }
 
-.pointer, .button { cursor: pointer; }
-.button           { margin: 4px; padding: 6px; color: #000; }
+.pointer, .button, .handle { cursor: pointer; }
+.button { margin: 4px; padding: 6px; color: #000; }
 
 /* Slider */
 .slider { margin: 4px; width: 300px; padding-right: 30px; height: 30px; background: #135e7c; }
