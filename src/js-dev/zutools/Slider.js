@@ -2,10 +2,10 @@ ZUTOOLS.Slider = function ( settings ) {
 
 	var self = this;
 
-	//this.min = settings.min;
-	//this.max = settings.max;
+	this.min = settings.min;
+	this.max = settings.max;
 	this.value = settings.value;
-	this.on = settings.on;
+	this.onChange = settings.onChange;
 
 	this.domNode = document.createElement( 'div' );
 	this.domNode.setAttribute( 'class', 'slider corners small' );
@@ -14,23 +14,22 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.handle.setAttribute( 'class', 'handle action corners small' );
 	this.domNode.appendChild( this.handle );
 
-	this.handle.style.left = this.value + 'px';
+	this.setSlider();
 
 	this.handle.addEventListener( 'mousedown', beginDrag, false );
 
 	function beginDrag( event ) {
 
-		var leftStart = self.value;
-		var resizeStart = event.clientX;
+		var valueStart = self.value;
+		var dragStart = event.clientX;
 
 		document.addEventListener( 'mousemove', continueDrag, false );
 		document.addEventListener( 'mouseup',   endDrag,      false );
 
 		function continueDrag( event ) {
 
-			self.value = leftStart + event.clientX - resizeStart;
-			self.handle.style.left = self.value + 'px';
-			self.on( self.value );
+			var delta = Math.round( ( event.clientX - dragStart ) * ( self.max - self.min ) / 300 );
+			self.setValue( valueStart + delta );
 
 		}
 
@@ -47,7 +46,28 @@ ZUTOOLS.Slider = function ( settings ) {
 
 ZUTOOLS.Slider.prototype = {
 
-	constructor: ZUTOOLS.Slider
+	constructor: ZUTOOLS.Slider,
+
+	setValue: function ( v ) {
+
+		v = Math.min( Math.max( v, this.min ), this.max );
+
+		if ( v !== this.value ) {
+
+			this.value = v;
+			this.onChange( v );
+			this.setSlider();
+
+		}
+
+	},
+
+	setSlider: function () {
+
+		var left = ( this.value - this.min ) * 300 / ( this.max - this.min );
+		this.handle.style.left = left + 'px';
+
+	}
 
 };
 
