@@ -10,7 +10,11 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.width = ( this.values.length > 1 ) ? 270 : 300;
 
 	this.domNode = document.createElement( 'div' );
-	this.domNode.setAttribute( 'class', 'slider corners small' );
+	this.domNode.setAttribute( 'class', 'slider' );
+
+	this.sliderbar = document.createElement( 'div' );
+	this.sliderbar.setAttribute( 'class', 'sliderbar corners small' );
+	this.domNode.appendChild( this.sliderbar );
 
 	this.range = document.createElement( 'div' );
 	this.range.setAttribute( 'class', 'range corners small' );
@@ -103,7 +107,7 @@ ZUTOOLS.Slider.prototype = {
 
 			var position = ( this.values[ 0 ] - this.min ) * this.width / ( this.max - this.min );
 			this.handles[ 0 ].style.left = position + 'px';
-			this.range.style.width = ( position + 15 ) + 'px';
+			this.range.style.width = ( position + 9 ) + 'px';
 
 		} else {
 
