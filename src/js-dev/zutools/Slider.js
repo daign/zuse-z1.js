@@ -7,6 +7,8 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.values = settings.values;
 	this.onChange = settings.onChange;
 
+	this.width = ( this.values.length > 1 ) ? 270 : 300;
+
 	this.domNode = document.createElement( 'div' );
 	this.domNode.setAttribute( 'class', 'slider corners small' );
 
@@ -55,7 +57,7 @@ ZUTOOLS.Slider = function ( settings ) {
 
 		function continueDrag( event ) {
 
-			var delta = Math.round( ( event.clientX - dragStart ) * ( self.max - self.min ) / 300 );
+			var delta = Math.round( ( event.clientX - dragStart ) * ( self.max - self.min ) / self.width );
 			self.setValue( n, valueStart + delta );
 
 		}
@@ -96,20 +98,24 @@ ZUTOOLS.Slider.prototype = {
 	updateSlider: function () {
 
 		var n = this.values.length;
-		var positions = new Array();
-
-		for ( var i = 0; i < n; i++ ) {
-
-			positions[ i ] = ( this.values[ i ] - this.min ) * 300 / ( this.max - this.min );
-			this.handles[ i ].style.left = positions[ i ] + 'px';
-
-		}
 
 		if ( n === 1 ) {
 
-			this.range.style.width = ( positions[ 0 ] + 15 ) + 'px';
+			var position = ( this.values[ 0 ] - this.min ) * this.width / ( this.max - this.min );
+			this.handles[ 0 ].style.left = position + 'px';
+			this.range.style.width = ( position + 15 ) + 'px';
 
 		} else {
+
+			var positions = new Array();
+
+			for ( var i = 0; i < n; i++ ) {
+
+				var p = ( this.values[ i ] - this.min ) * this.width / ( this.max - this.min );
+				positions[ i ] = p + i * 30 / ( n-1 );
+				this.handles[ i ].style.left = positions[ i ] + 'px';
+
+			}
 
 			this.range.style.left = ( positions[ 0 ] + 15 ) + 'px';
 			this.range.style.width = ( positions[ n-1 ] - positions[ 0 ] ) + 'px';
