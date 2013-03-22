@@ -14,17 +14,32 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.range.setAttribute( 'class', 'range corners small' );
 	this.domNode.appendChild( this.range );
 
-	this.handle = document.createElement( 'div' );
-	this.handle.setAttribute( 'class', 'handle action corners small' );
-	this.domNode.appendChild( this.handle );
+	this.handles = new Array();
 
-	this.setSlider();
+	for ( var i = 0; i < this.values.length; i++ ) {
 
-	this.handle.addEventListener( 'mousedown', beginDrag, false );
+		this.handles[ i ] = document.createElement( 'div' );
+		this.handles[ i ].setAttribute( 'class', 'handle action corners small' );
+		this.domNode.appendChild( this.handles[ i ] );
 
-	function beginDrag( event ) {
+		( function () {
 
-		var valueStart = self.values[ 0 ];
+			var n = i;
+			var callback = function ( event ) {
+				beginDrag( event, n );
+			};
+
+			self.handles[ i ].addEventListener( 'mousedown', callback, false );
+
+		} )();
+
+	}
+
+	this.updateSlider();
+
+	function beginDrag( event, n ) {
+
+		var valueStart = self.values[ n ];
 		var dragStart = event.clientX;
 
 		document.addEventListener( 'selectstart', cancelSelect, false );
@@ -41,7 +56,7 @@ ZUTOOLS.Slider = function ( settings ) {
 		function continueDrag( event ) {
 
 			var delta = Math.round( ( event.clientX - dragStart ) * ( self.max - self.min ) / 300 );
-			self.setValue( valueStart + delta );
+			self.setValue( n, valueStart + delta );
 
 		}
 
@@ -61,25 +76,45 @@ ZUTOOLS.Slider.prototype = {
 
 	constructor: ZUTOOLS.Slider,
 
-	setValue: function ( v ) {
+	setValue: function ( n, v ) {
 
-		v = Math.min( Math.max( v, this.min ), this.max );
+		var lowerLimit = ( this.values[ n-1 ] !== undefined ) ? this.values[ n-1 ] : this.min;
+		var upperLimit = ( this.values[ n+1 ] !== undefined ) ? this.values[ n+1 ] : this.max;
 
-		if ( v !== this.values[ 0 ] ) {
+		v = Math.min( Math.max( v, lowerLimit ), upperLimit );
 
-			this.values[ 0 ] = v;
+		if ( v !== this.values[ n ] ) {
+
+			this.values[ n ] = v;
 			this.onChange( this.values );
-			this.setSlider();
+			this.updateSlider();
 
 		}
 
 	},
 
-	setSlider: function () {
+	updateSlider: function () {
 
-		var left = ( this.values[ 0 ] - this.min ) * 300 / ( this.max - this.min );
-		this.handle.style.left = left + 'px';
-		this.range.style.width = ( left + 15 ) + 'px';
+		var n = this.values.length;
+		var positions = new Array();
+
+		for ( var i = 0; i < n; i++ ) {
+
+			positions[ i ] = ( this.values[ i ] - this.min ) * 300 / ( this.max - this.min );
+			this.handles[ i ].style.left = positions[ i ] + 'px';
+
+		}
+
+		if ( n === 1 ) {
+
+			this.range.style.width = ( positions[ 0 ] + 15 ) + 'px';
+
+		} else {
+
+			this.range.style.left = ( positions[ 0 ] + 15 ) + 'px';
+			this.range.style.width = ( positions[ n-1 ] - positions[ 0 ] ) + 'px';
+
+		}
 
 	}
 
