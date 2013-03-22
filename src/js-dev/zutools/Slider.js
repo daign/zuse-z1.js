@@ -10,6 +10,10 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.domNode = document.createElement( 'div' );
 	this.domNode.setAttribute( 'class', 'slider corners small' );
 
+	this.range = document.createElement( 'div' );
+	this.range.setAttribute( 'class', 'range corners small' );
+	this.domNode.appendChild( this.range );
+
 	this.handle = document.createElement( 'div' );
 	this.handle.setAttribute( 'class', 'handle action corners small' );
 	this.domNode.appendChild( this.handle );
@@ -23,8 +27,16 @@ ZUTOOLS.Slider = function ( settings ) {
 		var valueStart = self.value;
 		var dragStart = event.clientX;
 
-		document.addEventListener( 'mousemove', continueDrag, false );
-		document.addEventListener( 'mouseup',   endDrag,      false );
+		document.addEventListener( 'selectstart', cancelSelect, false );
+		document.addEventListener( 'mousemove',   continueDrag, false );
+		document.addEventListener( 'mouseup',     endDrag,      false );
+
+		function cancelSelect( event ) {
+
+			event.preventDefault();
+			event.stopPropagation();
+
+		}
 
 		function continueDrag( event ) {
 
@@ -35,8 +47,9 @@ ZUTOOLS.Slider = function ( settings ) {
 
 		function endDrag() {
 
-			document.removeEventListener( 'mousemove', continueDrag, false );
-			document.removeEventListener( 'mouseup',   endDrag,      false );
+			document.removeEventListener( 'selectstart', cancelSelect, false );
+			document.removeEventListener( 'mousemove',   continueDrag, false );
+			document.removeEventListener( 'mouseup',     endDrag,      false );
 
 		}
 
@@ -66,6 +79,7 @@ ZUTOOLS.Slider.prototype = {
 
 		var left = ( this.value - this.min ) * 300 / ( this.max - this.min );
 		this.handle.style.left = left + 'px';
+		this.range.style.width = ( left + 15 ) + 'px';
 
 	}
 

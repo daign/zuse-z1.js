@@ -94,6 +94,7 @@ body {
 .button { margin: 4px; padding: 6px; color: #000; }
 
 /* Slider */
-.slider { margin: 4px; width: 300px; padding-right: 30px; height: 30px; background: #135e7c; }
-.handle { width: 30px; height: 30px; position: relative; top: 0px; }
+.slider { position: relative; margin: 4px; width: 300px; padding-right: 30px; height: 30px; background: #765; }
+.range  { position: absolute; top: 0px; left: 0px; height: 30px; background: #3283a9; }
+.handle { position: absolute; top: 0px; left: 0px; height: 30px; width: 30px; }
 
