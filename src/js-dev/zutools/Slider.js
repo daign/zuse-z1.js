@@ -4,7 +4,7 @@ ZUTOOLS.Slider = function ( settings ) {
 
 	this.min = settings.min;
 	this.max = settings.max;
-	this.value = settings.value;
+	this.values = settings.values;
 	this.onChange = settings.onChange;
 
 	this.domNode = document.createElement( 'div' );
@@ -24,7 +24,7 @@ ZUTOOLS.Slider = function ( settings ) {
 
 	function beginDrag( event ) {
 
-		var valueStart = self.value;
+		var valueStart = self.values[ 0 ];
 		var dragStart = event.clientX;
 
 		document.addEventListener( 'selectstart', cancelSelect, false );
@@ -65,10 +65,10 @@ ZUTOOLS.Slider.prototype = {
 
 		v = Math.min( Math.max( v, this.min ), this.max );
 
-		if ( v !== this.value ) {
+		if ( v !== this.values[ 0 ] ) {
 
-			this.value = v;
-			this.onChange( v );
+			this.values[ 0 ] = v;
+			this.onChange( this.values );
 			this.setSlider();
 
 		}
@@ -77,7 +77,7 @@ ZUTOOLS.Slider.prototype = {
 
 	setSlider: function () {
 
-		var left = ( this.value - this.min ) * 300 / ( this.max - this.min );
+		var left = ( this.values[ 0 ] - this.min ) * 300 / ( this.max - this.min );
 		this.handle.style.left = left + 'px';
 		this.range.style.width = ( left + 15 ) + 'px';
 
