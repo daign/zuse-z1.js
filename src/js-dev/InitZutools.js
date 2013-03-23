@@ -27,7 +27,7 @@ ZUSE.InitZutools = function () {
 						versions: {	en: 'English',
 									de: 'Deutsch' }
 		},
-		tabs: [ 'logic', 'options', 'selection', 'imprint' ],
+		tabs: [ 'logic', 'selection', 'imprint' ],
 		tools: [
 			[
 				[ 'home', null, false, null ]
@@ -43,13 +43,50 @@ ZUSE.InitZutools = function () {
 					{ type: 'slider', min:  0, max: 1000, values: [ 0], onChange: function(v){ console.log('S1: '+v); } },
 					{ type: 'slider', min: 10, max:  100, values: [33], onChange: function(v){ console.log('S2: '+v); } },
 					{ type: 'slider', min:  5, max:    9, values: [ 8], onChange: function(v){ console.log('S3: '+v); } },
-					{ type: 'slider', min:  3, max: 30, values: [6,17], onChange: function(v){ console.log('S4: '+v); } }
+					{ type: 'slider', min:  3, max: 30, values: [6,17], onChange: function(v){ console.log('S4: '+v); } },
+					{ type: 'slider', min:  20, max: 300, values: [20,78,156,200,250,300], onChange: function(v){ console.log('S4: '+v); } }
 				] ],
 				[ 'layerC',		layerC,    true,  null ],
 				[ 'layerD',		layerD,    true,  null ]
 			], [
 				[ 'clip',		clip,      true,  null ],
-				[ 'clipReset',	clipReset, false, null ]
+				[ 'clipReset',	clipReset, false, null ],
+				[ 'clipFading', null,      false, [
+					{ type: 'slider', min: 0, max: 100, values: [ 0 ], onChange: function( values ) {
+						ZUSE.ShaderUniforms.fadingWidth.value = values[ 0 ];
+					} }
+				] ],
+				[ 'clipTransp', null,      false, [
+					{ type: 'slider', min: 0, max: 100, values: [ 0 ], onChange: function( values ) {
+						ZUSE.ShaderUniforms.clippingTransparency.value = ( values[ 0 ] / 100 );
+					} }
+				] ]
+			], [
+				[ 'visMS', null, false, [
+					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
+						ZUSE.Materials.MovingSheet.transparency.value = ( values[ 0 ] / 100 );
+					} }
+				] ],
+				[ 'visMP', null, false, [
+					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
+						ZUSE.Materials.MovingPin.transparency.value = ( values[ 0 ] / 100 );
+					} }
+				] ],
+				[ 'visSS', null, false, [
+					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
+						ZUSE.Materials.StaticSheet.transparency.value = ( values[ 0 ] / 100 );
+					} }
+				] ],
+				[ 'visSP', null, false, [
+					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
+						ZUSE.Materials.StaticPin.transparency.value = ( values[ 0 ] / 100 );
+					} }
+				] ],
+				[ 'visIS', null, false, [
+					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
+						ZUSE.Materials.IntermediateSheet.transparency.value = ( values[ 0 ] / 100 );
+					} }
+				] ]
 			], [
 				[ 'viewReset',	viewReset, false, null ],
 				[ 'highlight',	highlight, true,  null ],
@@ -60,6 +97,11 @@ ZUSE.InitZutools = function () {
 
 	SIMULATION.gui.toolbar.toolsByName.back.disable();
 	SIMULATION.gui.toolbar.toolsByName.replay.disable();
+	SIMULATION.gui.toolbar.toolsByName.visMS.switchActivation();
+	SIMULATION.gui.toolbar.toolsByName.visMP.switchActivation();
+	SIMULATION.gui.toolbar.toolsByName.visSS.switchActivation();
+	SIMULATION.gui.toolbar.toolsByName.visSP.switchActivation();
+	SIMULATION.gui.toolbar.toolsByName.visIS.switchActivation();
 	SIMULATION.gui.toolbar.toolsByName.highlight.switchActivation();
 
 	var a3 = {	click:		function () { return ZUSE.adderObj.cycleControl.switchInput( "A3", null ); },

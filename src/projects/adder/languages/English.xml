@@ -34,23 +34,6 @@
 	<h2>Logic</h2>
 </div>
 
-<div id="options">
-	<h2>Options</h2>
-	<div>
-		<table cellpadding="4px" style="font-size: x-small;">
-			<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Transparency</td></tr>
-			<tr><td>Moving Sheets:</td>			<td><div id="sliderMovingSheet"			style="width: 192px;"></div></td></tr>
-			<tr><td>Moving Pins:</td>			<td><div id="sliderMovingPin"			style="width: 192px;"></div></td></tr>
-			<tr><td>Static Sheets:</td>			<td><div id="sliderStaticSheet"			style="width: 192px;"></div></td></tr>
-			<tr><td>Static Pins:</td>			<td><div id="sliderStaticPin"			style="width: 192px;"></div></td></tr>
-			<tr><td>Intermediate Sheets:</td>	<td><div id="sliderIntermediateSheet"	style="width: 192px;"></div></td></tr>
-			<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Selection</td></tr>
-			<tr><td>Deselection Transparency:</td><td><div id="sliderClippingTransparency" style="width: 192px;"></div></td></tr>
-			<tr><td>Fading Width:</td>			<td><div id="sliderFadingWidth"			style="width: 192px;"></div></td></tr>
-		</table>
-	</div>
-</div>
-
 <div id="selection">
 	<h2>Selection</h2>
 	<div>

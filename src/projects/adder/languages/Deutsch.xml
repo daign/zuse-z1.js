@@ -34,23 +34,6 @@
 	<h2>Logik</h2>
 </div>
 
-<div id="options">
-	<h2>Optionen</h2>
-	<div>
-		<table cellpadding="4px" style="font-size: x-small;">
-			<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Transparenz</td></tr>
-			<tr><td>Bewegte Bleche:</td>  <td><div id="sliderMovingSheet"       style="width: 192px;"></div></td></tr>
-			<tr><td>Bewegte Stifte:</td>  <td><div id="sliderMovingPin"         style="width: 192px;"></div></td></tr>
-			<tr><td>Statische Bleche:</td><td><div id="sliderStaticSheet"       style="width: 192px;"></div></td></tr>
-			<tr><td>Statische Stifte:</td><td><div id="sliderStaticPin"         style="width: 192px;"></div></td></tr>
-			<tr><td>Zwischenebenen:</td>  <td><div id="sliderIntermediateSheet" style="width: 192px;"></div></td></tr>
-			<tr><td colspan="2" style="font-weight: bold; font-size: medium;">Auswahl</td></tr>
-			<tr><td>Transparenz Deselektion:</td><td><div id="sliderClippingTransparency" style="width: 192px;"></div></td></tr>
-			<tr><td>Breite Übergangsbereich:</td><td><div id="sliderFadingWidth"          style="width: 192px;"></div></td></tr>
-		</table>
-	</div>
-</div>
-
 <div id="selection">
 	<h2>Auswahl</h2>
 	<div>
