@@ -1,96 +1,128 @@
 ZUSE.InitZutools = function () {
 
-	var back		= {	click:		function () { ZUSE.adderObj.cycleControl.cycleBackwards(); },
-						mouseover:	function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },
-						mouseout:	function () { ZUSE.adderObj.cycleControl.preHighlightOff(); } };
-	var replay		= {	click:		function () { ZUSE.adderObj.cycleControl.repeatLast(); },
-						mouseover:	function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },
-						mouseout:	function () { ZUSE.adderObj.cycleControl.preHighlightOff(); } };
-	var forward		= {	click:		function () { ZUSE.adderObj.cycleControl.cycle(); },
-						mouseover:	function () { ZUSE.adderObj.cycleControl.preHighlightNext(); },
-						mouseout:	function () { ZUSE.adderObj.cycleControl.preHighlightOff(); } };
-	var layerA		= {	click:		function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.A ); } };
-	var layerB		= {	click:		function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.B ); } };
-	var layerC		= {	click:		function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.C ); } };
-	var layerD		= {	click:		function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D ); } };
-	var clip		= {	click:		function () {	var state = !ZUSE.adderObj.selection.enabled;
-													ZUSE.adderObj.selection.setActivation( state );
-													SIMULATION.gui.toolbar.toolsByName.select.disable( state ); } };
-	var clipReset	= {	click:		function () { ZUSE.adderObj.selection.reset(); } };
-	var viewReset	= { click:		function () { SIMULATION.gui.webgl.camera.controls.reset(); } };
-	var highlight	= { click:		function () { ZUSE.adderObj.cycleControl.switchHighlighting(); } };
-	var select		= { click:		function () { ZUSE.adderObj.switchSelectables2(); } };
-
 	SIMULATION.gui = new ZUTOOLS.LayoutManager( {
-		languages: {	path: 'projects/adder/languages/',
-						standard: 'en',
-						versions: {	en: 'English',
-									de: 'Deutsch' }
+		languages: {
+			path: 'projects/adder/languages/',
+			standard: 'en',
+			versions: {
+				en: 'English',
+				de: 'Deutsch'
+			}
 		},
-		tabs: [ 'logic', 'selection', 'imprint' ],
+		tabs: [ 'logic', 'imprint' ],
 		tools: [
 			[
-				[ 'home', null, false, null ]
+				//[ 'home', null, false, null ]
 			], [
-				[ 'back',		back,      false, null ],
-				[ 'replay',		replay,    false, null ],
-				[ 'forward',	forward,   false, null ]
+				[ 'back', {
+					click:     function () { ZUSE.adderObj.cycleControl.cycleBackwards(); },
+					mouseover: function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },
+					mouseout:  function () { ZUSE.adderObj.cycleControl.preHighlightOff(); }
+				}, false, null ],
+				[ 'replay', {
+					click:     function () { ZUSE.adderObj.cycleControl.repeatLast(); },
+					mouseover: function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },
+					mouseout:  function () { ZUSE.adderObj.cycleControl.preHighlightOff(); }
+				}, false, null ],
+				[ 'forward', {
+					click:     function () { ZUSE.adderObj.cycleControl.cycle(); },
+					mouseover: function () { ZUSE.adderObj.cycleControl.preHighlightNext(); },
+					mouseout:  function () { ZUSE.adderObj.cycleControl.preHighlightOff(); }
+				}, false, null ]
 			], [
-				[ 'layerA',		layerA,    true,  [
-					{ type: 'button', text: 'Button', onclick: function () { console.log( 'A Click' ); } }
+				[ 'layerA', {
+					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.A ); }
+				}, true, null ],
+				[ 'layerB', {
+					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.B ); }
+				}, true, null ],
+				[ 'layerC', {
+					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.C ); }
+				}, true, null ],
+				[ 'layerD',	{
+					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D ); }
+				}, true, null ]
+			], [
+				[ 'clip', {
+					click: function () {
+						var state = !ZUSE.adderObj.selection.enabled;
+						ZUSE.adderObj.selection.setActivation( state );
+						SIMULATION.gui.toolbar.toolsByName.select.disable( state );
+					}
+				}, true, [
+					{ type: 'slider', min: 0, max: 1000, values: [ 0, 1000 ], onChange: function( values ) {
+						ZUSE.adderObj.selection.setFromSlider( 'x', values[ 0 ], values[ 1 ] );
+					} },
+					{ type: 'slider', min: 0, max: 1000, values: [ 0, 1000 ], onChange: function( values ) {
+						ZUSE.adderObj.selection.setFromSlider( 'y', values[ 0 ], values[ 1 ] );
+					} },
+					{ type: 'slider', min: 0, max: 8, values: [ 0, 8 ], onChange: function( values ) {
+						ZUSE.adderObj.selection.setFromSlider( 'z', values[ 0 ], values[ 1 ] );
+					} }
 				] ],
-				[ 'layerB',		layerB,    true,  [
-					{ type: 'slider', min:  0, max: 1000, values: [ 0], onChange: function(v){ console.log('S1: '+v); } },
-					{ type: 'slider', min: 10, max:  100, values: [33], onChange: function(v){ console.log('S2: '+v); } },
-					{ type: 'slider', min:  5, max:    9, values: [ 8], onChange: function(v){ console.log('S3: '+v); } },
-					{ type: 'slider', min:  3, max: 30, values: [6,17], onChange: function(v){ console.log('S4: '+v); } },
-					{ type: 'slider', min:  20, max: 300, values: [20,78,156,200,250,300], onChange: function(v){ console.log('S4: '+v); } }
-				] ],
-				[ 'layerC',		layerC,    true,  null ],
-				[ 'layerD',		layerD,    true,  null ]
-			], [
-				[ 'clip',		clip,      true,  null ],
-				[ 'clipReset',	clipReset, false, null ],
-				[ 'clipFading', null,      false, [
+				[ 'clipReset', {
+					click: function () { ZUSE.adderObj.selection.reset(); }
+				}, false, null ],
+				[ 'clipFading', {
+					click: function () { ; /* TODO */ }
+				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 0 ], onChange: function( values ) {
 						ZUSE.ShaderUniforms.fadingWidth.value = values[ 0 ];
 					} }
 				] ],
-				[ 'clipTransp', null,      false, [
+				[ 'clipTransp', {
+					click: function () { ; /* TODO */ }
+				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 0 ], onChange: function( values ) {
 						ZUSE.ShaderUniforms.clippingTransparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ]
 			], [
-				[ 'visMS', null, false, [
+				[ 'visMS', {
+					click: function () { ; /* TODO */ }
+				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 						ZUSE.Materials.MovingSheet.transparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ],
-				[ 'visMP', null, false, [
+				[ 'visMP', {
+					click: function () { ; /* TODO */ }
+				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 						ZUSE.Materials.MovingPin.transparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ],
-				[ 'visSS', null, false, [
+				[ 'visSS', {
+					click: function () { ; /* TODO */ }
+				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 						ZUSE.Materials.StaticSheet.transparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ],
-				[ 'visSP', null, false, [
+				[ 'visSP', {
+					click: function () { ; /* TODO */ }
+				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 						ZUSE.Materials.StaticPin.transparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ],
-				[ 'visIS', null, false, [
+				[ 'visIS', {
+					click: function () { ; /* TODO */ }
+				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 						ZUSE.Materials.IntermediateSheet.transparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ]
 			], [
-				[ 'viewReset',	viewReset, false, null ],
-				[ 'highlight',	highlight, true,  null ],
-				[ 'select',		select,    true,  null ]
+				[ 'viewReset', {
+					click: function () { SIMULATION.gui.webgl.camera.controls.reset(); }
+				}, false, null ],
+				[ 'highlight', {
+					click: function () { ZUSE.adderObj.cycleControl.switchHighlighting(); }
+				}, true, null ],
+				[ 'select', {
+					click: function () { ZUSE.adderObj.switchSelectables2(); }
+				}, true, null ]
 			]
 		]
 	} );

@@ -61,7 +61,7 @@
 </div>
 
 <div id="clip">
-	<span>Auswahl aktivieren</span>
+	<span>Auswahl ändern (x,y,z)</span>
 	<img src="../clip.svg" />
 </div>
 

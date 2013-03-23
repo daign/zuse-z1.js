@@ -34,17 +34,6 @@
 	<h2>Logic</h2>
 </div>
 
-<div id="selection">
-	<h2>Selection</h2>
-	<div>
-		<table cellpadding="4px" style="font-size: x-small;">
-			<tr><td>Width: </td><td><div id="sliderX" style="width: 300px;"></div></td></tr>
-			<tr><td>Depth: </td><td><div id="sliderY" style="width: 300px;"></div></td></tr>
-			<tr><td>Height:</td><td><div id="sliderZ" style="width: 300px;"></div></td></tr>
-		</table>
-	</div>
-</div>
-
 <div id="imprint">
 	<h2>Imprint</h2>
 	<div style="font-size: small; white-space: nowrap;">

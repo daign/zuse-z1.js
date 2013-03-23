@@ -10,6 +10,4 @@ Licensed under [MIT License](https://github.com/daign/zuse-z1.js/blob/master/LIC
 Dependencies:
 * [three.js](https://github.com/mrdoob/three.js)
 * [tween.js](https://github.com/sole/tween.js)
-* [jQuery](https://github.com/jquery/jquery)
-* [jQueryUI](https://github.com/jquery/jquery-ui)
 

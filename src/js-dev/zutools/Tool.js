@@ -12,6 +12,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.tooltipContent = document.createElement( 'div' );
 	this.title = document.createTextNode( '' );
 	this.tooltipContent.appendChild( this.title );
+	this.sliders = new Array();
 	this.inputs = this.generateInputs( param[ 3 ] );
 	if ( this.inputs !== null ) {
 		this.tooltipContent.appendChild( this.inputs );
@@ -152,6 +153,7 @@ ZUTOOLS.Tool.prototype = {
 
 						var input = new ZUTOOLS.Slider( settings[ i ] );
 						container.appendChild( input.domNode );
+						this.sliders.push( input );
 						break;
 
 				}

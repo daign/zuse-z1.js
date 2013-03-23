@@ -382,33 +382,13 @@ ZUSE.Selection.prototype = {
 
 	setSlider: function ( axis, value ) {
 
-		var sliderName;
-
-		switch ( axis.a ) {
-
-			case 'x':
-
-				sliderName = '#sliderX';
-				break;
-
-			case 'y':
-
-				sliderName = '#sliderY';
-				break;
-
-			case 'z':
-
-				sliderName = '#sliderZ';
-				break;
-
-			default:
-
-				console.warn( 'axis ' + axis.a + ' invalid' );
-
-		}
+		var sliderMap = { x: 0, y: 1, z: 2 };
+		var sliderNumber = sliderMap[ axis.a ];
 
 		value = this.transformValueToSlider( axis.a, value );
-		$( sliderName ).slider( "values", axis.d - 1, value );
+		var slider = SIMULATION.gui.toolbar.toolsByName.clip.sliders[ sliderNumber ];
+		slider.values[ axis.d - 1 ] = Math.round( value );
+		slider.updateSlider();
 
 	},
 
