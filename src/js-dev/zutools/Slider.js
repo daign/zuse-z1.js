@@ -11,6 +11,7 @@ ZUTOOLS.Slider = function ( settings ) {
 
 	this.domNode = document.createElement( 'div' );
 	this.domNode.setAttribute( 'class', 'slider' );
+	this.domNode.addEventListener( 'mousedown', beginDrag, false );
 
 	this.sliderbar = document.createElement( 'div' );
 	this.sliderbar.setAttribute( 'class', 'sliderbar corners small' );
@@ -45,8 +46,46 @@ ZUTOOLS.Slider = function ( settings ) {
 
 	function beginDrag( event, n ) {
 
-		var valueStart = self.values[ n ];
+		if ( n === undefined ) {
+
+			n = 0;
+			var value = undefined;
+			var l = self.values.length;
+
+			if ( l === 1 ) {
+
+				var position = ( event.offsetX || event.layerX ) - 15;
+				value = Math.round( position * ( self.max - self.min ) / self.width ) + self.min;
+
+			} else {
+
+				var minDistance = Infinity;
+				for ( var i = 0; i < l; i++ ) {
+
+					var displacement = i * 30 / ( l-1 ) + 15;
+					var position = ( event.offsetX || event.layerX ) - displacement;
+					var vi = Math.round( position * ( self.max - self.min ) / self.width ) + self.min;
+
+					var distance = Math.abs( self.values[ i ] - vi );
+					if ( distance < minDistance || ( distance === minDistance && self.values[ i ] < vi ) ) {
+						minDistance = distance;
+						n = i;
+						value = vi;
+					}
+
+				}
+
+			}
+
+			self.setValue( n, value );
+
+		}
+
 		var dragStart = event.clientX;
+		var valueStart = self.values[ n ];
+
+		event.preventDefault();
+		event.stopPropagation();
 
 		document.addEventListener( 'selectstart', cancelSelect, false );
 		document.addEventListener( 'mousemove',   continueDrag, false );
@@ -101,9 +140,9 @@ ZUTOOLS.Slider.prototype = {
 
 	updateSlider: function () {
 
-		var n = this.values.length;
+		var l = this.values.length;
 
-		if ( n === 1 ) {
+		if ( l === 1 ) {
 
 			var position = ( this.values[ 0 ] - this.min ) * this.width / ( this.max - this.min );
 			this.handles[ 0 ].style.left = position + 'px';
@@ -113,16 +152,16 @@ ZUTOOLS.Slider.prototype = {
 
 			var positions = new Array();
 
-			for ( var i = 0; i < n; i++ ) {
+			for ( var i = 0; i < l; i++ ) {
 
 				var p = ( this.values[ i ] - this.min ) * this.width / ( this.max - this.min );
-				positions[ i ] = p + i * 30 / ( n-1 );
+				positions[ i ] = p + i * 30 / ( l-1 );
 				this.handles[ i ].style.left = positions[ i ] + 'px';
 
 			}
 
 			this.range.style.left = ( positions[ 0 ] + 15 ) + 'px';
-			this.range.style.width = ( positions[ n-1 ] - positions[ 0 ] ) + 'px';
+			this.range.style.width = ( positions[ l-1 ] - positions[ 0 ] ) + 'px';
 
 		}
 

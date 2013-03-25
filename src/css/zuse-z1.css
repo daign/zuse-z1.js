@@ -95,7 +95,7 @@ body {
 
 /* Slider */
 .slider    { position: relative; margin: 4px; width: 330px; height: 30px; }
-.sliderbar { position: absolute; top: 6px; left: 6px; height: 18px; width: 318px; background: #765; }
-.range     { position: absolute; top: 6px; left: 6px; height: 18px; background: #3283a9; }
+.sliderbar { position: absolute; top: 6px; left: 6px; height: 18px; width: 318px; background: #765;  pointer-events: none; }
+.range     { position: absolute; top: 6px; left: 6px; height: 18px; background: #3283a9; pointer-events: none; }
 .handle    { position: absolute; top: 0px; left: 0px; height: 30px; width: 30px; }
 
