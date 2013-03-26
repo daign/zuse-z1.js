@@ -12,11 +12,13 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.tooltipContent = document.createElement( 'div' );
 	this.title = document.createTextNode( '' );
 	this.tooltipContent.appendChild( this.title );
+
 	this.sliders = new Array();
 	this.inputs = this.generateInputs( param[ 3 ] );
 	if ( this.inputs !== null ) {
 		this.tooltipContent.appendChild( this.inputs );
 	}
+	this.tagAsTooltip( this.tooltipContent );
 
 	this.metrics = { x: 0, y: 0, width: 0 };
 
@@ -165,6 +167,18 @@ ZUTOOLS.Tool.prototype = {
 		} else {
 
 			return null;
+
+		}
+
+	},
+
+	tagAsTooltip: function ( domNode ) {
+
+		domNode.dataset.zutooltip = 'true';
+
+		for ( var i = 0; i < domNode.children.length; i++ ) {
+
+			this.tagAsTooltip( domNode.children[ i ] );
 
 		}
 

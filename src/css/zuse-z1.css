@@ -78,12 +78,11 @@ body {
 .statActive { color: #3d9ecb; font-weight: bold; }
 
 /* Tooltip */
-.tooltip         { position: absolute; z-index: 3; }
-.tooltip.frame   { background: #092f3e; color: #a3cce0; padding: 8px; }
-.tooltip.pointer { background: #092f3e; pointer-events: none; }
-.contentpadding  { padding: 4px; }
-.inputcontainer  { padding-top: 10px; }
-.diagonal        {
+.tooltip        { position: absolute; z-index: 3; }
+.tooltip.frame  { background: #092f3e; color: #a3cce0; padding: 12px; }
+.tooltip.pike   { background: #092f3e; pointer-events: none; }
+.inputcontainer { padding-top: 10px; }
+.diagonal       {
 	transform:         rotate( 45deg );
 	-webkit-transform: rotate( 45deg );
 	-moz-transform:    rotate( 45deg );
@@ -94,7 +93,7 @@ body {
 .button { margin: 4px; padding: 6px; color: #000; }
 
 /* Slider */
-.slider    { position: relative; margin: 4px; width: 330px; height: 30px; }
+.slider    { position: relative; margin: 8px; width: 330px; height: 30px; }
 .sliderbar { position: absolute; top: 6px; left: 6px; height: 18px; width: 318px; background: #765;  pointer-events: none; }
 .range     { position: absolute; top: 6px; left: 6px; height: 18px; background: #3283a9; pointer-events: none; }
 .handle    { position: absolute; top: 0px; left: 0px; height: 30px; width: 30px; }

@@ -69,10 +69,8 @@ ZUTOOLS.TooltipManager.prototype = {
 
 		if ( this.timeoutFinished ) {
 
-			if ( !this.hasInputs() || !this.tooltip.isPartOfTooltip( event.toElement ) ) {
+			if ( !this.hasInputs() || !this.tooltip.isPartOfTooltip( event.relatedTarget ) ) {
 				this.hideTooltip();
-			} else {
-				this.tooltip.checkIfContentActive( event.toElement );
 			}
 
 		} else {
