@@ -41,8 +41,8 @@ ZUTOOLS.Tooltip.prototype = {
 
 	constructor: ZUTOOLS.Tooltip,
 
-	show: function () { this.span.style.display = 'block'; },
-	hide: function () { this.span.style.display = 'none'; },
+	show: function () { this.span.style.visibility = 'visible'; },
+	hide: function () { this.span.style.visibility = 'hidden'; },
 
 	setContent: function ( content ) {
 
@@ -59,7 +59,12 @@ ZUTOOLS.Tooltip.prototype = {
 		var y = metrics.y;
 		var f = metrics.factor;
 
-		this.frame.style.top  = ( y +  1 ) * f + 'px';
+		var top = ( y + 1 ) * f;
+		if ( ( top + this.frame.offsetHeight ) > window.innerHeight ) {
+			top = window.innerHeight - this.frame.offsetHeight - 2*f;
+		}
+
+		this.frame.style.top  = top + 'px';
 		this.frame.style.left = ( x + 24 ) * f + 'px';
 
 		this.bridge.style.top  = ( y +  1 ) * f + 'px';
