@@ -66,14 +66,14 @@ ZUSE.InitZutools = function () {
 				[ 'clipFading', {
 					click: function () { ; /* TODO */ }
 				}, true, [
-					{ type: 'slider', min: 0, max: 100, values: [ 0 ], onChange: function( values ) {
+					{ type: 'slider', min: 0, max: 100, values: [ 50 ], active: false, onChange: function( values ) {
 						ZUSE.ShaderUniforms.fadingWidth.value = values[ 0 ];
 					} }
 				] ],
 				[ 'clipTransp', {
 					click: function () { ; /* TODO */ }
 				}, true, [
-					{ type: 'slider', min: 0, max: 100, values: [ 0 ], onChange: function( values ) {
+					{ type: 'slider', min: 0, max: 100, values: [ 50 ], active: false, onChange: function( values ) {
 						ZUSE.ShaderUniforms.clippingTransparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ]

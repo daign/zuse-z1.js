@@ -5,6 +5,7 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.min = settings.min;
 	this.max = settings.max;
 	this.values = settings.values;
+	this.active = ( settings.active !== undefined ) ? settings.active : true;
 	this.onChange = settings.onChange;
 
 	this.width = ( this.values.length > 1 ) ? 270 : 300;
@@ -18,7 +19,6 @@ ZUTOOLS.Slider = function ( settings ) {
 	this.domNode.appendChild( this.sliderbar );
 
 	this.range = document.createElement( 'div' );
-	this.range.setAttribute( 'class', 'range corners small' );
 	this.domNode.appendChild( this.range );
 
 	this.handles = new Array();
@@ -26,7 +26,6 @@ ZUTOOLS.Slider = function ( settings ) {
 	for ( var i = 0; i < this.values.length; i++ ) {
 
 		this.handles[ i ] = document.createElement( 'div' );
-		this.handles[ i ].setAttribute( 'class', 'handle action corners small' );
 		this.domNode.appendChild( this.handles[ i ] );
 
 		( function () {
@@ -42,9 +41,12 @@ ZUTOOLS.Slider = function ( settings ) {
 
 	}
 
+	this.setActivation( this.active );
 	this.updateSlider();
 
 	function beginDrag( event, n ) {
+
+		if ( !self.active ) { return; }
 
 		if ( n === undefined ) {
 
@@ -163,6 +165,20 @@ ZUTOOLS.Slider.prototype = {
 			this.range.style.left = ( positions[ 0 ] + 15 ) + 'px';
 			this.range.style.width = ( positions[ l-1 ] - positions[ 0 ] ) + 'px';
 
+		}
+
+	},
+
+	setActivation: function ( a ) {
+
+		this.active = a;
+
+		var rangeClasses = 'range corners small' + ( a ? '' : ' deactivated' );
+		this.range.setAttribute( 'class', rangeClasses );
+
+		var handleClasses = 'handle action corners small' + ( a ? ' pointer' : ' deactivated' );
+		for ( var i = 0; i < this.handles.length; i++ ) {
+			this.handles[ i ].setAttribute( 'class', handleClasses );
 		}
 
 	}

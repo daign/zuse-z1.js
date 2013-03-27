@@ -12,6 +12,7 @@ body {
 .action.selected        { background-color: #4fcf0f; }
 .action.selected:hover  { background-color: #7fe04f; }
 .action.selected:active { background-color: #9bf36f; }
+.action.deactivated     { background-color: #ba9; }
 
 .topcorners, .corners {
 	-moz-border-radius-topleft:      10px;
@@ -89,12 +90,13 @@ body {
 	-o-transform:      rotate( 45deg );
 }
 
-.pointer, .button, .handle { cursor: pointer; }
+.pointer, .button { cursor: pointer; }
 .button { margin: 4px; padding: 6px; color: #000; }
 
 /* Slider */
 .slider    { position: relative; margin: 8px; width: 330px; height: 30px; }
 .sliderbar { position: absolute; top: 6px; left: 6px; height: 18px; width: 318px; background: #765;  pointer-events: none; }
-.range     { position: absolute; top: 6px; left: 6px; height: 18px; background: #3283a9; pointer-events: none; }
 .handle    { position: absolute; top: 0px; left: 0px; height: 30px; width: 30px; }
+.range     { position: absolute; top: 6px; left: 6px; height: 18px; background: #3283a9; pointer-events: none; }
+.range.deactivated { background: #987; }
 
