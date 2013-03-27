@@ -60,9 +60,14 @@
 	<img src="../layerD.svg" />
 </div>
 
-<div id="clip">
+<div id="clipChange">
 	<span>Auswahl ändern (x,y,z)</span>
-	<img src="../clip.svg" />
+	<img src="../clipChange.svg" />
+</div>
+
+<div id="clipDrag">
+	<span>Auswahl ziehen</span>
+	<img src="../clipDrag.svg" />
 </div>
 
 <div id="clipReset">

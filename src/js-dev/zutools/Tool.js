@@ -98,6 +98,9 @@ ZUTOOLS.Tool.prototype = {
 
 		this.activated = !this.activated;
 		this.showActivation( this.activated );
+		for ( var i = 0; i < this.sliders.length; i++ ) {
+			this.sliders[ i ].setActivation( this.activated );
+		}
 
 		return this;
 
@@ -155,6 +158,9 @@ ZUTOOLS.Tool.prototype = {
 
 						var input = new ZUTOOLS.Slider( settings[ i ] );
 						container.appendChild( input.domNode );
+						if ( this.activatable ) {
+							input.setActivation( false );
+						}
 						this.sliders.push( input );
 						break;
 

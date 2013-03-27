@@ -43,13 +43,7 @@ ZUSE.InitZutools = function () {
 					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D ); }
 				}, true, null ]
 			], [
-				[ 'clip', {
-					click: function () {
-						var state = !ZUSE.adderObj.selection.enabled;
-						ZUSE.adderObj.selection.setActivation( state );
-						SIMULATION.gui.toolbar.toolsByName.select.disable( state );
-					}
-				}, true, [
+				[ 'clipChange', null, false, [
 					{ type: 'slider', min: 0, max: 1000, values: [ 0, 1000 ], onChange: function( values ) {
 						ZUSE.adderObj.selection.setFromSlider( 'x', values[ 0 ], values[ 1 ] );
 					} },
@@ -60,20 +54,27 @@ ZUSE.InitZutools = function () {
 						ZUSE.adderObj.selection.setFromSlider( 'z', values[ 0 ], values[ 1 ] );
 					} }
 				] ],
+				[ 'clipDrag', {
+					click: function () {
+						var state = !ZUSE.adderObj.selection.enabled;
+						ZUSE.adderObj.selection.setActivation( state );
+						SIMULATION.gui.toolbar.toolsByName.select.disable( state );
+					}
+				}, true, null ],
 				[ 'clipReset', {
 					click: function () { ZUSE.adderObj.selection.reset(); }
 				}, false, null ],
 				[ 'clipFading', {
 					click: function () { ; /* TODO */ }
 				}, true, [
-					{ type: 'slider', min: 0, max: 100, values: [ 50 ], active: false, onChange: function( values ) {
+					{ type: 'slider', min: 0, max: 100, values: [ 50 ], onChange: function( values ) {
 						ZUSE.ShaderUniforms.fadingWidth.value = values[ 0 ];
 					} }
 				] ],
 				[ 'clipTransp', {
 					click: function () { ; /* TODO */ }
 				}, true, [
-					{ type: 'slider', min: 0, max: 100, values: [ 50 ], active: false, onChange: function( values ) {
+					{ type: 'slider', min: 0, max: 100, values: [ 50 ], onChange: function( values ) {
 						ZUSE.ShaderUniforms.clippingTransparency.value = ( values[ 0 ] / 100 );
 					} }
 				] ]
