@@ -31,16 +31,16 @@ ZUSE.InitZutools = function () {
 				}, false, null ]
 			], [
 				[ 'layerA', {
-					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.A ); }
+					click: function ( a ) { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.A ); }
 				}, true, null ],
 				[ 'layerB', {
-					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.B ); }
+					click: function ( a ) { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.B ); }
 				}, true, null ],
 				[ 'layerC', {
-					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.C ); }
+					click: function ( a ) { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.C ); }
 				}, true, null ],
 				[ 'layerD',	{
-					click: function () { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D ); }
+					click: function ( a ) { ZUSE.adderObj.changeSpacing( ZUSE.adderObj.getLayerNumber.D ); }
 				}, true, null ]
 			], [
 				[ 'clipChange', null, false, [
@@ -55,7 +55,7 @@ ZUSE.InitZutools = function () {
 					} }
 				] ],
 				[ 'clipDrag', {
-					click: function () {
+					click: function ( a ) {
 						var state = !ZUSE.adderObj.selection.enabled;
 						ZUSE.adderObj.selection.setActivation( state );
 						SIMULATION.gui.toolbar.toolsByName.select.disable( state );
@@ -65,53 +65,53 @@ ZUSE.InitZutools = function () {
 					click: function () { ZUSE.adderObj.selection.reset(); }
 				}, false, null ],
 				[ 'clipFading', {
-					click: function () { ; /* TODO */ }
+					click: function ( a ) { ZUSE.ShaderUniforms.activateFadingWidth( a ); }
 				}, true, [
-					{ type: 'slider', min: 0, max: 100, values: [ 50 ], onChange: function( values ) {
-						ZUSE.ShaderUniforms.fadingWidth.value = values[ 0 ];
+					{ type: 'slider', min: 0, max: 100, values: [ 20 ], onChange: function( values ) {
+						ZUSE.ShaderUniforms.setFadingWidthValue( values[ 0 ] );
 					} }
 				] ],
 				[ 'clipTransp', {
-					click: function () { ; /* TODO */ }
+					click: function ( a ) { ZUSE.ShaderUniforms.activateClippingTransparency( a ); }
 				}, true, [
-					{ type: 'slider', min: 0, max: 100, values: [ 50 ], onChange: function( values ) {
-						ZUSE.ShaderUniforms.clippingTransparency.value = ( values[ 0 ] / 100 );
+					{ type: 'slider', min: 0, max: 100, values: [ 40 ], onChange: function( values ) {
+						ZUSE.ShaderUniforms.setClippingTransparencyValue( values[ 0 ] / 100 );
 					} }
 				] ]
 			], [
 				[ 'visMS', {
-					click: function () { ; /* TODO */ }
+					click: function ( a ) { ZUSE.Materials.MovingSheet.setVisibility( a ); }
 				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-						ZUSE.Materials.MovingSheet.transparency.value = ( values[ 0 ] / 100 );
+						ZUSE.Materials.MovingSheet.setTransparency( values[ 0 ] / 100 );
 					} }
 				] ],
 				[ 'visMP', {
-					click: function () { ; /* TODO */ }
+					click: function ( a ) { ZUSE.Materials.MovingPin.setVisibility( a ); }
 				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-						ZUSE.Materials.MovingPin.transparency.value = ( values[ 0 ] / 100 );
+						ZUSE.Materials.MovingPin.setTransparency( values[ 0 ] / 100 );
 					} }
 				] ],
 				[ 'visSS', {
-					click: function () { ; /* TODO */ }
+					click: function ( a ) { ZUSE.Materials.StaticSheet.setVisibility( a ); }
 				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-						ZUSE.Materials.StaticSheet.transparency.value = ( values[ 0 ] / 100 );
+						ZUSE.Materials.StaticSheet.setTransparency( values[ 0 ] / 100 );
 					} }
 				] ],
 				[ 'visSP', {
-					click: function () { ; /* TODO */ }
+					click: function ( a ) { ZUSE.Materials.StaticPin.setVisibility( a ); }
 				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-						ZUSE.Materials.StaticPin.transparency.value = ( values[ 0 ] / 100 );
+						ZUSE.Materials.StaticPin.setTransparency( values[ 0 ] / 100 );
 					} }
 				] ],
 				[ 'visIS', {
-					click: function () { ; /* TODO */ }
+					click: function ( a ) { ZUSE.Materials.IntermediateSheet.setVisibility( a ); }
 				}, true, [
 					{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-						ZUSE.Materials.IntermediateSheet.transparency.value = ( values[ 0 ] / 100 );
+						ZUSE.Materials.IntermediateSheet.setTransparency( values[ 0 ] / 100 );
 					} }
 				] ]
 			], [
@@ -119,10 +119,10 @@ ZUSE.InitZutools = function () {
 					click: function () { SIMULATION.gui.webgl.camera.controls.reset(); }
 				}, false, null ],
 				[ 'highlight', {
-					click: function () { ZUSE.adderObj.cycleControl.switchHighlighting(); }
+					click: function ( a ) { ZUSE.adderObj.cycleControl.switchHighlighting(); }
 				}, true, null ],
 				[ 'select', {
-					click: function () { ZUSE.adderObj.switchSelectables2(); }
+					click: function ( a ) { ZUSE.adderObj.switchSelectables2(); }
 				}, true, null ]
 			]
 		]

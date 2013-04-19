@@ -1,11 +1,13 @@
 ZUSE.Material = function ( color, transparency ) {
 
-	this.color        = { type: "c", value: color };
-	this.transparency = { type: "f", value: transparency };
+	this.visible      = true;
+	this.transparency = transparency;
+	this.colorUniform        = { type: "c", value: color };
+	this.transparencyUniform = { type: "f", value: transparency };
 
 	var uniforms = {
-		color:                this.color,
-		transparency:         this.transparency,
+		color:                this.colorUniform,
+		transparency:         this.transparencyUniform,
 		clippingX1:           ZUSE.ShaderUniforms.x1,
 		clippingX2:           ZUSE.ShaderUniforms.x2,
 		clippingY1:           ZUSE.ShaderUniforms.y1,
@@ -22,6 +24,28 @@ ZUSE.Material = function ( color, transparency ) {
 		transparent:    true
 
 	} );
+
+};
+
+ZUSE.Material.prototype = {
+
+	constructor: ZUSE.Material,
+
+	setTransparency: function ( v ) {
+
+		this.transparency = v;
+		if ( this.visible ) {
+			this.transparencyUniform.value = v;
+		}
+
+	},
+
+	setVisibility: function ( b ) {
+
+		this.visible = b;
+		this.transparencyUniform.value = b ? this.transparency : 0.0;
+
+	}
 
 };
 

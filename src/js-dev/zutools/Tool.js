@@ -56,7 +56,7 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 		if ( self.disabled ) { return; }
 		if ( self.activatable ) { self.switchActivation(); }
 		if ( self.events && self.events.click ) {
-			self.events.click();
+			self.events.click( self.activated );
 			self.tooltipManager.toolclick();
 		} else {
 			// tooltip only opens on click when there is no other function associated with click
