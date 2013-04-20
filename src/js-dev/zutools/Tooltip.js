@@ -2,6 +2,7 @@ ZUTOOLS.Tooltip = function () {
 
 	var self = this;
 	this.wasClicked = false;
+	this.hidingBlocked = false;
 
 	this.span = document.createElement( 'span' );
 	document.body.appendChild( this.span );
@@ -27,6 +28,7 @@ ZUTOOLS.Tooltip = function () {
 
 		if (
 			   !self.wasClicked
+			&& !self.hidingBlocked
 			&& !self.isTool( event.relatedTarget )
 			&& !self.isPartOfTooltip( event.relatedTarget )
 		) {
@@ -72,12 +74,11 @@ ZUTOOLS.Tooltip.prototype = {
 		this.bridge.style.width  =  3 * f + 'px';
 		this.bridge.style.height = 22 * f + 'px';
 
-		// not final
-		this.pike.style.top  = ( y + 1 ) * f + 7.5 + 'px';
-//		this.pike.style.top  = ( y + 1 ) * f + 20 + 'px';
-		this.pike.style.left = ( x + 24 ) * f - 10 + 'px';
-		this.pike.style.width  = 20 + 'px';
-		this.pike.style.height = 20 + 'px';
+		this.pike.style.top  = ( y +  1 ) * f + 6 + 'px';
+		this.pike.style.left = ( x + 24 ) * f + 1 + 'px';
+		var size = Math.sqrt( 0.5 ) * ( Math.min( 43, 22 * f ) - 12 );
+		this.pike.style.width  = size + 'px';
+		this.pike.style.height = size + 'px';
 
 	},
 

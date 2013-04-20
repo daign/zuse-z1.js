@@ -89,6 +89,8 @@ ZUTOOLS.Slider = function ( settings ) {
 		event.preventDefault();
 		event.stopPropagation();
 
+		SIMULATION.gui.tooltip.blockHiding( true );
+
 		document.addEventListener( 'selectstart', cancelSelect, false );
 		document.addEventListener( 'mousemove',   continueDrag, false );
 		document.addEventListener( 'mouseup',     endDrag,      false );
@@ -112,6 +114,8 @@ ZUTOOLS.Slider = function ( settings ) {
 			document.removeEventListener( 'selectstart', cancelSelect, false );
 			document.removeEventListener( 'mousemove',   continueDrag, false );
 			document.removeEventListener( 'mouseup',     endDrag,      false );
+
+			SIMULATION.gui.tooltip.blockHiding( false );
 
 		}
 

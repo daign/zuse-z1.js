@@ -104,6 +104,12 @@ ZUTOOLS.TooltipManager.prototype = {
 			this.timeout = undefined;
 		}
 
+	},
+
+	blockHiding: function ( b ) {
+
+		this.tooltip.hidingBlocked = b;
+
 	}
 
 };

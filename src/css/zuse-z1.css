@@ -88,6 +88,10 @@ body {
 	-webkit-transform: rotate( 45deg );
 	-moz-transform:    rotate( 45deg );
 	-o-transform:      rotate( 45deg );
+	transform-origin:         top left;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin:    top left;
+	-o-transform-origin:      top left;
 }
 
 .pointer, .button { cursor: pointer; }
