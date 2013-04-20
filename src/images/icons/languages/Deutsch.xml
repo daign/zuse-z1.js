@@ -41,22 +41,22 @@
 </div>
 
 <div id="layerA">
-	<span>Layer A expandieren</span>
+	<span>Ebene A expandieren</span>
 	<img src="../layerA.svg" />
 </div>
 
 <div id="layerB">
-	<span>Layer B expandieren</span>
+	<span>Ebene B expandieren</span>
 	<img src="../layerB.svg" />
 </div>
 
 <div id="layerC">
-	<span>Layer C expandieren</span>
+	<span>Ebene C expandieren</span>
 	<img src="../layerC.svg" />
 </div>
 
 <div id="layerD">
-	<span>Layer D expandieren</span>
+	<span>Ebene expandieren</span>
 	<img src="../layerD.svg" />
 </div>
 
