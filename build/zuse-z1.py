@@ -4,7 +4,6 @@ FILES = "\
 	../src/js-dev/zuse-z1.js\
 	../src/js-dev/Path.js\
 	../src/js-dev/CameraControls.js\
-	../src/js-dev/SheetTypes.js\
 	../src/js-dev/ShapeFiles.js\
 	../src/js-dev/Shapes.js\
 	../src/js-dev/Cyclable.js\
@@ -24,7 +23,6 @@ FILES = "\
 	../src/js-dev/Selection.js\
 	../src/js-dev/InputElement.js\
 	../src/js-dev/InputControlLayer.js\
-	../src/js-dev/LayerTypes.js\
 	../src/js-dev/Layer.js\
 	../src/js-dev/Adder.js\
 	../src/js-dev/SVGUtils.js\

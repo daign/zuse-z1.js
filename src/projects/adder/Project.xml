@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+
+	<structure>
+
+		<layer id="A" levels="7">
+
+			<elem type="AG" n="0">
+				<obj3d type="Sheet" x="0" y="70" level="0" />
+			</elem>
+			<elem type="AD" n="3">
+				<obj3d type="Sheet" x="74" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AD" n="2">
+				<obj3d type="Sheet" x="114" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AD" n="1">
+				<obj3d type="Sheet" x="154" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AD" n="0">
+				<obj3d type="Sheet" x="194" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AE" n="3">
+				<obj3d type="Sheet" x="11" y="50" level="2">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AE" n="0">
+				<obj3d type="Sheet" x="131" y="50" level="2">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AB" n="3">
+				<obj3d type="Sheet" x="74" y="135" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AB" n="2">
+				<obj3d type="Sheet" x="114" y="135" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AB" n="1">
+				<obj3d type="Sheet" x="154" y="135" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AB" n="0">
+				<obj3d type="Sheet" x="194" y="135" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="AE" n="1">
+				<obj3d type="Sheet" x="91" y="50" level="3">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AA" n="3">
+				<obj3d type="Sheet" x="51" y="125" level="3">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AA" n="1">
+				<obj3d type="Sheet" x="131" y="125" level="3">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AE" n="2">
+				<obj3d type="Sheet" x="51" y="50" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AA" n="2">
+				<obj3d type="Sheet" x="91" y="125" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AA" n="0">
+				<obj3d type="Sheet" x="171" y="125" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AP" n="">
+				<obj3d type="Sheet" x="-6" y="84" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="AG" n="1">
+				<obj3d type="Sheet" x="0" y="70" level="6" />
+			</elem>
+
+			<elem><obj3d type="Pin" x="25" y="75" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" /></elem>
+
+			<elem type="E3"><obj3d type="Pin" x="80" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="E2"><obj3d type="Pin" x="120" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="E1"><obj3d type="Pin" x="160" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="E0"><obj3d type="Pin" x="200" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="D3"><obj3d type="Pin" x="80" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="D2"><obj3d type="Pin" x="120" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="D1"><obj3d type="Pin" x="160" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="D0"><obj3d type="Pin" x="200" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+
+		</layer>
+
+		<layer id="B" levels="8">
+
+			<elem type="BG" n="0">
+				<obj3d type="Sheet" x="0" y="0" level="0" />
+			</elem>
+			<elem type="BQ0" n="">
+				<obj3d type="Sheet" x="-10" y="10" level="1">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BQ1" n="">
+				<obj3d type="Sheet" x="50" y="110" level="1">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BC" n="3">
+				<obj3d type="Sheet" x="74" y="15" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BC" n="2">
+				<obj3d type="Sheet" x="114" y="15" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BC" n="1">
+				<obj3d type="Sheet" x="154" y="15" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BC" n="0">
+				<obj3d type="Sheet" x="194" y="15" level="2">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BH" n="2">
+				<obj3d type="Sheet" x="91" y="5" level="3">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BH" n="0">
+				<obj3d type="Sheet" x="171" y="5" level="3">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BB" n="3">
+				<obj3d type="Sheet" x="71" y="116" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BB" n="2">
+				<obj3d type="Sheet" x="111" y="116" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BB" n="1">
+				<obj3d type="Sheet" x="151" y="116" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BB" n="0">
+				<obj3d type="Sheet" x="191" y="116" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BH" n="3">
+				<obj3d type="Sheet" x="51" y="5" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BH" n="1">
+				<obj3d type="Sheet" x="131" y="5" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BA" n="3">
+				<obj3d type="Sheet" x="61" y="125" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BA" n="1">
+				<obj3d type="Sheet" x="141" y="125" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BF" n="3">
+				<obj3d type="Sheet" x="51" y="61" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BF0" n="">
+				<obj3d type="Sheet" x="171" y="61" level="4">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BA" n="2">
+				<obj3d type="Sheet" x="101" y="125" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BA" n="0">
+				<obj3d type="Sheet" x="181" y="125" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BF4" n="">
+				<obj3d type="Sheet" x="-30" y="61" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BF" n="1">
+				<obj3d type="Sheet" x="131" y="61" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BN" n="">
+				<obj3d type="Sheet" x="0" y="130" level="6">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="BF" n="2">
+				<obj3d type="Sheet" x="91" y="61" level="6">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="BG" n="1">
+				<obj3d type="Sheet" x="0" y="0" level="7" />
+			</elem>
+
+			<elem><obj3d type="Pin" x="65" y="35" /></elem>
+			<elem><obj3d type="Pin" x="105" y="35" /></elem>
+			<elem><obj3d type="Pin" x="145" y="35" /></elem>
+			<elem><obj3d type="Pin" x="185" y="35" /></elem>
+			<elem><obj3d type="Pin" x="225" y="35" /></elem>
+			<elem><obj3d type="Pin" x="25" y="75" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" /></elem>
+			<elem><obj3d type="Pin" x="75" y="155" /></elem>
+			<elem><obj3d type="Pin" x="115" y="155" /></elem>
+			<elem><obj3d type="Pin" x="155" y="155" /></elem>
+			<elem><obj3d type="Pin" x="195" y="155" /></elem>
+			<elem><obj3d type="Pin" x="235" y="155" /></elem>
+
+			<elem type="H3"><obj3d type="Pin" x="80" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="H2"><obj3d type="Pin" x="120" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="H1"><obj3d type="Pin" x="160" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="H0"><obj3d type="Pin" x="200" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="G3"><obj3d type="Pin" x="80" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="G2"><obj3d type="Pin" x="120" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="G1"><obj3d type="Pin" x="160" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="G0"><obj3d type="Pin" x="200" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="Q8"><obj3d type="Pin" x="65" y="115"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Q7"><obj3d type="Pin" x="105" y="115"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Q6"><obj3d type="Pin" x="145" y="115"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Q5"><obj3d type="Pin" x="185" y="115"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Q4"><obj3d type="Pin" x="225" y="115"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="C3"><obj3d type="Pin" x="80" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="C2"><obj3d type="Pin" x="120" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="C1"><obj3d type="Pin" x="160" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="C0"><obj3d type="Pin" x="200" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="Q3"><obj3d type="Pin" x="85" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Q2"><obj3d type="Pin" x="125" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Q1"><obj3d type="Pin" x="165" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Q0"><obj3d type="Pin" x="205" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+
+		</layer>
+
+		<layer id="C" levels="7">
+
+			<elem type="CG" n="0">
+				<obj3d type="Sheet" x="0" y="0" level="0" />
+			</elem>
+			<elem type="CV" n="">
+				<obj3d type="Sheet" x="34" y="135" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CK" n="2">
+				<obj3d type="Sheet" x="144" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CK" n="0">
+				<obj3d type="Sheet" x="194" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CR" n="">
+				<obj3d type="Sheet" x="0" y="5" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CS" n="">
+				<obj3d type="Sheet" x="20" y="10" level="2">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="CT" n="">
+				<obj3d type="Sheet" x="35" y="125" level="3">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="CW1" n="2">
+				<obj3d type="Sheet" x="75" y="10" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CW1" n="0">
+				<obj3d type="Sheet" x="155" y="10" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CU" n="">
+				<obj3d type="Sheet" x="0" y="125" level="4">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CW0" n="2">
+				<obj3d type="Sheet" x="121" y="10" level="4">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CW0" n="0">
+				<obj3d type="Sheet" x="201" y="10" level="4">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CM" n="2">
+				<obj3d type="Sheet" x="114" y="125" level="5">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CM" n="0">
+				<obj3d type="Sheet" x="194" y="125" level="5">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="CF" n="2">
+				<obj3d type="Sheet" x="91" y="61" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="CF" n="0">
+				<obj3d type="Sheet" x="171" y="61" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="CJ" n="2">
+				<obj3d type="Sheet" x="91" y="11" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="CJ" n="0">
+				<obj3d type="Sheet" x="171" y="11" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="CG" n="1">
+				<obj3d type="Sheet" x="0" y="0" level="6" />
+			</elem>
+
+			<elem><obj3d type="Pin" x="105" y="35" /></elem>
+			<elem><obj3d type="Pin" x="145" y="35" /></elem>
+			<elem><obj3d type="Pin" x="185" y="35" /></elem>
+			<elem><obj3d type="Pin" x="225" y="35" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" /></elem>
+			<elem><obj3d type="Pin" x="25" y="155" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" /></elem>
+
+			<elem type="S0"><obj3d type="Pin" x="80" y="15"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="W2"><obj3d type="Pin" x="120" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="S1"><obj3d type="Pin" x="160" y="15"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="W0"><obj3d type="Pin" x="200" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="S2"><obj3d type="Pin" x="80" y="95"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="K2"><obj3d type="Pin" x="120" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="S3"><obj3d type="Pin" x="160" y="95"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="K0"><obj3d type="Pin" x="200" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="Z0"><obj3d type="Pin" x="90" y="115"></obj3d></elem>
+			<elem type="Z1"><obj3d type="Pin" x="105" y="115"><anim type="move" x="true" y="false" amount="2" /></obj3d></elem>
+			<elem type="Z2"><obj3d type="Pin" x="170" y="115"></obj3d></elem>
+			<elem type="Z3"><obj3d type="Pin" x="185" y="115"><anim type="move" x="true" y="false" amount="2" /></obj3d></elem>
+			<elem type="T"><obj3d type="Pin" x="40" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="M2"><obj3d type="Pin" x="120" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="M0"><obj3d type="Pin" x="200" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="V"><obj3d type="Pin" x="45" y="210" z1="0" z2="1"><anim type="move" x="false" y="true" /></obj3d></elem>
+
+		</layer>
+
+		<layer id="D" levels="7">
+
+			<elem type="DG" n="0">
+				<obj3d type="Sheet" x="0" y="0" level="0" />
+			</elem>
+			<elem type="DV" n="">
+				<obj3d type="Sheet" x="34" y="135" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DK" n="3">
+				<obj3d type="Sheet" x="74" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DK" n="1">
+				<obj3d type="Sheet" x="154" y="76" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DR" n="">
+				<obj3d type="Sheet" x="0" y="5" level="1">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DS" n="">
+				<obj3d type="Sheet" x="20" y="10" level="2">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="DT" n="">
+				<obj3d type="Sheet" x="35" y="125" level="3">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="DW1" n="3">
+				<obj3d type="Sheet" x="35" y="10" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DW1" n="1">
+				<obj3d type="Sheet" x="115" y="10" level="3">
+					<anim type="move" x="true" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DU" n="">
+				<obj3d type="Sheet" x="0" y="125" level="4">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DW0" n="3">
+				<obj3d type="Sheet" x="81" y="10" level="4">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DW0" n="1">
+				<obj3d type="Sheet" x="161" y="10" level="4">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DM" n="3">
+				<obj3d type="Sheet" x="74" y="125" level="5">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DM" n="1">
+				<obj3d type="Sheet" x="154" y="125" level="5">
+					<anim type="move" x="false" y="true" />
+				</obj3d>
+			</elem>
+			<elem type="DF" n="3">
+				<obj3d type="Sheet" x="51" y="61" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="DF" n="1">
+				<obj3d type="Sheet" x="131" y="61" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="DJ" n="3">
+				<obj3d type="Sheet" x="51" y="11" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="DJ" n="1">
+				<obj3d type="Sheet" x="131" y="11" level="5">
+					<anim type="move" x="true" y="false" />
+				</obj3d>
+			</elem>
+			<elem type="DG" n="1">
+				<obj3d type="Sheet" x="0" y="0" level="6" />
+			</elem>
+
+			<elem><obj3d type="Pin" x="65" y="35" /></elem>
+			<elem><obj3d type="Pin" x="105" y="35" /></elem>
+			<elem><obj3d type="Pin" x="145" y="35" /></elem>
+			<elem><obj3d type="Pin" x="185" y="35" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="25" y="155" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" /></elem>
+
+			<elem type="S0"><obj3d type="Pin" x="40" y="15"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="W3"><obj3d type="Pin" x="80" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="S1"><obj3d type="Pin" x="120" y="15"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="W1"><obj3d type="Pin" x="160" y="20"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="S2"><obj3d type="Pin" x="40" y="95"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="K3"><obj3d type="Pin" x="80" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="S3"><obj3d type="Pin" x="120" y="95"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="K1"><obj3d type="Pin" x="160" y="100"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="Z1"><obj3d type="Pin" x="103" y="115"><anim type="move" x="true" y="false" amount="2" /></obj3d></elem>
+			<elem type="Z0"><obj3d type="Pin" x="120" y="115"></obj3d></elem>
+			<elem type="Z3"><obj3d type="Pin" x="183" y="115"><anim type="move" x="true" y="false" amount="2" /></obj3d></elem>
+			<elem type="Z2"><obj3d type="Pin" x="200" y="115"></obj3d></elem>
+			<elem type="T"><obj3d type="Pin" x="40" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="M3"><obj3d type="Pin" x="80" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="M1"><obj3d type="Pin" x="160" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
+			<elem type="V"><obj3d type="Pin" x="45" y="210" z1="1" z2="6"><anim type="move" x="false" y="true" /></obj3d></elem>
+
+		</layer>
+
+		<layer id="0A" levels="1.5" spacing="10" intermediate="true">
+
+			<elem type="Z0A"><obj3d type="Sheet" x="0" y="70" /></elem>
+			<elem><obj3d type="Pin" x="25" y="75" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" /></elem>
+
+		</layer>
+
+		<layer id="AB" levels="1.5" spacing="10" intermediate="true">
+
+			<elem type="ZAB"><obj3d type="Sheet" x="0" y="0" /></elem>
+			<elem><obj3d type="Pin" x="65" y="35" /></elem>
+			<elem><obj3d type="Pin" x="105" y="35" /></elem>
+			<elem><obj3d type="Pin" x="145" y="35" /></elem>
+			<elem><obj3d type="Pin" x="185" y="35" /></elem>
+			<elem><obj3d type="Pin" x="225" y="35" /></elem>
+			<elem><obj3d type="Pin" x="25" y="75" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="75" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="115" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="155" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="195" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="235" y="155" z1="0" z2="2" /></elem>
+
+		</layer>
+
+		<layer id="BC" levels="1.5" spacing="10" intermediate="true">
+
+			<elem type="ZBC"><obj3d type="Sheet" x="0" y="0" /></elem>
+			<elem><obj3d type="Pin" x="65" y="35" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="105" y="35" /></elem>
+			<elem><obj3d type="Pin" x="145" y="35" /></elem>
+			<elem><obj3d type="Pin" x="185" y="35" /></elem>
+			<elem><obj3d type="Pin" x="225" y="35" /></elem>
+			<elem><obj3d type="Pin" x="25" y="75" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" /></elem>
+			<elem><obj3d type="Pin" x="25" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="75" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="115" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="155" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="195" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="235" y="155" z1="1" z2="3" /></elem>
+
+		</layer>
+
+		<layer id="CD" levels="1.5" spacing="10" intermediate="true">
+
+			<elem type="ZCD"><obj3d type="Sheet" x="0" y="0" /></elem>
+			<elem><obj3d type="Pin" x="65" y="35" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="105" y="35" /></elem>
+			<elem><obj3d type="Pin" x="145" y="35" /></elem>
+			<elem><obj3d type="Pin" x="185" y="35" /></elem>
+			<elem><obj3d type="Pin" x="225" y="35" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="25" y="155" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" /></elem>
+			<elem type="V"><obj3d type="Pin" x="45" y="210"><anim type="move" x="false" y="true" /></obj3d></elem>
+
+		</layer>
+
+		<layer id="D0" levels="1.5" spacing="10" intermediate="true">
+
+			<elem type="ZD0"><obj3d type="Sheet" x="0" y="0" /></elem>
+			<elem><obj3d type="Pin" x="65" y="35" /></elem>
+			<elem><obj3d type="Pin" x="105" y="35" /></elem>
+			<elem><obj3d type="Pin" x="145" y="35" /></elem>
+			<elem><obj3d type="Pin" x="185" y="35" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" /></elem>
+			<elem><obj3d type="Pin" x="105" y="75" /></elem>
+			<elem><obj3d type="Pin" x="145" y="75" /></elem>
+			<elem><obj3d type="Pin" x="185" y="75" /></elem>
+			<elem><obj3d type="Pin" x="25" y="155" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" /></elem>
+
+		</layer>
+
+		<default>
+
+			<elem><obj3d type="Pin" x="0" y="90" size="6" /></elem>
+			<elem><obj3d type="Pin" x="240" y="90" size="6" /></elem>
+
+			<elem type="J3"><obj3d type="Pin" x="80" y="50"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="J2"><obj3d type="Pin" x="120" y="50"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="J1"><obj3d type="Pin" x="160" y="50"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="J0"><obj3d type="Pin" x="200" y="50"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="F4"><obj3d type="Pin" x="40" y="60"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="F3"><obj3d type="Pin" x="80" y="60"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="F2"><obj3d type="Pin" x="120" y="60"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="F1"><obj3d type="Pin" x="160" y="60"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="F0"><obj3d type="Pin" x="200" y="60"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="A3"><obj3d type="Pin" x="80" y="180"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="A2"><obj3d type="Pin" x="120" y="180"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="A1"><obj3d type="Pin" x="160" y="180"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="A0"><obj3d type="Pin" x="200" y="180"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="B3"><obj3d type="Pin" x="85" y="210"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem type="B2"><obj3d type="Pin" x="125" y="210"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem type="B1"><obj3d type="Pin" x="165" y="210"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem type="B0"><obj3d type="Pin" x="205" y="210"><anim type="move" x="false" y="true" /></obj3d></elem>
+
+			<elem type="Y0"><obj3d type="Pin" x="0" y="10" size="6"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem type="Y1"><obj3d type="Pin" x="240" y="10" size="6"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem type="X0"><obj3d type="Pin" x="270" y="10" size="6"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem type="Y2"><obj3d type="Pin" x="0" y="130" size="6"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem type="Y3"><obj3d type="Pin" x="240" y="130" size="6"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem type="X1"><obj3d type="Pin" x="270" y="130" size="6"><anim type="move" x="true" y="false" /></obj3d></elem>
+
+		</default>
+
+	</structure>
+
+	<rules>
+	</rules>
+
+</project>
+

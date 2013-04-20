@@ -12,15 +12,15 @@ ZUSE.Adder = function () {
 	this.selectables2 = new Array();
 	this.selectables2enabled = false;
 
-	this.addLayer( ZUSE.LayerTypes.LAYER_D0 );
-	this.addLayer( ZUSE.LayerTypes.LAYER_D  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_CD );
-	this.addLayer( ZUSE.LayerTypes.LAYER_C  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_BC );
-	this.addLayer( ZUSE.LayerTypes.LAYER_B  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_AB );
-	this.addLayer( ZUSE.LayerTypes.LAYER_A  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_0A );
+	this.addLayer( 'D0' );
+	this.addLayer( 'D'  );
+	this.addLayer( 'CD' );
+	this.addLayer( 'C'  );
+	this.addLayer( 'BC' );
+	this.addLayer( 'B'  );
+	this.addLayer( 'AB' );
+	this.addLayer( 'A'  );
+	this.addLayer( '0A' );
 	this.layersByType[ 'In' ] = new ZUSE.InputControlLayer();
 
 	this.selection = new ZUSE.Selection( { x1: -40, x2: 320, y1: -15, y2: 265 }, this );

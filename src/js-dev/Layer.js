@@ -12,29 +12,29 @@ ZUSE.Layer = function ( type, s, p ) {
 
 	switch ( type ) {
 
-		case ZUSE.LayerTypes.LAYER_A:
+		case 'A':
 
 			this.levels = 7;
 
-			this.addSheet( ZUSE.SheetTypes.SHEET_AG,  0,   0,   0,  70,  70, 0 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AD,  3,  74,  74,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AD,  2, 114, 114,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AD,  1, 154, 154,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AD,  0, 194, 194,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AE,  3,  11,  21,  50,  50, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AE,  0, 131, 141,  50,  50, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AB,  3,  74,  74, 135, 125, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AB,  2, 114, 114, 135, 125, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AB,  1, 154, 154, 135, 125, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AB,  0, 194, 194, 135, 125, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AE,  1,  91, 101,  50,  50, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AA,  3,  51,  61, 125, 125, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AA,  1, 131, 141, 125, 125, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AE,  2,  51,  61,  50,  50, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AA,  2,  91, 101, 125, 125, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AA,  0, 171, 181, 125, 125, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AP, '',  -6,   4,  84,  84, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_AG,  1,   0,   0,  70,  70, 6 );
+			this.addSheet( 'AG',  0,   0,   0,  70,  70, 0 );
+			this.addSheet( 'AD',  3,  74,  74,  76,  66, 1 );
+			this.addSheet( 'AD',  2, 114, 114,  76,  66, 1 );
+			this.addSheet( 'AD',  1, 154, 154,  76,  66, 1 );
+			this.addSheet( 'AD',  0, 194, 194,  76,  66, 1 );
+			this.addSheet( 'AE',  3,  11,  21,  50,  50, 2 );
+			this.addSheet( 'AE',  0, 131, 141,  50,  50, 2 );
+			this.addSheet( 'AB',  3,  74,  74, 135, 125, 2 );
+			this.addSheet( 'AB',  2, 114, 114, 135, 125, 2 );
+			this.addSheet( 'AB',  1, 154, 154, 135, 125, 2 );
+			this.addSheet( 'AB',  0, 194, 194, 135, 125, 2 );
+			this.addSheet( 'AE',  1,  91, 101,  50,  50, 3 );
+			this.addSheet( 'AA',  3,  51,  61, 125, 125, 3 );
+			this.addSheet( 'AA',  1, 131, 141, 125, 125, 3 );
+			this.addSheet( 'AE',  2,  51,  61,  50,  50, 4 );
+			this.addSheet( 'AA',  2,  91, 101, 125, 125, 4 );
+			this.addSheet( 'AA',  0, 171, 181, 125, 125, 4 );
+			this.addSheet( 'AP', '',  -6,   4,  84,  84, 5 );
+			this.addSheet( 'AG',  1,   0,   0,  70,  70, 6 );
 
 			this.addStaticPin(  25,  75 );
 			this.addStaticPin(  65,  75 );
@@ -58,36 +58,36 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_B:
+		case 'B':
 
 			this.levels = 8;
 
-			this.addSheet( ZUSE.SheetTypes.SHEET_BG,   0,   0,   0,   0,   0, 0 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BQ0, '', -10,   0,  10,   0, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BQ1, '',  50,  60, 110, 110, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BC,   3,  74,  74,  15,   5, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BC,   2, 114, 114,  15,   5, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BC,   1, 154, 154,  15,   5, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BC,   0, 194, 194,  15,   5, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BH,   2,  91, 101,   5,   5, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BH,   0, 171, 181,   5,   5, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BB,   3,  71,  81, 116, 106, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BB,   2, 111, 121, 116, 106, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BB,   1, 151, 161, 116, 106, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BB,   0, 191, 201, 116, 106, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BH,   3,  51,  61,   5,   5, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BH,   1, 131, 141,   5,   5, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BA,   3,  61,  71, 125, 125, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BA,   1, 141, 151, 125, 125, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BF,   3,  51,  61,  61,  61, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BF0, '', 171, 181,  61,  61, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BA,   2, 101, 111, 125, 125, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BA,   0, 181, 191, 125, 125, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BF4, '', -30, -20,  61,  61, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BF,   1, 131, 141,  61,  61, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BN,  '',   0,   0, 130, 120, 6 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BF,   2,  91, 101,  61,  61, 6 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_BG,   1,   0,   0,   0,   0, 7 );
+			this.addSheet( 'BG',   0,   0,   0,   0,   0, 0 );
+			this.addSheet( 'BQ0', '', -10,   0,  10,   0, 1 );
+			this.addSheet( 'BQ1', '',  50,  60, 110, 110, 1 );
+			this.addSheet( 'BC',   3,  74,  74,  15,   5, 2 );
+			this.addSheet( 'BC',   2, 114, 114,  15,   5, 2 );
+			this.addSheet( 'BC',   1, 154, 154,  15,   5, 2 );
+			this.addSheet( 'BC',   0, 194, 194,  15,   5, 2 );
+			this.addSheet( 'BH',   2,  91, 101,   5,   5, 3 );
+			this.addSheet( 'BH',   0, 171, 181,   5,   5, 3 );
+			this.addSheet( 'BB',   3,  71,  81, 116, 106, 3 );
+			this.addSheet( 'BB',   2, 111, 121, 116, 106, 3 );
+			this.addSheet( 'BB',   1, 151, 161, 116, 106, 3 );
+			this.addSheet( 'BB',   0, 191, 201, 116, 106, 3 );
+			this.addSheet( 'BH',   3,  51,  61,   5,   5, 4 );
+			this.addSheet( 'BH',   1, 131, 141,   5,   5, 4 );
+			this.addSheet( 'BA',   3,  61,  71, 125, 125, 4 );
+			this.addSheet( 'BA',   1, 141, 151, 125, 125, 4 );
+			this.addSheet( 'BF',   3,  51,  61,  61,  61, 4 );
+			this.addSheet( 'BF0', '', 171, 181,  61,  61, 4 );
+			this.addSheet( 'BA',   2, 101, 111, 125, 125, 5 );
+			this.addSheet( 'BA',   0, 181, 191, 125, 125, 5 );
+			this.addSheet( 'BF4', '', -30, -20,  61,  61, 5 );
+			this.addSheet( 'BF',   1, 131, 141,  61,  61, 5 );
+			this.addSheet( 'BN',  '',   0,   0, 130, 120, 6 );
+			this.addSheet( 'BF',   2,  91, 101,  61,  61, 6 );
+			this.addSheet( 'BG',   1,   0,   0,   0,   0, 7 );
 
 			this.addStaticPin(  65,  35 );
 			this.addStaticPin( 105,  35 );
@@ -129,29 +129,29 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_C:
+		case 'C':
 
 			this.levels = 7;
 
-			this.addSheet( ZUSE.SheetTypes.SHEET_CG,  0,   0,   0,   0,   0, 0 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CV, '',  34,  34, 135, 125, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CK,  2, 114, 114,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CK,  0, 194, 194,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CR, '',   0,   0,   5,  -5, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CS, '',  20,  30,  10,  10, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CT, '',  35,  45, 125, 125, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CW1, 2,  75,  85,  10,   0, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CW1, 0, 155, 165,  10,   0, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CU, '',   0,   0, 125, 115, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CW0, 2, 121, 121,  10,   0, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CW0, 0, 201, 201,  10,   0, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CM,  2, 114, 114, 125, 115, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CM,  0, 194, 194, 125, 115, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CF,  2,  91, 101,  61,  61, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CF,  0, 171, 181,  61,  61, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CJ,  2,  91, 101,  11,  11, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CJ,  0, 171, 181,  11,  11, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_CG,  1,   0,   0,   0,   0, 6 );
+			this.addSheet( 'CG',  0,   0,   0,   0,   0, 0 );
+			this.addSheet( 'CV', '',  34,  34, 135, 125, 1 );
+			this.addSheet( 'CK',  2, 114, 114,  76,  66, 1 );
+			this.addSheet( 'CK',  0, 194, 194,  76,  66, 1 );
+			this.addSheet( 'CR', '',   0,   0,   5,  -5, 1 );
+			this.addSheet( 'CS', '',  20,  30,  10,  10, 2 );
+			this.addSheet( 'CT', '',  35,  45, 125, 125, 3 );
+			this.addSheet( 'CW1', 2,  75,  85,  10,   0, 3 );
+			this.addSheet( 'CW1', 0, 155, 165,  10,   0, 3 );
+			this.addSheet( 'CU', '',   0,   0, 125, 115, 4 );
+			this.addSheet( 'CW0', 2, 121, 121,  10,   0, 4 );
+			this.addSheet( 'CW0', 0, 201, 201,  10,   0, 4 );
+			this.addSheet( 'CM',  2, 114, 114, 125, 115, 5 );
+			this.addSheet( 'CM',  0, 194, 194, 125, 115, 5 );
+			this.addSheet( 'CF',  2,  91, 101,  61,  61, 5 );
+			this.addSheet( 'CF',  0, 171, 181,  61,  61, 5 );
+			this.addSheet( 'CJ',  2,  91, 101,  11,  11, 5 );
+			this.addSheet( 'CJ',  0, 171, 181,  11,  11, 5 );
+			this.addSheet( 'CG',  1,   0,   0,   0,   0, 6 );
 
 			this.addStaticPin( 105,  35 );
 			this.addStaticPin( 145,  35 );
@@ -186,29 +186,29 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_D:
+		case 'D':
 
 			this.levels = 7;
 
-			this.addSheet( ZUSE.SheetTypes.SHEET_DG,  0,   0,   0,   0,   0, 0 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DV, '',  34,  34, 135, 125, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DK,  3,  74,  74,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DK,  1, 154, 154,  76,  66, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DR, '',   0,   0,   5,  -5, 1 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DS, '',  20,  30,  10,  10, 2 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DT, '',  35,  45, 125, 125, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DW1, 3,  35,  45,  10,   0, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DW1, 1, 115, 125,  10,   0, 3 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DU, '',   0,   0, 125, 115, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DW0, 3,  81,  81,  10,   0, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DW0, 1, 161, 161,  10,   0, 4 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DM,  3,  74,  74, 125, 115, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DM,  1, 154, 154, 125, 115, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DF,  3,  51,  61,  61,  61, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DF,  1, 131, 141,  61,  61, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DJ,  3,  51,  61,  11,  11, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DJ,  1, 131, 141,  11,  11, 5 );
-			this.addSheet( ZUSE.SheetTypes.SHEET_DG,  1,   0,   0,   0,   0, 6 );
+			this.addSheet( 'DG',  0,   0,   0,   0,   0, 0 );
+			this.addSheet( 'DV', '',  34,  34, 135, 125, 1 );
+			this.addSheet( 'DK',  3,  74,  74,  76,  66, 1 );
+			this.addSheet( 'DK',  1, 154, 154,  76,  66, 1 );
+			this.addSheet( 'DR', '',   0,   0,   5,  -5, 1 );
+			this.addSheet( 'DS', '',  20,  30,  10,  10, 2 );
+			this.addSheet( 'DT', '',  35,  45, 125, 125, 3 );
+			this.addSheet( 'DW1', 3,  35,  45,  10,   0, 3 );
+			this.addSheet( 'DW1', 1, 115, 125,  10,   0, 3 );
+			this.addSheet( 'DU', '',   0,   0, 125, 115, 4 );
+			this.addSheet( 'DW0', 3,  81,  81,  10,   0, 4 );
+			this.addSheet( 'DW0', 1, 161, 161,  10,   0, 4 );
+			this.addSheet( 'DM',  3,  74,  74, 125, 115, 5 );
+			this.addSheet( 'DM',  1, 154, 154, 125, 115, 5 );
+			this.addSheet( 'DF',  3,  51,  61,  61,  61, 5 );
+			this.addSheet( 'DF',  1, 131, 141,  61,  61, 5 );
+			this.addSheet( 'DJ',  3,  51,  61,  11,  11, 5 );
+			this.addSheet( 'DJ',  1, 131, 141,  11,  11, 5 );
+			this.addSheet( 'DG',  1,   0,   0,   0,   0, 6 );
 
 			this.addStaticPin(  65,  35 );
 			this.addStaticPin( 105,  35 );
@@ -243,13 +243,13 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_0A:
+		case '0A':
 
 			this.levels = 1.5;
 			this.spacing = 10;
 			this.intermediate = true;
 
-			this.addIntermediateSheet( ZUSE.SheetTypes.SHEET_Z0A, 0, 70 );
+			this.addIntermediateSheet( 'Z0A', 0, 70 );
 
 			this.addStaticPin(  25,  75 );
 			this.addStaticPin(  65,  75 );
@@ -265,13 +265,13 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_AB:
+		case 'AB':
 
 			this.levels = 1.5;
 			this.spacing = 10;
 			this.intermediate = true;
 
-			this.addIntermediateSheet( ZUSE.SheetTypes.SHEET_ZAB, 0, 0 );
+			this.addIntermediateSheet( 'ZAB', 0, 0 );
 
 			this.addStaticPin(  65,  35 );
 			this.addStaticPin( 105,  35 );
@@ -297,13 +297,13 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_BC:
+		case 'BC':
 
 			this.levels = 1.5;
 			this.spacing = 10;
 			this.intermediate = true;
 
-			this.addIntermediateSheet( ZUSE.SheetTypes.SHEET_ZBC, 0, 0 );
+			this.addIntermediateSheet( 'ZBC', 0, 0 );
 
 			this.addStaticPin(  65,  35, 1, 3 );
 			this.addStaticPin( 105,  35 );
@@ -330,13 +330,13 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_CD:
+		case 'CD':
 
 			this.levels = 1.5;
 			this.spacing = 10;
 			this.intermediate = true;
 
-			this.addIntermediateSheet( ZUSE.SheetTypes.SHEET_ZCD, 0, 0 );
+			this.addIntermediateSheet( 'ZCD', 0, 0 );
 
 			this.addStaticPin(  65,  35, 0, 2 );
 			this.addStaticPin( 105,  35 );
@@ -358,13 +358,13 @@ ZUSE.Layer = function ( type, s, p ) {
 
 			break;
 
-		case ZUSE.LayerTypes.LAYER_D0:
+		case 'D0':
 
 			this.levels = 1.5;
 			this.spacing = 10;
 			this.intermediate = true;
 
-			this.addIntermediateSheet( ZUSE.SheetTypes.SHEET_ZD0, 0, 0 );
+			this.addIntermediateSheet( 'ZD0', 0, 0 );
 
 			this.addStaticPin(  65,  35 );
 			this.addStaticPin( 105,  35 );
