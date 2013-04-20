@@ -1,421 +1,73 @@
-ZUSE.Layer = function ( type, s, p ) {
+ZUSE.Layer = function ( layerNode, layerDefaults, s, p ) {
 
-	this.type = type;
 	this.parent = p;
-	this.spacing = s;
+	this.type = layerNode.getAttribute( 'id' );
+	this.levels = layerNode.getAttribute( 'levels' );
+	this.spacing = layerNode.getAttribute( 'spacing' ) || s;
+	this.intermediate = layerNode.getAttribute( 'intermediate' ) === 'true';
+
 	this.open = false;
-	this.intermediate = false;
 	this.meshes = new THREE.Object3D();
 	this.sheets = new Array();
 	this.pins = new Array();
 	this.cycleAccess = new Object();
 
-	switch ( type ) {
-
-		case 'A':
-
-			this.levels = 7;
-
-			this.addSheet( 'AG',  0,   0,   0,  70,  70, 0 );
-			this.addSheet( 'AD',  3,  74,  74,  76,  66, 1 );
-			this.addSheet( 'AD',  2, 114, 114,  76,  66, 1 );
-			this.addSheet( 'AD',  1, 154, 154,  76,  66, 1 );
-			this.addSheet( 'AD',  0, 194, 194,  76,  66, 1 );
-			this.addSheet( 'AE',  3,  11,  21,  50,  50, 2 );
-			this.addSheet( 'AE',  0, 131, 141,  50,  50, 2 );
-			this.addSheet( 'AB',  3,  74,  74, 135, 125, 2 );
-			this.addSheet( 'AB',  2, 114, 114, 135, 125, 2 );
-			this.addSheet( 'AB',  1, 154, 154, 135, 125, 2 );
-			this.addSheet( 'AB',  0, 194, 194, 135, 125, 2 );
-			this.addSheet( 'AE',  1,  91, 101,  50,  50, 3 );
-			this.addSheet( 'AA',  3,  51,  61, 125, 125, 3 );
-			this.addSheet( 'AA',  1, 131, 141, 125, 125, 3 );
-			this.addSheet( 'AE',  2,  51,  61,  50,  50, 4 );
-			this.addSheet( 'AA',  2,  91, 101, 125, 125, 4 );
-			this.addSheet( 'AA',  0, 171, 181, 125, 125, 4 );
-			this.addSheet( 'AP', '',  -6,   4,  84,  84, 5 );
-			this.addSheet( 'AG',  1,   0,   0,  70,  70, 6 );
-
-			this.addStaticPin(  25,  75 );
-			this.addStaticPin(  65,  75 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin( 225,  75 );
-			this.addStaticPin(  65, 155 );
-			this.addStaticPin( 105, 155 );
-			this.addStaticPin( 145, 155 );
-			this.addStaticPin( 185, 155 );
-			this.addStaticPin( 225, 155 );
-			this.addMovingPin(  80,  90, 100,  90, "E3" );
-			this.addMovingPin( 120, 130, 100,  90, "E2" );
-			this.addMovingPin( 160, 170, 100,  90, "E1" );
-			this.addMovingPin( 200, 210, 100,  90, "E0" );
-			this.addMovingPin(  80,  90, 140, 130, "D3" );
-			this.addMovingPin( 120, 130, 140, 130, "D2" );
-			this.addMovingPin( 160, 170, 140, 130, "D1" );
-			this.addMovingPin( 200, 210, 140, 130, "D0" );
-
-			break;
-
-		case 'B':
-
-			this.levels = 8;
-
-			this.addSheet( 'BG',   0,   0,   0,   0,   0, 0 );
-			this.addSheet( 'BQ0', '', -10,   0,  10,   0, 1 );
-			this.addSheet( 'BQ1', '',  50,  60, 110, 110, 1 );
-			this.addSheet( 'BC',   3,  74,  74,  15,   5, 2 );
-			this.addSheet( 'BC',   2, 114, 114,  15,   5, 2 );
-			this.addSheet( 'BC',   1, 154, 154,  15,   5, 2 );
-			this.addSheet( 'BC',   0, 194, 194,  15,   5, 2 );
-			this.addSheet( 'BH',   2,  91, 101,   5,   5, 3 );
-			this.addSheet( 'BH',   0, 171, 181,   5,   5, 3 );
-			this.addSheet( 'BB',   3,  71,  81, 116, 106, 3 );
-			this.addSheet( 'BB',   2, 111, 121, 116, 106, 3 );
-			this.addSheet( 'BB',   1, 151, 161, 116, 106, 3 );
-			this.addSheet( 'BB',   0, 191, 201, 116, 106, 3 );
-			this.addSheet( 'BH',   3,  51,  61,   5,   5, 4 );
-			this.addSheet( 'BH',   1, 131, 141,   5,   5, 4 );
-			this.addSheet( 'BA',   3,  61,  71, 125, 125, 4 );
-			this.addSheet( 'BA',   1, 141, 151, 125, 125, 4 );
-			this.addSheet( 'BF',   3,  51,  61,  61,  61, 4 );
-			this.addSheet( 'BF0', '', 171, 181,  61,  61, 4 );
-			this.addSheet( 'BA',   2, 101, 111, 125, 125, 5 );
-			this.addSheet( 'BA',   0, 181, 191, 125, 125, 5 );
-			this.addSheet( 'BF4', '', -30, -20,  61,  61, 5 );
-			this.addSheet( 'BF',   1, 131, 141,  61,  61, 5 );
-			this.addSheet( 'BN',  '',   0,   0, 130, 120, 6 );
-			this.addSheet( 'BF',   2,  91, 101,  61,  61, 6 );
-			this.addSheet( 'BG',   1,   0,   0,   0,   0, 7 );
-
-			this.addStaticPin(  65,  35 );
-			this.addStaticPin( 105,  35 );
-			this.addStaticPin( 145,  35 );
-			this.addStaticPin( 185,  35 );
-			this.addStaticPin( 225,  35 );
-			this.addStaticPin(  25,  75 );
-			this.addStaticPin(  65,  75 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin( 225,  75 );
-			this.addStaticPin(  75, 155 );
-			this.addStaticPin( 115, 155 );
-			this.addStaticPin( 155, 155 );
-			this.addStaticPin( 195, 155 );
-			this.addStaticPin( 235, 155 );
-			this.addMovingPin(  80,  90,  20,  10, "H3" );
-			this.addMovingPin( 120, 130,  20,  10, "H2" );
-			this.addMovingPin( 160, 170,  20,  10, "H1" );
-			this.addMovingPin( 200, 210,  20,  10, "H0" );
-			this.addMovingPin(  80,  90, 100,  90, "G3" );
-			this.addMovingPin( 120, 130, 100,  90, "G2" );
-			this.addMovingPin( 160, 170, 100,  90, "G1" );
-			this.addMovingPin( 200, 210, 100,  90, "G0" );
-			this.addMovingPin(  65,  75, 115, 115, "Q8" );
-			this.addMovingPin( 105, 115, 115, 115, "Q7" );
-			this.addMovingPin( 145, 155, 115, 115, "Q6" );
-			this.addMovingPin( 185, 195, 115, 115, "Q5" );
-			this.addMovingPin( 225, 235, 115, 115, "Q4" );
-			this.addMovingPin(  80,  90, 140, 130, "C3" );
-			this.addMovingPin( 120, 130, 140, 130, "C2" );
-			this.addMovingPin( 160, 170, 140, 130, "C1" );
-			this.addMovingPin( 200, 210, 140, 130, "C0" );
-			this.addMovingPin(  85,  95, 230, 230, "Q3", 1, 3 );
-			this.addMovingPin( 125, 135, 230, 230, "Q2", 1, 3 );
-			this.addMovingPin( 165, 175, 230, 230, "Q1", 1, 3 );
-			this.addMovingPin( 205, 215, 230, 230, "Q0", 1, 3 );
-
-			break;
-
-		case 'C':
-
-			this.levels = 7;
-
-			this.addSheet( 'CG',  0,   0,   0,   0,   0, 0 );
-			this.addSheet( 'CV', '',  34,  34, 135, 125, 1 );
-			this.addSheet( 'CK',  2, 114, 114,  76,  66, 1 );
-			this.addSheet( 'CK',  0, 194, 194,  76,  66, 1 );
-			this.addSheet( 'CR', '',   0,   0,   5,  -5, 1 );
-			this.addSheet( 'CS', '',  20,  30,  10,  10, 2 );
-			this.addSheet( 'CT', '',  35,  45, 125, 125, 3 );
-			this.addSheet( 'CW1', 2,  75,  85,  10,   0, 3 );
-			this.addSheet( 'CW1', 0, 155, 165,  10,   0, 3 );
-			this.addSheet( 'CU', '',   0,   0, 125, 115, 4 );
-			this.addSheet( 'CW0', 2, 121, 121,  10,   0, 4 );
-			this.addSheet( 'CW0', 0, 201, 201,  10,   0, 4 );
-			this.addSheet( 'CM',  2, 114, 114, 125, 115, 5 );
-			this.addSheet( 'CM',  0, 194, 194, 125, 115, 5 );
-			this.addSheet( 'CF',  2,  91, 101,  61,  61, 5 );
-			this.addSheet( 'CF',  0, 171, 181,  61,  61, 5 );
-			this.addSheet( 'CJ',  2,  91, 101,  11,  11, 5 );
-			this.addSheet( 'CJ',  0, 171, 181,  11,  11, 5 );
-			this.addSheet( 'CG',  1,   0,   0,   0,   0, 6 );
-
-			this.addStaticPin( 105,  35 );
-			this.addStaticPin( 145,  35 );
-			this.addStaticPin( 185,  35 );
-			this.addStaticPin( 225,  35 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin( 225,  75 );
-			this.addStaticPin(  25, 155 );
-			this.addStaticPin(  65, 155 );
-			this.addStaticPin( 105, 155 );
-			this.addStaticPin( 145, 155 );
-			this.addStaticPin( 185, 155 );
-			this.addStaticPin( 225, 155 );
-			this.addMovingPin(  80,  90,  15,  15, "S0" );
-			this.addMovingPin( 120, 130,  20,  10, "W2" );
-			this.addMovingPin( 160, 170,  15,  15, "S1" );
-			this.addMovingPin( 200, 210,  20,  10, "W0" );
-			this.addMovingPin(  80,  90,  95,  95, "S2" );
-			this.addMovingPin( 120, 130, 100,  90, "K2" );
-			this.addMovingPin( 160, 170,  95,  95, "S3" );
-			this.addMovingPin( 200, 210, 100,  90, "K0" );
-			this.addMovingPin(  90,  90, 115, 115, "Z0" );
-			this.addMovingPin( 105, 107, 115, 115, "Z1" );
-			this.addMovingPin( 170, 170, 115, 115, "Z2" );
-			this.addMovingPin( 185, 187, 115, 115, "Z3" );
-			this.addMovingPin(  40,  50, 140, 130, "T"  );
-			this.addMovingPin( 120, 130, 140, 130, "M2" );
-			this.addMovingPin( 200, 210, 140, 130, "M0" );
-			this.addMovingPin(  45,  45, 210, 200, "V", 0, 1 );
-
-			break;
-
-		case 'D':
-
-			this.levels = 7;
-
-			this.addSheet( 'DG',  0,   0,   0,   0,   0, 0 );
-			this.addSheet( 'DV', '',  34,  34, 135, 125, 1 );
-			this.addSheet( 'DK',  3,  74,  74,  76,  66, 1 );
-			this.addSheet( 'DK',  1, 154, 154,  76,  66, 1 );
-			this.addSheet( 'DR', '',   0,   0,   5,  -5, 1 );
-			this.addSheet( 'DS', '',  20,  30,  10,  10, 2 );
-			this.addSheet( 'DT', '',  35,  45, 125, 125, 3 );
-			this.addSheet( 'DW1', 3,  35,  45,  10,   0, 3 );
-			this.addSheet( 'DW1', 1, 115, 125,  10,   0, 3 );
-			this.addSheet( 'DU', '',   0,   0, 125, 115, 4 );
-			this.addSheet( 'DW0', 3,  81,  81,  10,   0, 4 );
-			this.addSheet( 'DW0', 1, 161, 161,  10,   0, 4 );
-			this.addSheet( 'DM',  3,  74,  74, 125, 115, 5 );
-			this.addSheet( 'DM',  1, 154, 154, 125, 115, 5 );
-			this.addSheet( 'DF',  3,  51,  61,  61,  61, 5 );
-			this.addSheet( 'DF',  1, 131, 141,  61,  61, 5 );
-			this.addSheet( 'DJ',  3,  51,  61,  11,  11, 5 );
-			this.addSheet( 'DJ',  1, 131, 141,  11,  11, 5 );
-			this.addSheet( 'DG',  1,   0,   0,   0,   0, 6 );
-
-			this.addStaticPin(  65,  35 );
-			this.addStaticPin( 105,  35 );
-			this.addStaticPin( 145,  35 );
-			this.addStaticPin( 185,  35 );
-			this.addStaticPin(  65,  75 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin(  25, 155 );
-			this.addStaticPin(  65, 155 );
-			this.addStaticPin( 105, 155 );
-			this.addStaticPin( 145, 155 );
-			this.addStaticPin( 185, 155 );
-			this.addStaticPin( 225, 155 );
-			this.addMovingPin(  40,  50,  15,  15, "S0" );
-			this.addMovingPin(  80,  90,  20,  10, "W3" );
-			this.addMovingPin( 120, 130,  15,  15, "S1" );
-			this.addMovingPin( 160, 170,  20,  10, "W1" );
-			this.addMovingPin(  40,  50,  95,  95, "S2" );
-			this.addMovingPin(  80,  90, 100,  90, "K3" );
-			this.addMovingPin( 120, 130,  95,  95, "S3" );
-			this.addMovingPin( 160, 170, 100,  90, "K1" );
-			this.addMovingPin( 103, 105, 115, 115, "Z1" );
-			this.addMovingPin( 120, 120, 115, 115, "Z0" );
-			this.addMovingPin( 183, 185, 115, 115, "Z3" );
-			this.addMovingPin( 200, 200, 115, 115, "Z2" );
-			this.addMovingPin(  40,  50, 140, 130, "T"  );
-			this.addMovingPin(  80,  90, 140, 130, "M3" );
-			this.addMovingPin( 160, 170, 140, 130, "M1" );
-			this.addMovingPin(  45,  45, 210, 200, "V", 1, 6 );
-
-			break;
-
-		case '0A':
-
-			this.levels = 1.5;
-			this.spacing = 10;
-			this.intermediate = true;
-
-			this.addIntermediateSheet( 'Z0A', 0, 70 );
-
-			this.addStaticPin(  25,  75 );
-			this.addStaticPin(  65,  75 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin( 225,  75 );
-			this.addStaticPin(  65, 155 );
-			this.addStaticPin( 105, 155 );
-			this.addStaticPin( 145, 155 );
-			this.addStaticPin( 185, 155 );
-			this.addStaticPin( 225, 155 );
-
-			break;
-
-		case 'AB':
-
-			this.levels = 1.5;
-			this.spacing = 10;
-			this.intermediate = true;
-
-			this.addIntermediateSheet( 'ZAB', 0, 0 );
-
-			this.addStaticPin(  65,  35 );
-			this.addStaticPin( 105,  35 );
-			this.addStaticPin( 145,  35 );
-			this.addStaticPin( 185,  35 );
-			this.addStaticPin( 225,  35 );
-			this.addStaticPin(  25,  75 );
-			this.addStaticPin(  65,  75 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin( 225,  75 );
-			this.addStaticPin(  65, 155, 1, 3 );
-			this.addStaticPin( 105, 155, 1, 3 );
-			this.addStaticPin( 145, 155, 1, 3 );
-			this.addStaticPin( 185, 155, 1, 3 );
-			this.addStaticPin( 225, 155, 1, 3 );
-			this.addStaticPin(  75, 155, 0, 2 );
-			this.addStaticPin( 115, 155, 0, 2 );
-			this.addStaticPin( 155, 155, 0, 2 );
-			this.addStaticPin( 195, 155, 0, 2 );
-			this.addStaticPin( 235, 155, 0, 2 );
-
-			break;
-
-		case 'BC':
-
-			this.levels = 1.5;
-			this.spacing = 10;
-			this.intermediate = true;
-
-			this.addIntermediateSheet( 'ZBC', 0, 0 );
-
-			this.addStaticPin(  65,  35, 1, 3 );
-			this.addStaticPin( 105,  35 );
-			this.addStaticPin( 145,  35 );
-			this.addStaticPin( 185,  35 );
-			this.addStaticPin( 225,  35 );
-			this.addStaticPin(  25,  75, 1, 3 );
-			this.addStaticPin(  65,  75, 1, 3 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin( 225,  75 );
-			this.addStaticPin(  25, 155, 0, 2 );
-			this.addStaticPin(  65, 155, 0, 2 );
-			this.addStaticPin( 105, 155, 0, 2 );
-			this.addStaticPin( 145, 155, 0, 2 );
-			this.addStaticPin( 185, 155, 0, 2 );
-			this.addStaticPin( 225, 155, 0, 2 );
-			this.addStaticPin(  75, 155, 1, 3 );
-			this.addStaticPin( 115, 155, 1, 3 );
-			this.addStaticPin( 155, 155, 1, 3 );
-			this.addStaticPin( 195, 155, 1, 3 );
-			this.addStaticPin( 235, 155, 1, 3 );
-
-			break;
-
-		case 'CD':
-
-			this.levels = 1.5;
-			this.spacing = 10;
-			this.intermediate = true;
-
-			this.addIntermediateSheet( 'ZCD', 0, 0 );
-
-			this.addStaticPin(  65,  35, 0, 2 );
-			this.addStaticPin( 105,  35 );
-			this.addStaticPin( 145,  35 );
-			this.addStaticPin( 185,  35 );
-			this.addStaticPin( 225,  35, 1, 3 );
-			this.addStaticPin(  65,  75, 0, 2 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin( 225,  75, 1, 3 );
-			this.addStaticPin(  25, 155 );
-			this.addStaticPin(  65, 155 );
-			this.addStaticPin( 105, 155 );
-			this.addStaticPin( 145, 155 );
-			this.addStaticPin( 185, 155 );
-			this.addStaticPin( 225, 155 );
-			this.addMovingPin(  45,  45, 210, 200, "V" );
-
-			break;
-
-		case 'D0':
-
-			this.levels = 1.5;
-			this.spacing = 10;
-			this.intermediate = true;
-
-			this.addIntermediateSheet( 'ZD0', 0, 0 );
-
-			this.addStaticPin(  65,  35 );
-			this.addStaticPin( 105,  35 );
-			this.addStaticPin( 145,  35 );
-			this.addStaticPin( 185,  35 );
-			this.addStaticPin(  65,  75 );
-			this.addStaticPin( 105,  75 );
-			this.addStaticPin( 145,  75 );
-			this.addStaticPin( 185,  75 );
-			this.addStaticPin(  25, 155 );
-			this.addStaticPin(  65, 155 );
-			this.addStaticPin( 105, 155 );
-			this.addStaticPin( 145, 155 );
-			this.addStaticPin( 185, 155 );
-			this.addStaticPin( 225, 155 );
-
-			break;
-
-	}
-
-	this.addStaticPin(   0,  90,   6 );
-	this.addStaticPin( 240,  90,   6 );
-	this.addMovingPin(  80,  90,  50,  50, "J3" );
-	this.addMovingPin( 120, 130,  50,  50, "J2" );
-	this.addMovingPin( 160, 170,  50,  50, "J1" );
-	this.addMovingPin( 200, 210,  50,  50, "J0" );
-	this.addMovingPin(  40,  50,  60,  60, "F4" );
-	this.addMovingPin(  80,  90,  60,  60, "F3" );
-	this.addMovingPin( 120, 130,  60,  60, "F2" );
-	this.addMovingPin( 160, 170,  60,  60, "F1" );
-	this.addMovingPin( 200, 210,  60,  60, "F0" );
-	this.addMovingPin(  80,  90, 180, 180, "A3" );
-	this.addMovingPin( 120, 130, 180, 180, "A2" );
-	this.addMovingPin( 160, 170, 180, 180, "A1" );
-	this.addMovingPin( 200, 210, 180, 180, "A0" );
-	this.addMovingPin(  85,  85, 210, 200, "B3" );
-	this.addMovingPin( 125, 125, 210, 200, "B2" );
-	this.addMovingPin( 165, 165, 210, 200, "B1" );
-	this.addMovingPin( 205, 205, 210, 200, "B0" );
-	this.addMovingPin(   0,   0,  10,   0, "Y0", 6 );
-	this.addMovingPin( 240, 240,  10,   0, "Y1", 6 );
-	this.addMovingPin( 270, 280,  10,  10, "X0", 6 );
-	this.addMovingPin(   0,   0, 130, 120, "Y2", 6 );
-	this.addMovingPin( 240, 240, 130, 120, "Y3", 6 );
-	this.addMovingPin( 270, 280, 130, 130, "X1", 6 );
+	this.parseElements( layerNode );
+	this.parseElements( layerDefaults );
 
 };
 
 ZUSE.Layer.prototype = {
 
 	constructor: ZUSE.Layer,
+
+	parseElements: function ( node ) {
+
+		var elements = node.getElementsByTagName( 'elem' );
+
+		for ( var i = 0; i < elements.length; i++ ) {
+
+			var type = elements[ i ].getAttribute( 'type' );
+			var ordinal = elements[ i ].getAttribute( 'n' ) || '';
+			var obj3d = elements[ i ].firstElementChild;
+			switch ( obj3d.getAttribute( 'type' ) ) {
+				case 'Sheet':
+					var x = parseInt( obj3d.getAttribute( 'x' ) );
+					var y = parseInt( obj3d.getAttribute( 'y' ) );
+					var level = parseInt( obj3d.getAttribute( 'level' ) );
+					if ( this.intermediate ) {
+						this.addIntermediateSheet( type, x, y );
+					} else {
+						if ( obj3d.childElementCount > 0 ) {
+							var anim = obj3d.firstElementChild;
+							var x2 = ( anim.getAttribute( 'x' ) === 'true' ) ? x+10 : x;
+							var y2 = ( anim.getAttribute( 'y' ) === 'true' ) ? y-10 : y;
+							this.addSheet( type, ordinal, x, x2, y, y2, level );
+						} else {
+							this.addSheet( type, ordinal, x, x, y, y, level );
+						}
+					}
+					break;
+				case 'Pin':
+					var x = parseInt( obj3d.getAttribute( 'x' ) );
+					var y = parseInt( obj3d.getAttribute( 'y' ) );
+					var z1 = parseInt( obj3d.getAttribute( 'z1' ) );
+					var z2 = parseInt( obj3d.getAttribute( 'z2' ) );
+					var size = parseInt( obj3d.getAttribute( 'size' ) ) || 4;
+					if ( obj3d.childElementCount > 0 ) {
+						var anim = obj3d.firstElementChild;
+						var x2 = ( anim.getAttribute( 'x' ) === 'true' ) ? x+10 : x;
+						var y2 = ( anim.getAttribute( 'y' ) === 'true' ) ? y-10 : y;
+						this.addMovingPin(x, x2, y, y2, type, z1, z2, size );
+					} else {
+						this.addStaticPin( x, y, z1, z2, size );
+					}
+					break;
+			}
+
+		}
+
+	},
 
 	addSheet: function ( type, ordinal, x1, x2, y1, y2, level ) {
 
@@ -440,28 +92,12 @@ ZUSE.Layer.prototype = {
 
 	},
 
-	addStaticPin: function ( x, y, a, b ) {
+	addStaticPin: function ( x, y, z1, z2, radius ) {
 
-		var pin;
-		var radius = 4;
+		if ( isNaN( z1 ) ) { z1 = 0; }
+		if ( isNaN( z2 ) ) { z2 = 2 * this.levels; }
 
-		switch ( arguments.length ) {
-
-			case 3:
-
-				radius = a;
-
-			case 2:
-
-				pin = new ZUSE.Pin( null, x, x, y, y, 0, 2 * this.levels, this.spacing, radius, false );
-				break;
-
-			case 4:
-
-				pin = new ZUSE.Pin( null, x, x, y, y, a, b, this.spacing, radius, false );
-				break;
-
-		}
+		var pin = new ZUSE.Pin( null, x, x, y, y, z1, z2, this.spacing, radius, false );
 
 		this.meshes.add( pin.mesh );
 		this.pins.push( pin );
@@ -470,35 +106,14 @@ ZUSE.Layer.prototype = {
 
 	},
 
-	addMovingPin: function ( x1, x2, y1, y2, name, a, b, c ) {
+	addMovingPin: function ( x1, x2, y1, y2, name, z1, z2, radius ) {
 
-		var pin;
-		var radius = 4;
-		var isPulser = false;
+		var isPulser = ( radius === 6 ) ? true : false;
 
-		switch ( arguments.length ) {
+		if ( isNaN( z1 ) ) { z1 = 0; } else { z1 = z1*2; }
+		if ( isNaN( z2 ) ) { z2 = 2 * this.levels; } else { z2 = 2*z2+2; }
 
-			case 6:
-
-				isPulser = true;
-				radius = a;
-
-			case 5:
-
-				pin = new ZUSE.Pin( [ this.type, name ], x1, x2, y1, y2, 0, 2 * this.levels, this.spacing, radius, true );
-				break;
-
-			case 8:
-
-				isPulser = true;
-				radius = c;
-
-			case 7:
-
-				pin = new ZUSE.Pin( [ this.type, name ], x1, x2, y1, y2, 2 * a, 2 * b + 2, this.spacing, radius, true );
-				break;
-
-		}
+		var pin = new ZUSE.Pin( [ this.type, name ], x1, x2, y1, y2, z1, z2, this.spacing, radius, true );
 
 		this.meshes.add( pin.mesh );
 		this.pins.push( pin );

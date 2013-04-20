@@ -12,22 +12,12 @@ ZUSE.Adder = function () {
 	this.selectables2 = new Array();
 	this.selectables2enabled = false;
 
-	this.addLayer( 'D0' );
-	this.addLayer( 'D'  );
-	this.addLayer( 'CD' );
-	this.addLayer( 'C'  );
-	this.addLayer( 'BC' );
-	this.addLayer( 'B'  );
-	this.addLayer( 'AB' );
-	this.addLayer( 'A'  );
-	this.addLayer( '0A' );
+	this.parseProjectFile( 'projects/adder/Project.xml' );
 	this.layersByType[ 'In' ] = new ZUSE.InputControlLayer();
 
 	this.selection = new ZUSE.Selection( { x1: -40, x2: 320, y1: -15, y2: 265 }, this );
 	this.meshes.add( this.selection.meshes );
 
-	//this.meshes.rotation = new THREE.Vector3( -Math.PI / 2, 0, 0 );
-	//this.meshes.position = new THREE.Vector3( -100, -300, 100 );
 	SIMULATION.gui.webgl.scene.add( this.meshes );
 
 };
@@ -36,13 +26,38 @@ ZUSE.Adder.prototype = {
 
 	constructor: ZUSE.Adder,
 
-	addLayer: function ( type ) {
+	parseProjectFile: function ( file ) {
 
-		var layer = new ZUSE.Layer( type, this.spacingClosed, this );
+		var xmlDoc = ZUSE.XMLUtils.loadXML( file );
+		var structure = xmlDoc.documentElement.firstElementChild;
+		var layerDefaults = undefined;
+
+		if ( structure.nodeName === 'structure' ) {
+
+			for ( var i = 0; i < structure.childNodes.length; i++ ) {
+
+				var node = structure.childNodes[ i ];
+				if ( node.nodeName === 'layer' ) {
+					this.addLayer( node, layerDefaults );
+				} else if ( node.nodeName === 'default' ) {
+					layerDefaults = node;
+				}
+
+			}
+
+		} else {
+			console.error( 'Error while parsing XML file: unexpected tag name' );
+		}
+
+	},
+
+	addLayer: function ( layerNode, layerDefaults ) {
+
+		var layer = new ZUSE.Layer( layerNode, layerDefaults, this.spacingClosed, this );
 		this.meshes.add( layer.meshes );
 		this.layers.push( layer );
-		this.getLayerNumber[ type ] = this.layers.length - 1;
-		this.layersByType[ type ] = layer;
+		this.getLayerNumber[ layer.type ] = this.layers.length - 1;
+		this.layersByType[ layer.type ] = layer;
 		this.setHeight( this.layers.length - 1 );
 
 	},
