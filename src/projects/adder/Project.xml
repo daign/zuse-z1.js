@@ -759,7 +759,7 @@
 		<rule tact="1,3" continuous="true"><source id="C-V-" /><target id="D-V-" /></rule>
 
 		Layer A
-		<rule tact="2,4"><source id="A-X-1" /><target id="A-P-" /></rule>
+		<rule tact="2,4"><source id="A-X-1" /><target id="A-AP-" /></rule>
 
 		Layer A, all Digits
 		<rule tact="2,4" repeat="0,1,2,3"><source id="A-A-0" /><target id="A-AA-0" /></rule>
@@ -796,16 +796,16 @@
 		<rule tact="2,4"><source id="B-X-0" /><target id="B-BQ-0" /></rule>
 		<rule tact="1,3"><source id="B-Y-1" /><target id="B-BQ-0" /></rule>
 		<rule tact="2,4"><source id="B-X-1" /><target id="B-BQ-1" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-0" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-1" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-2" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-3" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-4" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-5" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-6" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-7" /></rule>
-		<rule tact="2,4"><source id="B-Q-1" /><target id="B-Q-8" /></rule>
-		<rule tact="1,3"><source id="B-Y-3" /><target id="B-N-" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-0" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-1" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-2" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-3" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-4" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-5" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-6" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-7" /></rule>
+		<rule tact="2,4"><source id="B-BQ-1" /><target id="B-Q-8" /></rule>
+		<rule tact="1,3"><source id="B-Y-3" /><target id="B-BN-" /></rule>
 
 		Layer B, BF0
 		<rule tact="2,4" continuous="true"><source id="In-F-0" /><target id="B-BF-0" /></rule>
@@ -857,10 +857,10 @@
 		<rule tact="4"><source id="B-BQ-0" /><target id="B-H-3" condition="3" /></rule>
 
 		Layer B, Carrychain
-		<rule tact="2"><source id="B-G-0" /><target id="B-F-1" /></rule>
-		<rule tact="2"><source id="B-G-1" /><target id="B-F-2" /></rule>
-		<rule tact="2"><source id="B-G-2" /><target id="B-F-3" /></rule>
-		<rule tact="2"><source id="B-G-3" /><target id="B-F-4" /></rule>
+		<rule tact="2"><source id="B-G-0" /><target id="B-BF-1" /></rule>
+		<rule tact="2"><source id="B-G-1" /><target id="B-BF-2" /></rule>
+		<rule tact="2"><source id="B-G-2" /><target id="B-BF-3" /></rule>
+		<rule tact="2"><source id="B-G-3" /><target id="B-BF-4" /></rule>
 		<rule tact="4"><source id="B-BF-1" /><target id="B-G-0" condition="3" /></rule>
 		<rule tact="4"><source id="B-BF-2" /><target id="B-G-1" condition="3" /></rule>
 		<rule tact="4"><source id="B-BF-3" /><target id="B-G-2" condition="3" /></rule>
@@ -887,17 +887,17 @@
 		<rule tact="1" repeat="0,2"><source id="C-W-0" /><target id="C-CW0-0" condition="0" /></rule>
 		<rule tact="3" repeat="0,2"><source id="C-W-0" condition="1" /><target id="C-CW1-0" /></rule>
 		<rule tact="1" repeat="0,2"><source id="C-W-0" /><target id="C-CW1-0" condition="0" /></rule>
-		<rule tact="3" repeat="0,2"><source id="C-W0-0" /><target id="C-K-0" condition="2" /></rule>
-		<rule tact="3" repeat="0,2"><source id="C-W1-0" /><target id="C-K-0" condition="1" /></rule>
+		<rule tact="3" repeat="0,2"><source id="C-CW0-0" /><target id="C-K-0" condition="2" /></rule>
+		<rule tact="3" repeat="0,2"><source id="C-CW1-0" /><target id="C-K-0" condition="1" /></rule>
 		<rule tact="3" repeat="0,2"><source id="C-K-0" /><target id="C-CK-0" /></rule>
 		<rule tact="3" repeat="0,2"><source id="C-CK-0" /><target id="C-M-0" /></rule>
 		<rule tact="1,3" repeat="0,2" continuous="true"><source id="C-CK-0" /><target id="In-K-0" /></rule>
 		<rule tact="1" repeat="0,2"><source id="C-M-0" /><target id="C-CK-0" /></rule>
 		<rule tact="1" repeat="0,2"><source id="C-CK-0" /><target id="C-K-0" /></rule>
-		<rule tact="1,3" repeat="0,2"><source id="C-B-0" /><target id="C-M-0" /></rule>
+		<rule tact="1,3" repeat="0,2"><source id="C-B-0" /><target id="C-CM-0" /></rule>
 
-		<rule tact="1,3"><source id="C-R-" /><target id="C-W-0" /></rule>
-		<rule tact="1,3"><source id="C-R-" /><target id="C-W-2" /></rule>
+		<rule tact="1,3"><source id="C-CR-" /><target id="C-W-0" /></rule>
+		<rule tact="1,3"><source id="C-CR-" /><target id="C-W-2" /></rule>
 		<rule tact="1"><source id="C-CU-" /><target id="C-M-0" condition="0,3" /></rule>
 		<rule tact="1"><source id="C-CU-" /><target id="C-M-2" condition="0,3" /></rule>
 		<rule tact="2,4"><source id="C-S-1" /><target id="C-CW1-0" /></rule>
@@ -933,17 +933,17 @@
 		<rule tact="1" repeat="1,3"><source id="D-W-x" /><target id="D-DW0-x" condition="0" /></rule>
 		<rule tact="3" repeat="1,3"><source id="D-W-x" condition="1" /><target id="D-DW1-x" /></rule>
 		<rule tact="1" repeat="1,3"><source id="D-W-x" /><target id="D-DW1-x" condition="0" /></rule>
-		<rule tact="3" repeat="1,3"><source id="D-W0-x" /><target id="D-K-x" condition="2" /></rule>
-		<rule tact="3" repeat="1,3"><source id="D-W1-x" /><target id="D-K-x" condition="1" /></rule>
+		<rule tact="3" repeat="1,3"><source id="D-DW0-x" /><target id="D-K-x" condition="2" /></rule>
+		<rule tact="3" repeat="1,3"><source id="D-DW1-x" /><target id="D-K-x" condition="1" /></rule>
 		<rule tact="3" repeat="1,3"><source id="D-K-x" /><target id="D-DK-x" /></rule>
 		<rule tact="3" repeat="1,3"><source id="D-DK-x" /><target id="D-M-x" /></rule>
 		<rule tact="1,3" repeat="1,3" continuous="true"><source id="D-DK-x" /><target id="In-K-x" /></rule>
 		<rule tact="1" repeat="1,3"><source id="D-M-x" /><target id="D-DK-x" /></rule>
 		<rule tact="1" repeat="1,3"><source id="D-DK-x" /><target id="D-K-x" /></rule>
-		<rule tact="1,3" repeat="1,3"><source id="D-B-x" /><target id="D-M-x" /></rule>
+		<rule tact="1,3" repeat="1,3"><source id="D-B-x" /><target id="D-DM-x" /></rule>
 
-		<rule tact="1,3"><source id="D-R-" /><target id="D-W-1" /></rule>
-		<rule tact="1,3"><source id="D-R-" /><target id="D-W-3" /></rule>
+		<rule tact="1,3"><source id="D-DR-" /><target id="D-W-1" /></rule>
+		<rule tact="1,3"><source id="D-DR-" /><target id="D-W-3" /></rule>
 		<rule tact="1"><source id="D-DU-" /><target id="D-M-1" condition="0,3" /></rule>
 		<rule tact="1"><source id="D-DU-" /><target id="D-M-3" condition="0,3" /></rule>
 		<rule tact="2,4"><source id="D-S-1" /><target id="D-DW1-1" /></rule>

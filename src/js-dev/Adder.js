@@ -7,7 +7,6 @@ ZUSE.Adder = function () {
 	this.pulsers = new Array();
 	this.spacingClosed = 3;
 	this.spacingOpen = 20;
-	this.cycleControl = new ZUSE.CycleControl( this );
 	this.selectables = new Array();
 	this.selectables2 = new Array();
 	this.selectables2enabled = false;
@@ -29,10 +28,12 @@ ZUSE.Adder.prototype = {
 	parseProjectFile: function ( file ) {
 
 		var xmlDoc = ZUSE.XMLUtils.loadXML( file );
-		var structure = xmlDoc.documentElement.firstElementChild;
-		var layerDefaults = undefined;
 
-		if ( structure.nodeName === 'structure' ) {
+		var getResult = xmlDoc.getElementsByTagName( 'structure' );
+		if ( getResult.length > 0 ) {
+
+			var structure = getResult[ 0 ];
+			var layerDefaults = undefined;
 
 			for ( var i = 0; i < structure.childNodes.length; i++ ) {
 
@@ -45,8 +46,11 @@ ZUSE.Adder.prototype = {
 
 			}
 
-		} else {
-			console.error( 'Error while parsing XML file: unexpected tag name' );
+		}
+
+		getResult = xmlDoc.getElementsByTagName( 'rules' );
+		if ( getResult.length > 0 ) {
+			this.cycleControl = new ZUSE.CycleControl( this, getResult[ 0 ] );
 		}
 
 	},

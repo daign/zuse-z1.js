@@ -1,7 +1,8 @@
-ZUSE.TriggerRules = function ( adder ) {
+ZUSE.TriggerRules = function ( adder, rules ) {
 
 	this.adder = adder;
-	this.init();
+	this.parseRules( rules );
+	//this.init();
 
 };
 
@@ -150,6 +151,69 @@ ZUSE.TriggerRules.prototype = {
 		} else {
 
 			return true;
+
+		}
+
+	},
+
+	parseRules: function ( node ) {
+
+		var rules = node.getElementsByTagName( 'rule' );
+
+		for ( var i = 0; i < rules.length; i++ ) {
+
+			var tact = rules[ i ].getAttribute( 'tact' ).split( ',' );
+			for ( var j = 0; j < tact.length; j++ ) {
+				tact[ j ] = parseInt( tact[ j ] );
+			}
+
+			var continuous = rules[ i ].getAttribute( 'continuous' ) === 'true';
+
+			var condition = [];
+
+			var getSource = rules[ i ].getElementsByTagName( 'source' );
+			if ( getSource.length > 0 ) {
+				var source = getSource[ 0 ].getAttribute( 'id' ).split( '-' );
+				var sourceCondition = getSource[ 0 ].getAttribute( 'condition' );
+				if ( sourceCondition !== null ) {
+					sourceCondition = sourceCondition.split( ',' );
+					for ( var j = 0; j < sourceCondition.length; j++ ) {
+						condition.push( -1 * parseInt( sourceCondition[ j ] ) );
+					}
+				}
+			}
+
+			var getTarget = rules[ i ].getElementsByTagName( 'target' );
+			if ( getTarget.length > 0 ) {
+				var target = getTarget[ 0 ].getAttribute( 'id' ).split( '-' );
+				var targetCondition = getTarget[ 0 ].getAttribute( 'condition' );
+				if ( targetCondition !== null ) {
+					targetCondition = targetCondition.split( ',' );
+					for ( var j = 0; j < targetCondition.length; j++ ) {
+						condition.push( parseInt( targetCondition[ j ] ) );
+					}
+				}
+			}
+
+			condition = ( condition.length > 0 ) ? condition : null;
+
+			var repeat = rules[ i ].getAttribute( 'repeat' );
+			if ( repeat !== null ) {
+				repeat = repeat.split( ',' );
+				for ( var j = 0; j < repeat.length; j++ ) {
+					var sourceId = [ source[ 0 ], source[ 1 ] + repeat[ j ] ];
+					var targetId = [ target[ 0 ], target[ 1 ] + repeat[ j ] ];
+					targetId.push( condition );
+					targetId.push( continuous );
+					this.addTriggerRule( sourceId, targetId, tact );
+				}
+			} else {
+				var sourceId = [ source[ 0 ], source[ 1 ] + source[ 2 ] ];
+				var targetId = [ target[ 0 ], target[ 1 ] + target[ 2 ] ];
+				targetId.push( condition );
+				targetId.push( continuous );
+				this.addTriggerRule( sourceId, targetId, tact );
+			}
 
 		}
 
