@@ -90,7 +90,7 @@ ZUTOOLS.Tooltip.prototype = {
 
 	isPartOfTooltip: function ( element ) {
 
-		return ( element && element.dataset.zutooltip !== undefined );
+		return ( element && element.dataset !== undefined && element.dataset.zutooltip !== undefined );
 
 	}
 
