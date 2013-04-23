@@ -35,8 +35,6 @@ ZUTOOLS.Toolbar = function ( config, tooltipManager ) {
 
 	}
 
-	this.shuffle();
-
 };
 
 ZUTOOLS.Toolbar.prototype = {
