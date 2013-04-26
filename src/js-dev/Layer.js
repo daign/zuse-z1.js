@@ -35,16 +35,17 @@ ZUSE.Layer.prototype = {
 					var x = parseInt( obj3d.getAttribute( 'x' ) );
 					var y = parseInt( obj3d.getAttribute( 'y' ) );
 					var level = parseInt( obj3d.getAttribute( 'level' ) );
+					var file = obj3d.getAttribute( 'file' );
 					if ( this.intermediate ) {
-						this.addIntermediateSheet( type, x, y );
+						this.addIntermediateSheet( type, x, y, file );
 					} else {
 						if ( obj3d.childElementCount > 0 ) {
 							var anim = obj3d.firstElementChild;
 							var x2 = ( anim.getAttribute( 'x' ) === 'true' ) ? x+10 : x;
 							var y2 = ( anim.getAttribute( 'y' ) === 'true' ) ? y-10 : y;
-							this.addSheet( type, ordinal, x, x2, y, y2, level );
+							this.addSheet( type, ordinal, x, x2, y, y2, level, file );
 						} else {
-							this.addSheet( type, ordinal, x, x, y, y, level );
+							this.addSheet( type, ordinal, x, x, y, y, level, file );
 						}
 					}
 					break;
@@ -69,11 +70,11 @@ ZUSE.Layer.prototype = {
 
 	},
 
-	addSheet: function ( type, ordinal, x1, x2, y1, y2, level ) {
+	addSheet: function ( type, ordinal, x1, x2, y1, y2, level, file ) {
 
 		var name = type + ordinal;
 		var moving = ( x1 !== x2 || y1 !== y2 );
-		var sheet = new ZUSE.Sheet( [ this.type, name ], type, x1, x2, y1, y2, 2 * level + 1, this.spacing, false, moving );
+		var sheet = new ZUSE.Sheet( [ this.type, name ], type, x1, x2, y1, y2, 2 * level + 1, this.spacing, false, moving, file );
 		this.meshes.add( sheet.mesh );
 		this.sheets.push( sheet );
 		this.cycleAccess[ name ] = sheet;
@@ -82,9 +83,9 @@ ZUSE.Layer.prototype = {
 
 	},
 
-	addIntermediateSheet: function ( type, x, y ) {
+	addIntermediateSheet: function ( type, x, y, file ) {
 
-		var sheet = new ZUSE.Sheet( [ this.type, type ], type, x, x, y, y, 1.5, this.spacing, true, false );
+		var sheet = new ZUSE.Sheet( [ this.type, type ], type, x, x, y, y, 1.5, this.spacing, true, false, file );
 		this.meshes.add( sheet.mesh );
 		this.sheets.push( sheet );
 

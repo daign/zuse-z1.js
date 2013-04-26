@@ -1,4 +1,4 @@
-ZUSE.Sheet = function ( name, type, x1, x2, y1, y2, level, spacing, intermediate, moving ) {
+ZUSE.Sheet = function ( name, type, x1, x2, y1, y2, level, spacing, intermediate, moving, file ) {
 
 	ZUSE.Cyclable.call( this, name, x1, x2, y1, y2 );
 
@@ -8,7 +8,7 @@ ZUSE.Sheet = function ( name, type, x1, x2, y1, y2, level, spacing, intermediate
 	this.moving = moving;
 
 	var extrudeSettings = {	amount: this.thickness, bevelEnabled: false, steps: 1 };
-	var geometry = ZUSE.Shapes.getShape( type, x1, y1 ).extrude( extrudeSettings );
+	var geometry = ZUSE.Shapes.getShape( file, x1, y1 ).extrude( extrudeSettings );
 
 	var material;
 

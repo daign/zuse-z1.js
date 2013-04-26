@@ -4,7 +4,6 @@ FILES = "\
 	../src/js-dev/zuse-z1.js\
 	../src/js-dev/Path.js\
 	../src/js-dev/CameraControls.js\
-	../src/js-dev/ShapeFiles.js\
 	../src/js-dev/Shapes.js\
 	../src/js-dev/Cyclable.js\
 	../src/js-dev/Transition.js\
