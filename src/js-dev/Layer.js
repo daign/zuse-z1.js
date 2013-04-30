@@ -27,41 +27,26 @@ ZUSE.Layer.prototype = {
 
 		for ( var i = 0; i < elements.length; i++ ) {
 
-			var type = elements[ i ].getAttribute( 'type' );
-			var ordinal = elements[ i ].getAttribute( 'n' ) || '';
+			var id = elements[ i ].getAttribute( 'id' );
 			var obj3d = elements[ i ].firstElementChild;
 			switch ( obj3d.getAttribute( 'type' ) ) {
 				case 'Sheet':
-					var x = parseInt( obj3d.getAttribute( 'x' ) );
-					var y = parseInt( obj3d.getAttribute( 'y' ) );
-					var level = parseInt( obj3d.getAttribute( 'level' ) );
-					var file = obj3d.getAttribute( 'file' );
-					if ( this.intermediate ) {
-						this.addIntermediateSheet( type, x, y, file );
-					} else {
-						if ( obj3d.childElementCount > 0 ) {
-							var anim = obj3d.firstElementChild;
-							var x2 = ( anim.getAttribute( 'x' ) === 'true' ) ? x+10 : x;
-							var y2 = ( anim.getAttribute( 'y' ) === 'true' ) ? y-10 : y;
-							this.addSheet( type, ordinal, x, x2, y, y2, level, file );
-						} else {
-							this.addSheet( type, ordinal, x, x, y, y, level, file );
-						}
-					}
+					this.addSheet( id, obj3d );
 					break;
 				case 'Pin':
 					var x = parseInt( obj3d.getAttribute( 'x' ) );
 					var y = parseInt( obj3d.getAttribute( 'y' ) );
 					var z1 = parseInt( obj3d.getAttribute( 'z1' ) );
 					var z2 = parseInt( obj3d.getAttribute( 'z2' ) );
-					var size = parseInt( obj3d.getAttribute( 'size' ) ) || 4;
+					var radius = parseInt( obj3d.getAttribute( 'radius' ) ) || 4;
+					var pulser = elements[ i ].getAttribute( 'pulser' );
 					if ( obj3d.childElementCount > 0 ) {
 						var anim = obj3d.firstElementChild;
 						var x2 = ( anim.getAttribute( 'x' ) === 'true' ) ? x+10 : x;
 						var y2 = ( anim.getAttribute( 'y' ) === 'true' ) ? y-10 : y;
-						this.addMovingPin(x, x2, y, y2, type, z1, z2, size );
+						this.addMovingPin(x, x2, y, y2, id, z1, z2, radius, pulser );
 					} else {
-						this.addStaticPin( x, y, z1, z2, size );
+						this.addStaticPin( x, y, z1, z2, radius, pulser );
 					}
 					break;
 			}
@@ -70,30 +55,18 @@ ZUSE.Layer.prototype = {
 
 	},
 
-	addSheet: function ( type, ordinal, x1, x2, y1, y2, level, file ) {
+	addSheet: function ( id, obj3d ) {
 
-		var name = type + ordinal;
-		var moving = ( x1 !== x2 || y1 !== y2 );
-		var sheet = new ZUSE.Sheet( [ this.type, name ], type, x1, x2, y1, y2, 2 * level + 1, this.spacing, false, moving, file );
+		var sheet = new ZUSE.Element( [ this.type, id ], this.spacing, this.intermediate, obj3d );
+
 		this.meshes.add( sheet.mesh );
 		this.sheets.push( sheet );
-		this.cycleAccess[ name ] = sheet;
-
+		this.cycleAccess[ id ] = sheet;
 		this.parent.selectables2.push( sheet.mesh );
 
 	},
 
-	addIntermediateSheet: function ( type, x, y, file ) {
-
-		var sheet = new ZUSE.Sheet( [ this.type, type ], type, x, x, y, y, 1.5, this.spacing, true, false, file );
-		this.meshes.add( sheet.mesh );
-		this.sheets.push( sheet );
-
-		this.parent.selectables2.push( sheet.mesh );
-
-	},
-
-	addStaticPin: function ( x, y, z1, z2, radius ) {
+	addStaticPin: function ( x, y, z1, z2, radius, pulser ) {
 
 		if ( isNaN( z1 ) ) { z1 = 0; }
 		if ( isNaN( z2 ) ) { z2 = 2 * this.levels; }
@@ -107,9 +80,7 @@ ZUSE.Layer.prototype = {
 
 	},
 
-	addMovingPin: function ( x1, x2, y1, y2, name, z1, z2, radius ) {
-
-		var isPulser = ( radius === 6 ) ? true : false;
+	addMovingPin: function ( x1, x2, y1, y2, name, z1, z2, radius, pulser ) {
 
 		if ( isNaN( z1 ) ) { z1 = 0; } else { z1 = z1*2; }
 		if ( isNaN( z2 ) ) { z2 = 2 * this.levels; } else { z2 = 2*z2+2; }
@@ -120,8 +91,8 @@ ZUSE.Layer.prototype = {
 		this.pins.push( pin );
 		this.cycleAccess[ name ] = pin;
 
-		if ( isPulser ) {
-			this.parent.pulsers.push( pin );
+		if ( pulser !== null ) {
+			this.parent.pulsers[ pulser ].push( pin );
 		}
 
 		this.parent.selectables2.push( pin.mesh );

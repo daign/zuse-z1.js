@@ -32,17 +32,13 @@ ZUSE.Transition.prototype = {
 
 		var pulsers = this.control.adder.pulsers;
 
-		for ( var i = 0; i < pulsers.length; i++ ) {
+		var dir = ( this.tact === 1 || this.tact === 3 ) ? 'y' : 'x';
 
-			var pulser = pulsers[ i ];
+		for ( var i = 0; i < pulsers[ dir ].length; i++ ) {
 
-			if ( 	( this.tact === 1 || this.tact === 3 ) && pulser.yMove ||
-					( this.tact === 2 || this.tact === 4 ) && pulser.xMove ) {
-
-				this.elements.push( pulser );
-				this.trigger( pulser );
-
-			}
+			var pulser = pulsers[ dir ][ i ];
+			this.elements.push( pulser );
+			this.trigger( pulser );
 
 		}
 

@@ -15,7 +15,7 @@ FILES = "\
 	../src/js-dev/materials/ShaderUniforms.js\
 	../src/js-dev/materials/Material.js\
 	../src/js-dev/materials/Materials.js\
-	../src/js-dev/Sheet.js\
+	../src/js-dev/Element.js\
 	../src/js-dev/Pin.js\
 	../src/js-dev/PlaneGeometry.js\
 	../src/js-dev/Axis.js\
@@ -31,7 +31,9 @@ FILES = "\
 	../src/js-dev/InitZutools.js\
 	../src/js-dev/WebGLErrorMessage.js\
 	../src/js-dev/Simulation.js\
-	../src/js-dev/TempCalculator.js"
+	../src/js-dev/TempCalculator.js\
+	../src/js-dev/webgl/WebGL.js.js\
+	../src/js-dev/webgl/Sheet.js"
 
 #LEVEL = "WHITESPACE_ONLY"
 LEVEL = "SIMPLE_OPTIMIZATIONS"
