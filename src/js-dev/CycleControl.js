@@ -126,7 +126,7 @@ ZUSE.CycleControl.prototype = {
 
 						ZUSE.CycleAccess.request( false );
 
-						var element = this.adder.layersByType.In.cycleAccess[ name ];
+						var element = this.adder.layersByType.In.namedElements[ name ];
 						var direction = ( element.position === 0 ) ? 2 : 4;
 						if ( evt ) { evt.target.value = ( evt.target.value === '0' ) ? '1' : '0'; }
 
@@ -149,7 +149,7 @@ ZUSE.CycleControl.prototype = {
 					case 'B2':
 					case 'B3':
 
-						var element = this.adder.layersByType.In.cycleAccess[ name ];
+						var element = this.adder.layersByType.In.namedElements[ name ];
 						var index = this.nextInputs.indexOf( element );
 
 						if ( index === -1 ) {
@@ -182,7 +182,7 @@ ZUSE.CycleControl.prototype = {
 
 					case 'F0':
 
-						var element = this.adder.layersByType.In.cycleAccess[ name ];
+						var element = this.adder.layersByType.In.namedElements[ name ];
 						var index = this.nextInputs.indexOf( element );
 
 						if ( index === -1 ) {

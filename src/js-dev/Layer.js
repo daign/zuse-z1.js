@@ -7,9 +7,10 @@ ZUSE.Layer = function ( layerNode, layerDefaults, s, p ) {
 	this.intermediate = layerNode.getAttribute( 'intermediate' ) === 'true';
 
 	this.open = false;
+
+	this.namedElements = new Object();
+	this.unnamedElements = new Array();
 	this.meshes = new THREE.Object3D();
-	this.elements = new Array();
-	this.cycleAccess = new Object();
 
 	this.parseElements( layerNode );
 	this.parseElements( layerDefaults );
@@ -20,66 +21,49 @@ ZUSE.Layer.prototype = {
 
 	constructor: ZUSE.Layer,
 
-	parseElements: function ( node ) {
+	parseElements: function ( layerNode ) {
 
-		var elements = node.getElementsByTagName( 'elem' );
+		var elementNodesArray = layerNode.getElementsByTagName( 'elem' );
 
-		for ( var i = 0; i < elements.length; i++ ) {
+		for ( var i = 0; i < elementNodesArray.length; i++ ) {
 
-			var id = elements[ i ].getAttribute( 'id' );
-			var pulser = elements[ i ].getAttribute( 'pulser' );
-			var obj3d = elements[ i ].firstElementChild;
-
-			switch ( obj3d.getAttribute( 'type' ) ) {
-				case 'Sheet':
-					this.addSheet( id, pulser, obj3d );
-					break;
-				case 'Pin':
-					this.addPin( id, pulser, obj3d );
-					break;
-			}
+			var elementNode = elementNodesArray[ i ];
+			var id = elementNode.getAttribute( 'id' );
+			var pulser = elementNode.getAttribute( 'pulser' );
+			this.addElement( id, pulser, elementNode );
 
 		}
 
 	},
 
-	addSheet: function ( id, pulser, obj3d ) {
+	addElement: function ( id, pulser, elementNode ) {
 
 		var params = { spacing: this.spacing, intermediate: this.intermediate, levels: this.levels };
 
-		var elem = new ZUSE.Element( [ this.type, id ], obj3d, params );
+		var elem = new ZUSE.Element( [ this.type, id ], elementNode, params );
 
 		this.meshes.add( elem.mesh );
-		this.elements.push( elem );
-		this.cycleAccess[ id ] = elem;
-		this.parent.selectables2.push( elem.mesh );
-
-	},
-
-	addPin: function ( id, pulser, obj3d ) {
-
-		var params = { spacing: this.spacing, intermediate: this.intermediate, levels: this.levels };
-
-		var elem = new ZUSE.Element( [ this.type, id ], obj3d, params );
-
-		this.meshes.add( elem.mesh );
-		this.elements.push( elem );
 		if ( id !== null ) {
-			this.cycleAccess[ id ] = elem;
+			this.namedElements[ id ] = elem;
+		} else {
+			this.unnamedElements.push( elem );
 		}
 
 		if ( pulser !== null ) {
 			this.parent.pulsers[ pulser ].push( elem );
 		}
 
-		this.parent.selectables2.push( elem.mesh );
+		elem.provideMeshTo( this.parent.selectables2 );
 
 	},
 
 	changeSpacing: function () {
 
-		for ( var i = 0; i < this.elements.length; i++ ) {
-			this.elements[ i ].setHeight( this.spacing );
+		for ( var i in this.namedElements ) {
+			this.namedElements[ i ].setHeight( this.spacing );
+		}
+		for ( var i = 0; i < this.unnamedElements.length; i++ ) {
+			this.unnamedElements[ i ].setHeight( this.spacing );
 		}
 
 	},

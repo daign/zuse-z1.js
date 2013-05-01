@@ -3,6 +3,7 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	var self = this;
 
 	config.tools[ 0 ].push( this.generateLanguageTool( config.languages, self ) );
+	this.circuit = ZUTOOLS.Utils.loadXML( 'projects/adder/circuit.svg' ).lastChild;
 
 	this.tooltip   = new ZUTOOLS.TooltipManager();
 	this.toolbar   = new ZUTOOLS.Toolbar( config.tools, this.tooltip );
@@ -11,7 +12,7 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	this.status    = new ZUTOOLS.Status();
 	this.controls  = new ZUTOOLS.Controls();
 	this.tabbar    = new ZUTOOLS.Tabbar( config.tabs );
-	this.lang      = new ZUTOOLS.Languages( config.languages );
+	this.lang      = new ZUTOOLS.Languages( config.languages, this.circuit );
 
 	this.width  = window.innerWidth;
 	this.height = window.innerHeight;

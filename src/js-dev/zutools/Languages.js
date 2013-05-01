@@ -1,6 +1,7 @@
-ZUTOOLS.Languages = function ( config ) {
+ZUTOOLS.Languages = function ( config, circuit ) {
 
 	this.config = config;
+	this.circuit = circuit;
 	this.setLanguage( this.getShortcutFromURL() );
 
 };
@@ -27,7 +28,7 @@ ZUTOOLS.Languages.prototype = {
 
 		this.textStore = new Object();
 		this.fillStore( this.config.path + file, this.textStore );
-		this.textStore.logic[ 1 ] = ZUTOOLS.Utils.loadXML( 'projects/adder/circuit.svg' ).lastChild;
+		this.textStore.logic[ 1 ] = this.circuit;
 
 		this.toolStore = new Object();
 		this.fillStore( 'images/icons/languages/' + file, this.toolStore, true );

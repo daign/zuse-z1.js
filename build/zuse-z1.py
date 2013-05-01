@@ -30,7 +30,9 @@ FILES = "\
 	../src/js-dev/WebGLErrorMessage.js\
 	../src/js-dev/Simulation.js\
 	../src/js-dev/TempCalculator.js\
-	../src/js-dev/webgl/WebGL.js.js\
+	../src/js-dev/svg/SVG.js\
+	../src/js-dev/svg/CircuitElement.js\
+	../src/js-dev/webgl/WebGL.js\
 	../src/js-dev/webgl/Sheet.js\
 	../src/js-dev/webgl/Pin.js"
 

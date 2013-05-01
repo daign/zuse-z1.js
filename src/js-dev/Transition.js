@@ -82,7 +82,6 @@ ZUSE.Transition.prototype = {
 
 		var finish = function () {
 
-			//if ( !repeat ) { this.changePositions(); }
 			this.highlight( false );
 			ZUSE.CycleAccess.release();
 

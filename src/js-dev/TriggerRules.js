@@ -100,7 +100,7 @@ ZUSE.TriggerRules.prototype = {
 
 		if ( layer !== undefined ) {
 
-			return layer.cycleAccess[ condition[ 1 ] ];
+			return layer.namedElements[ condition[ 1 ] ];
 
 		} else {
 

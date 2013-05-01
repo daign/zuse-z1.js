@@ -1,6 +1,6 @@
 ZUSE.InputControlLayer = function () {
 
-	this.cycleAccess = new Object();
+	this.namedElements = new Object();
 
 	this.addInput( [ 'In', 'A0' ], [ '1', '?', '?', '0' ],    4 );
 	this.addInput( [ 'In', 'A1' ], [ '1', '?', '?', '0' ],    4 );
@@ -28,15 +28,15 @@ ZUSE.InputControlLayer.prototype = {
 
 	addInput: function ( name, values, activeTact ) {
 
-		this.cycleAccess[ name[ 1 ] ] = new ZUSE.InputElement( name, values, activeTact );
+		this.namedElements[ name[ 1 ] ] = new ZUSE.InputElement( name, values, activeTact );
 
 	},
 
 	updateButtonState: function ( tact ) {
 
-		for ( a in this.cycleAccess ) {
+		for ( a in this.namedElements ) {
 
-			this.cycleAccess[ a ].updateButtonState( tact );
+			this.namedElements[ a ].updateButtonState( tact );
 
 		}
 

@@ -569,21 +569,25 @@
 				<obj3d type="Sheet" x="74" y="76" level="1" file="AD">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="D3"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="AD2">
 				<obj3d type="Sheet" x="114" y="76" level="1" file="AD">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="D2"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="AD1">
 				<obj3d type="Sheet" x="154" y="76" level="1" file="AD">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="D1"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="AD0">
 				<obj3d type="Sheet" x="194" y="76" level="1" file="AD">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="D0"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="AE3">
 				<obj3d type="Sheet" x="11" y="50" level="2" file="AE">
