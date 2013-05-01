@@ -8,8 +8,7 @@ ZUSE.Layer = function ( layerNode, layerDefaults, s, p ) {
 
 	this.open = false;
 	this.meshes = new THREE.Object3D();
-	this.sheets = new Array();
-	this.pins = new Array();
+	this.elements = new Array();
 	this.cycleAccess = new Object();
 
 	this.parseElements( layerNode );
@@ -28,26 +27,15 @@ ZUSE.Layer.prototype = {
 		for ( var i = 0; i < elements.length; i++ ) {
 
 			var id = elements[ i ].getAttribute( 'id' );
+			var pulser = elements[ i ].getAttribute( 'pulser' );
 			var obj3d = elements[ i ].firstElementChild;
+
 			switch ( obj3d.getAttribute( 'type' ) ) {
 				case 'Sheet':
-					this.addSheet( id, obj3d );
+					this.addSheet( id, pulser, obj3d );
 					break;
 				case 'Pin':
-					var x = parseInt( obj3d.getAttribute( 'x' ) );
-					var y = parseInt( obj3d.getAttribute( 'y' ) );
-					var z1 = parseInt( obj3d.getAttribute( 'z1' ) );
-					var z2 = parseInt( obj3d.getAttribute( 'z2' ) );
-					var radius = parseInt( obj3d.getAttribute( 'radius' ) ) || 4;
-					var pulser = elements[ i ].getAttribute( 'pulser' );
-					if ( obj3d.childElementCount > 0 ) {
-						var anim = obj3d.firstElementChild;
-						var x2 = ( anim.getAttribute( 'x' ) === 'true' ) ? x+10 : x;
-						var y2 = ( anim.getAttribute( 'y' ) === 'true' ) ? y-10 : y;
-						this.addMovingPin(x, x2, y, y2, id, z1, z2, radius, pulser );
-					} else {
-						this.addStaticPin( x, y, z1, z2, radius, pulser );
-					}
+					this.addPin( id, pulser, obj3d );
 					break;
 			}
 
@@ -55,65 +43,43 @@ ZUSE.Layer.prototype = {
 
 	},
 
-	addSheet: function ( id, obj3d ) {
+	addSheet: function ( id, pulser, obj3d ) {
 
-		var sheet = new ZUSE.Element( [ this.type, id ], this.spacing, this.intermediate, obj3d );
+		var params = { spacing: this.spacing, intermediate: this.intermediate, levels: this.levels };
 
-		this.meshes.add( sheet.mesh );
-		this.sheets.push( sheet );
-		this.cycleAccess[ id ] = sheet;
-		this.parent.selectables2.push( sheet.mesh );
+		var elem = new ZUSE.Element( [ this.type, id ], obj3d, params );
 
-	},
-
-	addStaticPin: function ( x, y, z1, z2, radius, pulser ) {
-
-		if ( isNaN( z1 ) ) { z1 = 0; }
-		if ( isNaN( z2 ) ) { z2 = 2 * this.levels; }
-
-		var pin = new ZUSE.Pin( null, x, x, y, y, z1, z2, this.spacing, radius, false );
-
-		this.meshes.add( pin.mesh );
-		this.pins.push( pin );
-
-		this.parent.selectables2.push( pin.mesh );
+		this.meshes.add( elem.mesh );
+		this.elements.push( elem );
+		this.cycleAccess[ id ] = elem;
+		this.parent.selectables2.push( elem.mesh );
 
 	},
 
-	addMovingPin: function ( x1, x2, y1, y2, name, z1, z2, radius, pulser ) {
+	addPin: function ( id, pulser, obj3d ) {
 
-		if ( isNaN( z1 ) ) { z1 = 0; } else { z1 = z1*2; }
-		if ( isNaN( z2 ) ) { z2 = 2 * this.levels; } else { z2 = 2*z2+2; }
+		var params = { spacing: this.spacing, intermediate: this.intermediate, levels: this.levels };
 
-		var pin = new ZUSE.Pin( [ this.type, name ], x1, x2, y1, y2, z1, z2, this.spacing, radius, true );
+		var elem = new ZUSE.Element( [ this.type, id ], obj3d, params );
 
-		this.meshes.add( pin.mesh );
-		this.pins.push( pin );
-		this.cycleAccess[ name ] = pin;
-
-		if ( pulser !== null ) {
-			this.parent.pulsers[ pulser ].push( pin );
+		this.meshes.add( elem.mesh );
+		this.elements.push( elem );
+		if ( id !== null ) {
+			this.cycleAccess[ id ] = elem;
 		}
 
-		this.parent.selectables2.push( pin.mesh );
+		if ( pulser !== null ) {
+			this.parent.pulsers[ pulser ].push( elem );
+		}
+
+		this.parent.selectables2.push( elem.mesh );
 
 	},
 
 	changeSpacing: function () {
 
-		for ( var i = 0; i < this.sheets.length; i++ ) {
-
-			var z = this.sheets[ i ].level * this.spacing;
-			this.sheets[ i ].setHeight( z );
-
-		}
-
-		for ( var i = 0; i < this.pins.length; i++ ) {
-
-			var z1 = this.pins[ i ].l1 * this.spacing;
-			var z2 = this.pins[ i ].l2 * this.spacing;
-			this.pins[ i ].setHeight( z1, z2 );
-
+		for ( var i = 0; i < this.elements.length; i++ ) {
+			this.elements[ i ].setHeight( this.spacing );
 		}
 
 	},

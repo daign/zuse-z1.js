@@ -5,7 +5,6 @@ FILES = "\
 	../src/js-dev/Path.js\
 	../src/js-dev/CameraControls.js\
 	../src/js-dev/Shapes.js\
-	../src/js-dev/Cyclable.js\
 	../src/js-dev/Transition.js\
 	../src/js-dev/TriggerRules.js\
 	../src/js-dev/CycleAccess.js\
@@ -16,7 +15,6 @@ FILES = "\
 	../src/js-dev/materials/Material.js\
 	../src/js-dev/materials/Materials.js\
 	../src/js-dev/Element.js\
-	../src/js-dev/Pin.js\
 	../src/js-dev/PlaneGeometry.js\
 	../src/js-dev/Axis.js\
 	../src/js-dev/Selection.js\
@@ -33,7 +31,8 @@ FILES = "\
 	../src/js-dev/Simulation.js\
 	../src/js-dev/TempCalculator.js\
 	../src/js-dev/webgl/WebGL.js.js\
-	../src/js-dev/webgl/Sheet.js"
+	../src/js-dev/webgl/Sheet.js\
+	../src/js-dev/webgl/Pin.js"
 
 #LEVEL = "WHITESPACE_ONLY"
 LEVEL = "SIMPLE_OPTIMIZATIONS"

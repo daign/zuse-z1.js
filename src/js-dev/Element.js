@@ -1,12 +1,10 @@
-ZUSE.Element = function ( name, spacing, intermediate, obj3d ) {
+ZUSE.Element = function ( name, node, params ) {
 
 	this.name = name;
 	this.position = 0;
 
-	this.objects = [
-		new ZUSE.WebGL.Sheet( spacing, intermediate, obj3d )
-	];
-
+	this.objects = [];
+	this.objects.push( new ZUSE.WebGL[ node.getAttribute( 'type' ) ]( node, params ) );
 	this.mesh = this.objects[ 0 ].mesh;
 
 };
@@ -15,10 +13,10 @@ ZUSE.Element.prototype = {
 
 	constructor: ZUSE.Element,
 
-	setHeight: function ( z ) {
+	setHeight: function ( spacing ) {
 
 		for ( var i = 0; i < this.objects.length; i++ ) {
-			this.objects[ i ].setHeight( z );
+			this.objects[ i ].setHeight( spacing );
 		}
 
 	},

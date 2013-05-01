@@ -180,23 +180,23 @@
 			<elem id="T"><obj3d type="Pin" x="40" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
 			<elem id="M3"><obj3d type="Pin" x="80" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
 			<elem id="M1"><obj3d type="Pin" x="160" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
-			<elem id="V"><obj3d type="Pin" x="45" y="210" z1="1" z2="6"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem id="V"><obj3d type="Pin" x="45" y="210" l1="1" l2="6"><anim type="move" x="false" y="true" /></obj3d></elem>
 
 		</layer>
 
 		<layer id="CD" levels="1.5" spacing="10" intermediate="true">
 
 			<elem id="ZCD"><obj3d type="Sheet" x="0" y="0" file="ZCD" /></elem>
-			<elem><obj3d type="Pin" x="65" y="35" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="65" y="35" l1="0" l2="2" /></elem>
 			<elem><obj3d type="Pin" x="105" y="35" /></elem>
 			<elem><obj3d type="Pin" x="145" y="35" /></elem>
 			<elem><obj3d type="Pin" x="185" y="35" /></elem>
-			<elem><obj3d type="Pin" x="225" y="35" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="65" y="75" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="225" y="35" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" l1="0" l2="2" /></elem>
 			<elem><obj3d type="Pin" x="105" y="75" /></elem>
 			<elem><obj3d type="Pin" x="145" y="75" /></elem>
 			<elem><obj3d type="Pin" x="185" y="75" /></elem>
-			<elem><obj3d type="Pin" x="225" y="75" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="225" y="75" l1="1" l2="3" /></elem>
 			<elem><obj3d type="Pin" x="25" y="155" /></elem>
 			<elem><obj3d type="Pin" x="65" y="155" /></elem>
 			<elem><obj3d type="Pin" x="105" y="155" /></elem>
@@ -331,35 +331,35 @@
 			<elem id="T"><obj3d type="Pin" x="40" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
 			<elem id="M2"><obj3d type="Pin" x="120" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
 			<elem id="M0"><obj3d type="Pin" x="200" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
-			<elem id="V"><obj3d type="Pin" x="45" y="210" z1="0" z2="1"><anim type="move" x="false" y="true" /></obj3d></elem>
+			<elem id="V"><obj3d type="Pin" x="45" y="210" l1="0" l2="1"><anim type="move" x="false" y="true" /></obj3d></elem>
 
 		</layer>
 
 		<layer id="BC" levels="1.5" spacing="10" intermediate="true">
 
 			<elem id="ZBC"><obj3d type="Sheet" x="0" y="0" file="ZBC" /></elem>
-			<elem><obj3d type="Pin" x="65" y="35" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="65" y="35" l1="1" l2="3" /></elem>
 			<elem><obj3d type="Pin" x="105" y="35" /></elem>
 			<elem><obj3d type="Pin" x="145" y="35" /></elem>
 			<elem><obj3d type="Pin" x="185" y="35" /></elem>
 			<elem><obj3d type="Pin" x="225" y="35" /></elem>
-			<elem><obj3d type="Pin" x="25" y="75" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="65" y="75" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="25" y="75" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="65" y="75" l1="1" l2="3" /></elem>
 			<elem><obj3d type="Pin" x="105" y="75" /></elem>
 			<elem><obj3d type="Pin" x="145" y="75" /></elem>
 			<elem><obj3d type="Pin" x="185" y="75" /></elem>
 			<elem><obj3d type="Pin" x="225" y="75" /></elem>
-			<elem><obj3d type="Pin" x="25" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="65" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="105" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="145" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="185" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="225" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="75" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="115" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="155" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="195" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="235" y="155" z1="1" z2="3" /></elem>
+			<elem><obj3d type="Pin" x="25" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="75" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="115" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="155" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="195" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="235" y="155" l1="1" l2="3" /></elem>
 
 		</layer>
 
@@ -526,10 +526,10 @@
 			<elem id="C2"><obj3d type="Pin" x="120" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
 			<elem id="C1"><obj3d type="Pin" x="160" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
 			<elem id="C0"><obj3d type="Pin" x="200" y="140"><anim type="move" x="true" y="true" /></obj3d></elem>
-			<elem id="Q3"><obj3d type="Pin" x="85" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
-			<elem id="Q2"><obj3d type="Pin" x="125" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
-			<elem id="Q1"><obj3d type="Pin" x="165" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
-			<elem id="Q0"><obj3d type="Pin" x="205" y="230" z1="1" z2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem id="Q3"><obj3d type="Pin" x="85" y="230" l1="1" l2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem id="Q2"><obj3d type="Pin" x="125" y="230" l1="1" l2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem id="Q1"><obj3d type="Pin" x="165" y="230" l1="1" l2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
+			<elem id="Q0"><obj3d type="Pin" x="205" y="230" l1="1" l2="3"><anim type="move" x="true" y="false" /></obj3d></elem>
 
 		</layer>
 
@@ -547,16 +547,16 @@
 			<elem><obj3d type="Pin" x="145" y="75" /></elem>
 			<elem><obj3d type="Pin" x="185" y="75" /></elem>
 			<elem><obj3d type="Pin" x="225" y="75" /></elem>
-			<elem><obj3d type="Pin" x="65" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="105" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="145" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="185" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="225" y="155" z1="1" z2="3" /></elem>
-			<elem><obj3d type="Pin" x="75" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="115" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="155" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="195" y="155" z1="0" z2="2" /></elem>
-			<elem><obj3d type="Pin" x="235" y="155" z1="0" z2="2" /></elem>
+			<elem><obj3d type="Pin" x="65" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="105" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="145" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="185" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="225" y="155" l1="1" l2="3" /></elem>
+			<elem><obj3d type="Pin" x="75" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="115" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="155" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="195" y="155" l1="0" l2="2" /></elem>
+			<elem><obj3d type="Pin" x="235" y="155" l1="0" l2="2" /></elem>
 
 		</layer>
 
