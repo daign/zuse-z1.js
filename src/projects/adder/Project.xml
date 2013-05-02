@@ -382,21 +382,25 @@
 				<obj3d type="Sheet" x="74" y="15" level="2" file="BC">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="C3"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="BC2">
 				<obj3d type="Sheet" x="114" y="15" level="2" file="BC">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="C2"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="BC1">
 				<obj3d type="Sheet" x="154" y="15" level="2" file="BC">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="C1"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="BC0">
 				<obj3d type="Sheet" x="194" y="15" level="2" file="BC">
 					<anim type="move" x="false" y="true" />
 				</obj3d>
+				<svg type="CircuitElement" ref="C0"><anim type="colorize" position="1" /></svg>
 			</elem>
 			<elem id="BH2">
 				<obj3d type="Sheet" x="91" y="5" level="3" file="BH">

@@ -16,6 +16,8 @@ ZUSE.InputElement.prototype = {
 
 	setHighlight: function ( bool ) {},
 
+	failedToChange: function ( tact ) {},
+
 	changePosition: function ( tact ) {
 
 		var p = this.position + 1;

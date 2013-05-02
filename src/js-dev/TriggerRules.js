@@ -39,7 +39,7 @@ ZUSE.TriggerRules.prototype = {
 
 	getTriggerResults: function ( actuator, tact, onlycombined ) {
 
-		var results = new Array();
+		var results = { active: [], inactive: [] };
 		var conditions = this.getConditions( actuator, tact );
 
 		if ( conditions !== undefined ) {
@@ -54,12 +54,16 @@ ZUSE.TriggerRules.prototype = {
 
 						if ( !onlycombined || conditions[ i ][ 3 ] ) {
 
-							if ( results.indexOf( element ) === -1 ) {
-
-								results.push( element );
-
+							if ( results.active.indexOf( element ) === -1 ) {
+								results.active.push( element );
 							}
 
+						} // add to inactive else?
+
+					} else {
+
+						if ( results.inactive.indexOf( element ) === -1 ) {
+							results.inactive.push( element );
 						}
 
 					}

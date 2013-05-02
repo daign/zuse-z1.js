@@ -113,11 +113,11 @@ ZUSE.Adder.prototype = {
 	highlightPart: function ( name, tact, bool ) {
 
 		var results = this.cycleControl.triggerRules.getTriggerResults( { name: name }, tact, true );
-		results.push( this.cycleControl.triggerRules.getElement( name ) );
+		results.active.push( this.cycleControl.triggerRules.getElement( name ) );
 
-		for ( var i = 0; i < results.length; i++ ) {
+		for ( var i = 0; i < results.active.length; i++ ) {
 
-			results[ i ].setHighlight( bool );
+			results.active[ i ].setHighlight( bool );
 
 		}
 

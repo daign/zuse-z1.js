@@ -30,6 +30,14 @@ ZUSE.SVG.CircuitElement.prototype = {
 
 	},
 
+	antiHighlight: function ( bool ) {
+
+		this.ref.style.stroke = bool ? '#999' : 'black';
+		this.ref.style.fill = bool ? '#999' : 'black';
+
+	},
+
+
 	setPosition: function ( position ) {
 
 		if ( this.workPosition === position ) {
@@ -37,6 +45,18 @@ ZUSE.SVG.CircuitElement.prototype = {
 		} else {
 			this._setHighlight( false );
 		}
+
+	},
+
+	failedToChange: function ( position ) {
+
+		this.antiHighlight( true );
+
+/*		if ( this.workPosition === position ) {
+			this._setHighlight( true );
+		} else {
+			this._setHighlight( false );
+		}*/
 
 	}
 

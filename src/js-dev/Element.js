@@ -26,7 +26,7 @@ ZUSE.Element.prototype = {
 		var svgArray = elementNode.getElementsByTagName( 'svg' );
 		for ( var i = 0; i < svgArray.length; i++ ) {
 			var svg = new ZUSE.SVG[ svgArray[ i ].getAttribute( 'type' ) ]( svgArray[ i ] );
-			//this.objects.push( svg );
+			this.objects.push( svg );
 		}
 
 	},
@@ -44,6 +44,7 @@ ZUSE.Element.prototype = {
 	setHeight: function ( spacing ) { this.distribute( 'setHeight', [ spacing ] ); },
 	setHighlight: function ( bool ) { this.distribute( 'setHighlight', [ bool ] ); },
 	move: function ( tact, value ) { this.distribute( 'move', [ tact, value ] ); },
+	failedToChange: function ( tact ) { this.distribute( 'failedToChange', [ this.position ] ); },
 
 	changePosition: function ( tact ) {
 
