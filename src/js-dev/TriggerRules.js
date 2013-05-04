@@ -1,13 +1,11 @@
-ZUSE.TriggerRules = function ( adder, rules ) {
+ZUSE.TriggerRules = {
 
-	this.adder = adder;
-	this.parseRules( rules );
+	init: function ( adder, rules ) {
 
-};
+		this.adder = adder;
+		this.parseRules( rules );
 
-ZUSE.TriggerRules.prototype = {
-
-	constructor: ZUSE.TriggerRules,
+	},
 
 	addTriggerRule: function ( n1, n2, tact ) {
 

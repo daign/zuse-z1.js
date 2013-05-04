@@ -10,6 +10,7 @@ ZUSE.Adder = function () {
 	this.selectables = new Array();
 	this.selectables2 = new Array();
 	this.selectables2enabled = false;
+	this.cycleControl = new ZUSE.CycleControl( this );
 
 	this.parseProjectFile( 'projects/adder/Project.xml' );
 	this.layersByType[ 'In' ] = new ZUSE.InputControlLayer();
@@ -50,7 +51,7 @@ ZUSE.Adder.prototype = {
 
 		getResult = xmlDoc.getElementsByTagName( 'rules' );
 		if ( getResult.length > 0 ) {
-			this.cycleControl = new ZUSE.CycleControl( this, getResult[ 0 ] );
+			ZUSE.TriggerRules.init( this, getResult[ 0 ] );
 		}
 
 	},
@@ -112,8 +113,8 @@ ZUSE.Adder.prototype = {
 
 	highlightPart: function ( name, tact, bool ) {
 
-		var results = this.cycleControl.triggerRules.getTriggerResults( { name: name }, tact, true );
-		results.active.push( this.cycleControl.triggerRules.getElement( name ) );
+		var results = ZUSE.TriggerRules.getTriggerResults( { name: name }, tact, true );
+		results.active.push( ZUSE.TriggerRules.getElement( name ) );
 
 		for ( var i = 0; i < results.active.length; i++ ) {
 

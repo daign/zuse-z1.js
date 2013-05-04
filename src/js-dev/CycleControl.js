@@ -1,4 +1,4 @@
-ZUSE.CycleControl = function ( adder, rules ) {
+ZUSE.CycleControl = function ( adder ) {
 
 	this.adder = adder;
 	this.tact = 0;
@@ -7,8 +7,6 @@ ZUSE.CycleControl = function ( adder, rules ) {
 
 	this.preHighlighted = undefined;
 	this.highlightMoving = true;
-
-	this.triggerRules = new ZUSE.TriggerRules( adder, rules );
 
 };
 

@@ -46,7 +46,7 @@ ZUSE.Transition.prototype = {
 
 	trigger: function ( actuator ) {
 
-		var results = this.control.triggerRules.getTriggerResults( actuator, this.tact, false );
+		var results = ZUSE.TriggerRules.getTriggerResults( actuator, this.tact, false );
 
 		for ( var i = 0; i < results.active.length; i++ ) {
 			if ( this.elements.active.indexOf( results.active[ i ] ) === -1 ) {
@@ -73,7 +73,7 @@ ZUSE.Transition.prototype = {
 
 	intrigger: function ( actuator ) {
 
-		var results = this.control.triggerRules.getTriggerResults( actuator, this.tact, false );
+		var results = ZUSE.TriggerRules.getTriggerResults( actuator, this.tact, false );
 
 		for ( var i = 0; i < results.active.length; i++ ) {
 			if (
