@@ -1,6 +1,6 @@
 ZUSE.SVG.CircuitElement = function ( node, params ) {
 
-	this.ref = SIMULATION.gui.circuit.getElementById( node.getAttribute( 'ref' ) );
+	this.ref = ZUSE.gui.circuit.getElementById( node.getAttribute( 'ref' ) );
 	this.workPosition = undefined;
 
 	if ( node.childElementCount > 0 ) {

@@ -99,7 +99,7 @@ ZUSE.Transition.prototype = {
 
 	run: function ( repeat ) {
 
-		if ( repeat && this.changesTact ) { SIMULATION.gui.status.activate( this.tact-1 ); }
+		if ( repeat && this.changesTact ) { ZUSE.gui.status.activate( this.tact-1 ); }
 
 		this.value = 0;
 
@@ -121,7 +121,7 @@ ZUSE.Transition.prototype = {
 			this.highlight( false );
 			ZUSE.CycleAccess.release();
 
-			if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact % 4 ); }
+			if ( this.changesTact ) { ZUSE.gui.status.activate( this.tact % 4 ); }
 
 		}
 
@@ -147,7 +147,7 @@ ZUSE.Transition.prototype = {
 
 	runBackwards: function () {
 
-		if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact-1 ); }
+		if ( this.changesTact ) { ZUSE.gui.status.activate( this.tact-1 ); }
 
 		this.value = 10;
 

@@ -1,6 +1,6 @@
 ZUSE.InitZutools = function () {
 
-	SIMULATION.gui = new ZUTOOLS.LayoutManager( {
+	ZUSE.gui = new ZUTOOLS.LayoutManager( {
 		languages: {
 			path: 'projects/adder/languages/',
 			standard: 'en',
@@ -58,7 +58,7 @@ ZUSE.InitZutools = function () {
 					click: function ( a ) {
 						var state = !ZUSE.adderObj.selection.enabled;
 						ZUSE.adderObj.selection.setActivation( state );
-						SIMULATION.gui.toolbar.toolsByName.select.disable( state );
+						ZUSE.gui.toolbar.toolsByName.select.disable( state );
 					}
 				}, true, null ],
 				[ 'clipReset', {
@@ -116,7 +116,7 @@ ZUSE.InitZutools = function () {
 				] ]
 			], [
 				[ 'viewReset', {
-					click: function () { SIMULATION.gui.webgl.camera.controls.reset(); }
+					click: function () { ZUSE.gui.webgl.camera.controls.reset(); }
 				}, false, null ],
 				[ 'highlight', {
 					click: function ( a ) { ZUSE.adderObj.cycleControl.switchHighlighting(); }
@@ -128,14 +128,14 @@ ZUSE.InitZutools = function () {
 		]
 	} );
 
-	SIMULATION.gui.toolbar.toolsByName.back.disable();
-	SIMULATION.gui.toolbar.toolsByName.replay.disable();
-	SIMULATION.gui.toolbar.toolsByName.visMS.switchActivation();
-	SIMULATION.gui.toolbar.toolsByName.visMP.switchActivation();
-	SIMULATION.gui.toolbar.toolsByName.visSS.switchActivation();
-	SIMULATION.gui.toolbar.toolsByName.visSP.switchActivation();
-	SIMULATION.gui.toolbar.toolsByName.visIS.switchActivation();
-	SIMULATION.gui.toolbar.toolsByName.highlight.switchActivation();
+	ZUSE.gui.toolbar.toolsByName.back.disable();
+	ZUSE.gui.toolbar.toolsByName.replay.disable();
+	ZUSE.gui.toolbar.toolsByName.visMS.switchActivation();
+	ZUSE.gui.toolbar.toolsByName.visMP.switchActivation();
+	ZUSE.gui.toolbar.toolsByName.visSS.switchActivation();
+	ZUSE.gui.toolbar.toolsByName.visSP.switchActivation();
+	ZUSE.gui.toolbar.toolsByName.visIS.switchActivation();
+	ZUSE.gui.toolbar.toolsByName.highlight.switchActivation();
 
 	var a3 = {	click:		function () { return ZUSE.adderObj.cycleControl.switchInput( "A3", null ); },
 				mouseover:	function () { ZUSE.adderObj.highlightPart( [ 'In', 'A3' ], 2, true ); },
@@ -178,29 +178,29 @@ ZUSE.InitZutools = function () {
 	var k0 = {	mouseover:	function () { ZUSE.adderObj.highlightPart( [ 'C', 'CK0' ], 3, true ); },
 				mouseout:	function () { ZUSE.adderObj.highlightPart( [ 'C', 'CK0' ], 3, false ); } };
 
-	SIMULATION.inputs = {
+	ZUSE.inputs = {
 
-		A3:  SIMULATION.gui.controls.addDigit( 30,  7, false, a3 ).setToZero().inputOn(),
-		A2:  SIMULATION.gui.controls.addDigit( 50,  7, false, a2 ).setToZero().inputOn(),
-		A1:  SIMULATION.gui.controls.addDigit( 70,  7, false, a1 ).setToZero().inputOn(),
-		A0:  SIMULATION.gui.controls.addDigit( 90,  7, false, a0 ).setToZero().inputOn(),
-		Plu: SIMULATION.gui.controls.addDigit( 10, 33, false ).setToPlus(),
-		B3:  SIMULATION.gui.controls.addDigit( 30, 33, false, b3 ).setToZero().inputOn(),
-		B2:  SIMULATION.gui.controls.addDigit( 50, 33, false, b2 ).setToZero().inputOn(),
-		B1:  SIMULATION.gui.controls.addDigit( 70, 33, false, b1 ).setToZero().inputOn(),
-		B0:  SIMULATION.gui.controls.addDigit( 90, 33, false, b0 ).setToZero().inputOn(),
-		F4s: SIMULATION.gui.controls.addDigit( 21, 53, true,  f4 ),
-		F3s: SIMULATION.gui.controls.addDigit( 41, 53, true,  f3 ),
-		F2s: SIMULATION.gui.controls.addDigit( 61, 53, true,  f2 ),
-		F1s: SIMULATION.gui.controls.addDigit( 81, 53, true,  f1 ),
-		K4s: SIMULATION.gui.controls.addDigit( 10, 71, false, f4 ), // sic!
-		K3s: SIMULATION.gui.controls.addDigit( 30, 71, false, k3 ),
-		K2s: SIMULATION.gui.controls.addDigit( 50, 71, false, k2 ),
-		K1s: SIMULATION.gui.controls.addDigit( 70, 71, false, k1 ),
-		K0s: SIMULATION.gui.controls.addDigit( 90, 71, false, k0 ),
-		Z1: SIMULATION.gui.controls.addDigit( 126,  7, false ).setText( '  0' ),
-		Z2: SIMULATION.gui.controls.addDigit( 126, 33, false ).setText( '+ 0' ),
-		Z3: SIMULATION.gui.controls.addDigit( 126, 71, false ).setText( '   ' )
+		A3:  ZUSE.gui.controls.addDigit( 30,  7, false, a3 ).setToZero().inputOn(),
+		A2:  ZUSE.gui.controls.addDigit( 50,  7, false, a2 ).setToZero().inputOn(),
+		A1:  ZUSE.gui.controls.addDigit( 70,  7, false, a1 ).setToZero().inputOn(),
+		A0:  ZUSE.gui.controls.addDigit( 90,  7, false, a0 ).setToZero().inputOn(),
+		Plu: ZUSE.gui.controls.addDigit( 10, 33, false ).setToPlus(),
+		B3:  ZUSE.gui.controls.addDigit( 30, 33, false, b3 ).setToZero().inputOn(),
+		B2:  ZUSE.gui.controls.addDigit( 50, 33, false, b2 ).setToZero().inputOn(),
+		B1:  ZUSE.gui.controls.addDigit( 70, 33, false, b1 ).setToZero().inputOn(),
+		B0:  ZUSE.gui.controls.addDigit( 90, 33, false, b0 ).setToZero().inputOn(),
+		F4s: ZUSE.gui.controls.addDigit( 21, 53, true,  f4 ),
+		F3s: ZUSE.gui.controls.addDigit( 41, 53, true,  f3 ),
+		F2s: ZUSE.gui.controls.addDigit( 61, 53, true,  f2 ),
+		F1s: ZUSE.gui.controls.addDigit( 81, 53, true,  f1 ),
+		K4s: ZUSE.gui.controls.addDigit( 10, 71, false, f4 ), // sic!
+		K3s: ZUSE.gui.controls.addDigit( 30, 71, false, k3 ),
+		K2s: ZUSE.gui.controls.addDigit( 50, 71, false, k2 ),
+		K1s: ZUSE.gui.controls.addDigit( 70, 71, false, k1 ),
+		K0s: ZUSE.gui.controls.addDigit( 90, 71, false, k0 ),
+		Z1: ZUSE.gui.controls.addDigit( 126,  7, false ).setText( '  0' ),
+		Z2: ZUSE.gui.controls.addDigit( 126, 33, false ).setText( '+ 0' ),
+		Z3: ZUSE.gui.controls.addDigit( 126, 71, false ).setText( '   ' )
 
 	}
 

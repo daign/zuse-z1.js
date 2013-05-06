@@ -18,7 +18,7 @@ ZUSE.Adder = function () {
 	this.selection = new ZUSE.Selection( { x1: -40, x2: 320, y1: -15, y2: 265 }, this );
 	this.meshes.add( this.selection.meshes );
 
-	SIMULATION.gui.webgl.scene.add( this.meshes );
+	ZUSE.gui.webgl.scene.add( this.meshes );
 
 };
 

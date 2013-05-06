@@ -386,7 +386,7 @@ ZUSE.Selection.prototype = {
 		var sliderNumber = sliderMap[ axis.a ];
 
 		value = this.transformValueToSlider( axis.a, value );
-		var slider = SIMULATION.gui.toolbar.toolsByName.clipChange.sliders[ sliderNumber ];
+		var slider = ZUSE.gui.toolbar.toolsByName.clipChange.sliders[ sliderNumber ];
 		slider.values[ axis.d - 1 ] = Math.round( value );
 		slider.updateSlider();
 
