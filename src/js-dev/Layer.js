@@ -78,7 +78,7 @@ ZUSE.Layer.prototype = {
 
 		for ( var i = 0; i < this.meshes.children.length; i++ ) {
 
-			this.meshes.children[ i ].visible = bool;
+			this.meshes.children[ i ].children[ 0 ].visible = bool;
 
 		}
 
