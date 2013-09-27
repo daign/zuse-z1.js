@@ -98,7 +98,7 @@ ZUSE.Adder.prototype = {
 			this.layers[ n ].open = !this.layers[ n ].open;
 			var animation = new TWEEN.Tween( this.layers[ n ] ).to( { spacing : s }, 1000 );
 			animation.onUpdate( callback );
-			animation.easing( TWEEN.Easing.Quadratic.EaseInOut );
+			animation.easing( TWEEN.Easing.Quadratic.InOut );
 			animation.start();
 
 		}

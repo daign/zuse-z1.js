@@ -142,7 +142,7 @@ ZUSE.Selection.prototype = {
 		var animation = new TWEEN.Tween( this ).to( { time : 1 }, 1000 );
 		animation.onUpdate( callback );
 		animation.onComplete( finish );
-		animation.easing( TWEEN.Easing.Quadratic.EaseInOut );
+		animation.easing( TWEEN.Easing.Quadratic.InOut );
 		animation.start();
 
 		this.setVisibleLayers( new ZUSE.Axis( 'z', 1 ), values.z1, true );
