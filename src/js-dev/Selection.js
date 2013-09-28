@@ -24,8 +24,10 @@ ZUSE.Selection = function ( limits, parent ) {
 						new THREE.Vector3(), new THREE.Vector3() ];
 	this.updateVertices();
 
-	this.meshes = new THREE.Object3D();
-	this.geometries = new Array();
+	this.touchMeshes = new THREE.Object3D();
+	this.displayMeshes = new THREE.Object3D();
+	this.meshGeometries = new Array();
+	this.lineGeometries = new Array();
 
 	this.addFace( { a: 'y', d: 1 }, 0, 1, 5, 4 );
 	this.addFace( { a: 'z', d: 1 }, 0, 2, 3, 1 );
@@ -33,6 +35,19 @@ ZUSE.Selection = function ( limits, parent ) {
 	this.addFace( { a: 'x', d: 2 }, 7, 5, 1, 3 );
 	this.addFace( { a: 'y', d: 2 }, 7, 3, 2, 6 );
 	this.addFace( { a: 'z', d: 2 }, 7, 6, 4, 5 );
+
+	this.addLine( 0, 1 );
+	this.addLine( 0, 2 );
+	this.addLine( 0, 4 );
+	this.addLine( 1, 3 );
+	this.addLine( 1, 5 );
+	this.addLine( 2, 3 );
+	this.addLine( 2, 6 );
+	this.addLine( 3, 7 );
+	this.addLine( 4, 5 );
+	this.addLine( 4, 6 );
+	this.addLine( 5, 7 );
+	this.addLine( 6, 7 );
 
 	this.enabled = false;
 	this.setActivation( false );
@@ -61,11 +76,13 @@ ZUSE.Selection.prototype = {
 														this.vertices[ n2 ],
 														this.vertices[ n3 ] );
 		frontFaceGeometry.dynamic = true;
-		this.geometries.push( frontFaceGeometry );
+		this.meshGeometries.push( frontFaceGeometry );
 
-		var frontFaceMesh = new THREE.Mesh( frontFaceGeometry, ZUSE.Materials.BoxWireframe );
+		var frontFaceMesh = new THREE.Mesh( frontFaceGeometry );
 		frontFaceMesh.axis = axis;
-		this.meshes.add( frontFaceMesh );
+		frontFaceMesh.visible = false;
+		frontFaceMesh.guardian = { rayOver: function () { console.log('rayOver'); }, rayOut: function () { console.log('rayOut'); } };
+		this.touchMeshes.add( frontFaceMesh );
 		this.parent.selectables.push( frontFaceMesh );
 
 		var backFaceGeometry = new ZUSE.PlaneGeometry(  this.vertices[ n3 ],
@@ -73,12 +90,23 @@ ZUSE.Selection.prototype = {
 														this.vertices[ n1 ],
 														this.vertices[ n0 ] );
 		backFaceGeometry.dynamic = true;
-		this.geometries.push( backFaceGeometry );
+		this.meshGeometries.push( backFaceGeometry );
 
 		var backFaceMesh = new THREE.Mesh( backFaceGeometry, ZUSE.Materials.BoxBackFace );
-	//	var backFaceMesh = THREE.SceneUtils.createMultiMaterialObject( backFaceGeometry,
-	//							[ ZUSE.Materials.BoxBackFace, ZUSE.Materials.BoxStandard.shader ] );
-		this.meshes.add( backFaceMesh );
+		this.displayMeshes.add( backFaceMesh );
+
+	},
+
+	addLine: function ( n0, n1 ) {
+
+		var lineGeometry = new THREE.Geometry();
+		lineGeometry.vertices.push( this.vertices[ n0 ], this.vertices[ n1 ] );
+		lineGeometry.computeLineDistances();
+		lineGeometry.dynamic = true;
+		this.lineGeometries.push( lineGeometry );
+
+		var line = new THREE.Line( lineGeometry, ZUSE.Materials.BoxWireframe, THREE.LinePieces );
+		this.displayMeshes.add( line );
 
 	},
 
@@ -284,10 +312,16 @@ ZUSE.Selection.prototype = {
 
 	updateGeometries: function () {
 
-		for ( var i = 0; i < this.geometries.length; i++ ) {
+		for ( var i = 0; i < this.meshGeometries.length; i++ ) {
 
-			this.geometries[ i ].computeCentroids();
-			this.geometries[ i ].verticesNeedUpdate = true;
+			this.meshGeometries[ i ].computeCentroids();
+			this.meshGeometries[ i ].verticesNeedUpdate = true;
+
+		}
+
+		for ( var i = 0; i < this.lineGeometries.length; i++ ) {
+
+			this.lineGeometries[ i ].verticesNeedUpdate = true;
 
 		}
 
@@ -440,14 +474,14 @@ ZUSE.Selection.prototype = {
 
 		this.enabled = bool;
 
-		for ( var i = 0; i < this.meshes.children.length; i++ ) {
+		for ( var i = 0; i < this.displayMeshes.children.length; i++ ) {
 
-			this.meshes.children[ i ].visible = bool;
+			this.displayMeshes.children[ i ].visible = bool;
 
-			if ( this.meshes.children[ i ].children.length >= 2 ) {
+			if ( this.displayMeshes.children[ i ].children.length >= 2 ) {
 
-				this.meshes.children[ i ].children[ 0 ].visible = bool;
-				this.meshes.children[ i ].children[ 1 ].visible = bool;
+				this.displayMeshes.children[ i ].children[ 0 ].visible = bool;
+				this.displayMeshes.children[ i ].children[ 1 ].visible = bool;
 
 			}
 

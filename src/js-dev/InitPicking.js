@@ -85,10 +85,14 @@ ZUSE.InitPicking = function () {
 
 				if ( ZUSE.INTERSECTED != candidate ) {
 
-					if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+					if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+						ZUSE.INTERSECTED.guardian.rayOut();
+					}
 
 					ZUSE.INTERSECTED = intersects[ 0 ].object;
-					ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireActive : ZUSE.Materials.Highlight.shader;
+					if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+						ZUSE.INTERSECTED.guardian.rayOver();
+					}
 
 					ZUSE.plane.position.copy( ZUSE.INTERSECTED.position );
 					ZUSE.plane.lookAt( ZUSE.gui.webgl.camera.position );
@@ -100,7 +104,9 @@ ZUSE.InitPicking = function () {
 			} else {
 
 				// found no candidate because of visible range
-				if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+				if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+					ZUSE.INTERSECTED.guardian.rayOut();
+				}
 
 				ZUSE.INTERSECTED = null;
 
@@ -110,7 +116,9 @@ ZUSE.InitPicking = function () {
 
 		} else { // really found nothing
 
-			if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+			if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+				ZUSE.INTERSECTED.guardian.rayOut();
+			}
 
 			ZUSE.INTERSECTED = null;
 
@@ -156,7 +164,6 @@ ZUSE.InitPicking = function () {
 		if ( ZUSE.INTERSECTED ) {
 
 			ZUSE.plane.position.copy( ZUSE.INTERSECTED.position );
-
 			ZUSE.SELECTED = null;
 
 		}
@@ -167,7 +174,9 @@ ZUSE.InitPicking = function () {
 
 	function onDocumentMouseOut( event ) {
 
-		if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = ZUSE.adderObj.selection.enabled ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+		if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+			ZUSE.INTERSECTED.guardian.rayOut();
+		}
 		ZUSE.INTERSECTED = null;
 		ZUSE.SELECTED = null;
 

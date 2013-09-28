@@ -18,24 +18,22 @@ ZUSE.WebGL.Sheet = function ( node, params ) {
 	var extrudeSettings = {	amount: this.thickness, bevelEnabled: false, steps: 1 };
 	var geometry = ZUSE.Shapes.getShape( file, x, y ).extrude( extrudeSettings );
 
-	var material;
-
 	if ( xMove || yMove ) {
 
-		material = ZUSE.Materials.MovingSheet.shader;
+		this.material = ZUSE.Materials.MovingSheet.shader;
 
 	} else if ( this.intermediate ) {
 
-		material = ZUSE.Materials.IntermediateSheet.shader;
+		this.material = ZUSE.Materials.IntermediateSheet.shader;
 
 	} else {
 
-		material = ZUSE.Materials.StaticSheet.shader;
+		this.material = ZUSE.Materials.StaticSheet.shader;
 
 	}
 
-	this.mesh = new THREE.Mesh( geometry, material );
-	this.mesh.defaultMaterial = material;
+	this.mesh = new THREE.Mesh( geometry, this.material );
+	this.mesh.guardian = this;
 
 	this.setHeight( params.spacing );
 
@@ -60,7 +58,7 @@ ZUSE.WebGL.Sheet.prototype = {
 
 		} else {
 
-			this.mesh.material = this.mesh.defaultMaterial;
+			this.mesh.material = this.material;
 
 		}
 
@@ -92,6 +90,14 @@ ZUSE.WebGL.Sheet.prototype = {
 
 		}
 
+	},
+
+	rayOver: function () {
+		this.mesh.material = ZUSE.Materials.Highlight.shader;
+	},
+
+	rayOut: function () {
+		this.mesh.material = this.material;
 	}
 
 };

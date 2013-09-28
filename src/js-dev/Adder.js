@@ -16,7 +16,8 @@ ZUSE.Adder = function () {
 	this.layersByType[ 'In' ] = new ZUSE.InputControlLayer();
 
 	this.selection = new ZUSE.Selection( { x1: -40, x2: 320, y1: -15, y2: 265 }, this );
-	this.meshes.add( this.selection.meshes );
+	this.meshes.add( this.selection.touchMeshes );
+	this.meshes.add( this.selection.displayMeshes );
 
 	ZUSE.gui.webgl.scene.add( this.meshes );
 

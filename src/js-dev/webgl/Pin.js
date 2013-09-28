@@ -40,10 +40,10 @@ ZUSE.WebGL.Pin = function ( node, params ) {
 	var extrudeSettings = {	amount: 1, bevelEnabled: false, steps: 1 };
 	var geometry = arcShape.extrude( extrudeSettings );
 
-	var material = ( xMove || yMove ) ? ZUSE.Materials.MovingPin.shader : ZUSE.Materials.StaticPin.shader;
+	this.material = ( xMove || yMove ) ? ZUSE.Materials.MovingPin.shader : ZUSE.Materials.StaticPin.shader;
 
-	this.mesh = new THREE.Mesh( geometry, material );
-	this.mesh.defaultMaterial = material;
+	this.mesh = new THREE.Mesh( geometry, this.material );
+	this.mesh.guardian = this;
 
 	this.setHeight( params.spacing );
 
@@ -71,7 +71,7 @@ ZUSE.WebGL.Pin.prototype = {
 
 		} else {
 
-			this.mesh.material = this.mesh.defaultMaterial;
+			this.mesh.material = this.material;
 
 		}
 
@@ -103,6 +103,14 @@ ZUSE.WebGL.Pin.prototype = {
 
 		}
 
+	},
+
+	rayOver: function () {
+		this.mesh.material = ZUSE.Materials.Highlight.shader;
+	},
+
+	rayOut: function () {
+		this.mesh.material = this.material;
 	}
 
 };
