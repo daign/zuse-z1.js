@@ -66,11 +66,11 @@ ZUSE.CameraControls = function ( camera, source ) {
 
 		}
 
-		displacement.copy( this.camera.position ).subSelf( this.target );
+		displacement.copy( this.camera.position ).sub( this.target );
 
 		var projection = this.camera.up.clone().setLength( mouseOnBall.y );
-		projection.addSelf( this.camera.up.clone().crossSelf( displacement ).setLength( mouseOnBall.x ) );
-		projection.addSelf( displacement.setLength( mouseOnBall.z ) );
+		projection.add( this.camera.up.clone().cross( displacement ).setLength( mouseOnBall.x ) );
+		projection.add( displacement.setLength( mouseOnBall.z ) );
 
 		return projection;
 
@@ -84,19 +84,19 @@ ZUSE.CameraControls = function ( camera, source ) {
 
 		if ( angle ) {
 
-			var axis = ( new THREE.Vector3() ).cross( rotateStart, rotateEnd ).normalize();
+			var axis = ( new THREE.Vector3() ).crossVectors( rotateStart, rotateEnd ).normalize();
 
 			angle *= this.rotateSpeed;
 
 			var quaternion = new THREE.Quaternion();
 			quaternion.setFromAxisAngle( axis, -angle );
 
-			quaternion.multiplyVector3( displacement );
-			quaternion.multiplyVector3( this.camera.up );
-			quaternion.multiplyVector3( rotateEnd );
+			displacement.applyQuaternion( quaternion );
+			this.camera.up.applyQuaternion( quaternion );
+			rotateEnd.applyQuaternion( quaternion );
 
 			quaternion.setFromAxisAngle( axis, angle * ( this.dynamicDampingFactor - 1.0 ) );
-			quaternion.multiplyVector3( rotateStart );
+			rotateStart.applyQuaternion( quaternion );
 
 		}
 
@@ -109,7 +109,7 @@ ZUSE.CameraControls = function ( camera, source ) {
 		if ( factor != 1.0 && factor > 0.0 ) {
 
 			//displacement.multiplyScalar( factor );
-			this.target.addSelf( displacement.clone().normalize().multiplyScalar( zoomFactor * -30 ) );
+			this.target.add( displacement.clone().normalize().multiplyScalar( zoomFactor * -30 ) );
 
 		}
 
@@ -119,19 +119,19 @@ ZUSE.CameraControls = function ( camera, source ) {
 
 	this.panCamera = function () {
 
-		var mouseChange = panEnd.clone().subSelf( panStart );
+		var mouseChange = panEnd.clone().sub( panStart );
 
 		if ( mouseChange.lengthSq() > 0 ) {
 
 			mouseChange.multiplyScalar( displacement.length() * this.panSpeed );
 
-			var pan = displacement.clone().crossSelf( this.camera.up ).setLength( mouseChange.x );
-			pan.addSelf( this.camera.up.clone().setLength( mouseChange.y ) );
+			var pan = displacement.clone().cross( this.camera.up ).setLength( mouseChange.x );
+			pan.add( this.camera.up.clone().setLength( mouseChange.y ) );
 
-			this.camera.position.addSelf( pan );
-			this.target.addSelf( pan );
+			this.camera.position.add( pan );
+			this.target.add( pan );
 
-			panStart.addSelf( mouseChange.sub( panEnd, panStart ).multiplyScalar( this.dynamicDampingFactor ) );
+			panStart.add( mouseChange.subVectors( panEnd, panStart ).multiplyScalar( this.dynamicDampingFactor ) );
 
 		}
 
@@ -140,18 +140,18 @@ ZUSE.CameraControls = function ( camera, source ) {
 	this.levelCamera = function () {
 
 		var start = this.camera.up.clone();
-		var end = ( new THREE.Vector3( 0, 1, 0 ) ).crossSelf( displacement ).crossSelf( displacement ).negate();
+		var end = ( new THREE.Vector3( 0, 1, 0 ) ).cross( displacement ).cross( displacement ).negate();
 
 		var angle = Math.acos( start.dot( end ) / start.length() / end.length() );
 
 		if ( angle ) {
 
 			var axis = displacement.clone().normalize();
-			var sign = ( start.clone().crossSelf( end ).dot( displacement ) >= 0 ) ? 1 : -1;
+			var sign = ( start.clone().cross( end ).dot( displacement ) >= 0 ) ? 1 : -1;
 
 			var quaternion = new THREE.Quaternion();
 			quaternion.setFromAxisAngle( axis, sign * angle );
-			quaternion.multiplyVector3( this.camera.up );
+			this.camera.up.applyQuaternion( quaternion );
 
 		}
 
@@ -164,21 +164,21 @@ ZUSE.CameraControls = function ( camera, source ) {
 		}
 
 		if ( displacement.lengthSq() < this.minDistance * this.minDistance ) {
-			this.camera.position.add( this.target, displacement.setLength( this.minDistance ) );
+			this.camera.position.addVectors( this.target, displacement.setLength( this.minDistance ) );
 		}
 
 	};
 
 	this.update = function () {
 
-		displacement.copy( this.camera.position ).subSelf( this.target );
+		displacement.copy( this.camera.position ).sub( this.target );
 
 		this.zoomCamera();
 		this.rotateCamera();
 		this.panCamera();
 		//this.levelCamera();
 
-		this.camera.position.add( this.target, displacement );
+		this.camera.position.addVectors( this.target, displacement );
 		this.checkDistances();
 		this.camera.lookAt( this.target );
 

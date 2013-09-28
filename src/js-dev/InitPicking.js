@@ -33,13 +33,13 @@ ZUSE.InitPicking = function () {
 		var vector = new THREE.Vector3( ZUSE.mouse.x, ZUSE.mouse.y, 0.5 );
 		ZUSE.projector.unprojectVector( vector, ZUSE.gui.webgl.camera );
 
-		var ray = new THREE.Ray( ZUSE.gui.webgl.camera.position, vector.subSelf( ZUSE.gui.webgl.camera.position ).normalize() );
+		var ray = new THREE.Raycaster( ZUSE.gui.webgl.camera.position, vector.sub( ZUSE.gui.webgl.camera.position ).normalize() );
 
 		if ( ZUSE.SELECTED ) {
 
 			var intersects = ray.intersectObject( ZUSE.plane );
 			if ( intersects.length > 0 ) {
-				var newPosition = intersects[ 0 ].point.subSelf( ZUSE.offset );
+				var newPosition = intersects[ 0 ].point.sub( ZUSE.offset );
 				ZUSE.adderObj.selection.setFromMouse( ZUSE.SELECTED.axis, newPosition[ ZUSE.SELECTED.axis.a ], true );
 			}
 			return;
@@ -129,7 +129,7 @@ ZUSE.InitPicking = function () {
 		var vector = new THREE.Vector3( ZUSE.mouse.x, ZUSE.mouse.y, 0.5 );
 		ZUSE.projector.unprojectVector( vector, ZUSE.gui.webgl.camera );
 
-		var ray = new THREE.Ray( ZUSE.gui.webgl.camera.position, vector.subSelf( ZUSE.gui.webgl.camera.position ).normalize() );
+		var ray = new THREE.Raycaster( ZUSE.gui.webgl.camera.position, vector.sub( ZUSE.gui.webgl.camera.position ).normalize() );
 
 		var intersects = ray.intersectObjects( ZUSE.adderObj.selectables );
 
@@ -139,7 +139,7 @@ ZUSE.InitPicking = function () {
 			ZUSE.adderObj.selection.dragStart( ZUSE.SELECTED.axis );
 
 			var intersects = ray.intersectObject( ZUSE.plane );
-			ZUSE.offset.copy( intersects[ 0 ].point ).subSelf( ZUSE.plane.position );
+			ZUSE.offset.copy( intersects[ 0 ].point ).sub( ZUSE.plane.position );
 
 			document.body.style.cursor = 'move';
 
