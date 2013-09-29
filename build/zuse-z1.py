@@ -18,6 +18,8 @@ FILES = "\
 	../src/js-dev/PlaneGeometry.js\
 	../src/js-dev/Axis.js\
 	../src/js-dev/Selection.js\
+	../src/js-dev/SelectionBoxLine.js\
+	../src/js-dev/SelectionBoxFace.js\
 	../src/js-dev/InputElement.js\
 	../src/js-dev/InputControlLayer.js\
 	../src/js-dev/Layer.js\
