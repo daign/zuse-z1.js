@@ -5,12 +5,12 @@ ZUSE.InitZutools = {
 			click:     function () { ZUSE.adderObj.cycleControl.cycleBackwards(); },
 			mouseover: function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },
 			mouseout:  function () { ZUSE.adderObj.cycleControl.preHighlightOff(); }
-		}, false, null ],
+		}, false, null, { disabled: true } ],
 		replay: [ 'replay', {
 			click:     function () { ZUSE.adderObj.cycleControl.repeatLast(); },
 			mouseover: function () { ZUSE.adderObj.cycleControl.preHighlightBack(); },
 			mouseout:  function () { ZUSE.adderObj.cycleControl.preHighlightOff(); }
-		}, false, null ],
+		}, false, null, { disabled: true } ],
 		forward: [ 'forward', {
 			click:     function () { ZUSE.adderObj.cycleControl.cycle(); },
 			mouseover: function () { ZUSE.adderObj.cycleControl.preHighlightNext(); },
@@ -69,41 +69,41 @@ ZUSE.InitZutools = {
 			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 				ZUSE.Materials.MovingSheet.setTransparency( values[ 0 ] / 100 );
 			} }
-		] ],
+		], { activated: true } ],
 		visMP: [ 'visMP', {
 			click: function ( a ) { ZUSE.Materials.MovingPin.setVisibility( a ); }
 		}, true, [
 			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 				ZUSE.Materials.MovingPin.setTransparency( values[ 0 ] / 100 );
 			} }
-		] ],
+		], { activated: true } ],
 		visSS: [ 'visSS', {
 			click: function ( a ) { ZUSE.Materials.StaticSheet.setVisibility( a ); }
 		}, true, [
 			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 				ZUSE.Materials.StaticSheet.setTransparency( values[ 0 ] / 100 );
 			} }
-		] ],
+		], { activated: true } ],
 		visSP: [ 'visSP', {
 			click: function ( a ) { ZUSE.Materials.StaticPin.setVisibility( a ); }
 		}, true, [
 			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 				ZUSE.Materials.StaticPin.setTransparency( values[ 0 ] / 100 );
 			} }
-		] ],
+		], { activated: true } ],
 		visIS: [ 'visIS', {
 			click: function ( a ) { ZUSE.Materials.IntermediateSheet.setVisibility( a ); }
 		}, true, [
 			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
 				ZUSE.Materials.IntermediateSheet.setTransparency( values[ 0 ] / 100 );
 			} }
-		] ],
+		], { activated: true } ],
 		viewReset: [ 'viewReset', {
 			click: function () { ZUSE.gui.webgl.camera.controls.reset(); }
 		}, false, null ],
 		highlight: [ 'highlight', {
 			click: function ( a ) { ZUSE.adderObj.cycleControl.switchHighlighting(); }
-		}, true, null ],
+		}, true, null, { activated: true } ],
 		select: [ 'select', {
 			click: function ( a ) { ZUSE.adderObj.switchSelectables2(); }
 		}, true, null ]
@@ -158,15 +158,6 @@ ZUSE.InitZutools = {
 			tabs: tabs,
 			tools: tools
 		} );
-
-		ZUSE.gui.toolbar.toolsByName.back.disable();
-		ZUSE.gui.toolbar.toolsByName.replay.disable();
-		ZUSE.gui.toolbar.toolsByName.visMS.switchActivation();
-		ZUSE.gui.toolbar.toolsByName.visMP.switchActivation();
-		ZUSE.gui.toolbar.toolsByName.visSS.switchActivation();
-		ZUSE.gui.toolbar.toolsByName.visSP.switchActivation();
-		ZUSE.gui.toolbar.toolsByName.visIS.switchActivation();
-		ZUSE.gui.toolbar.toolsByName.highlight.switchActivation();
 
 		var a3 = {	click:		function () { return ZUSE.adderObj.cycleControl.switchInput( "A3", null ); },
 					mouseover:	function () { ZUSE.adderObj.highlightPart( [ 'In', 'A3' ], 2, true ); },
