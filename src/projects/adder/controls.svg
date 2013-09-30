@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+		viewBox="0 0 180 100" width="270px" height="150px" id="svgCircuit">
+
+<style>
+	.digit      { cursor: default; }
+	.digitShow  { cursor: default; }
+	.digitInput { cursor: pointer; }
+	.digit      rect    { fill: none; }
+	.digitShow  rect    { fill: #ddd; }
+	.digitInput rect    { fill: #fff; }
+	.digitShow:hover    rect    { fill: #6eb6d8; }
+	.digitInput:hover   rect    { fill: #6eb6d8; }
+	.inputText  { fill: #000; font-weight: bold; font-family: monospace; }
+	.line       { fill: none; stroke: #000; stroke-width: 2px; stroke-linecap: round; }
+</style>
+
+<line x1="10" x2="108" y1="68" y2="68" class="line" />
+<line x1="126" x2="170" y1="68" y2="68" class="line" />
+
+<g id="cA3" transform="translate( 30, 7 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+<g id="cA2" transform="translate( 50, 7 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+<g id="cA1" transform="translate( 70, 7 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+<g id="cA0" transform="translate( 90, 7 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+
+<g id="cPlu" transform="translate( 10, 33 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">+</text>
+</g>
+<g id="cB3" transform="translate( 30, 33 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+<g id="cB2" transform="translate( 50, 33 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+<g id="cB1" transform="translate( 70, 33 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+<g id="cB0" transform="translate( 90, 33 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">0</text>
+</g>
+
+<g id="cF4s" transform="translate( 21, 53 )" class="digit">
+	<rect rx="2" ry="2" width="9px" height="12px" />
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+</g>
+<g id="cF3s" transform="translate( 41, 53 )" class="digit">
+	<rect rx="2" ry="2" width="9px" height="12px" />
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+</g>
+<g id="cF2s" transform="translate( 61, 53 )" class="digit">
+	<rect rx="2" ry="2" width="9px" height="12px" />
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+</g>
+<g id="cF1s" transform="translate( 81, 53 )" class="digit">
+	<rect rx="2" ry="2" width="9px" height="12px" />
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+</g>
+
+<g id="cK4s" transform="translate( 10, 71 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+</g>
+<g id="cK3s" transform="translate( 30, 71 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+</g>
+<g id="cK2s" transform="translate( 50, 71 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+</g>
+<g id="cK1s" transform="translate( 70, 71 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+</g>
+<g id="cK0s" transform="translate( 90, 71 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+</g>
+
+<g id="cZ1" transform="translate( 126, 7 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">  0</text>
+</g>
+<g id="cZ2" transform="translate( 126, 33 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">+ 0</text>
+</g>
+<g id="cZ3" transform="translate( 126, 71 )" class="digit">
+	<rect rx="4" ry="4" width="18px" height="24px" />
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">   </text>
+</g>
+
+</svg>
+
