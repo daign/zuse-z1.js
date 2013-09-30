@@ -202,27 +202,26 @@ ZUSE.InitZutools = {
 
 		ZUSE.inputs = {
 
-			A3:  ZUSE.gui.controls.addDigit( 30,  7, false, a3 ).setToZero().inputOn(),
-			A2:  ZUSE.gui.controls.addDigit( 50,  7, false, a2 ).setToZero().inputOn(),
-			A1:  ZUSE.gui.controls.addDigit( 70,  7, false, a1 ).setToZero().inputOn(),
-			A0:  ZUSE.gui.controls.addDigit( 90,  7, false, a0 ).setToZero().inputOn(),
-			Plu: ZUSE.gui.controls.addDigit( 10, 33, false ).setToPlus(),
-			B3:  ZUSE.gui.controls.addDigit( 30, 33, false, b3 ).setToZero().inputOn(),
-			B2:  ZUSE.gui.controls.addDigit( 50, 33, false, b2 ).setToZero().inputOn(),
-			B1:  ZUSE.gui.controls.addDigit( 70, 33, false, b1 ).setToZero().inputOn(),
-			B0:  ZUSE.gui.controls.addDigit( 90, 33, false, b0 ).setToZero().inputOn(),
-			F4s: ZUSE.gui.controls.addDigit( 21, 53, true,  f4 ),
-			F3s: ZUSE.gui.controls.addDigit( 41, 53, true,  f3 ),
-			F2s: ZUSE.gui.controls.addDigit( 61, 53, true,  f2 ),
-			F1s: ZUSE.gui.controls.addDigit( 81, 53, true,  f1 ),
-			K4s: ZUSE.gui.controls.addDigit( 10, 71, false, f4 ), // sic!
-			K3s: ZUSE.gui.controls.addDigit( 30, 71, false, k3 ),
-			K2s: ZUSE.gui.controls.addDigit( 50, 71, false, k2 ),
-			K1s: ZUSE.gui.controls.addDigit( 70, 71, false, k1 ),
-			K0s: ZUSE.gui.controls.addDigit( 90, 71, false, k0 ),
-			Z1: ZUSE.gui.controls.addDigit( 126,  7, false ).setText( '  0' ),
-			Z2: ZUSE.gui.controls.addDigit( 126, 33, false ).setText( '+ 0' ),
-			Z3: ZUSE.gui.controls.addDigit( 126, 71, false ).setText( '   ' )
+			A3:  ZUSE.gui.controls.addDigit( 'A3', a3 ).inputOn(),
+			A2:  ZUSE.gui.controls.addDigit( 'A2', a2 ).inputOn(),
+			A1:  ZUSE.gui.controls.addDigit( 'A1', a1 ).inputOn(),
+			A0:  ZUSE.gui.controls.addDigit( 'A0', a0 ).inputOn(),
+			B3:  ZUSE.gui.controls.addDigit( 'B3', b3 ).inputOn(),
+			B2:  ZUSE.gui.controls.addDigit( 'B2', b2 ).inputOn(),
+			B1:  ZUSE.gui.controls.addDigit( 'B1', b1 ).inputOn(),
+			B0:  ZUSE.gui.controls.addDigit( 'B0', b0 ).inputOn(),
+			F4s: ZUSE.gui.controls.addDigit( 'F4s', f4 ),
+			F3s: ZUSE.gui.controls.addDigit( 'F3s', f3 ),
+			F2s: ZUSE.gui.controls.addDigit( 'F2s', f2 ),
+			F1s: ZUSE.gui.controls.addDigit( 'F1s', f1 ),
+			K4s: ZUSE.gui.controls.addDigit( 'K4s', f4 ), // sic!
+			K3s: ZUSE.gui.controls.addDigit( 'K3s', k3 ),
+			K2s: ZUSE.gui.controls.addDigit( 'K2s', k2 ),
+			K1s: ZUSE.gui.controls.addDigit( 'K1s', k1 ),
+			K0s: ZUSE.gui.controls.addDigit( 'K0s', k0 ),
+			Z1: ZUSE.gui.controls.addDigit( 'Z1' ),
+			Z2: ZUSE.gui.controls.addDigit( 'Z2' ),
+			Z3: ZUSE.gui.controls.addDigit( 'Z3' )
 
 		}
 

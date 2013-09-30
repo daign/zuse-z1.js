@@ -63,16 +63,6 @@ body {
 .bigpadding   { padding-bottom: 50px; }
 
 .icon       { fill: #f5f3e5; stroke: none; pointer-events: none; }
-.digit      { cursor: default; }
-.digitShow  { cursor: default; }
-.digitInput { cursor: pointer; }
-.digit      rect    { fill: none; }
-.digitShow  rect    { fill: #ddd; }
-.digitInput rect    { fill: #fff; }
-.digitShow:hover    rect    { fill: #6eb6d8; }
-.digitInput:hover   rect    { fill: #6eb6d8; }
-.inputText  { fill: #000; font-weight: bold; font-family: monospace; }
-.line       { fill: none; stroke: #000; stroke-width: 2px; stroke-linecap: round; }
 
 /* Status */
 .stat       { color: #bbb; width: 250px; height: 25px; font-size: 16px; }

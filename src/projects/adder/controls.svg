@@ -60,52 +60,49 @@
 
 <g id="cF4s" transform="translate( 21, 53 )" class="digit">
 	<rect rx="2" ry="2" width="9px" height="12px" />
-	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"> </text>
 </g>
 <g id="cF3s" transform="translate( 41, 53 )" class="digit">
 	<rect rx="2" ry="2" width="9px" height="12px" />
-	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"> </text>
 </g>
 <g id="cF2s" transform="translate( 61, 53 )" class="digit">
 	<rect rx="2" ry="2" width="9px" height="12px" />
-	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"> </text>
 </g>
 <g id="cF1s" transform="translate( 81, 53 )" class="digit">
 	<rect rx="2" ry="2" width="9px" height="12px" />
-	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"></text>
+	<text x="1.5" y="10" class="inputText" style="font-size: 10px;" xml:space="preserve"> </text>
 </g>
 
 <g id="cK4s" transform="translate( 10, 71 )" class="digit">
 	<rect rx="4" ry="4" width="18px" height="24px" />
-	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"> </text>
 </g>
 <g id="cK3s" transform="translate( 30, 71 )" class="digit">
 	<rect rx="4" ry="4" width="18px" height="24px" />
-	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"> </text>
 </g>
 <g id="cK2s" transform="translate( 50, 71 )" class="digit">
 	<rect rx="4" ry="4" width="18px" height="24px" />
-	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"> </text>
 </g>
 <g id="cK1s" transform="translate( 70, 71 )" class="digit">
 	<rect rx="4" ry="4" width="18px" height="24px" />
-	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"> </text>
 </g>
 <g id="cK0s" transform="translate( 90, 71 )" class="digit">
 	<rect rx="4" ry="4" width="18px" height="24px" />
-	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"></text>
+	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve"> </text>
 </g>
 
 <g id="cZ1" transform="translate( 126, 7 )" class="digit">
-	<rect rx="4" ry="4" width="18px" height="24px" />
 	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">  0</text>
 </g>
 <g id="cZ2" transform="translate( 126, 33 )" class="digit">
-	<rect rx="4" ry="4" width="18px" height="24px" />
 	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">+ 0</text>
 </g>
 <g id="cZ3" transform="translate( 126, 71 )" class="digit">
-	<rect rx="4" ry="4" width="18px" height="24px" />
 	<text x="3"   y="20" class="inputText" style="font-size: 20px;" xml:space="preserve">   </text>
 </g>
 

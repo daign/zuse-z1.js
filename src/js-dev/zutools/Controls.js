@@ -23,38 +23,8 @@ ZUTOOLS.Controls = function () {
 	this.input.style.background = '#ddd';
 	this.div.appendChild( this.input );
 
-	this.svg = document.createElementNS( ZUTOOLS.Utils.SVG, 'svg' );
-	this.svg.setAttribute( 'xmlns:xlink', ZUTOOLS.Utils.XLink );
-	this.svg.setAttribute( 'viewBox', '0, 0, 180, 100' );
-	this.svg.setAttribute( 'width',  '270px' );
-	this.svg.setAttribute( 'height', '150px' );
-	this.svg.style.display = 'block';
+	this.svg = ZUTOOLS.Utils.loadXML( 'projects/adder/controls.svg' ).documentElement;
 	this.input.appendChild( this.svg );
-
-	var line = document.createElementNS( ZUTOOLS.Utils.SVG, 'line' );
-	line.setAttribute( 'x1',  10 );
-	line.setAttribute( 'x2', 108 );
-	line.setAttribute( 'y1',  68 );
-	line.setAttribute( 'y2',  68 );
-	line.setAttribute( 'class', 'line' );
-	this.svg.appendChild( line );
-
-	var line = document.createElementNS( ZUTOOLS.Utils.SVG, 'line' );
-	line.setAttribute( 'x1', 126 );
-	line.setAttribute( 'x2', 170 );
-	line.setAttribute( 'y1',  68 );
-	line.setAttribute( 'y2',  68 );
-	line.setAttribute( 'class', 'line' );
-	this.svg.appendChild( line );
-
-/*	var myCircle = document.createElementNS( ZUTOOLS.Utils.SVG, 'circle' );
-	myCircle.setAttribute( "id",		"mycircle" );
-	myCircle.setAttribute( "cx",		50 );
-	myCircle.setAttribute( "cy",		50 );
-	myCircle.setAttribute( "r",			50 );
-	myCircle.setAttribute( "fill",		"red" );
-	myCircle.setAttribute( "stroke",	"none" );
-	this.svg.appendChild( myCircle ); */
 
 	this.scale = document.createElement( 'div' );
 	this.scale.setAttribute( 'class', 'action bottomcorners pointer' );
@@ -99,9 +69,9 @@ ZUTOOLS.Controls.prototype = {
 
 	},
 
-	addDigit: function ( x, y, smaller, events ) {
+	addDigit: function ( id, events ) {
 
-		return new ZUTOOLS.Digit( this.svg, x, y, smaller, events );
+		return new ZUTOOLS.Digit( this.svg, id, events );
 
 	},
 
