@@ -1,12 +1,5 @@
 ZUSE.TriggerRules = {
 
-	init: function ( adder, rules ) {
-
-		this.adder = adder;
-		this.parseRules( rules );
-
-	},
-
 	addTriggerRule: function ( n1, n2, tact ) {
 
 		if ( this[ n1[ 0 ] ] === undefined ) {
@@ -98,7 +91,7 @@ ZUSE.TriggerRules = {
 
 	getElement: function ( condition ) {
 
-		var layer = this.adder.layersByType[ condition[ 0 ] ];
+		var layer = ZUSE.adderObj.layersByType[ condition[ 0 ] ];
 
 		if ( layer !== undefined ) {
 
@@ -148,7 +141,7 @@ ZUSE.TriggerRules = {
 
 	},
 
-	parseRules: function ( node ) {
+	parseXML: function ( node ) {
 
 		var rules = node.getElementsByTagName( 'rule' );
 

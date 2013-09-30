@@ -1,4 +1,4 @@
-ZUSE.Adder = function () {
+ZUSE.Adder = function ( xml ) {
 
 	this.meshes = new THREE.Object3D();
 	this.layers = new Array();
@@ -12,7 +12,7 @@ ZUSE.Adder = function () {
 	this.selectables2enabled = false;
 	this.cycleControl = new ZUSE.CycleControl( this );
 
-	this.parseProjectFile( 'projects/adder/Project.xml' );
+	this.parseXML( xml );
 	this.layersByType[ 'In' ] = new ZUSE.InputControlLayer();
 
 	this.selection = new ZUSE.Selection( { x1: -40, x2: 320, y1: -15, y2: 265 }, this );
@@ -27,32 +27,19 @@ ZUSE.Adder.prototype = {
 
 	constructor: ZUSE.Adder,
 
-	parseProjectFile: function ( file ) {
+	parseXML: function ( structure ) {
 
-		var xmlDoc = ZUSE.XMLUtils.loadXML( file );
+		var layerDefaults = undefined;
 
-		var getResult = xmlDoc.getElementsByTagName( 'structure' );
-		if ( getResult.length > 0 ) {
+		for ( var i = 0; i < structure.childNodes.length; i++ ) {
 
-			var structure = getResult[ 0 ];
-			var layerDefaults = undefined;
-
-			for ( var i = 0; i < structure.childNodes.length; i++ ) {
-
-				var node = structure.childNodes[ i ];
-				if ( node.nodeName === 'layer' ) {
-					this.addLayer( node, layerDefaults );
-				} else if ( node.nodeName === 'default' ) {
-					layerDefaults = node;
-				}
-
+			var node = structure.childNodes[ i ];
+			if ( node.nodeName === 'layer' ) {
+				this.addLayer( node, layerDefaults );
+			} else if ( node.nodeName === 'default' ) {
+				layerDefaults = node;
 			}
 
-		}
-
-		getResult = xmlDoc.getElementsByTagName( 'rules' );
-		if ( getResult.length > 0 ) {
-			ZUSE.TriggerRules.init( this, getResult[ 0 ] );
 		}
 
 	},

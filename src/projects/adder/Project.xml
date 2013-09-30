@@ -2,6 +2,55 @@
 
 <project>
 
+	<gui>
+
+		<languages path="projects/adder/languages/">
+			<language id="en" name="English" />
+			<language id="de" name="Deutsch" />
+		</languages>
+
+		<tabs>
+			<tab id="logic" />
+			<tab id="imprint" />
+		</tabs>
+
+		<tools>
+			<toolgroup>
+			</toolgroup>
+			<toolgroup>
+				<tool id="back" />
+				<tool id="replay" />
+				<tool id="forward" />
+			</toolgroup>
+			<toolgroup>
+				<tool id="layerA" />
+				<tool id="layerB" />
+				<tool id="layerC" />
+				<tool id="layerD" />
+			</toolgroup>
+			<toolgroup>
+				<tool id="clipChange" />
+				<tool id="clipDrag" />
+				<tool id="clipReset" />
+				<tool id="clipFading" />
+				<tool id="clipTransp" />
+			</toolgroup>
+			<toolgroup>
+				<tool id="visMS" />
+				<tool id="visMP" />
+				<tool id="visSS" />
+				<tool id="visSP" />
+				<tool id="visIS" />
+			</toolgroup>
+			<toolgroup>
+				<tool id="viewReset" />
+				<tool id="highlight" />
+				<tool id="select" />
+			</toolgroup>
+		</tools>
+
+	</gui>
+
 	<structure>
 
 		<default>

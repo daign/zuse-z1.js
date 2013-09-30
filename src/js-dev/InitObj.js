@@ -1,6 +1,6 @@
-ZUSE.InitObj = function () {
+ZUSE.InitObj = function ( xml ) {
 
-	ZUSE.adderObj = new ZUSE.Adder();
+	ZUSE.adderObj = new ZUSE.Adder( xml );
 
 	// setting some elements to their start-position
 	var inputs = new Array();
