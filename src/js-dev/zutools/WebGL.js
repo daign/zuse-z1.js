@@ -9,6 +9,7 @@ ZUTOOLS.WebGL = function () {
 	document.body.appendChild( this.div );
 
 	this.renderer = new THREE.WebGLRenderer( { antialias: true } );
+	this.renderer.setClearColor( 0xffffff );
 	//this.renderer.setDepthTest( false );
 	this.div.appendChild( this.renderer.domElement );
 
