@@ -48,8 +48,8 @@ ZUTOOLS.Digit.prototype = {
 	inputOn:  function () { this.setInput( true  ); return this; },
 	inputOff: function () { this.setInput( false ); return this; },
 
-	setShow:  function ( b ) { this.show  = b; this.setClass(); },
-	setInput: function ( b ) { this.input = b; this.setClass(); },
+	setShow:  function ( b ) { this.show  = b; this.setClass(); return this; },
+	setInput: function ( b ) { this.input = b; this.setClass(); return this; },
 
 	setClass: function () {
 

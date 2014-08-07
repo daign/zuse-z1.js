@@ -202,14 +202,14 @@ ZUSE.InitZutools = {
 
 		ZUSE.inputs = {
 
-			A3:  ZUSE.gui.controls.addDigit( 'A3', a3 ).inputOn(),
-			A2:  ZUSE.gui.controls.addDigit( 'A2', a2 ).inputOn(),
-			A1:  ZUSE.gui.controls.addDigit( 'A1', a1 ).inputOn(),
-			A0:  ZUSE.gui.controls.addDigit( 'A0', a0 ).inputOn(),
-			B3:  ZUSE.gui.controls.addDigit( 'B3', b3 ).inputOn(),
-			B2:  ZUSE.gui.controls.addDigit( 'B2', b2 ).inputOn(),
-			B1:  ZUSE.gui.controls.addDigit( 'B1', b1 ).inputOn(),
-			B0:  ZUSE.gui.controls.addDigit( 'B0', b0 ).inputOn(),
+			A3:  ZUSE.gui.controls.addDigit( 'A3', a3 ).inputOn().setShow( true ),
+			A2:  ZUSE.gui.controls.addDigit( 'A2', a2 ).inputOn().setShow( true ),
+			A1:  ZUSE.gui.controls.addDigit( 'A1', a1 ).inputOn().setShow( true ),
+			A0:  ZUSE.gui.controls.addDigit( 'A0', a0 ).inputOn().setShow( true ),
+			B3:  ZUSE.gui.controls.addDigit( 'B3', b3 ).inputOn().setShow( true ),
+			B2:  ZUSE.gui.controls.addDigit( 'B2', b2 ).inputOn().setShow( true ),
+			B1:  ZUSE.gui.controls.addDigit( 'B1', b1 ).inputOn().setShow( true ),
+			B0:  ZUSE.gui.controls.addDigit( 'B0', b0 ).inputOn().setShow( true ),
 			F4s: ZUSE.gui.controls.addDigit( 'F4s', f4 ),
 			F3s: ZUSE.gui.controls.addDigit( 'F3s', f3 ),
 			F2s: ZUSE.gui.controls.addDigit( 'F2s', f2 ),
