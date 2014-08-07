@@ -19,11 +19,8 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	this.columns = new Array();
 	this.setColumns( 0, this.width / 10 );
 	this.setColumns( 1, this.width / 50 );
-	this.setSizes();
 
 	this.fillWithTexts();
-
-	window.addEventListener( 'resize', onWindowResize, false );
 
 	function onWindowResize() {
 
@@ -37,14 +34,9 @@ ZUTOOLS.LayoutManager = function ( config ) {
 		self.setSizes();
 
 	}
+	window.addEventListener( 'resize', onWindowResize, false );
 
-};
-
-ZUTOOLS.LayoutManager.prototype = {
-
-	constructor: ZUTOOLS.LayoutManager,
-
-	setSizes: function () {
+	var resize = function () {
 
 		var a = Math.min( Math.max( this.columns[ 0 ], 40 ), this.width/3 );
 		var b = Math.min( Math.max( this.columns[ 1 ],  5 ), 40 );
@@ -58,7 +50,16 @@ ZUTOOLS.LayoutManager.prototype = {
 		this.tabbar.setSize(   w-a-b+1, h+1, a+b );
 		this.status.setSize(         w, h+1, a+b );
 
-	},
+	};
+	this.setSizes = ZUTOOLS.Utils.throttle( resize, 40, this );
+
+	this.setSizes();
+
+};
+
+ZUTOOLS.LayoutManager.prototype = {
+
+	constructor: ZUTOOLS.LayoutManager,
 
 	setColumns: function ( n, w ) {
 
