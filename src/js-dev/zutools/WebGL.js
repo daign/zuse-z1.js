@@ -16,8 +16,8 @@ ZUTOOLS.WebGL = function () {
 	this.scene = new THREE.Scene();
 
 	this.camera = new THREE.PerspectiveCamera( 50, 1, 1, 2500 );
-	this.camera.controls = new ZUSE.CameraControls( this.camera, this.renderer.domElement );
-	this.camera.controls.reset();
+	this.camera.controls = new ZUSE.CameraOrbitControls( this.camera, this.renderer.domElement );
+	//this.camera.controls.addEventListener( 'change', render );
 	this.scene.add( this.camera );
 
 	animate();
@@ -48,11 +48,6 @@ ZUTOOLS.WebGL.prototype = {
 		this.camera.aspect = width / height;
 		this.camera.updateProjectionMatrix();
 		this.renderer.setSize( width, height );
-
-		this.camera.controls.screen.width = width;
-		this.camera.controls.screen.height = height;
-		this.camera.controls.screen.offsetLeft = left;
-		this.camera.controls.radius = ( width + height ) / 4;
 
 	}
 
