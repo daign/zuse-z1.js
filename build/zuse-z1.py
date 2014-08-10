@@ -3,7 +3,7 @@ import os
 FILES = "\
 	../src/js-dev/zuse-z1.js\
 	../src/js-dev/Path.js\
-	../src/js-dev/CameraControls.js\
+	../src/js-dev/CameraOrbitControls.js\
 	../src/js-dev/Shapes.js\
 	../src/js-dev/Transition.js\
 	../src/js-dev/TriggerRules.js\
