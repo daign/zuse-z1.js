@@ -2,7 +2,8 @@ ZUSE.WebGLErrorMessage = function () {
 
 	var webGLSupport = ( function () {
 		try {
-			return !! window.WebGLRenderingContext && !! document.createElement( 'canvas' ).getContext( 'experimental-webgl' );
+			var canvas = document.createElement( 'canvas' );
+			return !! window.WebGLRenderingContext && ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) );
 		} catch( e ) {
 			return false;
 		}
