@@ -1,34 +1,25 @@
-ZUSE.Adder = function () {
+ZUSE.Adder = function ( xml ) {
 
 	this.meshes = new THREE.Object3D();
 	this.layers = new Array();
 	this.getLayerNumber = new Object();
 	this.layersByType = new Object();
-	this.pulsers = new Array();
+	this.pulsers = { x: [], y: [] };
 	this.spacingClosed = 3;
 	this.spacingOpen = 20;
-	this.cycleControl = new ZUSE.CycleControl( this );
 	this.selectables = new Array();
 	this.selectables2 = new Array();
 	this.selectables2enabled = false;
+	this.cycleControl = new ZUSE.CycleControl( this );
 
-	this.addLayer( ZUSE.LayerTypes.LAYER_D0 );
-	this.addLayer( ZUSE.LayerTypes.LAYER_D  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_CD );
-	this.addLayer( ZUSE.LayerTypes.LAYER_C  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_BC );
-	this.addLayer( ZUSE.LayerTypes.LAYER_B  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_AB );
-	this.addLayer( ZUSE.LayerTypes.LAYER_A  );
-	this.addLayer( ZUSE.LayerTypes.LAYER_0A );
+	this.parseXML( xml );
 	this.layersByType[ 'In' ] = new ZUSE.InputControlLayer();
 
 	this.selection = new ZUSE.Selection( { x1: -40, x2: 320, y1: -15, y2: 265 }, this );
-	this.meshes.add( this.selection.meshes );
+	this.meshes.add( this.selection.touchMeshes );
+	this.meshes.add( this.selection.displayMeshes );
 
-	//this.meshes.rotation = new THREE.Vector3( -Math.PI / 2, 0, 0 );
-	//this.meshes.position = new THREE.Vector3( -100, -300, 100 );
-	SIMULATION.gui.webgl.scene.add( this.meshes );
+	ZUSE.gui.webgl.scene.add( this.meshes );
 
 };
 
@@ -36,13 +27,30 @@ ZUSE.Adder.prototype = {
 
 	constructor: ZUSE.Adder,
 
-	addLayer: function ( type ) {
+	parseXML: function ( structure ) {
 
-		var layer = new ZUSE.Layer( type, this.spacingClosed, this );
+		var layerDefaults = undefined;
+
+		for ( var i = 0; i < structure.childNodes.length; i++ ) {
+
+			var node = structure.childNodes[ i ];
+			if ( node.nodeName === 'layer' ) {
+				this.addLayer( node, layerDefaults );
+			} else if ( node.nodeName === 'default' ) {
+				layerDefaults = node;
+			}
+
+		}
+
+	},
+
+	addLayer: function ( layerNode, layerDefaults ) {
+
+		var layer = new ZUSE.Layer( layerNode, layerDefaults, this.spacingClosed, this );
 		this.meshes.add( layer.meshes );
 		this.layers.push( layer );
-		this.getLayerNumber[ type ] = this.layers.length - 1;
-		this.layersByType[ type ] = layer;
+		this.getLayerNumber[ layer.type ] = this.layers.length - 1;
+		this.layersByType[ layer.type ] = layer;
 		this.setHeight( this.layers.length - 1 );
 
 	},
@@ -78,7 +86,7 @@ ZUSE.Adder.prototype = {
 			this.layers[ n ].open = !this.layers[ n ].open;
 			var animation = new TWEEN.Tween( this.layers[ n ] ).to( { spacing : s }, 1000 );
 			animation.onUpdate( callback );
-			animation.easing( TWEEN.Easing.Quadratic.EaseInOut );
+			animation.easing( TWEEN.Easing.Quadratic.InOut );
 			animation.start();
 
 		}
@@ -93,12 +101,12 @@ ZUSE.Adder.prototype = {
 
 	highlightPart: function ( name, tact, bool ) {
 
-		var results = this.cycleControl.triggerRules.getTriggerResults( { name: name }, tact, true );
-		results.push( this.cycleControl.triggerRules.getElement( name ) );
+		var results = ZUSE.TriggerRules.getTriggerResults( { name: name }, tact, true );
+		results.active.push( ZUSE.TriggerRules.getElement( name ) );
 
-		for ( var i = 0; i < results.length; i++ ) {
+		for ( var i = 0; i < results.active.length; i++ ) {
 
-			results[ i ].setHighlight( bool );
+			results.active[ i ].setHighlight( bool );
 
 		}
 

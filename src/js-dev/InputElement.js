@@ -16,6 +16,8 @@ ZUSE.InputElement.prototype = {
 
 	setHighlight: function ( bool ) {},
 
+	failedToChange: function ( tact ) {},
+
 	changePosition: function ( tact ) {
 
 		var p = this.position + 1;
@@ -62,9 +64,9 @@ ZUSE.InputElement.prototype = {
 
 	updateButtonState: function ( tact ) {
 
-		if ( SIMULATION.inputs[ this.name[ 1 ] ] ) {
+		if ( ZUSE.inputs[ this.name[ 1 ] ] ) {
 
-			SIMULATION.inputs[ this.name[ 1 ] ].setInput( !this.evaluateState( tact ) );
+			ZUSE.inputs[ this.name[ 1 ] ].setInput( !this.evaluateState( tact ) );
 
 		}
 
@@ -88,10 +90,10 @@ ZUSE.InputElement.prototype = {
 
 		var value = this.values[ this.position ];
 
-		if ( changeSVGControls && SIMULATION.inputs[ this.name[ 1 ] ] ) {
+		if ( changeSVGControls && ZUSE.inputs[ this.name[ 1 ] ] ) {
 
 			var b = ( value === '1' );
-			SIMULATION.inputs[ this.name[ 1 ] ].setValue( b );
+			ZUSE.inputs[ this.name[ 1 ] ].setValue( b );
 			ZUSE.TempCalculator.values[ this.name[ 1 ] ] = b;
 			ZUSE.TempCalculator.updateValues();
 

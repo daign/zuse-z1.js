@@ -3,11 +3,8 @@ import os
 FILES = "\
 	../src/js-dev/zuse-z1.js\
 	../src/js-dev/Path.js\
-	../src/js-dev/CameraControls.js\
-	../src/js-dev/SheetTypes.js\
-	../src/js-dev/ShapeFiles.js\
+	../src/js-dev/CameraOrbitControls.js\
 	../src/js-dev/Shapes.js\
-	../src/js-dev/Cyclable.js\
 	../src/js-dev/Transition.js\
 	../src/js-dev/TriggerRules.js\
 	../src/js-dev/CycleAccess.js\
@@ -17,14 +14,14 @@ FILES = "\
 	../src/js-dev/materials/ShaderUniforms.js\
 	../src/js-dev/materials/Material.js\
 	../src/js-dev/materials/Materials.js\
-	../src/js-dev/Sheet.js\
-	../src/js-dev/Pin.js\
+	../src/js-dev/Element.js\
 	../src/js-dev/PlaneGeometry.js\
 	../src/js-dev/Axis.js\
 	../src/js-dev/Selection.js\
+	../src/js-dev/SelectionBoxLine.js\
+	../src/js-dev/SelectionBoxFace.js\
 	../src/js-dev/InputElement.js\
 	../src/js-dev/InputControlLayer.js\
-	../src/js-dev/LayerTypes.js\
 	../src/js-dev/Layer.js\
 	../src/js-dev/Adder.js\
 	../src/js-dev/SVGUtils.js\
@@ -34,7 +31,12 @@ FILES = "\
 	../src/js-dev/InitZutools.js\
 	../src/js-dev/WebGLErrorMessage.js\
 	../src/js-dev/Simulation.js\
-	../src/js-dev/TempCalculator.js"
+	../src/js-dev/TempCalculator.js\
+	../src/js-dev/svg/SVG.js\
+	../src/js-dev/svg/CircuitElement.js\
+	../src/js-dev/webgl/WebGL.js\
+	../src/js-dev/webgl/Sheet.js\
+	../src/js-dev/webgl/Pin.js"
 
 #LEVEL = "WHITESPACE_ONLY"
 LEVEL = "SIMPLE_OPTIMIZATIONS"

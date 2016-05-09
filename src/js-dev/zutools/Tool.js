@@ -43,6 +43,15 @@ ZUTOOLS.Tool = function ( param, tooltipManager, svg ) {
 	this.tick.style.visibility = 'hidden';
 	this.group.appendChild( this.tick );
 
+	if ( param[ 4 ] ) {
+		if ( param[ 4 ].disabled ) {
+			this.disable();
+		}
+		if ( param[ 4 ].activated ) {
+			this.switchActivation();
+		}
+	}
+
 	function getTooltipContent() { return self.tooltipContent; }
 	function getMetrics() { return self.metrics; }
 	function hasInputs()  { return self.inputs !== null; }

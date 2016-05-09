@@ -9,14 +9,14 @@ ZUSE.InitPicking = function () {
 	ZUSE.plane = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000, 8, 8 ),
 							new THREE.MeshBasicMaterial( { color: 0x000000, opacity: 0.25, transparent: true, wireframe: true } ) );
 	ZUSE.plane.visible = false;
-	SIMULATION.gui.webgl.scene.add( ZUSE.plane );
+	ZUSE.gui.webgl.scene.add( ZUSE.plane );
 
 	ZUSE.projector = new THREE.Projector();
 
-	SIMULATION.gui.webgl.renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
-	SIMULATION.gui.webgl.renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
-	SIMULATION.gui.webgl.renderer.domElement.addEventListener( 'mouseup',   onDocumentMouseUp,   false );
-	SIMULATION.gui.webgl.renderer.domElement.addEventListener( 'mouseout',  onDocumentMouseOut,  false );
+	ZUSE.gui.webgl.renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
+	ZUSE.gui.webgl.renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
+	ZUSE.gui.webgl.renderer.domElement.addEventListener( 'mouseup',   onDocumentMouseUp,   false );
+	ZUSE.gui.webgl.renderer.domElement.addEventListener( 'mouseout',  onDocumentMouseOut,  false );
 
 	function onDocumentMouseMove( event ) {
 
@@ -25,21 +25,21 @@ ZUSE.InitPicking = function () {
 
 		event.preventDefault();
 
-		var offset = SIMULATION.gui.confinedSum();
+		var offset = ZUSE.gui.confinedSum();
 
 		ZUSE.mouse.x = ( (event.clientX-offset) / (window.innerWidth-offset) ) * 2 - 1;
 		ZUSE.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
 		var vector = new THREE.Vector3( ZUSE.mouse.x, ZUSE.mouse.y, 0.5 );
-		ZUSE.projector.unprojectVector( vector, SIMULATION.gui.webgl.camera );
+		ZUSE.projector.unprojectVector( vector, ZUSE.gui.webgl.camera );
 
-		var ray = new THREE.Ray( SIMULATION.gui.webgl.camera.position, vector.subSelf( SIMULATION.gui.webgl.camera.position ).normalize() );
+		var ray = new THREE.Raycaster( ZUSE.gui.webgl.camera.position, vector.sub( ZUSE.gui.webgl.camera.position ).normalize() );
 
 		if ( ZUSE.SELECTED ) {
 
 			var intersects = ray.intersectObject( ZUSE.plane );
 			if ( intersects.length > 0 ) {
-				var newPosition = intersects[ 0 ].point.subSelf( ZUSE.offset );
+				var newPosition = intersects[ 0 ].point.sub( ZUSE.offset );
 				ZUSE.adderObj.selection.setFromMouse( ZUSE.SELECTED.axis, newPosition[ ZUSE.SELECTED.axis.a ], true );
 			}
 			return;
@@ -85,13 +85,17 @@ ZUSE.InitPicking = function () {
 
 				if ( ZUSE.INTERSECTED != candidate ) {
 
-					if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+					if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+						ZUSE.INTERSECTED.guardian.rayOut();
+					}
 
 					ZUSE.INTERSECTED = intersects[ 0 ].object;
-					ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireActive : ZUSE.Materials.Highlight.shader;
+					if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+						ZUSE.INTERSECTED.guardian.rayOver();
+					}
 
 					ZUSE.plane.position.copy( ZUSE.INTERSECTED.position );
-					ZUSE.plane.lookAt( SIMULATION.gui.webgl.camera.position );
+					ZUSE.plane.lookAt( ZUSE.gui.webgl.camera.position );
 
 				}
 
@@ -100,7 +104,9 @@ ZUSE.InitPicking = function () {
 			} else {
 
 				// found no candidate because of visible range
-				if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+				if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+					ZUSE.INTERSECTED.guardian.rayOut();
+				}
 
 				ZUSE.INTERSECTED = null;
 
@@ -110,7 +116,9 @@ ZUSE.InitPicking = function () {
 
 		} else { // really found nothing
 
-			if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = selectionActive ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+			if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+				ZUSE.INTERSECTED.guardian.rayOut();
+			}
 
 			ZUSE.INTERSECTED = null;
 
@@ -127,9 +135,9 @@ ZUSE.InitPicking = function () {
 		event.preventDefault();
 
 		var vector = new THREE.Vector3( ZUSE.mouse.x, ZUSE.mouse.y, 0.5 );
-		ZUSE.projector.unprojectVector( vector, SIMULATION.gui.webgl.camera );
+		ZUSE.projector.unprojectVector( vector, ZUSE.gui.webgl.camera );
 
-		var ray = new THREE.Ray( SIMULATION.gui.webgl.camera.position, vector.subSelf( SIMULATION.gui.webgl.camera.position ).normalize() );
+		var ray = new THREE.Raycaster( ZUSE.gui.webgl.camera.position, vector.sub( ZUSE.gui.webgl.camera.position ).normalize() );
 
 		var intersects = ray.intersectObjects( ZUSE.adderObj.selectables );
 
@@ -139,7 +147,7 @@ ZUSE.InitPicking = function () {
 			ZUSE.adderObj.selection.dragStart( ZUSE.SELECTED.axis );
 
 			var intersects = ray.intersectObject( ZUSE.plane );
-			ZUSE.offset.copy( intersects[ 0 ].point ).subSelf( ZUSE.plane.position );
+			ZUSE.offset.copy( intersects[ 0 ].point ).sub( ZUSE.plane.position );
 
 			document.body.style.cursor = 'move';
 
@@ -156,7 +164,6 @@ ZUSE.InitPicking = function () {
 		if ( ZUSE.INTERSECTED ) {
 
 			ZUSE.plane.position.copy( ZUSE.INTERSECTED.position );
-
 			ZUSE.SELECTED = null;
 
 		}
@@ -167,7 +174,9 @@ ZUSE.InitPicking = function () {
 
 	function onDocumentMouseOut( event ) {
 
-		if ( ZUSE.INTERSECTED ) ZUSE.INTERSECTED.material = ZUSE.adderObj.selection.enabled ? ZUSE.Materials.BoxWireframe : ZUSE.INTERSECTED.defaultMaterial;
+		if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+			ZUSE.INTERSECTED.guardian.rayOut();
+		}
 		ZUSE.INTERSECTED = null;
 		ZUSE.SELECTED = null;
 

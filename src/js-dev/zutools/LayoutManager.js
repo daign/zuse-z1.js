@@ -3,6 +3,7 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	var self = this;
 
 	config.tools[ 0 ].push( this.generateLanguageTool( config.languages, self ) );
+	this.circuit = ZUTOOLS.Utils.loadXML( 'projects/adder/circuit.svg' ).lastChild;
 
 	this.tooltip   = new ZUTOOLS.TooltipManager();
 	this.toolbar   = new ZUTOOLS.Toolbar( config.tools, this.tooltip );
@@ -11,18 +12,15 @@ ZUTOOLS.LayoutManager = function ( config ) {
 	this.status    = new ZUTOOLS.Status();
 	this.controls  = new ZUTOOLS.Controls();
 	this.tabbar    = new ZUTOOLS.Tabbar( config.tabs );
-	this.lang      = new ZUTOOLS.Languages( config.languages );
+	this.lang      = new ZUTOOLS.Languages( config.languages, this.circuit );
 
 	this.width  = window.innerWidth;
 	this.height = window.innerHeight;
 	this.columns = new Array();
 	this.setColumns( 0, this.width / 10 );
 	this.setColumns( 1, this.width / 50 );
-	this.setSizes();
 
 	this.fillWithTexts();
-
-	window.addEventListener( 'resize', onWindowResize, false );
 
 	function onWindowResize() {
 
@@ -36,14 +34,9 @@ ZUTOOLS.LayoutManager = function ( config ) {
 		self.setSizes();
 
 	}
+	window.addEventListener( 'resize', onWindowResize, false );
 
-};
-
-ZUTOOLS.LayoutManager.prototype = {
-
-	constructor: ZUTOOLS.LayoutManager,
-
-	setSizes: function () {
+	var resize = function () {
 
 		var a = Math.min( Math.max( this.columns[ 0 ], 40 ), this.width/3 );
 		var b = Math.min( Math.max( this.columns[ 1 ],  5 ), 40 );
@@ -57,7 +50,16 @@ ZUTOOLS.LayoutManager.prototype = {
 		this.tabbar.setSize(   w-a-b+1, h+1, a+b );
 		this.status.setSize(         w, h+1, a+b );
 
-	},
+	};
+	this.setSizes = ZUTOOLS.Utils.throttle( resize, 40, this );
+
+	this.setSizes();
+
+};
+
+ZUTOOLS.LayoutManager.prototype = {
+
+	constructor: ZUTOOLS.LayoutManager,
 
 	setColumns: function ( n, w ) {
 

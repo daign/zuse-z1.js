@@ -8,8 +8,6 @@ ZUSE.CycleControl = function ( adder ) {
 	this.preHighlighted = undefined;
 	this.highlightMoving = true;
 
-	this.triggerRules = new ZUSE.TriggerRules( adder );
-
 };
 
 ZUSE.CycleControl.prototype = {
@@ -65,8 +63,8 @@ ZUSE.CycleControl.prototype = {
 			var transition = new ZUSE.Transition( this, this.tact, this.nextInputs, true );
 			transition.initPulsers();
 			this.history.push( transition );
-			SIMULATION.gui.toolbar.toolsByName.back.disable( false );
-			SIMULATION.gui.toolbar.toolsByName.replay.disable( false );
+			ZUSE.gui.toolbar.toolsByName.back.disable( false );
+			ZUSE.gui.toolbar.toolsByName.replay.disable( false );
 			this.nextInputs = new Array();
 			transition.run( false );
 
@@ -93,8 +91,8 @@ ZUSE.CycleControl.prototype = {
 			this.adder.layersByType[ 'In' ].updateButtonState( this.tact );
 
 			if ( this.history.length < 1 ) {
-				SIMULATION.gui.toolbar.toolsByName.back.disable( true );
-				SIMULATION.gui.toolbar.toolsByName.replay.disable( true );
+				ZUSE.gui.toolbar.toolsByName.back.disable( true );
+				ZUSE.gui.toolbar.toolsByName.replay.disable( true );
 			}
 
 		}
@@ -126,7 +124,7 @@ ZUSE.CycleControl.prototype = {
 
 						ZUSE.CycleAccess.request( false );
 
-						var element = this.adder.layersByType.In.cycleAccess[ name ];
+						var element = this.adder.layersByType.In.namedElements[ name ];
 						var direction = ( element.position === 0 ) ? 2 : 4;
 						if ( evt ) { evt.target.value = ( evt.target.value === '0' ) ? '1' : '0'; }
 
@@ -136,8 +134,8 @@ ZUSE.CycleControl.prototype = {
 
 						var transition = new ZUSE.Transition( this, direction, [ element ], false );
 						this.history.push( transition );
-						//SIMULATION.gui.toolbar.toolsByName.back.disable( false );
-						//SIMULATION.gui.toolbar.toolsByName.replay.disable( false );
+						//ZUSE.gui.toolbar.toolsByName.back.disable( false );
+						//ZUSE.gui.toolbar.toolsByName.replay.disable( false );
 						transition.run();
 
 						return value;
@@ -149,13 +147,13 @@ ZUSE.CycleControl.prototype = {
 					case 'B2':
 					case 'B3':
 
-						var element = this.adder.layersByType.In.cycleAccess[ name ];
+						var element = this.adder.layersByType.In.namedElements[ name ];
 						var index = this.nextInputs.indexOf( element );
 
 						if ( index === -1 ) {
 
 							this.nextInputs.push( element );
-							SIMULATION.inputs[ name ].setToOne();
+							ZUSE.inputs[ name ].setToOne();
 							ZUSE.TempCalculator.values[ name ] = true;
 							ZUSE.TempCalculator.updateValues();
 
@@ -164,7 +162,7 @@ ZUSE.CycleControl.prototype = {
 						} else {
 
 							this.nextInputs.splice( index, 1 );
-							SIMULATION.inputs[ name ].setToZero();
+							ZUSE.inputs[ name ].setToZero();
 							ZUSE.TempCalculator.values[ name ] = false;
 							ZUSE.TempCalculator.updateValues();
 
@@ -182,7 +180,7 @@ ZUSE.CycleControl.prototype = {
 
 					case 'F0':
 
-						var element = this.adder.layersByType.In.cycleAccess[ name ];
+						var element = this.adder.layersByType.In.namedElements[ name ];
 						var index = this.nextInputs.indexOf( element );
 
 						if ( index === -1 ) {

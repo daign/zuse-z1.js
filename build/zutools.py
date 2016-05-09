@@ -2,12 +2,13 @@ import os
 
 FILES = "\
 	../src/js-dev/zutools/zutools.js\
+	../src/js-dev/zutools/Utils.js\
 	../src/js-dev/zutools/LayoutManager.js\
 	../src/js-dev/zutools/Languages.js\
 	../src/js-dev/zutools/Separator.js\
 	../src/js-dev/zutools/Toolbar.js\
-	../src/js-dev/zutools/WebGL.js\
 	../src/js-dev/zutools/Tool.js\
+	../src/js-dev/zutools/WebGL.js\
 	../src/js-dev/zutools/Controls.js\
 	../src/js-dev/zutools/Digit.js\
 	../src/js-dev/zutools/Tabbar.js\
@@ -17,8 +18,7 @@ FILES = "\
 	../src/js-dev/zutools/TooltipManager.js\
 	../src/js-dev/zutools/Slider.js\
 	../src/js-dev/zutools/Button.js\
-	../src/js-dev/zutools/Selection.js\
-	../src/js-dev/zutools/Utils.js"
+	../src/js-dev/zutools/Selection.js"
 
 #LEVEL = "WHITESPACE_ONLY"
 LEVEL = "SIMPLE_OPTIMIZATIONS"

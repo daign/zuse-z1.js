@@ -89,7 +89,7 @@ ZUTOOLS.Slider = function ( settings ) {
 		event.preventDefault();
 		event.stopPropagation();
 
-		SIMULATION.gui.tooltip.blockHiding( true );
+		ZUSE.gui.tooltip.blockHiding( true ); // bad dependency
 
 		document.addEventListener( 'selectstart', cancelSelect, false );
 		document.addEventListener( 'mousemove',   continueDrag, false );
@@ -115,7 +115,7 @@ ZUTOOLS.Slider = function ( settings ) {
 			document.removeEventListener( 'mousemove',   continueDrag, false );
 			document.removeEventListener( 'mouseup',     endDrag,      false );
 
-			SIMULATION.gui.tooltip.blockHiding( false );
+			ZUSE.gui.tooltip.blockHiding( false ); // bad dependency
 
 		}
 

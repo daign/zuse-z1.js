@@ -83,9 +83,9 @@ ZUSE.Shapes = {
 
 	},
 
-	addPath: function ( type ) {
+	addPath: function ( file ) {
 
-		var xmlDoc = ZUSE.XMLUtils.loadXML( 'projects/adder/sheets/' + ZUSE.ShapeFiles[ type ] + '.svg' );
+		var xmlDoc = ZUSE.XMLUtils.loadXML( 'projects/adder/sheets/' + file + '.svg' );
 
 		var defs = xmlDoc.documentElement.firstElementChild.nextElementSibling;
 
@@ -117,7 +117,7 @@ ZUSE.Shapes = {
 
 		}
 
-		this.paths[ type ] = path;
+		this.paths[ file ] = path;
 
 	},
 
@@ -187,15 +187,15 @@ ZUSE.Shapes = {
 
 	},
 
-	getShape: function ( type, x, y ) {
+	getShape: function ( file, x, y ) {
 
-		if ( this.paths[ type ] === undefined ) {
+		if ( this.paths[ file ] === undefined ) {
 
-			this.addPath( type );
+			this.addPath( file );
 
 		}
 
-		return this.drawShape( this.paths[ type ], x, y );
+		return this.drawShape( this.paths[ file ], x, y );
 
 	}
 

@@ -56,8 +56,8 @@ ZUSE.TempCalculator = {
 
 	updateZs: function () {
 
-		SIMULATION.inputs.Z1.setText( this.string( this.values.Z1, false ) );
-		SIMULATION.inputs.Z2.setText( this.string( this.values.Z2, true ) );
+		ZUSE.inputs.Z1.setText( this.string( this.values.Z1, false ) );
+		ZUSE.inputs.Z2.setText( this.string( this.values.Z2, true ) );
 
 	},
 
@@ -71,44 +71,44 @@ ZUSE.TempCalculator = {
 
 			case 2:
 
-				SIMULATION.inputs.F4s.setValue( this.values.F4 );
-				SIMULATION.inputs.F3s.setValue( this.values.F3 );
-				SIMULATION.inputs.F2s.setValue( this.values.F2 );
-				SIMULATION.inputs.F1s.setValue( this.values.F1 );
+				ZUSE.inputs.F4s.setValue( this.values.F4 );
+				ZUSE.inputs.F3s.setValue( this.values.F3 );
+				ZUSE.inputs.F2s.setValue( this.values.F2 );
+				ZUSE.inputs.F1s.setValue( this.values.F1 );
 				break;
 
 			case 3:
 
-				SIMULATION.inputs.K4s.setValue( this.values.K4 );
-				SIMULATION.inputs.K3s.setValue( this.values.K3 );
-				SIMULATION.inputs.K2s.setValue( this.values.K2 );
-				SIMULATION.inputs.K1s.setValue( this.values.K1 );
-				SIMULATION.inputs.K0s.setValue( this.values.K0 );
-				SIMULATION.inputs.Z3.setText( this.string( this.values.Z3, false ) );
+				ZUSE.inputs.K4s.setValue( this.values.K4 );
+				ZUSE.inputs.K3s.setValue( this.values.K3 );
+				ZUSE.inputs.K2s.setValue( this.values.K2 );
+				ZUSE.inputs.K1s.setValue( this.values.K1 );
+				ZUSE.inputs.K0s.setValue( this.values.K0 );
+				ZUSE.inputs.Z3.setText( this.string( this.values.Z3, false ) );
 				break;
 
 			case 4:
 
-				SIMULATION.inputs.A3.setToZero();
-				SIMULATION.inputs.A2.setToZero();
-				SIMULATION.inputs.A1.setToZero();
-				SIMULATION.inputs.A0.setToZero();
-				SIMULATION.inputs.B3.setToZero();
-				SIMULATION.inputs.B2.setToZero();
-				SIMULATION.inputs.B1.setToZero();
-				SIMULATION.inputs.B0.setToZero();
-				SIMULATION.inputs.F4s.setToEmpty();
-				SIMULATION.inputs.F3s.setToEmpty();
-				SIMULATION.inputs.F2s.setToEmpty();
-				SIMULATION.inputs.F1s.setToEmpty();
-				SIMULATION.inputs.K4s.setToEmpty();
-				SIMULATION.inputs.K3s.setToEmpty();
-				SIMULATION.inputs.K2s.setToEmpty();
-				SIMULATION.inputs.K1s.setToEmpty();
-				SIMULATION.inputs.K0s.setToEmpty();
-				SIMULATION.inputs.Z1.setText( '  0' ),
-				SIMULATION.inputs.Z2.setText( '+ 0' ),
-				SIMULATION.inputs.Z3.setText( '   ' );
+				ZUSE.inputs.A3.setToZero();
+				ZUSE.inputs.A2.setToZero();
+				ZUSE.inputs.A1.setToZero();
+				ZUSE.inputs.A0.setToZero();
+				ZUSE.inputs.B3.setToZero();
+				ZUSE.inputs.B2.setToZero();
+				ZUSE.inputs.B1.setToZero();
+				ZUSE.inputs.B0.setToZero();
+				ZUSE.inputs.F4s.setToEmpty();
+				ZUSE.inputs.F3s.setToEmpty();
+				ZUSE.inputs.F2s.setToEmpty();
+				ZUSE.inputs.F1s.setToEmpty();
+				ZUSE.inputs.K4s.setToEmpty();
+				ZUSE.inputs.K3s.setToEmpty();
+				ZUSE.inputs.K2s.setToEmpty();
+				ZUSE.inputs.K1s.setToEmpty();
+				ZUSE.inputs.K0s.setToEmpty();
+				ZUSE.inputs.Z1.setText( '  0' ),
+				ZUSE.inputs.Z2.setText( '+ 0' ),
+				ZUSE.inputs.Z3.setText( '   ' );
 				this.resetValues();
 				break;
 
@@ -126,20 +126,20 @@ ZUSE.TempCalculator = {
 
 			case 2:
 
-				SIMULATION.inputs.F4s.setToEmpty();
-				SIMULATION.inputs.F3s.setToEmpty();
-				SIMULATION.inputs.F2s.setToEmpty();
-				SIMULATION.inputs.F1s.setToEmpty();
+				ZUSE.inputs.F4s.setToEmpty();
+				ZUSE.inputs.F3s.setToEmpty();
+				ZUSE.inputs.F2s.setToEmpty();
+				ZUSE.inputs.F1s.setToEmpty();
 				break;
 
 			case 3:
 
-				SIMULATION.inputs.K4s.setToEmpty();
-				SIMULATION.inputs.K3s.setToEmpty();
-				SIMULATION.inputs.K2s.setToEmpty();
-				SIMULATION.inputs.K1s.setToEmpty();
-				SIMULATION.inputs.K0s.setToEmpty();
-				SIMULATION.inputs.Z3.setText( '   ' );
+				ZUSE.inputs.K4s.setToEmpty();
+				ZUSE.inputs.K3s.setToEmpty();
+				ZUSE.inputs.K2s.setToEmpty();
+				ZUSE.inputs.K1s.setToEmpty();
+				ZUSE.inputs.K0s.setToEmpty();
+				ZUSE.inputs.Z3.setText( '   ' );
 				break;
 
 			case 4:

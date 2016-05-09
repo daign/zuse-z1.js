@@ -1,0 +1,2 @@
+ZUSE.WebGL = {};
+

@@ -24,8 +24,11 @@ ZUSE.Selection = function ( limits, parent ) {
 						new THREE.Vector3(), new THREE.Vector3() ];
 	this.updateVertices();
 
-	this.meshes = new THREE.Object3D();
-	this.geometries = new Array();
+	this.faces = new Array();
+	this.touchMeshes = new THREE.Object3D();
+	this.displayMeshes = new THREE.Object3D();
+	this.meshGeometries = new Array();
+	this.lineGeometries = new Array();
 
 	this.addFace( { a: 'y', d: 1 }, 0, 1, 5, 4 );
 	this.addFace( { a: 'z', d: 1 }, 0, 2, 3, 1 );
@@ -33,6 +36,19 @@ ZUSE.Selection = function ( limits, parent ) {
 	this.addFace( { a: 'x', d: 2 }, 7, 5, 1, 3 );
 	this.addFace( { a: 'y', d: 2 }, 7, 3, 2, 6 );
 	this.addFace( { a: 'z', d: 2 }, 7, 6, 4, 5 );
+
+	this.addLine( 0, 1, 0, 1 );
+	this.addLine( 0, 2, 1, 2 );
+	this.addLine( 0, 4, 0, 2 );
+	this.addLine( 1, 3, 1, 3 );
+	this.addLine( 1, 5, 0, 3 );
+	this.addLine( 2, 3, 1, 4 );
+	this.addLine( 2, 6, 2, 4 );
+	this.addLine( 3, 7, 3, 4 );
+	this.addLine( 4, 5, 0, 5 );
+	this.addLine( 4, 6, 2, 5 );
+	this.addLine( 5, 7, 3, 5 );
+	this.addLine( 6, 7, 4, 5 );
 
 	this.enabled = false;
 	this.setActivation( false );
@@ -54,31 +70,20 @@ ZUSE.Selection.prototype = {
 
 	addFace: function ( axis, n0, n1, n2, n3 ) {
 
-		axis.toString = function () { return this.a + this.d; };
+		this.faces.push( new ZUSE.SelectionBoxFace(
+			axis,
+			this.vertices[ n0 ],
+			this.vertices[ n1 ],
+			this.vertices[ n2 ],
+			this.vertices[ n3 ],
+			this
+		) );
 
-		var frontFaceGeometry = new ZUSE.PlaneGeometry( this.vertices[ n0 ],
-														this.vertices[ n1 ],
-														this.vertices[ n2 ],
-														this.vertices[ n3 ] );
-		frontFaceGeometry.dynamic = true;
-		this.geometries.push( frontFaceGeometry );
+	},
 
-		var frontFaceMesh = new THREE.Mesh( frontFaceGeometry, ZUSE.Materials.BoxWireframe );
-		frontFaceMesh.axis = axis;
-		this.meshes.add( frontFaceMesh );
-		this.parent.selectables.push( frontFaceMesh );
+	addLine: function ( n0, n1, f0, f1 ) {
 
-		var backFaceGeometry = new ZUSE.PlaneGeometry(  this.vertices[ n3 ],
-														this.vertices[ n2 ],
-														this.vertices[ n1 ],
-														this.vertices[ n0 ] );
-		backFaceGeometry.dynamic = true;
-		this.geometries.push( backFaceGeometry );
-
-		var backFaceMesh = new THREE.Mesh( backFaceGeometry, ZUSE.Materials.BoxBackFace );
-	//	var backFaceMesh = THREE.SceneUtils.createMultiMaterialObject( backFaceGeometry,
-	//							[ ZUSE.Materials.BoxBackFace, ZUSE.Materials.BoxStandard.shader ] );
-		this.meshes.add( backFaceMesh );
+		new ZUSE.SelectionBoxLine( this.vertices[ n0 ], this.vertices[ n1 ], this.faces[ f0 ], this.faces[ f1 ], this );
 
 	},
 
@@ -142,7 +147,7 @@ ZUSE.Selection.prototype = {
 		var animation = new TWEEN.Tween( this ).to( { time : 1 }, 1000 );
 		animation.onUpdate( callback );
 		animation.onComplete( finish );
-		animation.easing( TWEEN.Easing.Quadratic.EaseInOut );
+		animation.easing( TWEEN.Easing.Quadratic.InOut );
 		animation.start();
 
 		this.setVisibleLayers( new ZUSE.Axis( 'z', 1 ), values.z1, true );
@@ -284,10 +289,15 @@ ZUSE.Selection.prototype = {
 
 	updateGeometries: function () {
 
-		for ( var i = 0; i < this.geometries.length; i++ ) {
+		for ( var i = 0; i < this.meshGeometries.length; i++ ) {
 
-			this.geometries[ i ].computeCentroids();
-			this.geometries[ i ].verticesNeedUpdate = true;
+			this.meshGeometries[ i ].verticesNeedUpdate = true;
+
+		}
+
+		for ( var i = 0; i < this.lineGeometries.length; i++ ) {
+
+			this.lineGeometries[ i ].verticesNeedUpdate = true;
 
 		}
 
@@ -386,7 +396,7 @@ ZUSE.Selection.prototype = {
 		var sliderNumber = sliderMap[ axis.a ];
 
 		value = this.transformValueToSlider( axis.a, value );
-		var slider = SIMULATION.gui.toolbar.toolsByName.clipChange.sliders[ sliderNumber ];
+		var slider = ZUSE.gui.toolbar.toolsByName.clipChange.sliders[ sliderNumber ];
 		slider.values[ axis.d - 1 ] = Math.round( value );
 		slider.updateSlider();
 
@@ -440,14 +450,14 @@ ZUSE.Selection.prototype = {
 
 		this.enabled = bool;
 
-		for ( var i = 0; i < this.meshes.children.length; i++ ) {
+		for ( var i = 0; i < this.displayMeshes.children.length; i++ ) {
 
-			this.meshes.children[ i ].visible = bool;
+			this.displayMeshes.children[ i ].visible = bool;
 
-			if ( this.meshes.children[ i ].children.length >= 2 ) {
+			if ( this.displayMeshes.children[ i ].children.length >= 2 ) {
 
-				this.meshes.children[ i ].children[ 0 ].visible = bool;
-				this.meshes.children[ i ].children[ 1 ].visible = bool;
+				this.displayMeshes.children[ i ].children[ 0 ].visible = bool;
+				this.displayMeshes.children[ i ].children[ 1 ].visible = bool;
 
 			}
 

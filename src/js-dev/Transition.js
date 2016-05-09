@@ -4,21 +4,21 @@ ZUSE.Transition = function ( control, tact, nextInputs, changesTact ) {
 	this.tact = tact;
 	this.changesTact = changesTact;
 
-	this.elements = new Array();
+	this.elements = { active: [], inactive: [] };
 
 	if ( nextInputs !== undefined ) {
 
 		for ( var i = 0; i < nextInputs.length; i++ ) {
 
-			this.elements.push( nextInputs[ i ] );
+			this.elements.active.push( nextInputs[ i ] );
 
 		}
 
 	}
 
-	for ( var i = 0; i < this.elements.length; i++ ) {
+	for ( var i = 0; i < this.elements.active.length; i++ ) {
 
-		this.trigger( this.elements[ i ] );
+		this.trigger( this.elements.active[ i ] );
 
 	}
 
@@ -32,17 +32,13 @@ ZUSE.Transition.prototype = {
 
 		var pulsers = this.control.adder.pulsers;
 
-		for ( var i = 0; i < pulsers.length; i++ ) {
+		var dir = ( this.tact === 1 || this.tact === 3 ) ? 'y' : 'x';
 
-			var pulser = pulsers[ i ];
+		for ( var i = 0; i < pulsers[ dir ].length; i++ ) {
 
-			if ( 	( this.tact === 1 || this.tact === 3 ) && pulser.yMove ||
-					( this.tact === 2 || this.tact === 4 ) && pulser.xMove ) {
-
-				this.elements.push( pulser );
-				this.trigger( pulser );
-
-			}
+			var pulser = pulsers[ dir ][ i ];
+			this.elements.active.push( pulser );
+			this.trigger( pulser );
 
 		}
 
@@ -50,24 +46,60 @@ ZUSE.Transition.prototype = {
 
 	trigger: function ( actuator ) {
 
-		var results = this.control.triggerRules.getTriggerResults( actuator, this.tact, false );
+		var results = ZUSE.TriggerRules.getTriggerResults( actuator, this.tact, false );
 
-		for ( var i = 0; i < results.length; i++ ) {
-
-			if ( this.elements.indexOf( results[ i ] ) === -1 ) {
-
-				this.elements.push( results[ i ] );
-				this.trigger( results[ i ] );
-
+		for ( var i = 0; i < results.active.length; i++ ) {
+			if ( this.elements.active.indexOf( results.active[ i ] ) === -1 ) {
+				this.elements.active.push( results.active[ i ] );
+				var d = this.elements.inactive.indexOf( results.active[ i ] );
+				if ( d !== -1 ) {
+					this.elements.inactive.splice( d, 1 );
+				}
+				this.trigger( results.active[ i ] );
 			}
+		}
 
+		for ( var i = 0; i < results.inactive.length; i++ ) {
+			if (
+				   this.elements.active.indexOf( results.inactive[ i ] ) === -1
+				&& this.elements.inactive.indexOf( results.inactive[ i ] ) === -1
+			) {
+				this.elements.inactive.push( results.inactive[ i ] );
+				this.intrigger( results.inactive[ i ] );
+			}
+		}
+
+	},
+
+	intrigger: function ( actuator ) {
+
+		var results = ZUSE.TriggerRules.getTriggerResults( actuator, this.tact, false );
+
+		for ( var i = 0; i < results.active.length; i++ ) {
+			if (
+				   this.elements.active.indexOf( results.active[ i ] ) === -1
+				&& this.elements.inactive.indexOf( results.active[ i ] ) === -1
+			) {
+				this.elements.inactive.push( results.active[ i ] );
+				this.intrigger( results.active[ i ] );
+			}
+		}
+
+		for ( var i = 0; i < results.inactive.length; i++ ) {
+			if (
+				   this.elements.active.indexOf( results.inactive[ i ] ) === -1
+				&& this.elements.inactive.indexOf( results.inactive[ i ] ) === -1
+			) {
+				this.elements.inactive.push( results.inactive[ i ] );
+				this.intrigger( results.inactive[ i ] );
+			}
 		}
 
 	},
 
 	run: function ( repeat ) {
 
-		if ( repeat && this.changesTact ) { SIMULATION.gui.status.activate( this.tact-1 ); }
+		if ( repeat && this.changesTact ) { ZUSE.gui.status.activate( this.tact-1 ); }
 
 		this.value = 0;
 
@@ -76,9 +108,9 @@ ZUSE.Transition.prototype = {
 
 		var callback = function () {
 
-			for ( var i = 0; i < this.elements.length; i++ ) {
+			for ( var i = 0; i < this.elements.active.length; i++ ) {
 
-				this.elements[ i ].move( this.tact, this.value );
+				this.elements.active[ i ].move( this.tact, this.value );
 
 			}
 
@@ -86,18 +118,17 @@ ZUSE.Transition.prototype = {
 
 		var finish = function () {
 
-			//if ( !repeat ) { this.changePositions(); }
 			this.highlight( false );
 			ZUSE.CycleAccess.release();
 
-			if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact % 4 ); }
+			if ( this.changesTact ) { ZUSE.gui.status.activate( this.tact % 4 ); }
 
 		}
 
 		var animation = new TWEEN.Tween( this ).to( { value : 10 }, 1000 );
 		animation.onUpdate( callback );
 		animation.onComplete( finish );
-		animation.easing( TWEEN.Easing.Quadratic.EaseInOut );
+		animation.easing( TWEEN.Easing.Quadratic.InOut );
 		animation.start();
 
 	},
@@ -106,9 +137,9 @@ ZUSE.Transition.prototype = {
 
 		this.changePositions();
 
-		for ( var i = 0; i < this.elements.length; i++ ) {
+		for ( var i = 0; i < this.elements.active.length; i++ ) {
 
-			this.elements[ i ].move( this.tact, 10 );
+			this.elements.active[ i ].move( this.tact, 10 );
 
 		}
 
@@ -116,7 +147,7 @@ ZUSE.Transition.prototype = {
 
 	runBackwards: function () {
 
-		if ( this.changesTact ) { SIMULATION.gui.status.activate( this.tact-1 ); }
+		if ( this.changesTact ) { ZUSE.gui.status.activate( this.tact-1 ); }
 
 		this.value = 10;
 
@@ -124,9 +155,9 @@ ZUSE.Transition.prototype = {
 
 		var callback = function () {
 
-			for ( var i = 0; i < this.elements.length; i++ ) {
+			for ( var i = 0; i < this.elements.active.length; i++ ) {
 
-				this.elements[ i ].move( this.tact, this.value );
+				this.elements.active[ i ].move( this.tact, this.value );
 
 			}
 
@@ -134,9 +165,9 @@ ZUSE.Transition.prototype = {
 
 		var finish = function () {
 
-			for ( var i = 0; i < this.elements.length; i++ ) {
+			for ( var i = 0; i < this.elements.active.length; i++ ) {
 
-				this.elements[ i ].changePositionBack( this.tact );
+				this.elements.active[ i ].changePositionBack( this.tact );
 
 			}
 
@@ -148,16 +179,16 @@ ZUSE.Transition.prototype = {
 		var animation = new TWEEN.Tween( this ).to( { value : 0 }, 1000 );
 		animation.onUpdate( callback );
 		animation.onComplete( finish );
-		animation.easing( TWEEN.Easing.Quadratic.EaseInOut );
+		animation.easing( TWEEN.Easing.Quadratic.InOut );
 		animation.start();
 
 	},
 
 	highlight: function ( bool ) {
 
-		for ( var i = 0; i < this.elements.length; i++ ) {
+		for ( var i = 0; i < this.elements.active.length; i++ ) {
 
-			this.elements[ i ].setHighlight( bool );
+			this.elements.active[ i ].setHighlight( bool );
 
 		}
 
@@ -165,10 +196,12 @@ ZUSE.Transition.prototype = {
 
 	changePositions: function () {
 
-		for ( var i = 0; i < this.elements.length; i++ ) {
+		for ( var i = 0; i < this.elements.active.length; i++ ) {
+			this.elements.active[ i ].changePosition( this.tact );
+		}
 
-			this.elements[ i ].changePosition( this.tact );
-
+		for ( var i = 0; i < this.elements.inactive.length; i++ ) {
+			this.elements.inactive[ i ].failedToChange( this.tact );
 		}
 
 	}
