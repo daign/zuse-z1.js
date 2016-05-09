@@ -3,11 +3,11 @@ zuse-z1.js
 
 ### WebGL simulations of Konrad Zuse's Z1 computer ###
 
-[View the simulation](http://daign.github.com/zuse-z1.js/src/)
+[View the simulation](https://daign.github.io/zuse-z1.js/)
 
 ![screenshot](./screenshot.png)
 
-Licensed under [MIT License](https://github.com/daign/zuse-z1.js/blob/master/LICENSE.txt)
+Licensed under [MIT License](./LICENSE.txt)
 
 Dependencies:
 * [three.js](https://github.com/mrdoob/three.js)
@@ -24,7 +24,7 @@ The simulation of the adder is based on the paper "Rechenvorrichtungen aus mecha
 * http://www.zib.de/zuse/Inhalt/Texte/Chrono/50er/Pdf/0169.pdf
 * http://www.zib.de/zuse/Inhalt/Texte/Chrono/50er/Pdf/0169scan.pdf
 
----
+### For developers ###
 
-[Structure](./src/Structure.md) — [Todo](./src/Todo.md)
+* [Adder project todo](./adder/Todo.md)
 
