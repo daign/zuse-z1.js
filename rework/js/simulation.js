@@ -25,9 +25,9 @@ ZUSE.Simulation.prototype = {
 
 		this.capsScene = new THREE.Scene();
 
-		var box = new THREE.BoxGeometry( 160, 32, 100 );
+		var box = new THREE.BoxGeometry( 90, 12, 14 );
 		var boxMesh = new THREE.Mesh( box, ZUSE.WEBGL.MATERIAL.cap );
-		boxMesh.position.set( -5, -10, -43 );
+		boxMesh.position.set( -15, 0, 0 );
 		this.capsScene.add( boxMesh );
 
 		var geometries = [
