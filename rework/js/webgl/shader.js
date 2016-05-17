@@ -99,12 +99,12 @@ ZUSE.WEBGL.SHADER = {
 			) / 3.0;\
 			\
 			if (\
-				   worldPosition.x < clippingLow.x  && camPosition.x < 0.0\
-				|| worldPosition.x > clippingHigh.x && camPosition.x > 0.0\
-				|| worldPosition.y < clippingLow.y  && camPosition.y < 0.0\
-				|| worldPosition.y > clippingHigh.y && camPosition.y > 0.0\
-				|| worldPosition.z < clippingLow.z  && camPosition.z < 0.0\
-				|| worldPosition.z > clippingHigh.z && camPosition.z > 0.0\
+				   worldPosition.x < clippingLow.x  && camPosition.x < clippingLow.x\
+				|| worldPosition.x > clippingHigh.x && camPosition.x > clippingHigh.x\
+				|| worldPosition.y < clippingLow.y  && camPosition.y < clippingLow.y\
+				|| worldPosition.y > clippingHigh.y && camPosition.y > clippingHigh.y\
+				|| worldPosition.z < clippingLow.z  && camPosition.z < clippingLow.z\
+				|| worldPosition.z > clippingHigh.z && camPosition.z > clippingHigh.z\
 			) {\
 				\
 				discard;\

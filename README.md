@@ -3,7 +3,12 @@ zuse-z1.js
 
 ### WebGL simulations of Konrad Zuse's Z1 computer ###
 
+<!--
 [View the simulation](https://daign.github.io/zuse-z1.js/)
+Current version here is buggy, linking to zib instead:
+-->
+
+[View the simulation](http://zuse-z1.zib.de/simulations/z1/adders/wgl/)
 
 ![screenshot](./screenshot.png)
 
@@ -27,4 +32,5 @@ The simulation of the adder is based on the paper "Rechenvorrichtungen aus mecha
 ### For developers ###
 
 * [Adder project todo](./adder/Todo.md)
+* Plans for a rework have so far produced an [improved shader](./rework)
 
