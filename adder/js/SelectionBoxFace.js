@@ -6,9 +6,8 @@ ZUSE.SelectionBoxFace = function ( axis, v0, v1, v2, v3, selection ) {
 	frontFaceGeometry.dynamic = true;
 	selection.meshGeometries.push( frontFaceGeometry );
 
-	var frontFaceMesh = new THREE.Mesh( frontFaceGeometry );
+	var frontFaceMesh = new THREE.Mesh( frontFaceGeometry, ZUSE.Materials.Invisible );
 	frontFaceMesh.axis = axis;
-	frontFaceMesh.visible = false;
 	frontFaceMesh.guardian = this;
 	selection.touchMeshes.add( frontFaceMesh );
 	selection.parent.selectables.push( frontFaceMesh );

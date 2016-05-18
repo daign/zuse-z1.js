@@ -6,12 +6,8 @@ ZUSE.InitPicking = function () {
 	ZUSE.mouse = new THREE.Vector2();
 	ZUSE.offset = new THREE.Vector3();
 
-	ZUSE.plane = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000, 8, 8 ),
-							new THREE.MeshBasicMaterial( { color: 0x000000, opacity: 0.25, transparent: true, wireframe: true } ) );
-	ZUSE.plane.visible = false;
+	ZUSE.plane = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000, 8, 8 ), ZUSE.Materials.Invisible );
 	ZUSE.gui.webgl.scene.add( ZUSE.plane );
-
-	ZUSE.projector = new THREE.Projector();
 
 	ZUSE.gui.webgl.renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
 	ZUSE.gui.webgl.renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
@@ -30,10 +26,8 @@ ZUSE.InitPicking = function () {
 		ZUSE.mouse.x = ( (event.clientX-offset) / (window.innerWidth-offset) ) * 2 - 1;
 		ZUSE.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
-		var vector = new THREE.Vector3( ZUSE.mouse.x, ZUSE.mouse.y, 0.5 );
-		ZUSE.projector.unprojectVector( vector, ZUSE.gui.webgl.camera );
-
-		var ray = new THREE.Raycaster( ZUSE.gui.webgl.camera.position, vector.sub( ZUSE.gui.webgl.camera.position ).normalize() );
+		var ray = new THREE.Raycaster();
+		ray.setFromCamera( ZUSE.mouse, ZUSE.gui.webgl.camera );	
 
 		if ( ZUSE.SELECTED ) {
 
@@ -134,10 +128,8 @@ ZUSE.InitPicking = function () {
 
 		event.preventDefault();
 
-		var vector = new THREE.Vector3( ZUSE.mouse.x, ZUSE.mouse.y, 0.5 );
-		ZUSE.projector.unprojectVector( vector, ZUSE.gui.webgl.camera );
-
-		var ray = new THREE.Raycaster( ZUSE.gui.webgl.camera.position, vector.sub( ZUSE.gui.webgl.camera.position ).normalize() );
+		var ray = new THREE.Raycaster();
+		ray.setFromCamera( ZUSE.mouse, ZUSE.gui.webgl.camera );	
 
 		var intersects = ray.intersectObjects( ZUSE.adderObj.selectables );
 
@@ -147,7 +139,9 @@ ZUSE.InitPicking = function () {
 			ZUSE.adderObj.selection.dragStart( ZUSE.SELECTED.axis );
 
 			var intersects = ray.intersectObject( ZUSE.plane );
-			ZUSE.offset.copy( intersects[ 0 ].point ).sub( ZUSE.plane.position );
+			if ( intersects.length > 0 ) {
+				ZUSE.offset.copy( intersects[ 0 ].point ).sub( ZUSE.plane.position );
+			}
 
 			document.body.style.cursor = 'move';
 

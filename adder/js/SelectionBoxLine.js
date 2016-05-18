@@ -6,7 +6,7 @@ ZUSE.SelectionBoxLine = function ( v0, v1, f0, f1, selection ) {
 	lineGeometry.dynamic = true;
 	selection.lineGeometries.push( lineGeometry );
 
-	this.line = new THREE.Line( lineGeometry, ZUSE.Materials.BoxWireframe, THREE.LinePieces );
+	this.line = new THREE.LineSegments( lineGeometry, ZUSE.Materials.BoxWireframe );
 	selection.displayMeshes.add( this.line );
 
 	f0.lines.push( this );

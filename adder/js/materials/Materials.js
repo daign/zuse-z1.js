@@ -8,7 +8,11 @@ ZUSE.Materials = {
 	Highlight:         new ZUSE.Material( ZUSE.Colors.Highlight, 1.0 ),
 	BoxBackFace:       new THREE.MeshBasicMaterial( { color: 0xEEDDCC, transparent: true } ),
 	BoxWireframe:      new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 2 } ),
-	BoxWireActive:     new THREE.LineBasicMaterial( { color: 0xf83610, linewidth: 4 } )
+	BoxWireActive:     new THREE.LineBasicMaterial( { color: 0xf83610, linewidth: 4 } ),
+	Invisible:         new THREE.ShaderMaterial( {
+		vertexShader:ZUSE.Shader[ "invisibleVertexShader" ],
+		fragmentShader: ZUSE.Shader[ "invisibleFragmentShader" ]
+	} )
 
 };
 

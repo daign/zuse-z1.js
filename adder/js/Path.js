@@ -96,7 +96,7 @@ THREE.Path.prototype.quadraticCurveBy = function( aCPx, aCPy, aX, aY ) {
 	this.curves.push( curve );
 
 	var args = [ aCPx + x0, aCPy + y0, aX + x0, aY + y0 ];
-	this.actions.push( { action: THREE.PathActions.QUADRATIC_CURVE_TO, args: args } );
+	this.actions.push( { action: 'quadraticCurveTo', args: args } );
 
 };
 
@@ -119,7 +119,7 @@ THREE.Path.prototype.arcBy = function ( x, y ) {
 	this.curves.push( curve );
 
 	var args = [ xM, yM, radius, startAngle, endAngle, true, x0 + x, y0 + y ];
-	this.actions.push( { action: THREE.PathActions.ARC, args: args } );
+	this.actions.push( { action: 'arc', args: args } );
 
 };
 
@@ -139,7 +139,7 @@ THREE.Path.prototype.quarterArc = function ( r ) {
 	this.curves.push( curve );
 
 	var args = [ xM, yM, radius, startAngle, endAngle, true, x0 + r, y0 - r ];
-	this.actions.push( { action: THREE.PathActions.ARC, args: args } );
+	this.actions.push( { action: 'arc', args: args } );
 
 };
 
@@ -158,7 +158,7 @@ THREE.Path.prototype.circle = function( radius ) {
 		this.curves.push( curve );
 
 		var args = [ xM, yM, radius, startAngle, endAngle, true, xM + radius, yM ];
-		this.actions.push( { action: THREE.PathActions.ARC, args: args } );
+		this.actions.push( { action: 'arc', args: args } );
 
 	}
 
