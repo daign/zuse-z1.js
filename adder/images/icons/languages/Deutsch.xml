@@ -75,16 +75,6 @@
 	<img src="../clipReset.svg" />
 </div>
 
-<div id="clipFading">
-	<span>Breite Übergangsbereich</span>
-	<img src="../clipFading.svg" />
-</div>
-
-<div id="clipTransp">
-	<span>Transparenz Deselektion</span>
-	<img src="../clipTransp.svg" />
-</div>
-
 <div id="viewReset">
 	<span>Ansicht zurücksetzen</span>
 	<img src="../viewReset.svg" />
@@ -100,29 +90,9 @@
 	<img src="../select.svg" />
 </div>
 
-<div id="visMS">
-	<span>Sichtbarkeit Bewegte Bleche</span>
-	<img src="../visMS.svg" />
-</div>
-
-<div id="visMP">
-	<span>Sichtbarkeit Bewegte Stifte</span>
-	<img src="../visMP.svg" />
-</div>
-
-<div id="visSS">
-	<span>Sichtbarkeit Statische Bleche</span>
-	<img src="../visSS.svg" />
-</div>
-
-<div id="visSP">
-	<span>Sichtbarkeit Statische Stifte</span>
-	<img src="../visSP.svg" />
-</div>
-
-<div id="visIS">
-	<span>Sichtbarkeit Zwischenebenen</span>
-	<img src="../visIS.svg" />
+<div id="visS">
+	<span>Sichtbarkeit Statische Elemente</span>
+	<img src="../visS.svg" />
 </div>
 
 </body>

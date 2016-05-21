@@ -49,55 +49,13 @@ ZUSE.InitZutools = {
 		clipReset: [ 'clipReset', {
 			click: function () { ZUSE.adderObj.selection.reset(); }
 		}, false, null ],
-		clipFading: [ 'clipFading', {
-			click: function ( a ) { ZUSE.ShaderUniforms.activateFadingWidth( a ); }
-		}, true, [
-			{ type: 'slider', min: 0, max: 100, values: [ 20 ], onChange: function( values ) {
-				ZUSE.ShaderUniforms.setFadingWidthValue( values[ 0 ] );
-			} }
-		] ],
-		clipTransp: [ 'clipTransp', {
-			click: function ( a ) { ZUSE.ShaderUniforms.activateClippingTransparency( a ); }
-		}, true, [
-			{ type: 'slider', min: 0, max: 100, values: [ 40 ], onChange: function( values ) {
-				ZUSE.ShaderUniforms.setClippingTransparencyValue( values[ 0 ] / 100 );
-			} }
-		] ],
-		visMS: [ 'visMS', {
-			click: function ( a ) { ZUSE.Materials.MovingSheet.setVisibility( a ); }
-		}, true, [
-			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-				ZUSE.Materials.MovingSheet.setTransparency( values[ 0 ] / 100 );
-			} }
-		], { activated: true } ],
-		visMP: [ 'visMP', {
-			click: function ( a ) { ZUSE.Materials.MovingPin.setVisibility( a ); }
-		}, true, [
-			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-				ZUSE.Materials.MovingPin.setTransparency( values[ 0 ] / 100 );
-			} }
-		], { activated: true } ],
-		visSS: [ 'visSS', {
-			click: function ( a ) { ZUSE.Materials.StaticSheet.setVisibility( a ); }
-		}, true, [
-			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-				ZUSE.Materials.StaticSheet.setTransparency( values[ 0 ] / 100 );
-			} }
-		], { activated: true } ],
-		visSP: [ 'visSP', {
-			click: function ( a ) { ZUSE.Materials.StaticPin.setVisibility( a ); }
-		}, true, [
-			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-				ZUSE.Materials.StaticPin.setTransparency( values[ 0 ] / 100 );
-			} }
-		], { activated: true } ],
-		visIS: [ 'visIS', {
-			click: function ( a ) { ZUSE.Materials.IntermediateSheet.setVisibility( a ); }
-		}, true, [
-			{ type: 'slider', min: 0, max: 100, values: [ 100 ], onChange: function( values ) {
-				ZUSE.Materials.IntermediateSheet.setTransparency( values[ 0 ] / 100 );
-			} }
-		], { activated: true } ],
+		visS: [ 'visS', {
+			click: function ( a ) {
+				ZUSE.Materials.StaticSheet.setVisibility( a );
+				ZUSE.Materials.StaticPin.setVisibility( a );
+				ZUSE.Materials.IntermediateSheet.setVisibility( a );
+			}
+		}, true, null, { activated: true } ],
 		viewReset: [ 'viewReset', {
 			click: function () { ZUSE.gui.webgl.camera.controls.reset(); }
 		}, false, null ],

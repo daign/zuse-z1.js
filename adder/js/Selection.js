@@ -292,6 +292,8 @@ ZUSE.Selection.prototype = {
 		for ( var i = 0; i < this.meshGeometries.length; i++ ) {
 
 			this.meshGeometries[ i ].verticesNeedUpdate = true;
+			this.meshGeometries[ i ].computeBoundingSphere();
+			this.meshGeometries[ i ].computeBoundingBox();
 
 		}
 

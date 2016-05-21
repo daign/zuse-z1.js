@@ -1,19 +1,14 @@
-ZUSE.Material = function ( color, transparency ) {
+ZUSE.Material = function ( color ) {
 
 	this.visible      = true;
-	this.transparency = transparency;
-	this.colorUniform        = { type: "c", value: color };
-	this.transparencyUniform = { type: "f", value: transparency };
+	this.colorUniform = { type: "c", value: color };
 
 	var uniforms = {
-		color:                this.colorUniform,
-		transparency:         this.transparencyUniform,
-		clippingX1:           ZUSE.ShaderUniforms.x1,
-		clippingX2:           ZUSE.ShaderUniforms.x2,
-		clippingY1:           ZUSE.ShaderUniforms.y1,
-		clippingY2:           ZUSE.ShaderUniforms.y2,
-		clippingTransparency: ZUSE.ShaderUniforms.clippingTransparency,
-		fadingWidth:          ZUSE.ShaderUniforms.fadingWidth
+		color:      this.colorUniform,
+		clippingX1: ZUSE.ShaderUniforms.x1,
+		clippingX2: ZUSE.ShaderUniforms.x2,
+		clippingY1: ZUSE.ShaderUniforms.y1,
+		clippingY2: ZUSE.ShaderUniforms.y2,
 	};
 
 	this.shader = new THREE.ShaderMaterial( {
@@ -21,7 +16,7 @@ ZUSE.Material = function ( color, transparency ) {
 		uniforms:       uniforms,
 		vertexShader:   ZUSE.Shader[ "vertexShader" ],
 		fragmentShader: ZUSE.Shader[ "fragmentShader" ],
-		transparent:    true
+		visible: true
 
 	} );
 
@@ -31,19 +26,10 @@ ZUSE.Material.prototype = {
 
 	constructor: ZUSE.Material,
 
-	setTransparency: function ( v ) {
-
-		this.transparency = v;
-		if ( this.visible ) {
-			this.transparencyUniform.value = v;
-		}
-
-	},
-
 	setVisibility: function ( b ) {
 
 		this.visible = b;
-		this.transparencyUniform.value = b ? this.transparency : 0.0;
+		this.shader.visible = b;
 
 	}
 

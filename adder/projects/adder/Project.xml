@@ -36,11 +36,7 @@
 				<tool id="clipTransp" />
 			</toolgroup>
 			<toolgroup>
-				<tool id="visMS" />
-				<tool id="visMP" />
-				<tool id="visSS" />
-				<tool id="visSP" />
-				<tool id="visIS" />
+				<tool id="visS" />
 			</toolgroup>
 			<toolgroup>
 				<tool id="viewReset" />
