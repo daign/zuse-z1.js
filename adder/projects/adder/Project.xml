@@ -41,7 +41,6 @@
 			<toolgroup>
 				<tool id="viewReset" />
 				<tool id="highlight" />
-				<tool id="select" />
 			</toolgroup>
 		</tools>
 

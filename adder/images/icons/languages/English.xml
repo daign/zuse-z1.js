@@ -85,13 +85,8 @@
 	<img src="../highlight.svg" />
 </div>
 
-<div id="select">
-	<span>Pointing at Elements</span>
-	<img src="../select.svg" />
-</div>
-
 <div id="visS">
-	<span>Visibility Static Elements</span>
+	<span>Show Static Elements</span>
 	<img src="../visS.svg" />
 </div>
 

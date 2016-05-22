@@ -20,7 +20,6 @@ ZUSE.Element.prototype = {
 			var obj3d = new ZUSE.WebGL[ obj3dArray[ i ].getAttribute( 'type' ) ]( obj3dArray[ i ], params );
 			this.objects.push( obj3d );
 			this.mesh.add( obj3d.mesh );
-			this.selectable = obj3d.mesh; // :(
 		}
 
 		var svgArray = elementNode.getElementsByTagName( 'svg' );
@@ -85,12 +84,6 @@ ZUSE.Element.prototype = {
 			console.warn( 'Unable to change position of ' + this.name + '.' );
 
 		}
-
-	},
-
-	provideMeshTo: function ( collector ) {
-
-		collector.push( this.selectable );
 
 	}
 

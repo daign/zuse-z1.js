@@ -90,14 +90,6 @@ ZUSE.WebGL.Sheet.prototype = {
 
 		}
 
-	},
-
-	rayOver: function () {
-		this.mesh.material = ZUSE.Materials.Highlight.shader;
-	},
-
-	rayOut: function () {
-		this.mesh.material = this.material;
 	}
 
 };

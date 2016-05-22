@@ -85,13 +85,8 @@
 	<img src="../highlight.svg" />
 </div>
 
-<div id="select">
-	<span>Beliebige Teile markieren</span>
-	<img src="../select.svg" />
-</div>
-
 <div id="visS">
-	<span>Sichtbarkeit Statische Elemente</span>
+	<span>Statische Elemente anzeigen</span>
 	<img src="../visS.svg" />
 </div>
 

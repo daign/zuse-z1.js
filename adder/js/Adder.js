@@ -8,8 +8,6 @@ ZUSE.Adder = function ( xml ) {
 	this.spacingClosed = 3;
 	this.spacingOpen = 20;
 	this.selectables = new Array();
-	this.selectables2 = new Array();
-	this.selectables2enabled = false;
 	this.cycleControl = new ZUSE.CycleControl( this );
 
 	this.parseXML( xml );
@@ -90,12 +88,6 @@ ZUSE.Adder.prototype = {
 			animation.start();
 
 		}
-
-	},
-
-	switchSelectables2: function () {
-
-		this.selectables2enabled = !this.selectables2enabled;
 
 	},
 

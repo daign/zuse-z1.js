@@ -17,7 +17,7 @@ ZUSE.InitPicking = function () {
 	function onDocumentMouseMove( event ) {
 
 		var selectionActive = ZUSE.adderObj.selection.enabled;
-		if( !selectionActive && !ZUSE.adderObj.selectables2enabled ) { return; }
+		if( !selectionActive ) { return; }
 
 		event.preventDefault();
 
@@ -40,75 +40,31 @@ ZUSE.InitPicking = function () {
 
 		}
 
-		var intersects = ray.intersectObjects( selectionActive ? ZUSE.adderObj.selectables : ZUSE.adderObj.selectables2 );
+		var intersects = ray.intersectObjects( ZUSE.adderObj.selectables );
 
 		if ( intersects.length > 0 ) {
 
-			var candidate;
+			var candidate = intersects[ 0 ].object;
 
-			if ( selectionActive ) { // selectionbox selection
+			if ( ZUSE.INTERSECTED != candidate ) {
 
-				candidate = intersects[ 0 ].object;
-
-			} else { // plate selection process
-
-				var found = false;
-				var count = 0;
-				var limits = ZUSE.adderObj.selection.values;
-
-				while ( !found && intersects[ count ] ) {
-
-					var point = intersects[ count ].point;
-
-					if ( 	point.x >= limits.x1 && point.x <= limits.x2 &&
-							point.y >= limits.y1 && point.y <= limits.y2 &&
-							point.z >= limits.z1 && point.z <= limits.z2 ) {
-
-						candidate = intersects[ count ].object;
-						found = true;
-
-					} // else something has been skipped from beeing selected
-
-					count++;
-
-				}
-
-			}
-
-			if ( candidate !== undefined ) {
-
-				if ( ZUSE.INTERSECTED != candidate ) {
-
-					if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
-						ZUSE.INTERSECTED.guardian.rayOut();
-					}
-
-					ZUSE.INTERSECTED = intersects[ 0 ].object;
-					if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
-						ZUSE.INTERSECTED.guardian.rayOver();
-					}
-
-					ZUSE.plane.position.copy( ZUSE.INTERSECTED.position );
-					ZUSE.plane.lookAt( ZUSE.gui.webgl.camera.position );
-
-				}
-
-				document.body.style.cursor = 'pointer';
-
-			} else {
-
-				// found no candidate because of visible range
 				if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
 					ZUSE.INTERSECTED.guardian.rayOut();
 				}
 
-				ZUSE.INTERSECTED = null;
+				ZUSE.INTERSECTED = intersects[ 0 ].object;
+				if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
+					ZUSE.INTERSECTED.guardian.rayOver();
+				}
 
-				document.body.style.cursor = 'auto';
+				ZUSE.plane.position.copy( ZUSE.INTERSECTED.position );
+				ZUSE.plane.lookAt( ZUSE.gui.webgl.camera.position );
 
 			}
 
-		} else { // really found nothing
+			document.body.style.cursor = 'pointer';
+
+		} else {
 
 			if ( ZUSE.INTERSECTED && ZUSE.INTERSECTED.guardian ) {
 				ZUSE.INTERSECTED.guardian.rayOut();

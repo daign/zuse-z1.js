@@ -43,7 +43,6 @@ ZUSE.InitZutools = {
 			click: function ( a ) {
 				var state = !ZUSE.adderObj.selection.enabled;
 				ZUSE.adderObj.selection.setActivation( state );
-				ZUSE.gui.toolbar.toolsByName.select.disable( state );
 			}
 		}, true, null ],
 		clipReset: [ 'clipReset', {
@@ -61,10 +60,7 @@ ZUSE.InitZutools = {
 		}, false, null ],
 		highlight: [ 'highlight', {
 			click: function ( a ) { ZUSE.adderObj.cycleControl.switchHighlighting(); }
-		}, true, null, { activated: true } ],
-		select: [ 'select', {
-			click: function ( a ) { ZUSE.adderObj.switchSelectables2(); }
-		}, true, null ]
+		}, true, null, { activated: true } ]
 	},
 
 	parseXML: function ( guiXML ) {

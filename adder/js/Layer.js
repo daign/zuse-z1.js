@@ -53,8 +53,6 @@ ZUSE.Layer.prototype = {
 			this.parent.pulsers[ pulser ].push( elem );
 		}
 
-		elem.provideMeshTo( this.parent.selectables2 );
-
 	},
 
 	changeSpacing: function () {
