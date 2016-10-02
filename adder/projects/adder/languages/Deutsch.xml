@@ -47,11 +47,6 @@
 		<p>Das Additionswerk basiert auf Konrad Zuses Arbeit "Rechenvorrichtungen aus mechanischen Schaltgliedern".</p>
 		<p>Mit freundlicher Unterstützung durch das <a href="http://zuse.zib.de/">Konrad Zuse Internet Archive</a>.</p>
 		<p>Version 22.05.2016</p>
-		<p>
-			Verantwortlich für diese Seite:<br/>
-			Jakob Mischek, Dauerwaldweg 1, 14055 Berlin<br/>
-			E-Mail: <a href="mailto:jakob.mischek@daign.de">jakob.mischek@daign.de</a>
-		</p>
 	</div>
 </div>
 
@@ -73,21 +68,9 @@
 						<tt class="greybox">Enable WebGL</tt> sowie
 						<tt class="greybox">Enable Hardware Acceleration</tt> auf <tt class="greybox">1</tt>.
 					</li>
-				<!--<li>Internet Explorer: Sie müssen das Plug-In
-						<a href="http://www.google.com/chromeframe">Google Chrome Frame</a> oder
-						<a href="http://iewebgl.com/">IEWebGL</a> installieren.
-					</li>-->
 				</ul>
 			</li>
 		</ol>
-		<span style="font-size: 12px;">
-			<h2>Impressum</h2>
-			<p>
-				Verantwortlich für diese Seite:<br/>
-				Jakob Mischek, Dauerwaldweg 1, 14055 Berlin<br/>
-				E-Mail: <a href="mailto:jakob.mischek@daign.de">jakob.mischek@daign.de</a>
-			</p>
-		</span><br/>
 		Zum Konrad Zuse Internet Archiv: <a href="http://zuse-z1.zib.de/">zuse-z1.zib.de</a>
 	</div>
 </div>

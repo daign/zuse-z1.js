@@ -32,12 +32,6 @@ ZUSE.WebGLErrorMessage = function () {
 					</ul> \
 				</li> \
 			</ol> \
-			<span style="font-size: 12px;"> \
-				<h2>Imprint</h2> \
-				<p>Responsible for this site:<br/> \
-				Jakob Mischek, Dauerwaldweg 1, 14055 Berlin<br/> \
-				E-Mail: <a href="mailto:jakob.mischek@daign.de">jakob.mischek@daign.de</a></p> \
-			</span><br/>\
 			Go to the <a href="http://zuse.zib.de/">Konrad Zuse Internet Archive</a>' );
 
 		return true;
