@@ -1,2 +1,0 @@
-ZUSE.WEBGL = {};
-
