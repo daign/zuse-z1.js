@@ -1,0 +1,59 @@
+body {
+	font-family: sans-serif;
+	color: #000;
+	background-color: #d4eaf4;
+	margin: 0px;
+	overflow: hidden;
+}
+
+.panelBackground {
+	fill: #a8d4e8;
+}
+.cycleControlRing {
+	fill: #3d9fcd;
+	cursor: pointer;
+}
+.cycleControlRingStop {
+	fill: #73b9db;
+	cursor: pointer;
+}
+.cycleControlHandle {
+	fill: #fff;
+	fill-opacity: 0.0;
+	stroke: #0e2834;
+	stroke-width: 6px;
+	cursor: pointer;
+}
+.cycleControlButton {
+	fill: #3d9fcd;
+	cursor: pointer;
+}
+.cycleControlButtonIcon {
+	fill: #0e2834;
+	pointer-events: none;
+}
+.cycleControlText {
+	fill: #0e2834;
+	pointer-events: none;
+	font-size: 18px;
+	font-weight: bold;
+}
+.resizeHandle {
+	fill: #fff;
+	fill-opacity: 0.0;
+	cursor: pointer;
+}
+.resizeLine {
+	fill: none;
+	stroke: #3d9fcd;
+	stroke-width: 1.6px;
+	stroke-linecap: round;
+	pointer-events: none;
+}
+
+.areaMarker {
+	fill: none;
+	stroke: #000000;
+	stroke-width: 1px;
+}
+
