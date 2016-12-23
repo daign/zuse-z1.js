@@ -50,6 +50,10 @@ body {
 	stroke-linecap: round;
 	pointer-events: none;
 }
+.toolbarButton {
+	fill: #3d9fcd;
+	cursor: pointer;
+}
 
 .areaMarker {
 	fill: none;

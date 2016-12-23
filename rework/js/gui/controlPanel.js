@@ -30,13 +30,13 @@ zuse.gui.ControlPanel.prototype = {
 
 	resize: function ( height, pos ) {
 
-		var maximumHeight = this.windowHeight * 0.5;
-		var minimumHeight = this.windowHeight * 0.2;
-		var maximumWidth = this.windowWidth - 20;
 		var margin = 10;
+		var maximumHeight = this.windowHeight * 0.5 - margin;
+		var minimumHeight = Math.max( this.windowHeight * 0.2, 90 );
+		var maximumWidth = this.windowWidth - 20;
 
-		height = Math.min( height, maximumHeight );
-		height = Math.max( height, minimumHeight );
+		height = Math.min( height, Math.round( maximumHeight ) );
+		height = Math.max( height, Math.round( minimumHeight ) );
 		height = Math.min( height, Math.round( maximumWidth * 0.4 ) );
 		this.panelHeight = height;
 		var panelWidth = Math.round( this.panelHeight * 2.5 );
