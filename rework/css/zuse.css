@@ -37,6 +37,10 @@ body {
 	pointer-events: none;
 	font-size: 18px;
 	font-weight: bold;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .resizeHandle {
 	fill: #fff;
@@ -51,8 +55,22 @@ body {
 	pointer-events: none;
 }
 .toolbarButton {
-	fill: #3d9fcd;
+	fill: #73b9db;
 	cursor: pointer;
+}
+.toolbarButton.active {
+	fill: #297a9f;
+}
+.toolbarButtonText {
+	fill: #d4eaf4;
+	pointer-events: none;
+	font-size: 24px;
+	font-weight: bold;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	text-anchor: middle;
 }
 
 .areaMarker {

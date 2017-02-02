@@ -24,9 +24,9 @@ zuse.gui.Toolbar = function ( parentNode ) {
 	) );
 	this.node.appendChild( place3 );
 
-	var homeButton = new zuse.gui.ToolbarButton( place1 );
-	var button2 = new zuse.gui.ToolbarModeButton( place2 );
-	var button3 = new zuse.gui.ToolbarModeButton( place3 );
+	var homeButton = new zuse.gui.ToolbarButton( place1, 'Home' );
+	this.viewMode = new zuse.gui.ToolbarSelect( place2, [ '3D', 'Cut', 'SVG', 'Circuit' ] );
+	this.hideMode = new zuse.gui.ToolbarSelect( place3, [ 'All', 'Moving' ] );
 
 };
 
